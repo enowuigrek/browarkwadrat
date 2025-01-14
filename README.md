@@ -1,9 +1,10 @@
-# React + Vite
+# Browar Kwadrat
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React app built with [Vite](https://vitejs.dev/) to showcase a homebrewed beer page. Deployed on Netlify with a mobile-friendly design.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# browarkwadrat
+- **React + Vite** for a fast development experience
+- **Minimal Styling** with CSS modules
+- **Responsive** layout for mobile devices
+- **Easy Deployment** on Netlify (includes `_redirects` for routing)
