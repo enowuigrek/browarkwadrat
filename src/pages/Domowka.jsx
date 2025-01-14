@@ -4,17 +4,16 @@ import styles from './Domowka.module.css'
 function Domowka() {
     return (
         <div className={styles.container}>
-            <h2>Domówka – piwo z amerykańskim twistem</h2>
+            <h2>#93 Domówka</h2>
             <p>
-                Domówka to lekkie, przyjemne piwo na amerykańskim chmielu,
+                Domówka to lekkie, przyjemne piwo na amerykańskim oraz nowozelandzkim chmielu,
                 ale w subtelnym wydaniu. Delikatna goryczka i wyważony profil słodowy
-                sprawiają, że możesz je spokojnie serwować w trakcie spotkań ze znajomymi.
+                sprawiają, że jest to piwo, imprezowo, serialowo, spotkaniowe.
                 Tak zwane piwo "codzienne", do wypicia z przyjemnością, bez uniesień.
                 Oczywiście nie polecam picia piwa codziennie. Tak się tylko mówi.
             </p>
             <p>
-                W smaku wyczujesz połączenie łagodnej, zbożowej bazy słodowej z lekkimi nutami chmielu z Ameryki oraz
-                Nowej Zelandii. Czyli tropikalnie owocowo, szczególnie w zapachu.
+                W smaku wyczujesz połączenie łagodnej, zbożowej bazy słodowej, w zapachu lekkie nuty owoców cytrusowych uzyskanych z chmielu.
             </p>
 
             <h3>Surowce</h3>
@@ -41,7 +40,16 @@ function Domowka() {
                 Jeśli wygrałeś to piwo w losowaniu cegiełek – gratulacje!
             </p>
 
-            {/* Linki do profili na Facebooku (z ikoną) */}
+            <div className={styles.recipeLink}>
+                <a
+                    href="https://share.brewfather.app/2esywTrJXJ1xSw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Pełna receptura w Brewfather
+                </a>
+            </div>
+
             <div className={styles.links}>
                 <a
                     href="https://www.facebook.com/bractwopiwneczestochowa"
