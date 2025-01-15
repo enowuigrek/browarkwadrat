@@ -13,7 +13,7 @@ function Domowka() {
                 Oczywiście nie polecam picia piwa codziennie. Tak się tylko mówi.
             </p>
             <p>
-                W smaku wyczujesz połączenie łagodnej, zbożowej bazy słodowej, w zapachu lekkie nuty owoców cytrusowych uzyskanych z chmielu.
+                W smaku wyczujesz połączenie łagodnej, zbożowej bazy słodowej, w zapachu lekkie nuty owoców tropikalnych uzyskanych z chmielu.
             </p>
 
             <h3>Surowce</h3>
@@ -22,7 +22,7 @@ function Domowka() {
                     <strong>Słody:</strong> Pale Ale, Abbey Malt
                 </li>
                 <li>
-                    <strong>Chmiele:</strong> Simcoe (USA), Riwaka(NZ), Mosaic(USA), Centennial(USA), Ekuanot(USA)
+                    <strong>Chmiele:</strong> Simcoe (USA), Riwaka (NZ), Mosaic (USA), Centennial (USA), Ekuanot (USA)
                 </li>
                 <li>
                     <strong>Drożdże:</strong> US-05
@@ -47,6 +47,22 @@ function Domowka() {
                     rel="noopener noreferrer"
                 >
                     Pełna receptura w Brewfather
+                </a>
+            </div>
+
+            <div className={styles.event}>
+                <img
+                    src="/images/event.png"
+                    alt="Degustacja Portretów - Sobota"
+                    className={styles.eventImage}
+                />
+                <a
+                    href="https://browarkwadrat.pl/wydarzenie"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.eventLink}
+                >
+                    Degustacja Portretów - Najbliższy Sobota
                 </a>
             </div>
 
