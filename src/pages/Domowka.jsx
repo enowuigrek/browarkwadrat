@@ -57,7 +57,7 @@ function Domowka() {
                     className={styles.eventImage}
                 />
                 <a
-                    href="https://browarkwadrat.pl/wydarzenie"
+                    href="https://www.facebook.com/events/584720511003270/?acontext=%7B%22event_action_history%22%3A[]%7D&locale=pl_PL"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.eventLink}
