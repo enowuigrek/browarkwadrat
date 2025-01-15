@@ -1,7 +1,6 @@
 .container {
     background: linear-gradient(135deg, #000000, #1e1e1e);
     margin: 4rem auto 0 auto;
-    text-align: justify;
     max-width: 600px;
     padding: 2rem;
     border-radius: 10px;
