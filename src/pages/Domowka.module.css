@@ -46,26 +46,24 @@ p {
 .summary {
     font-weight: 500;
     margin-bottom: 2rem;
-    color: #3ac9c0;
 }
 
-/* Link do receptury Brewfather */
 .recipeLink {
     margin-bottom: 1.5rem;
 }
 
 .recipeLink a {
-    color: #3ac9c0;
+    color: #ff7f50;
     text-decoration: none;
     font-weight: 500;
 }
 
-.recipeLink a:hover {
-    text-decoration: underline;
-}
-
 .event {
     margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .eventImage {
@@ -77,7 +75,6 @@ p {
 }
 
 .eventLink {
-    display: inline-block;
     padding: 0.5rem 1rem;
     background-color: #ff7f50;
     color: #fff;
@@ -88,6 +85,7 @@ p {
 
 .eventLink:hover {
     background-color: #ff6347;
+    text-decoration: none;
 }
 
 .links {

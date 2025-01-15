@@ -62,7 +62,7 @@ function Domowka() {
                     rel="noopener noreferrer"
                     className={styles.eventLink}
                 >
-                    Degustacja Portretów - Najbliższy Sobota
+                    Degustacja Portretów - Najbliższa Sobota
                 </a>
             </div>
 
