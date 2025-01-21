@@ -1,13 +1,8 @@
 .app {
-  /* Wysokość na pełne okno przeglądarki */
   height: 100vh;
-
-  /* Wyśrodkowanie w pionie i poziomie */
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* Ewentualnie jakiś margines lub padding, jak chcesz */
   margin: 0;
   padding: 0;
 }

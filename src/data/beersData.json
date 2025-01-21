@@ -1,0 +1,25 @@
+[
+    {
+        "id": 1,
+        "batchNumber": 93,
+        "name": "Domówka",
+        "description": "Domówka to lekkie, przyjemne piwo na amerykańskim oraz nowozelandzkim chmielu, ale w subtelnym wydaniu. Delikatna goryczka i wyważony profil słodowy sprawiają, że jest to piwo, imprezowo, serialowo, spotkaniowe. Tak zwane piwo \"codzienne\", do wypicia z przyjemnością, bez uniesień. Oczywiście nie polecam picia piwa codziennie. Tak się tylko mówi. W smaku wyczujesz połączenie łagodnej, zbożowej bazy słodowej, w zapachu lekkie nuty owoców tropikalnych uzyskanych z chmielu.",
+        "malts": [
+            "Pale Ale",
+            "Abbey Malt"
+        ],
+        "hops": [
+            "Simcoe (USA)",
+            "Riwaka (NZ)",
+            "Mosaic (USA)",
+            "Centennial (USA)",
+            "Ekuanot (USA)"
+        ],
+        "yeast": "US-05",
+        "adjuncts": null,
+        "extract": 11.1,
+        "alcohol": 4.4,
+        "ibu": 36,
+        "brewFatherLink": "https://share.brewfather.app/2esywTrJXJ1xSw"
+    }
+]
