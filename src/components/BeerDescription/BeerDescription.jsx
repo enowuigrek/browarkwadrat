@@ -1,4 +1,4 @@
-import styles from './BeerDescription.module.css';
+import styles from './BeerDescription.module.scss';
 import {FaFacebookSquare} from "react-icons/fa";
 
 export function BeerDescription({ beer }) {
@@ -17,7 +17,7 @@ export function BeerDescription({ beer }) {
     } = beer;
 
     return (
-        <div className={styles.container}>
+        <div className="container">
             <h2>#{batchNumber} {name}</h2>
             <p>{description}</p>
 

@@ -1,0 +1,35 @@
+.summary {
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.recipeLink {
+    margin-bottom: 1.5rem;
+
+    a {
+        font-weight: 500;
+    }
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .iconLink {
+        display: inline-flex;
+        align-items: center;
+
+        .icon {
+            font-size: 1.4rem;
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+        margin: 2rem auto 0 auto;
+    }
+}
