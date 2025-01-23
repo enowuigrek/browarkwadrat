@@ -60,28 +60,28 @@ export function BeerDescription({ beer }) {
             </div>
 
             <footer className={styles.footer}>
-                <div className={styles.links}>
-                    <a
-                        href="https://www.facebook.com/bractwopiwneczestochowa"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.iconLink}
-                    >
-                        <FaFacebookSquare className={styles.icon}/>
-                        Bractwo Piwne Częstochowa
-                    </a>
-                    <a
-                        href="https://www.facebook.com/browarkwadrat/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.iconLink}
-                    >
-                        <FaFacebookSquare className={styles.icon}/>
-                        Browar Kwadrat
-                    </a>
-                </div>
+                {/*<div className={styles.links}>*/}
+                {/*    <a*/}
+                {/*        href="https://www.facebook.com/bractwopiwneczestochowa"*/}
+                {/*        target="_blank"*/}
+                {/*        rel="noopener noreferrer"*/}
+                {/*        className={styles.iconLink}*/}
+                {/*    >*/}
+                {/*        <FaFacebookSquare className={styles.icon}/>*/}
+                {/*        Bractwo Piwne Częstochowa*/}
+                {/*    </a>*/}
+                {/*    <a*/}
+                {/*        href="https://www.facebook.com/browarkwadrat/"*/}
+                {/*        target="_blank"*/}
+                {/*        rel="noopener noreferrer"*/}
+                {/*        className={styles.iconLink}*/}
+                {/*    >*/}
+                {/*        <FaFacebookSquare className={styles.icon}/>*/}
+                {/*        Browar Kwadrat*/}
+                {/*    </a>*/}
+                {/*</div>*/}
                 <span>
-                    <a href="mailto:enowuigrek@gmail.com" target="_blank" rel="noopener noreferrer">enowuigrek@gmail.com</a>
+                    <a href="mailto:enowuigrek@gmail.com" target="_blank" rel="noopener noreferrer">enowuigrek@gmail.com 2025</a>
                 </span>
 
             </footer>
