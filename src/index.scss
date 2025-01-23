@@ -1,3 +1,11 @@
+/* Zmienne */
+$background-color: #222831;
+$text-color: #EEEEEE;
+$link-color: #76ABAE;
+$link-hover-color: #507375;
+$button-bg: #629584;
+$button-hover-bg: #ff6347;
+
 /* Reset i globalne style */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
@@ -8,8 +16,8 @@
 }
 
 html, body {
-  background-color: #121212;
-  color: #eae4dc;
+  background-color: $background-color;
+  color: $text-color;
   font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   line-height: 1.4;
@@ -37,15 +45,17 @@ h4 {
   font-size: 1.25rem;
 }
 
-/* Linki */
+p {
+  margin-bottom: 2rem;
+}
+
 a {
-  color: #d3c8b8;
+  color: $link-color;
   text-decoration: none;
   transition: color 0.3s;
 
   &:hover {
-    text-decoration: underline;
-    color: #1e90ff;
+    color: $link-hover-color;
   }
 }
 
@@ -53,6 +63,7 @@ a {
 ul {
   list-style: none;
   padding-left: 0;
+  margin-bottom: 2rem;
 }
 
 li {
@@ -64,22 +75,19 @@ li {
     content: "•";
     position: absolute;
     left: 0;
-    color: #d3c8b8;
+    color: $text-color;
   }
 }
 
 .container {
-  background: linear-gradient(135deg, #000000, #1e1e1e);
-  margin: 4rem auto 0 auto;
+  margin: 0 auto;
   max-width: 600px;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 3rem;
 }
 
 /* Przyciski */
 button {
-  background-color: #ff7f50;
+  background-color: $button-bg;
   color: #fff;
   border: none;
   padding: 0.5rem 1rem;
@@ -89,6 +97,6 @@ button {
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #ff6347;
+    background-color: $button-hover-bg;
   }
 }

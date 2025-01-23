@@ -19,30 +19,32 @@ export function BeerDescription({ beer }) {
     return (
         <div className="container">
             <h2>#{batchNumber} {name}</h2>
+            <div className={styles.parameters}>
+                <div className={styles.parameter}>
+                    <span>~{extract} BLG</span>
+                    <label>ekstrakt</label>
+                </div>
+                <div className={styles.parameter}>
+                    <span>~{alcohol}%</span>
+                    <label>alkohol</label>
+                </div>
+                <div className={styles.parameter}>
+                    <span>~{ibu} IBU</span>
+                    <label>Goryczka</label>
+                </div>
+            </div>
             <p>{description}</p>
-
-            <h3>Surowce</h3>
-            <ul className={styles.list}>
-                <li>Słody: {malts.map((malt, index) =>
-                    index === malts.length - 1 ? malt : malt + ', '
-                )}</li>
-                <li>Chmiele: {hops.map((hop, index) =>
-                    index === hops.length - 1 ? hop : hop + ', '
-                )}</li>
-                <li>Drożdże: {yeast}</li>
-                {adjuncts?.length > 0 && (
-                    <li>Dodatki: {adjuncts.map((adjunct, index) =>
-                        index === adjuncts.length - 1 ? adjunct : adjunct + ', '
-                    )}</li>
-                )}
-            </ul>
-
-            <h3>Parametry</h3>
-            <ul className={styles.list}>
-                <li>Ekstrakt: ~{extract} BLG</li>
-                <li>Alkohol: ~{alcohol}%</li>
-                <li>Goryczka: ~{ibu} IBU</li>
-            </ul>
+            <div className={styles.ingredientsSection}>
+                <h3>Surowce</h3>
+                <ul className={styles.list}>
+                    <li>Słody: {malts.join(', ')}</li>
+                    <li>Chmiele: {hops.join(', ')}</li>
+                    <li>Drożdże: {yeast}</li>
+                    {adjuncts?.length > 0 && (
+                        <li>Dodatki: {adjuncts.join(', ')}</li>
+                    )}
+                </ul>
+            </div>
             <p className={styles.summary}>
                 Jeśli wygrałeś to piwo w losowaniu cegiełek – gratulacje!
             </p>
@@ -57,26 +59,32 @@ export function BeerDescription({ beer }) {
                 </a>
             </div>
 
-            <div className={styles.links}>
-                <a
-                    href="https://www.facebook.com/bractwopiwneczestochowa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.iconLink}
-                >
-                    <FaFacebookSquare className={styles.icon}/>
-                    Bractwo Piwne Częstochowa
-                </a>
-                <a
-                    href="https://www.facebook.com/browarkwadrat/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.iconLink}
-                >
-                    <FaFacebookSquare className={styles.icon}/>
-                    Browar Kwadrat
-                </a>
-            </div>
+            <footer className={styles.footer}>
+                <div className={styles.links}>
+                    <a
+                        href="https://www.facebook.com/bractwopiwneczestochowa"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.iconLink}
+                    >
+                        <FaFacebookSquare className={styles.icon}/>
+                        Bractwo Piwne Częstochowa
+                    </a>
+                    <a
+                        href="https://www.facebook.com/browarkwadrat/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.iconLink}
+                    >
+                        <FaFacebookSquare className={styles.icon}/>
+                        Browar Kwadrat
+                    </a>
+                </div>
+                <span>
+                    <a href="mailto:enowuigrek@gmail.com" target="_blank" rel="noopener noreferrer">enowuigrek@gmail.com</a>
+                </span>
+
+            </footer>
         </div>
     );
 }
