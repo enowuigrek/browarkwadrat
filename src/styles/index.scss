@@ -1,12 +1,4 @@
-/* Zmienne */
-$background-color: #222831;
-$text-color: #EEEEEE;
-$link-color: #76ABAE;
-$link-hover-color: #507375;
-$button-bg: #629584;
-$button-hover-bg: #ff6347;
-
-/* Reset i globalne style */
+@use 'variables.module' as vars;
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 * {
@@ -16,17 +8,15 @@ $button-hover-bg: #ff6347;
 }
 
 html, body {
-  background-color: $background-color;
-  color: $text-color;
+  background-color: vars.$background-color;
+  color: vars.$text-color;
   font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   line-height: 1.4;
 }
 
-/* Nagłówki */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
-  margin-bottom: 1rem;
 }
 
 h1 {
@@ -50,12 +40,12 @@ p {
 }
 
 a {
-  color: $link-color;
+  color: vars.$link-color;
   text-decoration: none;
   transition: color 0.3s;
 
   &:hover {
-    color: $link-hover-color;
+    color: vars.$link-hover-color;
   }
 }
 
@@ -74,7 +64,7 @@ li {
     content: "•";
     position: absolute;
     left: 0;
-    color: $text-color;
+    color: vars.$text-color;
   }
 }
 
@@ -84,9 +74,8 @@ li {
   padding: 1rem;
 }
 
-/* Przyciski */
 button {
-  background-color: $button-bg;
+  background-color: vars.$button-bg;
   color: #fff;
   border: none;
   padding: 0.5rem 1rem;
@@ -96,6 +85,6 @@ button {
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: $button-hover-bg;
+    background-color: vars.$button-hover-bg;
   }
 }

@@ -18,7 +18,9 @@ export function BeerDescription({ beer }) {
 
     return (
         <div className="container">
-            <h2>#{batchNumber} {name}</h2>
+            <div className={styles.header}>
+                <h2>#{batchNumber} {name}</h2>
+            </div>
             <div className={styles.parameters}>
                 <div className={styles.parameter}>
                     <span>~{extract} BLG</span>
