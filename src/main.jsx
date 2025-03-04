@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
 import './styles/index.scss'
 import {Domowka} from './pages/Domowka.jsx'
+import {Wolnosypane} from './pages/Wolnosypane.jsx'
 
 const router = createBrowserRouter([
     {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
     {
         path: '/domowka',
         element: <Domowka />,
+    },
+    {
+        path: '/wolnosypane',
+        element: <Wolnosypane />,
     },
 ])
 

@@ -47,10 +47,6 @@ export function BeerDescription({ beer }) {
                     )}
                 </ul>
             </div>
-            <p className={styles.summary}>
-                Jeśli wygrałeś to piwo w losowaniu cegiełek – gratulacje!
-            </p>
-
             <div className={styles.recipeLink}>
                 <a
                     href={brewFatherLink}
