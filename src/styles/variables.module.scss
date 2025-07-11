@@ -1,16 +1,16 @@
-// variables.module.scss
+// Color variables
+$background-color: #221e1c;
+$text-color: #ffffff;
+$link-color: #ffbd59;
+$link-hover-color: #e6a54a;
+$button-bg: #ffbd59;
+$button-hover-bg: #e6a54a;
 
-$background-color: #1c1c1e;
-$text-color: #e6e6e6;
-$link-color: #3ac9c0;
-$link-hover-color: #507375;
-$button-bg: #3ac9c0;
-$button-hover-bg: #507375;
+$background-muted: rgba(0, 0, 0, 0.3);
+$text-muted: rgba(255, 255, 255, 0.7);
+$accent-color: #ffbd59;
 
-$background-muted: rgba(0, 0, 0, 0.45);
-$text-muted: #9ca3af;
-$accent-color: #ff7f50;
-
+// Spacing variables
 $padding: 1rem;
 $margin: 2rem;
-$border-radius: 10px;
+$border-radius: 12px;

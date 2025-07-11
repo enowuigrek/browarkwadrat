@@ -41,5 +41,24 @@
         "alcohol": 5.6,
         "ibu": 46,
         "brewFatherLink": "https://share.brewfather.app/7iXszBZmATRT13"
+    },
+    {
+        "id": 3,
+        "batchNumber": 95,
+        "name": "50 metrów dalej jest taniej",
+        "description": "Delikatne pale ale z nutą słodkości od słodów cookies i pszenicznego. Amerykańskie drożdże US-05 dają czysty charakter, a polski chmiel Książęcy zapewnia tradycyjną goryczkę z aromatycznym wykończeniem. Harmonijne piwo łączące amerykańską elegancję z polskim rzemiosłem - łatwo pijące się ale o wyrazistej osobowości.",
+        "malts": [
+            "Pale Ale",
+            "Cookie",
+            "Pszeniczny"
+        ],
+        "hops": [
+            "Ksiąźęcy (PL)"
+        ],
+        "yeast": "US-05",
+        "adjuncts": null,
+        "extract": 12.9,
+        "alcohol": 5.2,
+        "ibu": 38
     }
 ]

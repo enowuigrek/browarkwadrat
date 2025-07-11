@@ -1,5 +1,7 @@
+import React from 'react';
+import { FaFacebookSquare, FaBeer, FaLeaf, FaFlask, FaExternalLinkAlt } from 'react-icons/fa';
+import { GiBeerBottle, GiWheat, GiHops } from 'react-icons/gi';
 import styles from './BeerDescription.module.scss';
-import {FaFacebookSquare} from "react-icons/fa";
 
 export function BeerDescription({ beer }) {
     const {
@@ -16,72 +18,133 @@ export function BeerDescription({ beer }) {
         brewFatherLink
     } = beer;
 
+    const parameters = [
+        { value: `~${extract}`, unit: "BLG", label: "Ekstrakt", icon: <GiWheat /> },
+        { value: `~${alcohol}`, unit: "%", label: "Alkohol", icon: <GiBeerBottle /> },
+        { value: `~${ibu}`, unit: "IBU", label: "Goryczka", icon: <GiHops /> }
+    ];
+
+    const ingredients = [
+        { title: "Słody", items: malts, icon: <GiWheat />, colorClass: styles.maltColor },
+        { title: "Chmiele", items: hops, icon: <GiHops />, colorClass: styles.hopsColor },
+        { title: "Drożdże", items: [yeast], icon: <FaFlask />, colorClass: styles.yeastColor },
+        ...(adjuncts?.length > 0 ? [{ title: "Dodatki", items: adjuncts, icon: <FaLeaf />, colorClass: styles.adjunctsColor }] : [])
+    ];
+
     return (
-        <div className="container">
-            <div className={styles.header}>
-                <h2>#{batchNumber} {name}</h2>
-            </div>
-            <div className={styles.parameters}>
-                <div className={styles.parameter}>
-                    <span>~{extract} BLG</span>
-                    <label>ekstrakt</label>
+        <div className={styles.container}>
+            {/* Hero Section */}
+            <div className={styles.hero}>
+                <div className={styles.heroContent}>
+                    <div className={styles.batchBadge}>
+                        <span className={styles.batchNumber}>#{batchNumber}</span>
+                    </div>
+                    <h1 className={styles.beerName}>{name}</h1>
+                    <p className={styles.description}>{description}</p>
                 </div>
-                <div className={styles.parameter}>
-                    <span>~{alcohol}%</span>
-                    <label>alkohol</label>
-                </div>
-                <div className={styles.parameter}>
-                    <span>~{ibu} IBU</span>
-                    <label>Goryczka</label>
-                </div>
-            </div>
-            <p>{description}</p>
-            <div className={styles.ingredientsSection}>
-                <h3>Surowce</h3>
-                <ul className={styles.list}>
-                    <li>Słody: {malts.join(', ')}</li>
-                    <li>Chmiele: {hops.join(', ')}</li>
-                    <li>Drożdże: {yeast}</li>
-                    {adjuncts?.length > 0 && (
-                        <li>Dodatki: {adjuncts.join(', ')}</li>
-                    )}
-                </ul>
-            </div>
-            <div className={styles.recipeLink}>
-                <a
-                    href={brewFatherLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Pełna receptura w Brewfather
-                </a>
             </div>
 
+            {/* Parameters Section */}
+            <div className={styles.parametersSection}>
+                <div className={styles.parametersGrid}>
+                    {parameters.map((param, index) => (
+                        <div key={index} className={styles.parameterCard}>
+                            <div className={styles.parameterHeader}>
+                                <div className={styles.parameterIcon}>
+                                    {param.icon}
+                                </div>
+                                <div className={styles.parameterValue}>
+                                    <div className={styles.value}>
+                                        {param.value}<span className={styles.unit}>{param.unit}</span>
+                                    </div>
+                                    <div className={styles.label}>{param.label}</div>
+                                </div>
+                            </div>
+                            <div className={styles.progressBar}>
+                                <div className={styles.progress}></div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Ingredients Section */}
+            <div className={styles.ingredientsWrapper}>
+                <div className={styles.ingredientsHeader}>
+                    <h2>Surowce</h2>
+                    <p>Składniki użyte w produkcji</p>
+                </div>
+
+                <div className={styles.ingredientsGrid}>
+                    {ingredients.map((ingredient, index) => (
+                        <div key={index} className={styles.ingredientCard}>
+                            <div className={styles.ingredientHeader}>
+                                <div className={`${styles.ingredientIcon} ${ingredient.colorClass}`}>
+                                    {ingredient.icon}
+                                </div>
+                                <h3>{ingredient.title}</h3>
+                            </div>
+                            <div className={styles.ingredientList}>
+                                {ingredient.items.map((item, itemIndex) => (
+                                    <div key={itemIndex} className={styles.ingredientItem}>
+                                        <div className={styles.bullet}></div>
+                                        <span>{item}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Recipe Link */}
+            {brewFatherLink && (
+                <div className={styles.recipeSection}>
+                    <div className={styles.recipeCard}>
+                        <div className={styles.recipeInfo}>
+                            <h3>Pełna receptura</h3>
+                            <p>Zobacz szczegóły w Brewfather</p>
+                        </div>
+                        <a
+                            href={brewFatherLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.recipeButton}
+                        >
+                            <span>Otwórz</span>
+                            <FaExternalLinkAlt />
+                        </a>
+                    </div>
+                </div>
+            )}
+
+            {/* Footer */}
             <footer className={styles.footer}>
-                {/*<div className={styles.links}>*/}
-                {/*    <a*/}
-                {/*        href="https://www.facebook.com/bractwopiwneczestochowa"*/}
-                {/*        target="_blank"*/}
-                {/*        rel="noopener noreferrer"*/}
-                {/*        className={styles.iconLink}*/}
-                {/*    >*/}
-                {/*        <FaFacebookSquare className={styles.icon}/>*/}
-                {/*        Bractwo Piwne Częstochowa*/}
-                {/*    </a>*/}
-                {/*    <a*/}
-                {/*        href="https://www.facebook.com/browarkwadrat/"*/}
-                {/*        target="_blank"*/}
-                {/*        rel="noopener noreferrer"*/}
-                {/*        className={styles.iconLink}*/}
-                {/*    >*/}
-                {/*        <FaFacebookSquare className={styles.icon}/>*/}
-                {/*        Browar Kwadrat*/}
-                {/*    </a>*/}
-                {/*</div>*/}
-                <span>
-                    <a href="mailto:enowuigrek@gmail.com" target="_blank" rel="noopener noreferrer">enowuigrek@gmail.com 2025</a>
-                </span>
-
+                <div className={styles.footerContent}>
+                    <div className={styles.socialLinks}>
+                        <a
+                            href="https://www.facebook.com/bractwopiwneczestochowa"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.socialLink}
+                        >
+                            <FaFacebookSquare />
+                            <span>Bractwo Piwne Częstochowa</span>
+                        </a>
+                        <a
+                            href="https://www.facebook.com/browarkwadrat/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.socialLink}
+                        >
+                            <FaFacebookSquare />
+                            <span>Browar Kwadrat</span>
+                        </a>
+                    </div>
+                    <div className={styles.copyright}>
+                        <a href="mailto:enowuigrek@gmail.com">enowuigrek 2025</a>
+                    </div>
+                </div>
             </footer>
         </div>
     );

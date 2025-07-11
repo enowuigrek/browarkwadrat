@@ -5,6 +5,7 @@ import App from './App'
 import './styles/index.scss'
 import {Domowka} from './pages/Domowka.jsx'
 import {Wolnosypane} from './pages/Wolnosypane.jsx'
+import {DalejJestTaniej} from "./pages/DalejJestTaniej.jsx";
 
 const router = createBrowserRouter([
     {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
     {
         path: '/wolnosypane',
         element: <Wolnosypane />,
+    },
+    {
+        path: '/dalejjesttaniej',
+        element: <DalejJestTaniej />,
     },
 ])
 
