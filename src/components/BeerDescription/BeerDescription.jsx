@@ -72,7 +72,6 @@ export function BeerDescription({ beer }) {
             <div className={styles.ingredientsWrapper}>
                 <div className={styles.ingredientsHeader}>
                     <h2>Surowce</h2>
-                    <p>Składniki użyte w produkcji</p>
                 </div>
 
                 <div className={styles.ingredientsGrid}>
