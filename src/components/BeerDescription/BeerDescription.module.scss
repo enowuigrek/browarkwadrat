@@ -2,7 +2,7 @@
 
 .container {
     min-height: 100vh;
-    background: linear-gradient(135deg, vars.$background-color 0%, #1a1613 50%, #120f0d 100%);
+    background: linear-gradient(135deg, vars.$background-color 0%, rgba(58, 151, 201, 0.5) 50%, #000000 100%);
     color: vars.$text-color;
     position: relative;
     overflow-x: hidden;
@@ -11,7 +11,7 @@
 .hero {
     position: relative;
     padding: 2rem 0;
-    background: linear-gradient(135deg, rgba(255, 189, 89, 0.1), rgba(255, 189, 89, 0.05));
+    background: linear-gradient(135deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.11));
 
     &::before {
         content: '';
@@ -38,7 +38,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    background: rgba(255, 189, 89, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 189, 89, 0.3);
     border-radius: .7rem;
@@ -56,7 +56,7 @@
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 800;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, vars.$accent-color, #e6a54a);
+    background: linear-gradient(135deg, vars.$accent-color, #e4951e);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -66,7 +66,7 @@
 .description {
     font-size: 1.25rem;
     line-height: 1.6;
-    color: vars.$text-muted;
+    color: vars.$text-color;
     margin: 0 auto;
 }
 
@@ -83,7 +83,7 @@
 }
 
 .parameterCard {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.63);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: vars.$border-radius;
@@ -184,7 +184,7 @@
 }
 
 .ingredientCard {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.63);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: vars.$border-radius;
@@ -192,9 +192,9 @@
     transition: all 0.3s ease;
 
     &:hover {
-        border-color: rgba(255, 189, 89, 0.3);
+        border-color: vars.$accent-color;
         transform: translateY(-2px);
-        box-shadow: 0 8px 32px rgba(255, 189, 89, 0.1);
+        box-shadow: 0 8px 32px rgba(255, 189, 89, 0.2);
     }
 }
 
@@ -218,7 +218,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
+    font-size: 2rem;
     color: vars.$background-color;
 
     &.maltColor {
@@ -312,19 +312,21 @@
 }
 
 .footer {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.63);
     backdrop-filter: blur(10px);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     margin-top: 3rem;
 }
 
 .footerContent {
+    position: sticky;
+    bottom: 0;
     max-width: 900px;
     margin: 0 auto;
     padding: 2rem vars.$padding;
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: end;
     gap: 2rem;
 }
 
@@ -353,8 +355,7 @@
 }
 
 .copyright {
-    text-align: right;
-
+    justify-content: space-between;
     a {
         color: vars.$text-muted;
         text-decoration: none;
@@ -384,6 +385,7 @@
 
     .footerContent {
         flex-direction: column;
+        align-items: start;
         text-align: center;
     }
 }
