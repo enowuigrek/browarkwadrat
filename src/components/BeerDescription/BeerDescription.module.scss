@@ -30,7 +30,6 @@
     max-width: 900px;
     margin: 0 auto;
     padding: 0 vars.$padding;
-    text-align: center;
     position: relative;
     z-index: 1;
 }
@@ -42,7 +41,7 @@
     background: rgba(255, 189, 89, 0.1);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 189, 89, 0.3);
-    border-radius: 2rem;
+    border-radius: .7rem;
     padding: 0.75rem 1.5rem;
     margin-bottom: 2rem;
 }
@@ -68,7 +67,6 @@
     font-size: 1.25rem;
     line-height: 1.6;
     color: vars.$text-muted;
-    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -89,7 +87,7 @@
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: vars.$border-radius;
-    padding: 2rem;
+    padding: 1rem 2rem;
     transition: all 0.3s ease;
 
     &:hover {
@@ -103,11 +101,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1rem;
 }
 
 .parameterIcon {
-    font-size: 2rem;
+    display: flex;
+    font-size: 3rem;
     color: vars.$accent-color;
     transition: transform 0.3s ease;
 
@@ -139,24 +137,22 @@
     }
 }
 
-.progressBar {
-    height: 6px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
-    overflow: hidden;
 
-    .progress {
-        height: 100%;
-        background: linear-gradient(90deg, vars.$accent-color, #e6a54a);
-        border-radius: 3px;
-        width: 75%;
-        transition: width 0.5s ease;
-
-        .parameterCard:hover & {
-            width: 100%;
-        }
-    }
-}
+// todo: ustawic width w zaleznosci od parametrow
+//.progressBar {
+//    height: 6px;
+//    background: rgba(255, 255, 255, 0.1);
+//    border-radius: 3px;
+//    overflow: hidden;
+//
+//    .progress {
+//        height: 100%;
+//        background: linear-gradient(90deg, vars.$accent-color, #e6a54a);
+//        border-radius: 3px;
+//        width: 75%;
+//        transition: width 0.5s ease;
+//    }
+//}
 
 .ingredientsWrapper {
     max-width: 900px;
@@ -328,7 +324,7 @@
     padding: 2rem vars.$padding;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     gap: 2rem;
 }
 
@@ -389,9 +385,5 @@
     .footerContent {
         flex-direction: column;
         text-align: center;
-    }
-
-    .socialLinks {
-        align-items: center;
     }
 }

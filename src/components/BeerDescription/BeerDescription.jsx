@@ -20,7 +20,7 @@ export function BeerDescription({ beer }) {
 
     const parameters = [
         { value: `~${extract}`, unit: "BLG", label: "Ekstrakt", icon: <GiWheat /> },
-        { value: `~${alcohol}`, unit: "%", label: "Alkohol", icon: <GiBeerBottle /> },
+        { value: `~${alcohol}`, unit: "%", label: "Alkohol", icon: <FaFlask /> },
         { value: `~${ibu}`, unit: "IBU", label: "Goryczka", icon: <GiHops /> }
     ];
 
@@ -142,7 +142,8 @@ export function BeerDescription({ beer }) {
                         </a>
                     </div>
                     <div className={styles.copyright}>
-                        <a href="mailto:enowuigrek@gmail.com">enowuigrek 2025</a>
+                        <a href="mailto:enowuigrek@gmail.com">  &copy; enowuigrek 2025
+                        </a>
                     </div>
                 </div>
             </footer>
