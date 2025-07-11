@@ -1,12 +1,13 @@
 import React from 'react';
-import { FaFacebookSquare, FaBeer, FaLeaf, FaFlask, FaExternalLinkAlt } from 'react-icons/fa';
-import { GiBeerBottle, GiWheat, GiHops } from 'react-icons/gi';
+import { FaFacebookSquare, FaLeaf, FaFlask, FaExternalLinkAlt } from 'react-icons/fa';
+import { GiWheat, GiHops } from 'react-icons/gi';
 import styles from './BeerDescription.module.scss';
 
 export function BeerDescription({ beer }) {
     const {
         batchNumber,
         name,
+        styleName,
         description,
         malts,
         hops,
@@ -40,12 +41,14 @@ export function BeerDescription({ beer }) {
                         <span className={styles.batchNumber}>#{batchNumber}</span>
                     </div>
                     <h1 className={styles.beerName}>{name}</h1>
+                    {styleName && <h2 className={styles.styleName}>{styleName}</h2>}
                     <p className={styles.description}>{description}</p>
                 </div>
             </div>
 
             {/* Parameters Section */}
             <div className={styles.parametersSection}>
+                <h2>Parametry</h2>
                 <div className={styles.parametersGrid}>
                     {parameters.map((param, index) => (
                         <div key={index} className={styles.parameterCard}>
