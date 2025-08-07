@@ -1,0 +1,399 @@
+@use '../../styles/variables.module.scss' as vars;
+
+.container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, vars.$background-color 0%, rgba(58, 151, 201, 0.5) 50%, #000000 100%);
+    color: vars.$text-color;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.hero {
+    position: relative;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.11));
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,189,89,0.1)"/></svg>') repeat;
+        background-size: 60px 60px;
+        pointer-events: none;
+    }
+}
+
+.heroContent {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 vars.$padding;
+    position: relative;
+    z-index: 1;
+}
+
+.batchBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 189, 89, 0.3);
+    border-radius: .7rem;
+    padding: 0.75rem 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.batchNumber {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: vars.$accent-color;
+}
+
+.beerName {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: vars.$text-color;
+    line-height: 1.1;
+}
+
+.styleName {
+    color: vars.$accent-color;
+    padding: 0.75rem 0;
+}
+
+.description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: vars.$text-color;
+    margin: 0 auto;
+}
+
+.parametersSection {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem vars.$padding;
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: vars.$text-color;
+    }
+}
+
+.parametersGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.parameterCard {
+    background: rgba(0, 0, 0, 0.63);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: vars.$border-radius;
+    padding: 1rem 2rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-color: vars.$accent-color;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 32px rgba(255, 189, 89, 0.2);
+    }
+}
+
+.parameterHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.parameterIcon {
+    display: flex;
+    font-size: 3rem;
+    color: vars.$accent-color;
+    transition: transform 0.3s ease;
+
+    .parameterCard:hover & {
+        transform: scale(1.1);
+    }
+}
+
+.parameterValue {
+    text-align: right;
+
+    .value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: vars.$text-color;
+
+        .unit {
+            font-size: 1.25rem;
+            color: vars.$accent-color;
+            margin-left: 0.25rem;
+        }
+    }
+
+    .label {
+        font-size: 0.875rem;
+        color: vars.$text-muted;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+}
+
+
+// todo: ustawic width w zaleznosci od parametrow
+//.progressBar {
+//    height: 6px;
+//    background: rgba(255, 255, 255, 0.1);
+//    border-radius: 3px;
+//    overflow: hidden;
+//
+//    .progress {
+//        height: 100%;
+//        background: linear-gradient(90deg, vars.$accent-color, #e6a54a);
+//        border-radius: 3px;
+//        width: 75%;
+//        transition: width 0.5s ease;
+//    }
+//}
+
+.ingredientsWrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem vars.$padding;
+}
+
+.ingredientsHeader {
+    //text-align: center;
+    //margin-bottom: 3rem;
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: vars.$text-color;
+    }
+
+    p {
+        color: vars.$text-muted;
+        font-size: 1.125rem;
+    }
+}
+
+.ingredientsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.ingredientCard {
+    background: rgba(0, 0, 0, 0.63);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: vars.$border-radius;
+    padding: 2rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-color: vars.$accent-color;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 32px rgba(255, 189, 89, 0.2);
+    }
+}
+
+.ingredientHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+
+    h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: vars.$text-color;
+    }
+}
+
+.ingredientIcon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: vars.$background-color;
+
+    &.maltColor {
+        background: linear-gradient(135deg, vars.$accent-color, #e6a54a);
+    }
+
+    &.hopsColor {
+        background: linear-gradient(135deg, #e6a54a, #cc9440);
+    }
+
+    &.yeastColor {
+        background: linear-gradient(135deg, vars.$accent-color, #e6a54a);
+    }
+
+    &.adjunctsColor {
+        background: linear-gradient(135deg, #cc9440, vars.$accent-color);
+    }
+}
+
+.ingredientList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.ingredientItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    .bullet {
+        width: 8px;
+        height: 8px;
+        background: vars.$accent-color;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    span {
+        color: vars.$text-muted;
+        font-size: 1rem;
+    }
+}
+
+.recipeSection {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem vars.$padding;
+}
+
+.recipeCard {
+    background: linear-gradient(135deg, rgba(255, 189, 89, 0.15), rgba(255, 189, 89, 0.05));
+    border: 1px solid rgba(255, 189, 89, 0.3);
+    border-radius: vars.$border-radius;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.recipeInfo {
+    h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: vars.$text-color;
+    }
+
+    p {
+        color: vars.$text-muted;
+    }
+}
+
+.recipeButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: vars.$accent-color;
+    color: vars.$background-color;
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: #e6a54a;
+        transform: scale(1.05);
+    }
+}
+
+.footer {
+    background: rgba(0, 0, 0, 0.63);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 3rem;
+}
+
+.footerContent {
+    position: sticky;
+    bottom: 0;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem vars.$padding;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 2rem;
+}
+
+.socialLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.socialLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: vars.$text-color;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: vars.$accent-color;
+    }
+
+    svg {
+        font-size: 1.25rem;
+    }
+}
+
+.copyright {
+    justify-content: space-between;
+    a {
+        color: vars.$text-muted;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: vars.$accent-color;
+        }
+    }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+    .parametersGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .ingredientsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .recipeCard {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footerContent {
+        flex-direction: column;
+        align-items: start;
+        text-align: center;
+    }
+}
