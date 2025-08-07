@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebookSquare, FaLeaf, FaFlask, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaLeaf, FaFlask, FaExternalLinkAlt } from 'react-icons/fa';
 import { GiWheat, GiHops } from 'react-icons/gi';
 import styles from './BeerDescription.module.scss';
 
@@ -119,36 +119,6 @@ export function BeerDescription({ beer }) {
                     </div>
                 </div>
             )}
-
-            {/* Footer */}
-            <footer className={styles.footer}>
-                <div className={styles.footerContent}>
-                    <div className={styles.socialLinks}>
-                        <a
-                            href="https://www.facebook.com/bractwopiwneczestochowa"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.socialLink}
-                        >
-                            <FaFacebookSquare />
-                            <span>Bractwo Piwne Częstochowa</span>
-                        </a>
-                        <a
-                            href="https://www.facebook.com/browarkwadrat/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.socialLink}
-                        >
-                            <FaFacebookSquare />
-                            <span>Browar Kwadrat</span>
-                        </a>
-                    </div>
-                    <div className={styles.copyright}>
-                        <a href="mailto:enowuigrek@gmail.com">  &copy; enowuigrek 2025
-                        </a>
-                    </div>
-                </div>
-            </footer>
         </div>
     );
 }
