@@ -2,7 +2,7 @@
 
 .footer {
     background: vars.$surface-dark;
-    border-top: 1px solid vars.$border-color;
+    border-top: 2px solid vars.$border-color;
     margin-top: vars.$space-2xl;
     width: 100%;
 }
@@ -10,44 +10,72 @@
 .footerContent {
     max-width: 800px;
     margin: 0 auto;
-    padding: vars.$space-lg;
+    padding: vars.$space-xl vars.$space-lg;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    gap: vars.$space-lg;
+    align-items: center;
+    gap: vars.$space-xl;
 }
 
 .socialLinks {
     display: flex;
-    flex-direction: column;
-    gap: vars.$space-sm;
+    gap: vars.$space-md;
+    flex: 1;
 }
 
 .socialLink {
     display: flex;
     align-items: center;
-    gap: vars.$space-xs;
+    justify-content: center;
+    gap: vars.$space-sm;
+    padding: vars.$space-sm vars.$space-md;
+    background: vars.$surface-medium;
+    border: 1px solid vars.$border-color;
     color: vars.$text-muted;
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    font-weight: vars.$font-weight-medium;
     transition: all vars.$transition-medium;
+    position: relative;
+    overflow: hidden;
+
+    // Hover stripe effect
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: vars.$beer-amber;
+        transform: translateX(-100%);
+        transition: transform vars.$transition-medium;
+    }
 
     &:hover {
         color: vars.$beer-amber;
-        transform: translateX(2px);
+        border-color: vars.$beer-amber;
+        background: vars.$surface-dark;
+        transform: translateY(-2px);
+
+        &::before {
+            transform: translateX(0);
+        }
     }
 
     svg {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         transition: transform vars.$transition-fast;
     }
 
     &:hover svg {
-        transform: scale(1.1);
+        transform: scale(1.15) rotate(-5deg);
     }
 }
 
 .copyright {
+    text-align: right;
+
     a {
         display: flex;
         align-items: center;
@@ -69,14 +97,21 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: vars.$space-md;
+        gap: vars.$space-lg;
+        padding: vars.$space-lg;
     }
 
     .socialLinks {
-        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .socialLink {
+        width: 100%;
+        justify-content: center;
     }
 
     .copyright {
-        align-self: center;
+        text-align: center;
     }
 }

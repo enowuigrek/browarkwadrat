@@ -37,9 +37,6 @@ export function BeerDescription({ beer }) {
             {/* Hero Section */}
             <div className={styles.hero}>
                 <div className={styles.heroContent}>
-                    <div className={styles.batchBadge}>
-                        <span className={styles.batchNumber}>#{batchNumber}</span>
-                    </div>
                     <h1 className={styles.beerName}>{name}</h1>
                     {styleName && <h2 className={styles.styleName}>{styleName}</h2>}
                     <p className={styles.description}>{description}</p>
@@ -48,7 +45,13 @@ export function BeerDescription({ beer }) {
 
             {/* Parameters Section */}
             <div className={styles.parametersSection}>
-                <h2>Parametry</h2>
+                <div className={styles.parametersHeader}>
+                    <h2>Parametry</h2>
+                    <div className={styles.batchBadge}>
+                        <span className={styles.batchLabel}>Warka</span>
+                        <span className={styles.batchNumber}>#{batchNumber}</span>
+                    </div>
+                </div>
                 <div className={styles.parametersGrid}>
                     {parameters.map((param, index) => (
                         <div key={index} className={styles.parameterCard}>
