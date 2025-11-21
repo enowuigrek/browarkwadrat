@@ -2,106 +2,125 @@
 
 .container {
     min-height: 100vh;
-    background: linear-gradient(135deg, vars.$background-color 0%, rgba(58, 151, 201, 0.5) 50%, #000000 100%);
+    background: vars.$background-color;
     color: vars.$text-color;
-    position: relative;
-    overflow-x: hidden;
 }
 
+// Hero Section
 .hero {
-    position: relative;
-    padding: 2rem 0;
-    background: linear-gradient(135deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.11));
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,189,89,0.1)"/></svg>') repeat;
-        background-size: 60px 60px;
-        pointer-events: none;
-    }
+    padding: vars.$space-2xl 0 vars.$space-xl 0;
+    background: linear-gradient(180deg, vars.$surface-dark 0%, vars.$background-color 100%);
 }
 
 .heroContent {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 0 vars.$padding;
-    position: relative;
-    z-index: 1;
+    padding: 0 vars.$space-lg;
 }
 
 .batchBadge {
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
-    background: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 189, 89, 0.3);
-    border-radius: .7rem;
-    padding: 0.75rem 1.5rem;
-    margin-bottom: 2rem;
+    background: vars.$surface-medium;
+    border: 1px solid vars.$border-color;
+    border-radius: vars.$radius-sm;
+    padding: vars.$space-sm vars.$space-lg;
+    margin-bottom: vars.$space-lg;
+    transition: all vars.$transition-medium;
+
+    &:hover {
+        border-color: vars.$beer-amber;
+        box-shadow: 0 0 20px vars.$accent-glow;
+    }
 }
 
 .batchNumber {
     font-size: 1.5rem;
-    font-weight: 700;
-    color: vars.$accent-color;
+    font-weight: vars.$font-weight-bold;
+    color: vars.$beer-amber;
 }
 
 .beerName {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
+    font-size: 3.5rem;
+    font-weight: vars.$font-weight-bold;
+    margin-bottom: vars.$space-md;
     color: vars.$text-color;
     line-height: 1.1;
+    letter-spacing: -0.02em;
+
+    @media (max-width: 768px) {
+        font-size: 2.5rem;
+    }
 }
 
 .styleName {
-    color: vars.$accent-color;
-    padding: 0.75rem 0;
+    font-size: 1.5rem;
+    color: vars.$beer-amber;
+    font-weight: vars.$font-weight-medium;
+    margin-bottom: vars.$space-lg;
 }
 
 .description {
     font-size: 1.25rem;
-    line-height: 1.6;
-    color: vars.$text-color;
-    margin: 0 auto;
+    line-height: 1.7;
+    color: vars.$text-muted;
+    max-width: 700px;
 }
 
+// Parameters Section
 .parametersSection {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 3rem vars.$padding;
+    padding: vars.$space-xl vars.$space-lg;
 
     h2 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
+        font-size: 2rem;
+        font-weight: vars.$font-weight-bold;
+        margin-bottom: vars.$space-lg;
         color: vars.$text-color;
     }
 }
 
 .parametersGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: vars.$space-lg;
 }
 
 .parameterCard {
-    background: rgba(0, 0, 0, 0.63);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: vars.$border-radius;
-    padding: 1rem 2rem;
-    transition: all 0.3s ease;
+    background: vars.$surface-dark;
+    border: 1px solid vars.$border-color;
+    border-radius: vars.$radius-md;
+    padding: vars.$space-lg;
+    transition: all vars.$transition-medium;
+    position: relative;
+    overflow: hidden;
+
+    // Kwadratowy akcent
+    &::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, vars.$beer-amber 0%, transparent 70%);
+        opacity: 0.05;
+        border-radius: vars.$radius-md;
+    }
 
     &:hover {
-        border-color: vars.$accent-color;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 32px rgba(255, 189, 89, 0.2);
+        border-color: vars.$beer-amber;
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px vars.$accent-glow;
+
+        &::before {
+            opacity: 0.1;
+        }
+
+        .parameterIcon {
+            transform: scale(1.1) rotate(-5deg);
+        }
     }
 }
 
@@ -112,14 +131,9 @@
 }
 
 .parameterIcon {
-    display: flex;
-    font-size: 3rem;
-    color: vars.$accent-color;
-    transition: transform 0.3s ease;
-
-    .parameterCard:hover & {
-        transform: scale(1.1);
-    }
+    font-size: 2.5rem;
+    color: vars.$beer-amber;
+    transition: transform vars.$transition-medium;
 }
 
 .parameterValue {
@@ -127,257 +141,210 @@
 
     .value {
         font-size: 2rem;
-        font-weight: 700;
+        font-weight: vars.$font-weight-bold;
         color: vars.$text-color;
+        line-height: 1;
 
         .unit {
-            font-size: 1.25rem;
-            color: vars.$accent-color;
+            font-size: 1.125rem;
+            color: vars.$beer-amber;
             margin-left: 0.25rem;
+            font-weight: vars.$font-weight-medium;
         }
     }
 
     .label {
         font-size: 0.875rem;
-        color: vars.$text-muted;
+        color: vars.$text-dim;
         text-transform: uppercase;
         letter-spacing: 0.05em;
+        margin-top: 0.25rem;
     }
 }
 
-
-// todo: ustawic width w zaleznosci od parametrow
-//.progressBar {
-//    height: 6px;
-//    background: rgba(255, 255, 255, 0.1);
-//    border-radius: 3px;
-//    overflow: hidden;
-//
-//    .progress {
-//        height: 100%;
-//        background: linear-gradient(90deg, vars.$accent-color, #e6a54a);
-//        border-radius: 3px;
-//        width: 75%;
-//        transition: width 0.5s ease;
-//    }
-//}
-
+// Ingredients Section
 .ingredientsWrapper {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 3rem vars.$padding;
+    padding: vars.$space-xl vars.$space-lg;
 }
 
 .ingredientsHeader {
-    //text-align: center;
-    //margin-bottom: 3rem;
+    margin-bottom: vars.$space-lg;
 
     h2 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
+        font-size: 2rem;
+        font-weight: vars.$font-weight-bold;
         color: vars.$text-color;
-    }
-
-    p {
-        color: vars.$text-muted;
-        font-size: 1.125rem;
     }
 }
 
 .ingredientsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: vars.$space-lg;
 }
 
 .ingredientCard {
-    background: rgba(0, 0, 0, 0.63);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: vars.$border-radius;
-    padding: 2rem;
-    transition: all 0.3s ease;
+    background: vars.$surface-dark;
+    border: 1px solid vars.$border-color;
+    border-radius: vars.$radius-md;
+    padding: vars.$space-lg;
+    transition: all vars.$transition-medium;
 
     &:hover {
-        border-color: vars.$accent-color;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 32px rgba(255, 189, 89, 0.2);
+        border-color: vars.$beer-amber;
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px vars.$accent-glow;
     }
 }
 
 .ingredientHeader {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    gap: vars.$space-sm;
+    margin-bottom: vars.$space-md;
 
     h3 {
-        font-size: 1.5rem;
-        font-weight: 600;
+        font-size: 1.25rem;
+        font-weight: vars.$font-weight-bold;
         color: vars.$text-color;
     }
 }
 
 .ingredientIcon {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    border-radius: vars.$radius-sm;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: vars.$background-color;
+    flex-shrink: 0;
 
     &.maltColor {
-        background: linear-gradient(135deg, vars.$accent-color, #e6a54a);
+        background: linear-gradient(135deg, vars.$beer-amber, vars.$beer-dark);
     }
 
     &.hopsColor {
-        background: linear-gradient(135deg, #e6a54a, #cc9440);
+        background: linear-gradient(135deg, vars.$beer-dark, vars.$beer-amber);
     }
 
     &.yeastColor {
-        background: linear-gradient(135deg, vars.$accent-color, #e6a54a);
+        background: linear-gradient(135deg, vars.$beer-light, vars.$beer-amber);
     }
 
     &.adjunctsColor {
-        background: linear-gradient(135deg, #cc9440, vars.$accent-color);
+        background: linear-gradient(135deg, vars.$beer-amber, vars.$beer-light);
     }
 }
 
 .ingredientList {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: vars.$space-sm;
 }
 
 .ingredientItem {
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    align-items: flex-start;
+    gap: vars.$space-sm;
 
     .bullet {
-        width: 8px;
-        height: 8px;
-        background: vars.$accent-color;
-        border-radius: 50%;
+        width: 6px;
+        height: 6px;
+        background: vars.$beer-amber;
+        border-radius: 1px;
+        margin-top: 0.5rem;
         flex-shrink: 0;
     }
 
     span {
         color: vars.$text-muted;
         font-size: 1rem;
+        line-height: 1.6;
     }
 }
 
+// Recipe Link Section
 .recipeSection {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 2rem vars.$padding;
+    padding: vars.$space-lg vars.$space-lg vars.$space-xl vars.$space-lg;
 }
 
 .recipeCard {
-    background: linear-gradient(135deg, rgba(255, 189, 89, 0.15), rgba(255, 189, 89, 0.05));
-    border: 1px solid rgba(255, 189, 89, 0.3);
-    border-radius: vars.$border-radius;
-    padding: 2rem;
+    background: vars.$surface-dark;
+    border: 1px solid vars.$border-color;
+    border-radius: vars.$radius-md;
+    padding: vars.$space-lg;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
+    gap: vars.$space-lg;
+    transition: all vars.$transition-medium;
+
+    &:hover {
+        border-color: vars.$beer-amber;
+        box-shadow: 0 8px 24px vars.$accent-glow;
+    }
 }
 
 .recipeInfo {
     h3 {
         font-size: 1.5rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
+        font-weight: vars.$font-weight-bold;
+        margin-bottom: vars.$space-xs;
         color: vars.$text-color;
     }
 
     p {
         color: vars.$text-muted;
+        font-size: 1rem;
     }
 }
 
 .recipeButton {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    background: vars.$accent-color;
+    gap: vars.$space-xs;
+    background: vars.$beer-amber;
     color: vars.$background-color;
-    padding: 0.75rem 1.5rem;
-    border-radius: 2rem;
-    font-weight: 600;
+    padding: vars.$space-sm vars.$space-lg;
+    border-radius: vars.$radius-md;
+    font-weight: vars.$font-weight-bold;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all vars.$transition-medium;
+    white-space: nowrap;
 
     &:hover {
-        background: #e6a54a;
-        transform: scale(1.05);
-    }
-}
-
-.footer {
-    background: rgba(0, 0, 0, 0.63);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 3rem;
-}
-
-.footerContent {
-    position: sticky;
-    bottom: 0;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem vars.$padding;
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    gap: 2rem;
-}
-
-.socialLinks {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.socialLink {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: vars.$text-color;
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.3s ease;
-
-    &:hover {
-        color: vars.$accent-color;
+        background: vars.$beer-dark;
+        transform: translateX(4px);
     }
 
     svg {
-        font-size: 1.25rem;
+        transition: transform vars.$transition-fast;
+    }
+
+    &:hover svg {
+        transform: translateX(2px);
     }
 }
 
-.copyright {
-    justify-content: space-between;
-    a {
-        color: vars.$text-muted;
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: color 0.3s ease;
-
-        &:hover {
-            color: vars.$accent-color;
-        }
-    }
-}
-
-// Responsive design
+// Responsive
 @media (max-width: 768px) {
+    .heroContent {
+        padding: 0 vars.$space-md;
+    }
+
+    .parametersSection,
+    .ingredientsWrapper,
+    .recipeSection {
+        padding-left: vars.$space-md;
+        padding-right: vars.$space-md;
+    }
+
     .parametersGrid {
         grid-template-columns: 1fr;
     }
@@ -391,9 +358,8 @@
         text-align: center;
     }
 
-    .footerContent {
-        flex-direction: column;
-        align-items: start;
-        text-align: center;
+    .recipeButton {
+        width: 100%;
+        justify-content: center;
     }
 }

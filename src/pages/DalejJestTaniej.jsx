@@ -1,4 +1,5 @@
 import { BeerDescription } from '../components/BeerDescription/BeerDescription.jsx';
+import { Footer } from '../components/common/Footer/Footer.jsx';
 import beersData from '../data/beersData.js';
 
 const batchNumber = 95;
@@ -8,6 +9,7 @@ export function DalejJestTaniej() {
     return (
         <>
             <BeerDescription beer={selectedBeer} />
+            <Footer />
         </>
     )
 }

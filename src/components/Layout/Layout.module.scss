@@ -4,71 +4,95 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-
-    // 🆕 Gradient background dla całej aplikacji
-    background: linear-gradient(135deg, vars.$background-color 0%, rgba(58, 151, 201, 0.5) 50%, #000000 100%);
+    background: vars.$background-color;
 }
 
 .header {
-    background: rgba(0, 0, 0, 0.63);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1rem vars.$padding;
+    background: vars.$surface-dark;
+    border-bottom: 1px solid vars.$border-color;
+    padding: vars.$space-sm vars.$space-lg;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: sticky;
     top: 0;
     z-index: 100;
+    transition: all vars.$transition-medium;
+
+    &:hover {
+        border-bottom-color: vars.$beer-amber;
+    }
 }
 
 .logo {
-    font-size: 1.75rem;
-    font-weight: bold;
-    color: vars.$accent-color;
+    font-size: 1.5rem;
+    font-weight: vars.$font-weight-bold;
+    color: vars.$beer-amber;
+    letter-spacing: -0.01em;
+    transition: all vars.$transition-medium;
+
+    &:hover {
+        transform: scale(1.02);
+    }
 }
 
 .nav {
     display: flex;
-    gap: 1rem;
+    gap: vars.$space-xs;
 
     a {
-        color: vars.$text-color;
+        color: vars.$text-muted;
         text-decoration: none;
-        font-weight: 500;
-        padding: 0.5rem 1rem;
-        border-radius: vars.$border-radius;
-        transition: all 0.3s ease;
+        font-weight: vars.$font-weight-medium;
+        padding: vars.$space-xs vars.$space-md;
+        border-radius: vars.$radius-sm;
+        transition: all vars.$transition-medium;
+        position: relative;
 
         &:hover {
-            color: vars.$accent-color;
-            background: rgba(255, 189, 89, 0.1);
+            color: vars.$beer-amber;
+            background: vars.$surface-medium;
         }
 
         &.active {
-            color: vars.$accent-color;
-            background: rgba(255, 189, 89, 0.2);
-            border-bottom: 2px solid vars.$accent-color;
+            color: vars.$beer-amber;
+            background: vars.$surface-medium;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: vars.$space-xs;
+                right: vars.$space-xs;
+                height: 2px;
+                background: vars.$beer-amber;
+                border-radius: 1px;
+            }
         }
     }
 }
 
 .mainContent {
     flex: 1;
-    // 🔄 Usuń background - będzie dziedziczony z appWrapper
-    // 🔄 Usuń padding - każda strona sama decyduje o paddingu
 }
 
-/* Responsive design */
+// Responsive
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
-        gap: 1rem;
-        position: static; // Na mobile nie sticky
+        gap: vars.$space-sm;
+        position: static;
+        padding: vars.$space-md;
+    }
+
+    .logo {
+        font-size: 1.25rem;
     }
 
     .nav {
+        width: 100%;
         justify-content: center;
         flex-wrap: wrap;
+        gap: vars.$space-xs;
     }
 }
