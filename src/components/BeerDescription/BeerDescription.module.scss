@@ -213,30 +213,16 @@
 }
 
 .ingredientIcon {
-    width: 48px;
-    height: 48px;
-    border-radius: vars.$radius-sm;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    color: vars.$background-color;
+    font-size: 2rem;
+    color: vars.$beer-amber;
     flex-shrink: 0;
+    transition: transform vars.$transition-medium;
 
-    &.maltColor {
-        background: linear-gradient(135deg, vars.$beer-amber, vars.$beer-dark);
-    }
-
-    &.hopsColor {
-        background: linear-gradient(135deg, vars.$beer-dark, vars.$beer-amber);
-    }
-
-    &.yeastColor {
-        background: linear-gradient(135deg, vars.$beer-light, vars.$beer-amber);
-    }
-
-    &.adjunctsColor {
-        background: linear-gradient(135deg, vars.$beer-amber, vars.$beer-light);
+    .ingredientCard:hover & {
+        transform: scale(1.1);
     }
 }
 
@@ -255,7 +241,6 @@
         width: 6px;
         height: 6px;
         background: vars.$beer-amber;
-        border-radius: 1px;
         margin-top: 0.5rem;
         flex-shrink: 0;
     }
