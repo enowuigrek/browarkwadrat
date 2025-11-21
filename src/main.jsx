@@ -1,26 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Layout from './components/Layout/Layout.jsx';
 import { Home } from './pages/Home.jsx';
-import { About } from './pages/About.jsx';
 import { Domowka } from './pages/Domowka.jsx';
 import { Wolnosypane } from './pages/Wolnosypane.jsx';
 import { DalejJestTaniej } from './pages/DalejJestTaniej.jsx';
 import { NowaStaraSzkola } from './pages/NowaStaraSzkola.jsx';
+import { NotFound } from './pages/NotFound.jsx';
 import './styles/index.scss';
 
 const router = createBrowserRouter([
-    // Main pages WITH header/layout
+    // Home page WITHOUT header
     {
         path: '/',
-        element: <Layout />,
-        children: [
-            { index: true, element: <Home /> },
-            { path: 'o-browarze', element: <About /> },
-        ],
+        element: <Home />,
     },
-    // Beer pages WITHOUT header/layout (clean QR-scanned experience)
+    // Beer pages WITHOUT header (clean QR-scanned experience)
     {
         path: 'domowka',
         element: <Domowka />,
@@ -36,6 +31,11 @@ const router = createBrowserRouter([
     {
         path: 'nowastarszkola',
         element: <NowaStaraSzkola />,
+    },
+    // 404 page
+    {
+        path: '*',
+        element: <NotFound />,
     },
 ]);
 
