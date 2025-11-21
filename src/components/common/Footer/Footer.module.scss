@@ -2,7 +2,7 @@
 
 .footer {
     background: vars.$surface-dark;
-    border-top: 2px solid vars.$border-color;
+    border-top: 1px solid vars.$border-color;
     margin-top: vars.$space-2xl;
     width: 100%;
 }
@@ -10,108 +10,53 @@
 .footerContent {
     max-width: 800px;
     margin: 0 auto;
-    padding: vars.$space-xl vars.$space-lg;
+    padding: vars.$space-lg;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: vars.$space-xl;
+    gap: vars.$space-md;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: vars.$space-sm;
+    }
 }
 
 .socialLinks {
     display: flex;
     gap: vars.$space-md;
-    flex: 1;
+    align-items: center;
 }
 
 .socialLink {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: vars.$space-sm;
-    padding: vars.$space-sm vars.$space-md;
-    background: vars.$surface-medium;
-    border: 1px solid vars.$border-color;
+    width: 40px;
+    height: 40px;
     color: vars.$text-muted;
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: vars.$font-weight-medium;
     transition: all vars.$transition-medium;
-    position: relative;
-    overflow: hidden;
 
-    // Hover stripe effect
-    &::before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: vars.$beer-amber;
-        transform: translateX(-100%);
-        transition: transform vars.$transition-medium;
+    svg {
+        font-size: 1.25rem;
+        transition: all vars.$transition-medium;
     }
 
     &:hover {
         color: vars.$beer-amber;
-        border-color: vars.$beer-amber;
-        background: vars.$surface-dark;
-        transform: translateY(-2px);
 
-        &::before {
-            transform: translateX(0);
+        svg {
+            transform: translateY(-2px);
         }
-    }
-
-    svg {
-        font-size: 1.5rem;
-        transition: transform vars.$transition-fast;
-    }
-
-    &:hover svg {
-        transform: scale(1.15) rotate(-5deg);
     }
 }
 
 .copyright {
-    text-align: right;
+    font-size: 0.875rem;
+    color: vars.$text-dim;
 
-    a {
-        display: flex;
-        align-items: center;
-        gap: vars.$space-xs;
-        color: vars.$text-dim;
-        text-decoration: none;
-        font-size: 0.875rem;
-        transition: color vars.$transition-medium;
-
-        &:hover {
-            color: vars.$beer-amber;
-        }
-    }
-}
-
-// Responsive
-@media (max-width: 768px) {
-    .footerContent {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: vars.$space-lg;
-        padding: vars.$space-lg;
-    }
-
-    .socialLinks {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .socialLink {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .copyright {
-        text-align: center;
+    span {
+        font-weight: vars.$font-weight-normal;
     }
 }

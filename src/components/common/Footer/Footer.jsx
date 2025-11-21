@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebookSquare } from 'react-icons/fa';
+import { FaFacebook, FaEnvelope } from 'react-icons/fa';
 import styles from './Footer.module.scss';
 
 export function Footer() {
@@ -12,24 +12,29 @@ export function Footer() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.socialLink}
-                        >
-                        <FaFacebookSquare />
-                        <span>Bractwo Piwne Częstochowa</span>
+                        title="Bractwo Piwne Częstochowa"
+                    >
+                        <FaFacebook />
                     </a>
                     <a
                         href="https://www.facebook.com/browarkwadrat/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.socialLink}
+                        title="Browar Kwadrat"
                     >
-                    <FaFacebookSquare />
-                    <span>Browar Kwadrat</span>
+                        <FaFacebook />
+                    </a>
+                    <a
+                        href="mailto:enowuigrek@gmail.com"
+                        className={styles.socialLink}
+                        title="Email"
+                    >
+                        <FaEnvelope />
                     </a>
                 </div>
                 <div className={styles.copyright}>
-                    <a href="mailto:enowuigrek@gmail.com">
-                        <span>&copy; enowuigrek 2025</span>
-                    </a>
+                    <span>&copy; 2025 Browar Kwadrat</span>
                 </div>
             </div>
         </footer>
