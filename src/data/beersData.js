@@ -65,6 +65,27 @@ const beersData = [
         alcohol: 5.0,
         ibu: 40,
         brewFatherLink: null
+    },
+    {
+        id: 5,
+        batchNumber: 97,
+        name: "Nowa Stara Szkoła",
+        styleName: "Modern Grodziskie",
+        description: "\"Nowa Stara Szkoła\" to lekkie grodziskie, które pamięta o korzeniach, ale nie zamyka się w muzealnej gablocie. Pozostaje rześkie, musujące i ultralekkie, jednak podane we współczesnej interpretacji.\n\nW aromacie wszystko dzieje się subtelnie. Nutka dymu pojawia się tylko wtedy, gdy piwo jest naprawdę dobrze schłodzone - bardziej jako delikatne echo tradycji niż dominujący akcent. To świadoma rezygnacja z klasycznego \"ogniska w szklance\" na rzecz czystszej, bardziej przystępnej formy.\n\nZ kolei połączenie Tallusa i książęcego wnosi zupełnie inny, świeży wymiar: lekko cytrusową, zieloną, wręcz soczystą nutę, która pięknie kontruje pszeniczną bazę. Gorycz jest czysta i uprzejma, a chmielenie na zimno podkręca nowoczesny charakter całości.\n\n\"Nowa Stara Szkoła\" to piwo lekkie jak wakacyjne popołudnie, ale niepuste. To grodziskie, które szanuje tradycję, jednocześnie pokazując, że można ją opowiedzieć na nowo - z finezją, świeżością i bez przesady. Idealne na pierwszy łyk... i na kolejny też.",
+        malts: [
+            "Wheat Malt Pale (Weyermann)",
+            "Oak Smoked Wheat Malt (Weyermann)"
+        ],
+        hops: [
+            "Książęcy (PL)",
+            "Talus (USA)"
+        ],
+        yeast: "K-97 (Fermentis)",
+        adjuncts: null,
+        extract: 8.0,
+        alcohol: 3.0,
+        ibu: 28,
+        brewFatherLink: "https://share.brewfather.app/NgjthTwEkLcQAj"
     }
 ];
 
