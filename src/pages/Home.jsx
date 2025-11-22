@@ -13,8 +13,6 @@ export function Home() {
                         alt="Browar Kwadrat"
                         className={styles.logo}
                     />
-                    <h1 className={styles.title}>Browar Kwadrat</h1>
-                    <p className={styles.subtitle}>Domowe piwa rzemieślnicze z Częstochowy</p>
 
                     <div className={styles.divider}></div>
 
