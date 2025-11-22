@@ -8,29 +8,29 @@ export function Footer() {
             <div className={styles.footerContent}>
                 <div className={styles.socialLinks}>
                     <a
-                        href="https://www.facebook.com/bractwopiwneczestochowa"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.socialLink}
-                        title="Bractwo Piwne Częstochowa"
-                    >
-                        <FaFacebook />
-                    </a>
-                    <a
                         href="https://www.facebook.com/browarkwadrat/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.socialLink}
-                        title="Browar Kwadrat"
                     >
                         <FaFacebook />
+                        <span>Browar Kwadrat</span>
+                    </a>
+                    <a
+                        href="https://www.facebook.com/bractwopiwneczestochowa"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.socialLink}
+                    >
+                        <FaFacebook />
+                        <span>Bractwo Piwne</span>
                     </a>
                     <a
                         href="mailto:enowuigrek@gmail.com"
                         className={styles.socialLink}
-                        title="Email"
                     >
                         <FaEnvelope />
+                        <span>Kontakt</span>
                     </a>
                 </div>
                 <div className={styles.copyright}>
