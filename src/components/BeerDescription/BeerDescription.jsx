@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaLeaf, FaFlask, FaExternalLinkAlt } from 'react-icons/fa';
 import { GiWheat, GiHops } from 'react-icons/gi';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import styles from './BeerDescription.module.scss';
 
 export function BeerDescription({ beer }) {
@@ -19,6 +20,11 @@ export function BeerDescription({ beer }) {
         brewFatherLink
     } = beer;
 
+    // Scroll animation refs
+    const [paramsRef, paramsVisible] = useScrollAnimation({ threshold: 0.2 });
+    const [ingredientsRef, ingredientsVisible] = useScrollAnimation({ threshold: 0.2 });
+    const [recipeRef, recipeVisible] = useScrollAnimation({ threshold: 0.3 });
+
     const parameters = [
         { value: `~${extract}`, unit: "BLG", label: "Ekstrakt", icon: <GiWheat /> },
         { value: `~${alcohol}`, unit: "%", label: "Alkohol", icon: <FaFlask /> },
@@ -26,9 +32,9 @@ export function BeerDescription({ beer }) {
     ];
 
     const ingredients = [
-        { title: "Słody", items: malts, icon: <GiWheat /> },
+        { title: "Slody", items: malts, icon: <GiWheat /> },
         { title: "Chmiele", items: hops, icon: <GiHops /> },
-        { title: "Drożdże", items: [yeast], icon: <FaFlask /> },
+        { title: "Drozdze", items: [yeast], icon: <FaFlask /> },
         ...(adjuncts?.length > 0 ? [{ title: "Dodatki", items: adjuncts, icon: <FaLeaf /> }] : [])
     ];
 
@@ -42,22 +48,30 @@ export function BeerDescription({ beer }) {
             />
 
             {/* Hero Section */}
-            <div className={styles.hero}>
+            <section className={styles.hero}>
                 <div className={styles.heroContent}>
                     <h1 className={styles.beerName}>{name}</h1>
-                    {styleName && <h2 className={styles.styleName}>{styleName}</h2>}
+                    <div className={styles.styleRow}>
+                        {styleName && (
+                            <h2 className={styles.styleName}>
+                                <span className={styles.styleText}>{styleName}</span>
+                            </h2>
+                        )}
+                        <span className={styles.batchTag}>#{batchNumber}</span>
+                    </div>
                     <p className={styles.description}>{description}</p>
                 </div>
-            </div>
+            </section>
 
             {/* Parameters Section */}
-            <div className={styles.parametersSection}>
-                <div className={styles.parametersHeader}>
+            <section
+                ref={paramsRef}
+                className={`${styles.parametersSection} ${paramsVisible ? styles.visible : ''}`}
+            >
+                <div className={styles.sectionHeader}>
+                    <div className={styles.headerLine}></div>
                     <h2>Parametry</h2>
-                    <div className={styles.batchBadge}>
-                        <span className={styles.batchLabel}>Warka</span>
-                        <span className={styles.batchNumber}>#{batchNumber}</span>
-                    </div>
+                    <div className={styles.headerLine}></div>
                 </div>
                 <div className={styles.parametersGrid}>
                     {parameters.map((param, index) => (
@@ -79,12 +93,17 @@ export function BeerDescription({ beer }) {
                         </div>
                     ))}
                 </div>
-            </div>
+            </section>
 
             {/* Ingredients Section */}
-            <div className={styles.ingredientsWrapper}>
-                <div className={styles.ingredientsHeader}>
+            <section
+                ref={ingredientsRef}
+                className={`${styles.ingredientsSection} ${ingredientsVisible ? styles.visible : ''}`}
+            >
+                <div className={styles.sectionHeader}>
+                    <div className={styles.headerLine}></div>
                     <h2>Surowce</h2>
+                    <div className={styles.headerLine}></div>
                 </div>
 
                 <div className={styles.ingredientsGrid}>
@@ -107,15 +126,18 @@ export function BeerDescription({ beer }) {
                         </div>
                     ))}
                 </div>
-            </div>
+            </section>
 
             {/* Recipe Link */}
             {brewFatherLink && (
-                <div className={styles.recipeSection}>
+                <section
+                    ref={recipeRef}
+                    className={`${styles.recipeSection} ${recipeVisible ? styles.visible : ''}`}
+                >
                     <div className={styles.recipeCard}>
                         <div className={styles.recipeInfo}>
-                            <h3>Pełna receptura</h3>
-                            <p>Zobacz szczegóły w Brewfather</p>
+                            <h3>Pelna receptura</h3>
+                            <p>Zobacz szczegoly w Brewfather</p>
                         </div>
                         <a
                             href={brewFatherLink}
@@ -123,11 +145,11 @@ export function BeerDescription({ beer }) {
                             rel="noopener noreferrer"
                             className={styles.recipeButton}
                         >
-                            <span>Otwórz</span>
+                            <span>Otworz</span>
                             <FaExternalLinkAlt />
                         </a>
                     </div>
-                </div>
+                </section>
             )}
         </div>
     );
