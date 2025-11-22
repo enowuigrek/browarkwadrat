@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Footer } from '../components/common/Footer/Footer.jsx';
+import { Footer } from '../components/Footer/Footer.jsx';
 import styles from './NotFound.module.scss';
 
 export function NotFound() {

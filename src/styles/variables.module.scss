@@ -1,17 +1,17 @@
-// 🍺 Browar Kwadrat Design System
-// Inspired by: craft beer, geometric squares, minimal elegance, premium blue
+// Browar Kwadrat Design System
+// Inspired by: craft beer, geometric squares, minimal elegance, premium turquoise-blue
 
-// Primary Accent Colors (Premium Blue)
-$beer-amber: #5BA3D9;        // Premium sky blue
-$beer-dark: #3A7BC8;         // Deep blue
-$beer-light: #8BC4E8;        // Light blue
-$beer-foam: #E8F4FA;         // Ice blue white
+// Primary Accent Colors (Turquoise Blue)
+$beer-amber: #2DD4BF;        // Vibrant turquoise
+$beer-dark: #14B8A6;         // Deep teal
+$beer-light: #5EEAD4;        // Light turquoise
+$beer-foam: #CCFBF1;         // Mint white
 
 // Background & Surface
 $background-color: #0A0A0A;  // Almost black
 $surface-dark: #1A1A1A;      // Card backgrounds
 $surface-medium: #2A2A2A;    // Elevated surfaces
-$border-color: rgba(91, 163, 217, 0.2); // Subtle blue border
+$border-color: rgba(45, 212, 191, 0.25); // Subtle turquoise border
 
 // Text Colors
 $text-color: #FFFFFF;
@@ -21,7 +21,7 @@ $text-dim: rgba(255, 255, 255, 0.5);
 // Accent Colors
 $accent-primary: $beer-amber;
 $accent-hover: $beer-dark;
-$accent-glow: rgba(91, 163, 217, 0.15);
+$accent-glow: rgba(45, 212, 191, 0.2);
 
 // Interactive Elements
 $button-bg: $beer-amber;
