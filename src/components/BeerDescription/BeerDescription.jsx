@@ -25,10 +25,15 @@ export function BeerDescription({ beer }) {
     const [ingredientsRef, ingredientsVisible] = useScrollAnimation({ threshold: 0.2 });
     const [recipeRef, recipeVisible] = useScrollAnimation({ threshold: 0.3 });
 
+    // Max values for progress bar scaling
+    const MAX_BLG = 30;
+    const MAX_ALCOHOL = 15;
+    const MAX_IBU = 100;
+
     const parameters = [
-        { value: `~${extract}`, unit: "BLG", label: "Ekstrakt", icon: <GiWheat /> },
-        { value: `~${alcohol}`, unit: "%", label: "Alkohol", icon: <FaFlask /> },
-        { value: `~${ibu}`, unit: "IBU", label: "Goryczka", icon: <GiHops /> }
+        { value: `~${extract}`, unit: "BLG", label: "Ekstrakt", icon: <GiWheat />, progress: Math.min((extract / MAX_BLG) * 100, 100) },
+        { value: `~${alcohol}`, unit: "%", label: "Alkohol", icon: <FaFlask />, progress: Math.min((alcohol / MAX_ALCOHOL) * 100, 100) },
+        { value: `~${ibu}`, unit: "IBU", label: "Goryczka", icon: <GiHops />, progress: Math.min((ibu / MAX_IBU) * 100, 100) }
     ];
 
     const ingredients = [
@@ -88,7 +93,10 @@ export function BeerDescription({ beer }) {
                                 </div>
                             </div>
                             <div className={styles.progressBar}>
-                                <div className={styles.progress}></div>
+                                <div
+                                    className={styles.progress}
+                                    style={{ '--progress-width': `${param.progress}%` }}
+                                ></div>
                             </div>
                         </div>
                     ))}
