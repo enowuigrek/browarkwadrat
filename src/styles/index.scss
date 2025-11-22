@@ -20,7 +20,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     position: relative;
 
-    // Subtle square texture pattern
+    // Square texture pattern (more visible)
     &::before {
         content: '';
         position: fixed;
@@ -30,11 +30,11 @@ body {
         height: 100%;
         pointer-events: none;
         z-index: 0;
-        opacity: 0.03;
+        opacity: 0.08;
         background-image:
-            linear-gradient(rgba(91, 163, 217, 0.5) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(91, 163, 217, 0.5) 1px, transparent 1px);
-        background-size: 40px 40px;
+            linear-gradient(rgba(45, 212, 191, 0.6) 2px, transparent 2px),
+            linear-gradient(90deg, rgba(45, 212, 191, 0.6) 2px, transparent 2px);
+        background-size: 50px 50px;
     }
 }
 
