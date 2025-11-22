@@ -36,6 +36,17 @@
     gap: vars.$space-lg;
 }
 
+// Logo
+.logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: vars.$space-sm;
+
+    @media (max-width: 768px) {
+        width: 120px;
+    }
+}
+
 // Typography
 .title {
     font-size: 3.5rem;
