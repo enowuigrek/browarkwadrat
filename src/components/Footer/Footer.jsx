@@ -13,8 +13,10 @@ export function Footer() {
                         rel="noopener noreferrer"
                         className={styles.socialLink}
                     >
-                        <FaFacebook />
-                        <span>Browar Kwadrat</span>
+                        <span className={styles.iconCircle}>
+                            <FaFacebook />
+                        </span>
+                        <span className={styles.linkText}>Browar Kwadrat</span>
                     </a>
                     <a
                         href="https://www.facebook.com/bractwopiwneczestochowa"
@@ -22,15 +24,19 @@ export function Footer() {
                         rel="noopener noreferrer"
                         className={styles.socialLink}
                     >
-                        <FaFacebook />
-                        <span>Bractwo Piwne</span>
+                        <span className={styles.iconCircle}>
+                            <FaFacebook />
+                        </span>
+                        <span className={styles.linkText}>Bractwo Piwne</span>
                     </a>
                     <a
                         href="mailto:enowuigrek@gmail.com"
                         className={styles.socialLink}
                     >
-                        <FaEnvelope />
-                        <span>Kontakt</span>
+                        <span className={styles.iconCircle}>
+                            <FaEnvelope />
+                        </span>
+                        <span className={styles.linkText}>Kontakt</span>
                     </a>
                 </div>
                 <div className={styles.copyright}>
