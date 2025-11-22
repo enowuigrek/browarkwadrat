@@ -139,7 +139,6 @@
     position: relative;
     display: inline-block;
     padding: vars.$space-xs vars.$space-md;
-    border: 2px solid vars.$beer-amber;
     background: rgba(45, 212, 191, 0.1);
     animation: pulseGlow 3s ease-in-out infinite;
 
@@ -162,17 +161,13 @@
 }
 
 .batchTag {
-    font-size: 1.25rem;
-    font-weight: vars.$font-weight-bold;
+    font-size: 0.9rem;
+    font-weight: vars.$font-weight-medium;
     color: vars.$text-dim;
-    padding: vars.$space-xs vars.$space-sm;
-    border: 1px solid vars.$border-color;
-    background: vars.$surface-medium;
     transition: all vars.$transition-medium;
 
     &:hover {
         color: vars.$beer-amber;
-        border-color: vars.$beer-amber;
     }
 }
 
@@ -341,7 +336,7 @@
 
 .progress {
     height: 100%;
-    width: 70%;
+    width: var(--progress-width, 70%);
     background: linear-gradient(90deg, vars.$beer-amber, vars.$beer-light);
     transform: scaleX(0);
     transform-origin: left;
