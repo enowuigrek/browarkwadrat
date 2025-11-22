@@ -34,6 +34,13 @@ export function BeerDescription({ beer }) {
 
     return (
         <div className={styles.container}>
+            {/* Logo */}
+            <img
+                src="/logo-cale.svg"
+                alt="Browar Kwadrat"
+                className={styles.logo}
+            />
+
             {/* Hero Section */}
             <div className={styles.hero}>
                 <div className={styles.heroContent}>
