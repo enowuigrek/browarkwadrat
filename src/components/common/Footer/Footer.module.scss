@@ -5,58 +5,98 @@
     border-top: 1px solid vars.$border-color;
     margin-top: vars.$space-2xl;
     width: 100%;
+
+    // Fade in animation
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .footerContent {
     max-width: 800px;
     margin: 0 auto;
-    padding: vars.$space-lg;
+    padding: vars.$space-xl vars.$space-lg;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    gap: vars.$space-md;
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-        gap: vars.$space-sm;
-    }
+    gap: vars.$space-lg;
 }
 
 .socialLinks {
     display: flex;
-    gap: vars.$space-md;
+    gap: vars.$space-xl;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .socialLink {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    color: vars.$text-muted;
+    gap: vars.$space-xs;
+    color: vars.$beer-amber;
     text-decoration: none;
     transition: all vars.$transition-medium;
+    opacity: 0.8;
 
     svg {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         transition: all vars.$transition-medium;
     }
 
+    span {
+        font-size: 0.75rem;
+        color: vars.$text-dim;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: vars.$font-weight-medium;
+        transition: color vars.$transition-medium;
+    }
+
     &:hover {
-        color: vars.$beer-amber;
+        opacity: 1;
+        transform: translateY(-4px);
 
         svg {
-            transform: translateY(-2px);
+            transform: scale(1.2);
+        }
+
+        span {
+            color: vars.$beer-amber;
         }
     }
 }
 
 .copyright {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: vars.$text-dim;
+    text-align: center;
+    padding-top: vars.$space-sm;
+    border-top: 1px solid vars.$border-color;
+    width: 100%;
 
     span {
         font-weight: vars.$font-weight-normal;
+    }
+}
+
+// Responsive
+@media (max-width: 768px) {
+    .footerContent {
+        padding: vars.$space-lg;
+    }
+
+    .socialLinks {
+        gap: vars.$space-lg;
     }
 }

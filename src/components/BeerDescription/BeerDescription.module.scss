@@ -1,5 +1,17 @@
 @use '../../styles/variables.module.scss' as vars;
 
+// Animation keyframes
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .container {
     min-height: 100vh;
     background: vars.$background-color;
@@ -10,6 +22,7 @@
 .hero {
     padding: vars.$space-2xl 0 vars.$space-xl 0;
     background: linear-gradient(180deg, vars.$surface-dark 0%, vars.$background-color 100%);
+    animation: fadeInUp 0.6s ease-out;
 }
 
 .heroContent {
@@ -78,6 +91,7 @@
     max-width: 800px;
     margin: 0 auto;
     padding: vars.$space-xl vars.$space-lg;
+    animation: fadeInUp 0.6s ease-out 0.1s both;
 }
 
 .parametersHeader {
@@ -186,6 +200,7 @@
     max-width: 800px;
     margin: 0 auto;
     padding: vars.$space-xl vars.$space-lg;
+    animation: fadeInUp 0.6s ease-out 0.2s both;
 }
 
 .ingredientsHeader {
@@ -276,6 +291,7 @@
     max-width: 800px;
     margin: 0 auto;
     padding: vars.$space-lg vars.$space-lg vars.$space-xl vars.$space-lg;
+    animation: fadeInUp 0.6s ease-out 0.3s both;
 }
 
 .recipeCard {
