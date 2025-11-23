@@ -120,9 +120,10 @@
     line-height: 1.2;
     letter-spacing: 0.01em;
     animation: fadeInUp 0.8s ease-out;
+    text-align: center;
 
     @media (max-width: 768px) {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
     }
 }
 
@@ -163,7 +164,7 @@
 }
 
 .description {
-    font-size: 1.25rem;
+    //font-size: 1.25rem;
     line-height: 1.8;
     color: vars.$text-muted;
     max-width: 700px;
@@ -527,8 +528,7 @@
 }
 
 .recipeCard {
-    background: linear-gradient(135deg, vars.$surface-dark 0%, vars.$surface-medium 100%);
-    border: 1px solid vars.$border-color;
+
     padding: vars.$space-lg;
     display: flex;
     align-items: center;
