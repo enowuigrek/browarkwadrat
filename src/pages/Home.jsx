@@ -8,6 +8,11 @@ export function Home() {
             {/* Hero Section */}
             <div className={styles.hero}>
                 <div className={styles.heroContent}>
+                    <img
+                        src="/logo-cale.svg"
+                        alt="Browar Kwadrat"
+                        className={styles.logo}
+                    />
                     <h1 className={styles.title}>Browar Kwadrat</h1>
                     <p className={styles.subtitle}>Domowe piwa rzemieślnicze z Częstochowy</p>
 
