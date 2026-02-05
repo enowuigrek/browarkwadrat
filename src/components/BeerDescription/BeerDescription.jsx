@@ -26,10 +26,10 @@ export function BeerDescription({ beer }) {
     ];
 
     const ingredients = [
-        { title: "Słody", items: malts, icon: <GiWheat />, colorClass: styles.maltColor },
-        { title: "Chmiele", items: hops, icon: <GiHops />, colorClass: styles.hopsColor },
-        { title: "Drożdże", items: [yeast], icon: <FaFlask />, colorClass: styles.yeastColor },
-        ...(adjuncts?.length > 0 ? [{ title: "Dodatki", items: adjuncts, icon: <FaLeaf />, colorClass: styles.adjunctsColor }] : [])
+        { title: "Słody", items: malts, icon: <GiWheat /> },
+        { title: "Chmiele", items: hops, icon: <GiHops /> },
+        { title: "Drożdże", items: [yeast], icon: <FaFlask /> },
+        ...(adjuncts?.length > 0 ? [{ title: "Dodatki", items: adjuncts, icon: <FaLeaf /> }] : [])
     ];
 
     return (
@@ -81,7 +81,7 @@ export function BeerDescription({ beer }) {
                     {ingredients.map((ingredient, index) => (
                         <div key={index} className={styles.ingredientCard}>
                             <div className={styles.ingredientHeader}>
-                                <div className={`${styles.ingredientIcon} ${ingredient.colorClass}`}>
+                                <div className={styles.ingredientIcon}>
                                     {ingredient.icon}
                                 </div>
                                 <h3>{ingredient.title}</h3>
