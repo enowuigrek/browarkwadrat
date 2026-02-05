@@ -23,34 +23,6 @@
     gap: vars.$space-lg;
 }
 
-// Logo - kwadrat placeholder
-.logoSquare {
-    width: 120px;
-    height: 120px;
-    background: vars.$surface-dark;
-    border: 2px solid vars.$beer-amber;
-    border-radius: vars.$radius-md;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-
-    // Subtle glow effect
-    box-shadow: 0 0 30px vars.$accent-glow;
-
-    transition: all vars.$transition-medium;
-
-    &:hover {
-        transform: rotate(5deg) scale(1.05);
-        box-shadow: 0 0 40px rgba(212, 165, 116, 0.3);
-    }
-}
-
-.logoIcon {
-    font-size: 3.5rem;
-    color: vars.$beer-amber;
-}
-
 // Typography
 .title {
     font-size: 3.5rem;
@@ -156,15 +128,6 @@
 @media (max-width: 768px) {
     .container {
         padding: vars.$space-md;
-    }
-
-    .logoSquare {
-        width: 100px;
-        height: 100px;
-    }
-
-    .logoIcon {
-        font-size: 3rem;
     }
 
     .infoSection {

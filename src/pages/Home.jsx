@@ -1,5 +1,4 @@
 import React from 'react';
-import { GiBeerBottle } from 'react-icons/gi';
 import styles from './Home.module.scss';
 
 export function Home() {
@@ -8,11 +7,6 @@ export function Home() {
             {/* Hero Section */}
             <div className={styles.hero}>
                 <div className={styles.heroContent}>
-                    {/* Logo placeholder - kwadrat */}
-                    <div className={styles.logoSquare}>
-                        <GiBeerBottle className={styles.logoIcon} />
-                    </div>
-
                     <h1 className={styles.title}>Browar Kwadrat</h1>
                     <p className={styles.subtitle}>Domowe piwa rzemieślnicze z Częstochowy</p>
 
