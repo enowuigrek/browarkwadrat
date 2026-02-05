@@ -1,19 +1,56 @@
 @use './variables.module.scss' as *;
 
-// CSS Reset (opcjonalnie)
+// Global Reset
 *, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: sans-serif;
-    background: $background-color;
-    color: $text-color;
+html {
+    scroll-behavior: smooth;
 }
 
+body {
+    font-family: $font-family;
+    background: $background-color;
+    color: $text-color;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Global link styles
 a {
     text-decoration: none;
     color: inherit;
+}
+
+// Selection color
+::selection {
+    background: $beer-amber;
+    color: $background-color;
+}
+
+::-moz-selection {
+    background: $beer-amber;
+    color: $background-color;
+}
+
+// Scrollbar styling (webkit browsers)
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: $surface-dark;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $surface-medium;
+    border-radius: $radius-sm;
+
+    &:hover {
+        background: $beer-amber;
+    }
 }

@@ -10,17 +10,27 @@ import { DalejJestTaniej } from './pages/DalejJestTaniej.jsx';
 import './styles/index.scss';
 
 const router = createBrowserRouter([
+    // Main pages WITH header/layout
     {
         path: '/',
-        element: <Layout />, // wspólny layout z headerem
+        element: <Layout />,
         children: [
             { index: true, element: <Home /> },
-            { path: 'piwa', element: <Home /> }, // jeśli chcesz listę pod /piwa
             { path: 'o-browarze', element: <About /> },
-            { path: 'domowka', element: <Domowka /> },
-            { path: 'wolnosypane', element: <Wolnosypane /> },
-            { path: 'dalejjesttaniej', element: <DalejJestTaniej /> },
         ],
+    },
+    // Beer pages WITHOUT header/layout (clean QR-scanned experience)
+    {
+        path: 'domowka',
+        element: <Domowka />,
+    },
+    {
+        path: 'wolnosypane',
+        element: <Wolnosypane />,
+    },
+    {
+        path: 'dalejjesttaniej',
+        element: <DalejJestTaniej />,
     },
 ]);
 
