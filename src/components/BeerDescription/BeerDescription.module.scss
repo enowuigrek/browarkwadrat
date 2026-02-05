@@ -85,18 +85,17 @@
     color: vars.$text-color;
 }
 
-// Logo
+// Logo - matching home page style
 .logo {
     display: block;
-    width: 400px;
+    width: 500px;
     height: auto;
-    margin: vars.$space-lg 0 vars.$space-md vars.$space-lg;
-    animation: slideInLeft 0.6s ease-out;
+    margin: vars.$space-lg auto vars.$space-md auto;
+    animation: fadeInUp 0.6s ease-out;
     filter: brightness(0) invert(1);
 
     @media (max-width: 768px) {
-        width: 300px;
-        margin-left: vars.$space-md;
+        width: 360px;
     }
 }
 
@@ -114,7 +113,7 @@
 
 .beerName {
     font-family: vars.$font-handwritten;
-    font-size: 4.5rem;
+    font-size: 4rem;
     font-weight: vars.$font-weight-normal;
     margin-bottom: vars.$space-md;
     color: vars.$text-color;
@@ -123,7 +122,7 @@
     animation: fadeInUp 0.8s ease-out;
 
     @media (max-width: 768px) {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 }
 
@@ -148,9 +147,7 @@
     color: vars.$beer-amber;
     position: relative;
     display: inline-block;
-    padding: vars.$space-xs vars.$space-md;
-    border: 2px solid vars.$beer-amber;
-    animation: pulseGlow 3s ease-in-out infinite, shimmerText 3s ease-in-out infinite;
+    animation: shimmerText 3s ease-in-out infinite;
 }
 
 .batchTag {
@@ -254,7 +251,20 @@
     position: relative;
     overflow: hidden;
 
+    // Corner accent square
     &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, vars.$beer-amber 0%, transparent 100%);
+        opacity: 0.1;
+    }
+
+    // Top line on hover
+    &::after {
         content: '';
         position: absolute;
         top: 0;
@@ -273,6 +283,10 @@
         box-shadow: 0 12px 32px vars.$accent-glow;
 
         &::before {
+            opacity: 0.2;
+        }
+
+        &::after {
             transform: scaleX(1);
         }
 
@@ -378,6 +392,19 @@
     padding: vars.$space-lg;
     transition: all vars.$transition-medium;
     position: relative;
+    overflow: hidden;
+
+    // Corner accent square
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, vars.$beer-amber 0%, transparent 100%);
+        opacity: 0.1;
+    }
 
     &::after {
         content: '';
@@ -394,6 +421,10 @@
         border-color: vars.$beer-amber;
         transform: translateY(-6px);
         box-shadow: 0 12px 32px vars.$accent-glow;
+
+        &::before {
+            opacity: 0.2;
+        }
 
         &::after {
             left: 0;
