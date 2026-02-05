@@ -38,13 +38,13 @@
 
 // Logo
 .logo {
-    width: 250px;
+    width: 500px;
     height: auto;
     margin-bottom: vars.$space-md;
     filter: brightness(0) invert(1); // czarne logo -> białe
 
     @media (max-width: 768px) {
-        width: 180px;
+        width: 360px;
     }
 }
 

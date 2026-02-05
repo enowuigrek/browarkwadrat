@@ -21,14 +21,14 @@
 // Logo
 .logo {
     display: block;
-    width: 200px;
+    width: 400px;
     height: auto;
     margin: vars.$space-lg 0 vars.$space-md vars.$space-lg;
     animation: fadeInUp 0.4s ease-out;
     filter: brightness(0) invert(1); // czarne logo -> białe
 
     @media (max-width: 768px) {
-        width: 150px;
+        width: 300px;
         margin-left: vars.$space-md;
     }
 }
