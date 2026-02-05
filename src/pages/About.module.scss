@@ -1,8 +1,0 @@
-@use '../styles/variables.module.scss' as vars;
-
-.aboutContainer {
-    max-width: 700px;
-    margin: 0 auto;
-    color: vars.$text-color;
-    line-height: 1.6;
-}

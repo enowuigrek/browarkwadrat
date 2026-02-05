@@ -1,5 +1,5 @@
 import React from 'react';
-import { Footer } from '../components/common/Footer/Footer.jsx';
+import { Footer } from '../components/Footer/Footer.jsx';
 import styles from './Home.module.scss';
 
 export function Home() {
