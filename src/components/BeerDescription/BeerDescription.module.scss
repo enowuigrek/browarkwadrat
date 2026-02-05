@@ -36,7 +36,7 @@
 // Hero Section
 .hero {
     padding: vars.$space-2xl 0 vars.$space-xl 0;
-    background: linear-gradient(180deg, vars.$surface-dark 0%, vars.$background-color 100%);
+    background: linear-gradient(180deg, vars.$background-color 0%, vars.$surface-dark 100%);
     animation: fadeInUp 0.6s ease-out;
 }
 
