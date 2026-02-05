@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+import { Footer } from '../common/Footer/Footer.jsx';
 import styles from './Layout.module.scss';
 
 export default function Layout() {
@@ -35,9 +36,13 @@ export default function Layout() {
                     </NavLink>
                 </nav>
             </header>
+
             <main className={styles.mainContent}>
                 <Outlet />
             </main>
+
+            {/* 🆕 Wspólny Footer dla wszystkich stron */}
+            <Footer />
         </div>
     );
 }
