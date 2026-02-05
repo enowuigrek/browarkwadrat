@@ -41,6 +41,7 @@
     width: 150px;
     height: auto;
     margin-bottom: vars.$space-sm;
+    filter: brightness(0) invert(1); // czarne logo -> białe
 
     @media (max-width: 768px) {
         width: 120px;
