@@ -5,6 +5,7 @@ import styles from './Footer.module.scss';
 export function Footer() {
     return (
         <footer className={styles.footer}>
+            <div className={styles.patternOverlay}></div>
             <div className={styles.footerContent}>
                 <div className={styles.socialLinks}>
                     <a
@@ -16,7 +17,7 @@ export function Footer() {
                         <span className={styles.iconCircle}>
                             <FaFacebook />
                         </span>
-                        <span className={styles.linkText}>Browar Kwadrat</span>
+                        <span className={styles.linkText}>Kwadrat</span>
                     </a>
                     <a
                         href="https://www.facebook.com/bractwopiwneczestochowa"
@@ -36,7 +37,7 @@ export function Footer() {
                         <span className={styles.iconCircle}>
                             <FaEnvelope />
                         </span>
-                        <span className={styles.linkText}>Kontakt</span>
+                        <span className={styles.linkText}>enowuigrek@gmail.com</span>
                     </a>
                 </div>
                 <div className={styles.copyright}>

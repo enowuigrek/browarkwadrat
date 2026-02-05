@@ -38,6 +38,82 @@
     border-top: 1px solid vars.$border-color;
     margin-top: vars.$space-2xl;
     width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+// LV-style pattern with small squares
+.patternOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image:
+        // Small squares in diagonal pattern like LV
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 35px,
+            rgba(45, 212, 191, 0.5) 35px,
+            rgba(45, 212, 191, 0.5) 36px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 35px,
+            rgba(45, 212, 191, 0.5) 35px,
+            rgba(45, 212, 191, 0.5) 36px
+        );
+    // Small squares at intersections
+    background-size: 50px 50px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: radial-gradient(
+            circle,
+            rgba(45, 212, 191, 0.8) 2px,
+            transparent 2px
+        );
+        background-size: 50px 50px;
+        background-position: 25px 25px;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        // Small square shapes scattered
+        background-image:
+            repeating-linear-gradient(
+                0deg,
+                transparent 0px,
+                transparent 48px,
+                rgba(45, 212, 191, 0.3) 48px,
+                rgba(45, 212, 191, 0.3) 52px,
+                transparent 52px,
+                transparent 100px
+            ),
+            repeating-linear-gradient(
+                90deg,
+                transparent 0px,
+                transparent 48px,
+                rgba(45, 212, 191, 0.3) 48px,
+                rgba(45, 212, 191, 0.3) 52px,
+                transparent 52px,
+                transparent 100px
+            );
+    }
 }
 
 .footerContent {
@@ -46,26 +122,24 @@
     padding: vars.$space-xl vars.$space-lg;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     gap: vars.$space-lg;
+    position: relative;
+    z-index: 1;
 
     @media (max-width: 768px) {
         flex-direction: column;
-        text-align: center;
+        align-items: flex-start;
     }
 }
 
-// Social links - left side
+// Social links - left side, vertical
 .socialLinks {
     display: flex;
-    gap: vars.$space-lg;
-    align-items: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: vars.$space-sm;
+    align-items: flex-start;
     animation: slideInLeft 0.6s ease-out;
-
-    @media (max-width: 768px) {
-        justify-content: center;
-    }
 }
 
 .socialLink {
@@ -95,36 +169,33 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     background: transparent;
-    border: 2px solid vars.$text-muted;
+    border: 1px solid vars.$text-dim;
     transition: all vars.$transition-medium;
 
     svg {
-        font-size: 1rem;
-        color: vars.$text-color;
+        font-size: 0.75rem;
+        color: vars.$text-dim;
         transition: color vars.$transition-medium;
     }
 }
 
 .linkText {
-    font-size: 0.85rem;
-    color: vars.$text-muted;
-    font-weight: vars.$font-weight-medium;
+    font-size: 0.8rem;
+    color: vars.$text-dim;
+    font-weight: vars.$font-weight-normal;
     transition: color vars.$transition-medium;
-
-    @media (max-width: 480px) {
-        display: none;
-    }
 }
 
 // Copyright - right side
 .copyright {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: vars.$text-dim;
     animation: slideInRight 0.6s ease-out;
+    align-self: flex-end;
 
     span {
         font-weight: vars.$font-weight-normal;
@@ -137,7 +208,8 @@
         padding: vars.$space-lg;
     }
 
-    .socialLinks {
-        gap: vars.$space-md;
+    .copyright {
+        align-self: flex-start;
+        margin-top: vars.$space-md;
     }
 }
