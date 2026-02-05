@@ -1,0 +1,43 @@
+@use '../../styles/variables.module.scss' as vars;
+
+.appWrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    background: vars.$background-color;
+    padding: 1rem vars.$padding;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: vars.$accent-color;
+}
+
+.nav a {
+    margin-left: 1rem;
+    color: vars.$text-color;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: vars.$accent-color;
+}
+
+.active {
+    border-bottom: 2px solid vars.$accent-color;
+}
+
+.mainContent {
+    flex: 1;
+    padding: 2rem vars.$padding;
+    background: vars.$background-color;
+}

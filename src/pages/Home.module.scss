@@ -1,0 +1,118 @@
+@use '../styles/variables.module.scss' as vars;
+
+.homeContainer {
+    color: vars.$text-color;
+}
+
+.hero {
+    background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url('/path/to/hero-bg.jpg') center/cover no-repeat;
+    padding: 4rem 0;
+    text-align: center;
+    color: vars.$background-color;
+}
+
+.heroContent {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.heroContent h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.heroContent p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.ctaButton {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: vars.$accent-color;
+    color: vars.$background-color;
+    border-radius: 2rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.beersSection {
+    padding: 3rem 0;
+}
+
+.beersSection h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: vars.$text-color;
+}
+
+.beersGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 1.5rem;
+}
+
+.beerCard {
+    background: rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    border-radius: vars.$border-radius;
+    text-align: center;
+    transition: transform 0.3s, background 0.3s;
+
+    a {
+        text-decoration: none;
+        color: vars.$text-color;
+    }
+
+    &:hover {
+        background: rgba(0,0,0,0.2);
+        transform: translateY(-5px);
+    }
+
+    h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1.25rem;
+    }
+
+    .styleName {
+        font-size: 0.9rem;
+        color: vars.$accent-color;
+    }
+}
+
+.aboutCTA {
+    background: rgba(0,0,0,0.05);
+    padding: 3rem 0;
+    text-align: center;
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: vars.$text-color;
+    }
+
+    p {
+        margin-bottom: 1.5rem;
+    }
+
+    .ctaLink {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border: 2px solid vars.$accent-color;
+        border-radius: 2rem;
+        color: vars.$accent-color;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background 0.3s, color 0.3s;
+
+        &:hover {
+            background: vars.$accent-color;
+            color: vars.$background-color;
+        }
+    }
+}
