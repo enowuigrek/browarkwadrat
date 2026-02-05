@@ -114,16 +114,16 @@
 
 .beerName {
     font-family: vars.$font-handwritten;
-    font-size: 5rem;
-    font-weight: vars.$font-weight-bold;
+    font-size: 4.5rem;
+    font-weight: vars.$font-weight-normal;
     margin-bottom: vars.$space-md;
     color: vars.$text-color;
-    line-height: 1;
-    letter-spacing: 0.02em;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
     animation: fadeInUp 0.8s ease-out;
 
     @media (max-width: 768px) {
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
 }
 
