@@ -1,4 +1,5 @@
 import React from 'react';
+import { Footer } from '../components/common/Footer/Footer.jsx';
 import styles from './Home.module.scss';
 
 export function Home() {
@@ -51,6 +52,7 @@ export function Home() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }
