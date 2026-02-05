@@ -70,6 +70,15 @@
     }
 }
 
+@keyframes shimmerText {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(45, 212, 191, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(45, 212, 191, 0.8), 0 0 30px rgba(45, 212, 191, 0.4);
+    }
+}
+
 .container {
     min-height: 100vh;
     background: vars.$background-color;
@@ -140,25 +149,8 @@
     position: relative;
     display: inline-block;
     padding: vars.$space-xs vars.$space-md;
-    background: rgba(45, 212, 191, 0.1);
-    animation: pulseGlow 3s ease-in-out infinite;
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(
-            90deg,
-            transparent 0%,
-            rgba(45, 212, 191, 0.3) 50%,
-            transparent 100%
-        );
-        background-size: 200% 100%;
-        animation: shimmer 3s ease-in-out infinite;
-    }
+    border: 2px solid vars.$beer-amber;
+    animation: pulseGlow 3s ease-in-out infinite, shimmerText 3s ease-in-out infinite;
 }
 
 .batchTag {
