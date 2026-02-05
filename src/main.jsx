@@ -7,6 +7,7 @@ import { About } from './pages/About.jsx';
 import { Domowka } from './pages/Domowka.jsx';
 import { Wolnosypane } from './pages/Wolnosypane.jsx';
 import { DalejJestTaniej } from './pages/DalejJestTaniej.jsx';
+import { NowaStaraSzkola } from './pages/NowaStaraSzkola.jsx';
 import './styles/index.scss';
 
 const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
     {
         path: 'dalejjesttaniej',
         element: <DalejJestTaniej />,
+    },
+    {
+        path: 'nowastarszkola',
+        element: <NowaStaraSzkola />,
     },
 ]);
 
