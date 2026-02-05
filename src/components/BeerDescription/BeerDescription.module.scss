@@ -4,11 +4,69 @@
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes expandLine {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(45, 212, 191, 0.6);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
     }
 }
 
@@ -24,8 +82,8 @@
     width: 400px;
     height: auto;
     margin: vars.$space-lg 0 vars.$space-md vars.$space-lg;
-    animation: fadeInUp 0.4s ease-out;
-    filter: brightness(0) invert(1); // czarne logo -> białe
+    animation: slideInLeft 0.6s ease-out;
+    filter: brightness(0) invert(1);
 
     @media (max-width: 768px) {
         width: 300px;
@@ -37,7 +95,6 @@
 .hero {
     padding: vars.$space-2xl 0 vars.$space-xl 0;
     background: linear-gradient(180deg, vars.$background-color 0%, vars.$surface-dark 100%);
-    animation: fadeInUp 0.6s ease-out;
 }
 
 .heroContent {
@@ -46,59 +103,119 @@
     padding: 0 vars.$space-lg;
 }
 
-.batchBadge {
-    display: inline-flex;
-    align-items: center;
-    gap: vars.$space-xs;
-    background: vars.$surface-medium;
-    border: 1px solid vars.$border-color;
-    padding: vars.$space-xs vars.$space-md;
-    transition: all vars.$transition-medium;
-
-    &:hover {
-        border-color: vars.$beer-amber;
-    }
-}
-
-.batchLabel {
-    font-size: 0.75rem;
-    font-weight: vars.$font-weight-medium;
-    color: vars.$text-dim;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.batchNumber {
-    font-size: 1rem;
-    font-weight: vars.$font-weight-bold;
-    color: vars.$beer-amber;
-}
-
 .beerName {
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: vars.$font-weight-bold;
     margin-bottom: vars.$space-md;
     color: vars.$text-color;
     line-height: 1.1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    animation: fadeInUp 0.8s ease-out;
 
     @media (max-width: 768px) {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
+}
+
+// Style row with batch number
+.styleRow {
+    display: flex;
+    align-items: center;
+    gap: vars.$space-lg;
+    margin-bottom: vars.$space-lg;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease-out 0.1s both;
 }
 
 .styleName {
     font-size: 1.5rem;
-    color: vars.$beer-amber;
     font-weight: vars.$font-weight-medium;
-    margin-bottom: vars.$space-lg;
+    margin: 0;
+    position: relative;
+}
+
+.styleText {
+    color: vars.$beer-amber;
+    position: relative;
+    display: inline-block;
+    padding: vars.$space-xs vars.$space-md;
+    border: 2px solid vars.$beer-amber;
+    background: rgba(45, 212, 191, 0.1);
+    animation: pulseGlow 3s ease-in-out infinite;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(45, 212, 191, 0.3) 50%,
+            transparent 100%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 3s ease-in-out infinite;
+    }
+}
+
+.batchTag {
+    font-size: 1.25rem;
+    font-weight: vars.$font-weight-bold;
+    color: vars.$text-dim;
+    padding: vars.$space-xs vars.$space-sm;
+    border: 1px solid vars.$border-color;
+    background: vars.$surface-medium;
+    transition: all vars.$transition-medium;
+
+    &:hover {
+        color: vars.$beer-amber;
+        border-color: vars.$beer-amber;
+    }
 }
 
 .description {
     font-size: 1.25rem;
-    line-height: 1.7;
+    line-height: 1.8;
     color: vars.$text-muted;
     max-width: 700px;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+// Section Header with Lines
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: vars.$space-lg;
+    margin-bottom: vars.$space-xl;
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: vars.$font-weight-bold;
+        color: vars.$beer-amber;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        white-space: nowrap;
+    }
+}
+
+.headerLine {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, vars.$beer-amber, transparent);
+    max-width: 150px;
+    transform: scaleX(0);
+
+    &:first-child {
+        transform-origin: right;
+    }
+
+    &:last-child {
+        transform-origin: left;
+    }
 }
 
 // Parameters Section
@@ -106,68 +223,73 @@
     max-width: 800px;
     margin: 0 auto;
     padding: vars.$space-xl vars.$space-lg;
-    animation: fadeInUp 0.6s ease-out 0.1s both;
-}
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 
-.parametersHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: vars.$space-lg;
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
 
-    h2 {
-        font-size: 2rem;
-        font-weight: vars.$font-weight-bold;
-        color: vars.$text-color;
-        margin: 0;
-    }
+        .headerLine {
+            animation: expandLine 1s ease-out 0.2s both;
+        }
 
-    @media (max-width: 768px) {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: vars.$space-sm;
+        .parameterCard {
+            &:nth-child(1) { animation: fadeInUp 0.6s ease-out 0.3s both; }
+            &:nth-child(2) { animation: fadeInUp 0.6s ease-out 0.4s both; }
+            &:nth-child(3) { animation: fadeInUp 0.6s ease-out 0.5s both; }
+        }
+
+        .progress {
+            animation: expandLine 1.5s ease-out 0.7s both;
+        }
     }
 }
 
 .parametersGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: vars.$space-lg;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .parameterCard {
     background: vars.$surface-dark;
     border: 1px solid vars.$border-color;
-    border-radius: vars.$radius-md;
     padding: vars.$space-lg;
     transition: all vars.$transition-medium;
     position: relative;
     overflow: hidden;
 
-    // Kwadratowy akcent
     &::before {
         content: '';
         position: absolute;
-        top: -10px;
-        right: -10px;
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(135deg, vars.$beer-amber 0%, transparent 70%);
-        opacity: 0.05;
-        border-radius: vars.$radius-md;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: vars.$beer-amber;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform vars.$transition-medium;
     }
 
     &:hover {
         border-color: vars.$beer-amber;
-        transform: translateY(-4px);
-        box-shadow: 0 8px 24px vars.$accent-glow;
+        transform: translateY(-6px);
+        box-shadow: 0 12px 32px vars.$accent-glow;
 
         &::before {
-            opacity: 0.1;
+            transform: scaleX(1);
         }
 
         .parameterIcon {
-            transform: scale(1.1) rotate(-5deg);
+            transform: scale(1.2) rotate(-10deg);
+            animation: float 2s ease-in-out infinite;
         }
     }
 }
@@ -181,7 +303,7 @@
 .parameterIcon {
     font-size: 2.5rem;
     color: vars.$beer-amber;
-    transition: transform vars.$transition-medium;
+    transition: all vars.$transition-medium;
 }
 
 .parameterValue {
@@ -194,7 +316,7 @@
         line-height: 1;
 
         .unit {
-            font-size: 1.125rem;
+            font-size: 1rem;
             color: vars.$beer-amber;
             margin-left: 0.25rem;
             font-weight: vars.$font-weight-medium;
@@ -202,49 +324,97 @@
     }
 
     .label {
-        font-size: 0.875rem;
+        font-size: 0.75rem;
         color: vars.$text-dim;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
-        margin-top: 0.25rem;
+        letter-spacing: 0.1em;
+        margin-top: vars.$space-xs;
     }
 }
 
+.progressBar {
+    margin-top: vars.$space-md;
+    height: 4px;
+    background: vars.$surface-medium;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    width: 70%;
+    background: linear-gradient(90deg, vars.$beer-amber, vars.$beer-light);
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
 // Ingredients Section
-.ingredientsWrapper {
+.ingredientsSection {
     max-width: 800px;
     margin: 0 auto;
     padding: vars.$space-xl vars.$space-lg;
-    animation: fadeInUp 0.6s ease-out 0.2s both;
-}
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 
-.ingredientsHeader {
-    margin-bottom: vars.$space-lg;
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
 
-    h2 {
-        font-size: 2rem;
-        font-weight: vars.$font-weight-bold;
-        color: vars.$text-color;
+        .headerLine {
+            animation: expandLine 1s ease-out 0.2s both;
+        }
+
+        .ingredientCard {
+            &:nth-child(1) { animation: fadeInUp 0.6s ease-out 0.3s both; }
+            &:nth-child(2) { animation: fadeInUp 0.6s ease-out 0.4s both; }
+            &:nth-child(3) { animation: fadeInUp 0.6s ease-out 0.5s both; }
+            &:nth-child(4) { animation: fadeInUp 0.6s ease-out 0.6s both; }
+        }
     }
 }
 
 .ingredientsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: vars.$space-lg;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .ingredientCard {
     background: vars.$surface-dark;
     border: 1px solid vars.$border-color;
-    border-radius: vars.$radius-md;
     padding: vars.$space-lg;
     transition: all vars.$transition-medium;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 3px;
+        background: vars.$beer-amber;
+        transition: all vars.$transition-medium;
+    }
 
     &:hover {
         border-color: vars.$beer-amber;
-        transform: translateY(-4px);
-        box-shadow: 0 8px 24px vars.$accent-glow;
+        transform: translateY(-6px);
+        box-shadow: 0 12px 32px vars.$accent-glow;
+
+        &::after {
+            left: 0;
+            width: 100%;
+        }
+
+        .ingredientIcon {
+            transform: scale(1.15);
+            animation: float 2s ease-in-out infinite;
+        }
     }
 }
 
@@ -253,11 +423,15 @@
     align-items: center;
     gap: vars.$space-sm;
     margin-bottom: vars.$space-md;
+    padding-bottom: vars.$space-sm;
+    border-bottom: 1px solid vars.$border-color;
 
     h3 {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
         font-weight: vars.$font-weight-bold;
         color: vars.$text-color;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
     }
 }
 
@@ -265,38 +439,50 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
     color: vars.$beer-amber;
+    background: rgba(45, 212, 191, 0.1);
+    border: 1px solid vars.$beer-amber;
     flex-shrink: 0;
-    transition: transform vars.$transition-medium;
-
-    .ingredientCard:hover & {
-        transform: scale(1.1);
-    }
+    transition: all vars.$transition-medium;
 }
 
 .ingredientList {
     display: flex;
     flex-direction: column;
-    gap: vars.$space-sm;
+    gap: vars.$space-xs;
 }
 
 .ingredientItem {
     display: flex;
     align-items: flex-start;
     gap: vars.$space-sm;
+    padding: vars.$space-xs 0;
+    transition: all vars.$transition-fast;
+
+    &:hover {
+        transform: translateX(4px);
+
+        .bullet {
+            background: vars.$beer-light;
+            transform: scale(1.3);
+        }
+    }
 
     .bullet {
-        width: 6px;
-        height: 6px;
+        width: 8px;
+        height: 8px;
         background: vars.$beer-amber;
         margin-top: 0.5rem;
         flex-shrink: 0;
+        transition: all vars.$transition-fast;
     }
 
     span {
         color: vars.$text-muted;
-        font-size: 1rem;
+        font-size: 0.95rem;
         line-height: 1.6;
     }
 }
@@ -306,23 +492,55 @@
     max-width: 800px;
     margin: 0 auto;
     padding: vars.$space-lg vars.$space-lg vars.$space-xl vars.$space-lg;
-    animation: fadeInUp 0.6s ease-out 0.3s both;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+
+        .recipeCard {
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+    }
 }
 
 .recipeCard {
-    background: vars.$surface-dark;
+    background: linear-gradient(135deg, vars.$surface-dark 0%, vars.$surface-medium 100%);
     border: 1px solid vars.$border-color;
-    border-radius: vars.$radius-md;
     padding: vars.$space-lg;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: vars.$space-lg;
     transition: all vars.$transition-medium;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(45, 212, 191, 0.1),
+            transparent
+        );
+        transition: left 0.6s ease;
+    }
 
     &:hover {
         border-color: vars.$beer-amber;
-        box-shadow: 0 8px 24px vars.$accent-glow;
+        box-shadow: 0 12px 32px vars.$accent-glow;
+
+        &::before {
+            left: 100%;
+        }
     }
 }
 
@@ -347,15 +565,32 @@
     background: vars.$beer-amber;
     color: vars.$background-color;
     padding: vars.$space-sm vars.$space-lg;
-    border-radius: vars.$radius-md;
     font-weight: vars.$font-weight-bold;
     text-decoration: none;
     transition: all vars.$transition-medium;
     white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.4s ease;
+    }
 
     &:hover {
         background: vars.$beer-dark;
-        transform: translateX(4px);
+        transform: scale(1.05);
+        box-shadow: 0 4px 16px vars.$accent-glow;
+
+        &::before {
+            left: 100%;
+        }
     }
 
     svg {
@@ -363,7 +598,7 @@
     }
 
     &:hover svg {
-        transform: translateX(2px);
+        transform: translateX(4px);
     }
 }
 
@@ -374,18 +609,22 @@
     }
 
     .parametersSection,
-    .ingredientsWrapper,
+    .ingredientsSection,
     .recipeSection {
         padding-left: vars.$space-md;
         padding-right: vars.$space-md;
     }
 
-    .parametersGrid {
-        grid-template-columns: 1fr;
+    .sectionHeader {
+        gap: vars.$space-sm;
+
+        h2 {
+            font-size: 1.25rem;
+        }
     }
 
-    .ingredientsGrid {
-        grid-template-columns: 1fr;
+    .headerLine {
+        max-width: 60px;
     }
 
     .recipeCard {
