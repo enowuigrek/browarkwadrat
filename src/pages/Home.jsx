@@ -18,7 +18,7 @@ export function Home() {
             <main>
                 <section className={styles.hero}>
                     <p className={styles.label}>Domowy browar · Częstochowa</p>
-                    <h1 className={styles.title}>Browar Kwadrat</h1>
+                    <h1 className={styles.title}>Kwadrat</h1>
                     <p className={styles.lead}>
                         To miejsce, w którym opisuję swoje piwa, żeby każdy, kto dostanie butelkę, wiedział
                         co pije.

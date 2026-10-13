@@ -6,10 +6,10 @@ import styles from './Szyld.module.scss';
 // Szyld niesie wyłącznie nawigację: pozycja aktywna pełną siłą, reszta przygaszona.
 // Ikony serwisów społecznościowych są w stopce, nie w znaku marki.
 export function Szyld({ position = 'side', nav = [] }) {
-    const hidden = useHideOnScroll();
+    const { hidden, past } = useHideOnScroll();
 
     return (
-        <Metka position={position} hidden={hidden}>
+        <Metka position={position} hidden={hidden} docked={past}>
             <nav className={styles.nav} aria-label="Główna">
                 {nav.map(({ label, to, active }) =>
                     to.startsWith('/') ? (

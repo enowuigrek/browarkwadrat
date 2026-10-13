@@ -87,3 +87,51 @@ Pole na jedno zdanie i **nieobowiązkowy podpis**. Kto chce się podpisać, podp
 Znak Kwadratu, nazwa browaru i miasto, pod spodem autor strony. Po prawej logo Bractwa
 Piwnego jako link, bez adresu obok. Ikona Facebooka siedzi w szyldzie na końcu nawigacji,
 nie w stopce, i jest **kwadratowa** — w tym systemie nie ma ani jednego zaokrąglenia.
+
+## Barwy piw
+
+Barwa gruntu idzie za barwą piwa, ale **w pełnym nasyceniu, nie w dosłownej jasności**.
+Cztery jasne piwa dosłownie oddane dają cztery kremy i półka przestaje się różnicować.
+Dlatego rodzina zostaje (złoto, słoma, chmiel, pszenica), a chroma idzie w górę; piwa
+rozróżnia odcień w obrębie tej rodziny, nie jasność.
+
+| warka | piwo | styl | grunt | akcent |
+| --- | --- | --- | --- | --- |
+| 93 | Domówka | Old School Pale Ale | `#f5b82e` | `#8a3c06` |
+| 94 | Wolnosypane | Polish Pale Ale | `#e8d64f` | `#6d5a0a` |
+| 95 | 50 metrów dalej jest taniej | Polish Pale Ale | `#d6d33a` | `#4f5a12` |
+| 96 | Kolejna (ukryta) | Experimental Ale | `#ff3d8a` | `#ffffff` |
+| 97 | Nowa Stara Szkoła | Modern Grodziskie | `#dcbd76` | `#6b4e22` |
+
+Dwa progi, które trzeba trzymać przy każdej nowej barwie: czarny tekst na gruncie
+minimum 10:1 (tu 10,4–12,5), akcent względem gruntu minimum 3:1 (tu 4,3–5,6), żeby
+nadruk nie trafiony w rejestr był widoczny, ale nie czytał się jak druga litera.
+Zieleń chmielowa przy 95 to świadomy sygnał „chmiel", a nie wyjątek od zasady barwy —
+gdyby kiedyś przeszkadzała, wraca w złoto bez ruszania reszty.
+
+## Metka na podstronie piwa
+
+Na landingu metka stoi z lewej. Na podstronie piwa **hero jest wyśrodkowane jak
+etykieta**, więc metka startuje na środku — to ta sama kompozycja, co na butelce w ręku.
+Po przewinięciu, w tym samym progu, w którym chowa się szyld, metka **zjeżdża na swoją
+pozycję z lewej**: strona przechodzi z trybu „etykieta" w tryb „czytanie".
+
+Mechanika: pionowy `translateY(-48px)` siedzi na wspólnym opakowaniu (razem z szyldem),
+ale **poziome przesunięcie należy wyłącznie do metki** — opakowanie zawiera też szyld,
+który jest pasem na całą szerokość i nie może jechać w bok. W CSS metka ma docelową
+pozycję z lewej, a w stanie spoczynku dostaje `translateX` do środka. Wspólny
+`drop-shadow` dalej działa, bo filtr liczy się po transformacjach dzieci.
+
+Oba ruchy w `motion-metka` z `motion-ease`, jeden próg, jedno zdarzenie. Na telefonie
+metka od razu stoi z lewej — przy tej szerokości droga jest za krótka, żeby ruch coś
+znaczył, a wyśrodkowana metka wchodzi pod nawigację.
+
+## Ocena za przyciskiem
+
+Formularz nie stoi otwarty. W czarnym pasie jest jeden przycisk (`Oceń to piwo`),
+a formularz rozwija się dopiero po kliknięciu, w tym samym miejscu, bez modala
+i bez przeskoku strony. Powód jest prosty: otwarty formularz na dole każdej podstrony
+czyta się jak prośba o ocenę, a zamknięty jak oferta. Kto chce ocenić, kliknie.
+
+Przycisk znika po rozwinięciu, fokus idzie na pierwsze pole, `aria-expanded` opisuje
+stan. Pytania bez zmian — atrybuty, nie gwiazdki.

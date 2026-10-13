@@ -95,6 +95,19 @@ bo to ona jest znakiem marki, a nie nawigacja.
    nie wychodzi w lewo ani do góry. To rzut przedmiotu przy świetle z lewej u góry, a nie
    poświata dookoła.
 
+## Wariant wyśrodkowany
+
+Na podstronie piwa metka startuje **na środku**, bo hero jest tam złożone jak etykieta.
+Po przewinięciu wraca na pozycję z lewej razem ze schowaniem szyldu — jeden próg, jedno
+zdarzenie, czasy `motion-metka` i `motion-ease`.
+
+Poziome przesunięcie siedzi **na samej metce**, nie na wspólnym opakowaniu: opakowanie
+niesie też szyld, czyli pas na całą szerokość, który w bok jechać nie może. Wspólny
+`drop-shadow` to przeżywa, bo filtr liczy się po transformacjach dzieci.
+
+Na telefonie wariant wyśrodkowany nie działa: droga jest za krótka, żeby ruch coś
+znaczył, a metka na środku wchodzi pod nawigację. Tam metka od razu stoi z lewej.
+
 ## Treść szyldu
 
 Wyrównana **do prawej**, bo lewa strona należy do metki. Na stronie nawigacja w

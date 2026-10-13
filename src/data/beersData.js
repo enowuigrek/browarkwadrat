@@ -11,8 +11,8 @@ const beersData = [
         slug: "domowka",
         name: "Domówka",
         styleName: "Old School Pale Ale",
-        color: "#f2c75c",
-        accent: "#8a4a00",
+        color: "#f5b82e",
+        accent: "#8a3c06",
         intro: "Lekkie, przyjemne piwo na amerykańskim i nowozelandzkim chmielu, ale w subtelnym wydaniu.",
         description: [
             "Delikatna goryczka i wyważony profil słodowy sprawiają, że jest to piwo imprezowe, serialowe, spotkaniowe.",
@@ -40,8 +40,8 @@ const beersData = [
         slug: "wolnosypane",
         name: "Wolnosypane",
         styleName: "Polish Pale Ale",
-        color: "#f3e3ad",
-        accent: "#8a6a12",
+        color: "#e8d64f",
+        accent: "#6d5a0a",
         intro: "Niektóre piwa powstają z precyzyjnie zaplanowanej receptury, a inne… z przypadku.",
         description: [
             "To akurat z ustawki po pracy z Danielem, Dominikiem i Marcelem. Pomieszaliśmy w garze, zamówiliśmy pizzę, zjedliśmy i brzuch bolał. Ale piwo wyszło spoko.",
@@ -63,8 +63,8 @@ const beersData = [
         slug: "dalejjesttaniej",
         name: "50 metrów dalej jest taniej",
         styleName: "Polish Pale Ale",
-        color: "#e6dfa6",
-        accent: "#6b6412",
+        color: "#d6d33a",
+        accent: "#4f5a12",
         intro: "Delikatne pale ale z nutą słodkości od słodów cookie i pszenicznego.",
         description: [
             "Amerykańskie drożdże US-05 dają czysty charakter, a polski chmiel Książęcy zapewnia tradycyjną goryczkę z aromatycznym wykończeniem.",
@@ -105,8 +105,8 @@ const beersData = [
         slug: "nowastarszkola",
         name: "Nowa Stara Szkoła",
         styleName: "Modern Grodziskie",
-        color: "#f1ead6",
-        accent: "#7a6a4a",
+        color: "#dcbd76",
+        accent: "#6b4e22",
         intro: "Lekkie grodziskie, które pamięta o korzeniach, ale nie zamyka się w muzealnej gablocie.",
         description: [
             "Pozostaje rześkie, musujące i ultralekkie, jednak podane we współczesnej interpretacji.",

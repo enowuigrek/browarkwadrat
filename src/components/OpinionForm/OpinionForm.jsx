@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import styles from './OpinionForm.module.scss';
 
 // Te same pytania co na panelu porównawczym, żeby odpowiedzi dało się zestawić
@@ -9,17 +9,39 @@ const questions = [
     { id: 'aromat', label: 'Aromat', options: ['za słaby', 'w sam raz', 'za mocny'] },
 ];
 
-// Na razie sam widok — bez wysyłki.
+// Zamknięty czyta się jak oferta, otwarty jak prośba — więc rozwija się dopiero
+// po kliknięciu, w tym samym miejscu. Na razie sam widok — bez wysyłki.
 export function OpinionForm({ batchNumber }) {
+    const [open, setOpen] = useState(false);
     const [sent, setSent] = useState(false);
+    const formId = useId();
+    const formRef = useRef(null);
+
+    useEffect(() => {
+        if (open) formRef.current?.querySelector('input, textarea')?.focus();
+    }, [open]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
         setSent(true);
     };
 
+    if (!open) {
+        return (
+            <button
+                type="button"
+                className={styles.submit}
+                aria-expanded="false"
+                aria-controls={formId}
+                onClick={() => setOpen(true)}
+            >
+                Oceń to piwo
+            </button>
+        );
+    }
+
     return (
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form id={formId} ref={formRef} className={styles.form} onSubmit={handleSubmit}>
             {questions.map(({ id, label, options }) => (
                 <fieldset key={id} className={styles.question}>
                     <legend className={styles.legend}>{label}</legend>

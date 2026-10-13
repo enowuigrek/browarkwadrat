@@ -53,9 +53,22 @@
     }
 }
 
+// Tor metki: cała kolumna (z marginesami), żeby środek liczył się od niej.
+// Nie łapie kliknięć — pod spodem leży nawigacja.
+.track {
+    position: absolute;
+    inset: 0;
+    container-type: inline-size;
+    pointer-events: none;
+}
+
+// Pozycja docelowa zawsze z lewej: odstęp od krawędzi kolumny = własna szerokość.
+// Poziomy ruch należy wyłącznie do metki — opakowanie z szyldem jedzie tylko w pionie.
 .metka {
     position: absolute;
     top: 0;
+    left: var(--metka-w);
+    transition: transform $motion-metka $motion-ease;
     width: var(--metka-w);
     height: var(--metka-h);
     background: $contrast;
@@ -65,14 +78,16 @@
     justify-content: center;
     padding: 0 var(--luz) var(--luz);
 
-    // z boku: odstęp od lewej krawędzi kolumny = własna szerokość
-    [data-position="side"] > & {
-        left: var(--metka-w);
+    // spoczynek wariantu wyśrodkowanego: z lewej na środek toru
+    [data-position="center"]:not([data-docked]) & {
+        transform: translateX(calc(50cqw - 1.5 * var(--metka-w)));
     }
 
-    [data-position="center"] > & {
-        left: 50%;
-        transform: translateX(-50%);
+    // na telefonie droga jest za krótka — metka od razu stoi z lewej
+    @include phone {
+        [data-position="center"]:not([data-docked]) & {
+            transform: none;
+        }
     }
 }
 
@@ -88,12 +103,14 @@
     align-items: center;
     height: 100%;
 
-    // nigdy nie wchodzi na metkę
-    [data-position="side"] > & {
-        margin-left: calc(2 * var(--metka-w) + #{$space-4});
-    }
+    // nigdy nie wchodzi na metkę — ani na środku, ani z lewej
+    margin-left: calc(2 * var(--metka-w) + #{$space-4});
 
     [data-position="center"] > & {
         max-width: calc(50% - var(--metka-w) / 2 - #{$space-4});
+
+        @include phone {
+            max-width: none;
+        }
     }
 }
