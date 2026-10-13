@@ -1,0 +1,23 @@
+// Geometria metki wynika ze znaku (Metka.md → Anatomia):
+// ścianka = bok ÷ 7, luz = 1,5 ścianki, metka = znak × 10 ÷ 7, wysokość = szerokość × 1,8.
+@use 'sass:math';
+@use '../../styles/variables.module.scss' as *;
+
+@function metka($znak, $szyld) {
+    $scianka: math.div($znak, 7);
+    $szerokosc: math.div($znak * 10, 7);
+    @return (
+        znak: $znak,
+        luz: $scianka * 1.5,
+        szerokosc: $szerokosc,
+        wysokosc: $szerokosc * 1.8,
+        szyld: $szyld,
+    );
+}
+
+// strona: znak 70 → metka 100 × 180, szyld 48
+$metka: metka(70px, $space-12);
+// wąski ekran: wymiary etykiety, znak 42 → metka 60 × 108, szyld 32
+$metka-narrow: metka(42px, $space-8);
+// szyld wychodzi poza krawędzie o przesunięcie cienia
+$metka-overhang: $space-3;

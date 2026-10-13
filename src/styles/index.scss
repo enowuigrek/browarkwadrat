@@ -1,71 +1,88 @@
+@use 'sass:map';
 @use './variables.module.scss' as *;
 
-// Global Reset
+// Zmienne CSS z tokenów. Jasny jest domyślny, ciemny włącza data-theme="dark".
+@mixin theme-vars($name) {
+    @each $token, $value in map.get($themes, $name) {
+        --#{$token}: #{$value};
+    }
+}
+
+:root {
+    @include theme-vars(light);
+    color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+    @include theme-vars(dark);
+    color-scheme: dark;
+}
+
+// Grunt w kolorze piwa jest zawsze jasny, niezależnie od motywu —
+// tak jak etykieta, której jest przedłużeniem.
+[data-ground="beer"] {
+    @include theme-vars(light);
+    background: var(--beer-color);
+    color: var(--ink);
+}
+
+// Pas contrast (czarny w jasnym motywie, jasny w ciemnym): cień drukarski
+// bierze wariant przeciwnego motywu, bo czerń na czerni jest niewidoczna.
+@mixin print-vars($name) {
+    $t: map.get($themes, $name);
+    --shadow-print: #{map.get($t, shadow-print)};
+    --shadow-print-hover: #{map.get($t, shadow-print-hover)};
+}
+
+:root [data-ground="contrast"] {
+    @include print-vars(dark);
+}
+
+:root[data-theme="dark"] [data-ground="contrast"] {
+    @include print-vars(light);
+}
+
 *, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    border-radius: $radius;
 }
 
 html {
     scroll-behavior: smooth;
+
+    @media (prefers-reduced-motion: reduce) {
+        scroll-behavior: auto;
+    }
 }
 
 body {
-    font-family: $font-family;
-    background: $background-color;
-    color: $text-color;
-    line-height: 1.6;
+    @include type(body);
+    background: $surface-000;
+    color: $ink;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    position: relative;
-
-    // LV-style pattern with small squares like logo
-    &::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 0;
-        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%232DD4BF' stroke-width='0.5' opacity='0.15'%3E%3Crect x='5' y='5' width='8' height='8'/%3E%3Crect x='35' y='35' width='8' height='8'/%3E%3Crect x='35' y='5' width='4' height='4'/%3E%3Crect x='5' y='35' width='4' height='4'/%3E%3C/g%3E%3C/svg%3E");
-        background-size: 60px 60px;
-    }
 }
 
-// Global link styles
 a {
+    color: inherit;
     text-decoration: none;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
     color: inherit;
 }
 
-// Selection color
+:focus-visible {
+    outline: $rule-thin solid $brand;
+    outline-offset: $space-1;
+}
+
 ::selection {
-    background: $beer-amber;
-    color: $background-color;
-}
-
-::-moz-selection {
-    background: $beer-amber;
-    color: $background-color;
-}
-
-// Scrollbar styling (webkit browsers)
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: $surface-dark;
-}
-
-::-webkit-scrollbar-thumb {
-    background: $surface-medium;
-    border-radius: $radius-sm;
-
-    &:hover {
-        background: $beer-amber;
-    }
+    background: $brand;
+    color: $brand-ink;
 }

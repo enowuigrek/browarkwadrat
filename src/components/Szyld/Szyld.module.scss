@@ -1,0 +1,33 @@
+@use '../../styles/variables.module.scss' as *;
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: $space-6;
+
+    @include phone {
+        gap: $space-4;
+    }
+}
+
+.link {
+    @include type(label);
+    color: $contrast-ink-muted;
+    white-space: nowrap;
+
+    &[aria-current] {
+        color: $contrast-ink;
+    }
+}
+
+// Kwadratowa, zbudowana jak znak Kwadratu: w tym systemie nie ma zaokrągleń.
+.facebook {
+    display: block;
+    color: $contrast-ink;
+}
+
+.facebookZnak {
+    display: block;
+    width: $space-6;
+    height: $space-6;
+}

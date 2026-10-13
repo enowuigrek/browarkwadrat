@@ -1,60 +1,177 @@
-// Browar Kwadrat Design System
-// Inspired by: craft beer, geometric squares, minimal elegance, premium turquoise-blue
+// Browar Kwadrat — tokeny
+// Źródło prawdy: design-system/tokens.json. Ten plik tylko je przepisuje.
+// Nazwy są znaczeniowe, nie barwne: `brand`, a nie „złoty”.
+@use 'sass:map';
+@use 'sass:list';
 
-// Primary Accent Colors (Turquoise Blue)
-$beer-amber: #2DD4BF;        // Vibrant turquoise
-$beer-dark: #14B8A6;         // Deep teal
-$beer-light: #5EEAD4;        // Light turquoise
-$beer-foam: #CCFBF1;         // Mint white
+// ─── Kolor ────────────────────────────────────────────────────────────────
+// Motywy w kolejności z tokens.json: jasny jest pierwszy i domyślny.
+$themes: (
+    light: (
+        surface-000: #fcfaf4,
+        surface-100: #ffffff,
+        surface-200: #f4f0e4,
+        line: #e6dfcc,
+        ink: #16130f,
+        ink-muted: #55504a,
+        ink-faint: #6f6a63,
+        contrast: #16130f,
+        contrast-ink: #fcfaf4,
+        contrast-ink-muted: #9b9690,
+        brand: #e8b130,
+        brand-ink: #16130f,
+        brand-soft: #e8b13033,
+        brand-strong: #a8560f,
+        malt-pale: #f2ce6b,
+        malt-amber: #db9a1c,
+        malt-dark: #7a4312,
+        ok: #2f6b4f,
+        danger: #a8301c,
+        shadow-metka: (12px 12px 12px rgba(22, 19, 15, 0.30)),
+        shadow-print: (2px 2px 0 #ffffff, 6px 6px 0 #16130f),
+        shadow-print-hover: (2px 2px 0 #16130f),
+        shadow-print-name: (1px 1px 0 #ffffff, 4px 4px 0 var(--akcent)),
+    ),
+    dark: (
+        surface-000: #121110,
+        surface-100: #1a1816,
+        surface-200: #242120,
+        line: #332f2c,
+        ink: #f4f1ea,
+        ink-muted: #a8a199,
+        ink-faint: #8c857c,
+        contrast: #f4f1ea,
+        contrast-ink: #16130f,
+        contrast-ink-muted: #55504a,
+        brand: #f0c44a,
+        brand-ink: #16130f,
+        brand-soft: #f0c44a26,
+        brand-strong: #f0c44a,
+        malt-pale: #f5d47b,
+        malt-amber: #e3a630,
+        malt-dark: #8a4f18,
+        ok: #4fc48c,
+        danger: #e4705c,
+        shadow-metka: (12px 12px 12px rgba(0, 0, 0, 0.60)),
+        shadow-print: (2px 2px 0 #16130f, 6px 6px 0 #a8560f),
+        shadow-print-hover: (2px 2px 0 #a8560f),
+        shadow-print-name: (1px 1px 0 #ffffff, 4px 4px 0 var(--akcent)),
+    ),
+);
 
-// Background & Surface
-$background-color: #0A0A0A;  // Almost black
-$surface-dark: #1A1A1A;      // Card backgrounds
-$surface-medium: #2A2A2A;    // Elevated surfaces
-$border-color: rgba(45, 212, 191, 0.25); // Subtle turquoise border
+// Zmienne SCSS wskazują na zmienne CSS, więc motyw przełącza się bez przebudowy.
+$surface-000: var(--surface-000);
+$surface-100: var(--surface-100);
+$surface-200: var(--surface-200);
+$line: var(--line);
+$ink: var(--ink);
+$ink-muted: var(--ink-muted);
+$ink-faint: var(--ink-faint);
+$contrast: var(--contrast);
+$contrast-ink: var(--contrast-ink);
+$contrast-ink-muted: var(--contrast-ink-muted);
+$brand: var(--brand);
+$brand-ink: var(--brand-ink);
+$brand-soft: var(--brand-soft);
+$brand-strong: var(--brand-strong);
+$malt-pale: var(--malt-pale);
+$malt-amber: var(--malt-amber);
+$malt-dark: var(--malt-dark);
+$ok: var(--ok);
+$danger: var(--danger);
 
-// Text Colors
-$text-color: #FFFFFF;
-$text-muted: rgba(255, 255, 255, 0.7);
-$text-dim: rgba(255, 255, 255, 0.5);
+// ─── Cień ─────────────────────────────────────────────────────────────────
+// Rozmyty rzut: tylko metka. Twardy drukarski: przyciski, kafle, nazwa piwa.
+$shadow-metka: var(--shadow-metka);
+$shadow-print: var(--shadow-print);
+$shadow-print-hover: var(--shadow-print-hover);
+$shadow-print-name: var(--shadow-print-name);
 
-// Accent Colors
-$accent-primary: $beer-amber;
-$accent-hover: $beer-dark;
-$accent-glow: rgba(45, 212, 191, 0.2);
+// ─── Typografia ───────────────────────────────────────────────────────────
+$font-display: "Alfa Slab One", Georgia, serif;
+$font-sans: Archivo, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, sans-serif;
+$font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+$font-script: Lobster, "Brush Script MT", cursive;
 
-// Interactive Elements
-$button-bg: $beer-amber;
-$button-hover-bg: $beer-dark;
-$link-color: $beer-amber;
-$link-hover-color: $beer-light;
+// Style: (rodzina, rozmiar, interlinia, grubość, światło)
+$type: (
+    // Naglowki
+    display: ($font-display, 44px, 46px, 400, normal),
+    title: ($font-display, 26px, 30px, 400, normal),
+    // Tekst
+    lead: ($font-sans, 18px, 26px, 500, normal),
+    body: ($font-sans, 15px, 22px, 400, normal),
+    body-strong: ($font-sans, 15px, 22px, 600, normal),
+    small: ($font-sans, 13px, 18px, 400, normal),
+    label: ($font-sans, 12px, 16px, 600, 0.08em),
+    // Liczby
+    metric-xl: ($font-mono, 36px, 38px, 500, normal),
+    metric: ($font-mono, 22px, 26px, 500, normal),
+    metric-sm: ($font-mono, 15px, 20px, 400, normal),
+    // Podpis
+    script-style: ($font-script, 30px, 32px, 400, normal),
+    script-inline: ($font-script, 18px, 22px, 400, normal),
+);
 
-// Spacing System (8px base)
-$space-xs: 0.5rem;   // 8px
-$space-sm: 1rem;     // 16px
-$space-md: 1.5rem;   // 24px
-$space-lg: 2rem;     // 32px
-$space-xl: 3rem;     // 48px
-$space-2xl: 4rem;    // 64px
+@mixin type($name) {
+    $s: map.get($type, $name);
+    font-family: list.nth($s, 1);
+    font-size: list.nth($s, 2);
+    line-height: list.nth($s, 3);
+    font-weight: list.nth($s, 4);
+    letter-spacing: list.nth($s, 5);
 
-// Legacy support
-$padding: $space-sm;
-$margin: $space-lg;
+    @if $name == label {
+        text-transform: uppercase;
+    }
 
+    @if list.nth($s, 1) == $font-mono {
+        font-variant-numeric: tabular-nums;
+    }
+}
+
+// ─── Odstępy (skok 4 px) ──────────────────────────────────────────────────
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-6: 24px;
+$space-8: 32px;
+$space-12: 48px;
+
+// ─── Promień ──────────────────────────────────────────────────────────────
 // Border Radius (square theme - NO ROUNDING, it's a SQUARE!)
-$radius-sm: 0;
-$radius-md: 0;
-$radius-lg: 0;
-$border-radius: 0;
+$radius: 0;
 
-// Typography
-$font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-$font-handwritten: 'Great Vibes', cursive;
-$font-weight-normal: 400;
-$font-weight-medium: 500;
-$font-weight-bold: 700;
+// ─── Układ (wymiary spoza skali 4 px) ─────────────────────────────────────
+$rule-hair: 1px;
+$rule-thin: 1.5px;
+$col-page: 960px;
+$col-text: 640px;
+$bp-phone: 640px;
 
-// Transitions
-$transition-fast: 150ms ease;
-$transition-medium: 250ms ease;
-$transition-slow: 350ms ease;
+@mixin phone {
+    @media (max-width: $bp-phone) {
+        @content;
+    }
+}
+
+// Twardy cień drukarski + jedyny efekt najechania w serwisie.
+// Dociśnięcie translate(3px, 3px) — z opisu tokenu shadow-print-hover.
+// Wariant na ciemny grunt wybiera [data-ground="contrast"] w index.scss.
+@mixin printed {
+    box-shadow: $shadow-print;
+
+    &:hover,
+    &:focus-visible {
+        transform: translate(3px, 3px);
+        box-shadow: $shadow-print-hover;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        &:hover,
+        &:focus-visible {
+            transform: none;
+        }
+    }
+}

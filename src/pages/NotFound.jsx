@@ -1,22 +1,21 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import { Szyld } from '../components/Szyld/Szyld.jsx';
 import { Footer } from '../components/Footer/Footer.jsx';
 import styles from './NotFound.module.scss';
 
+const nav = [{ label: 'Piwa', to: '/' }];
+
 export function NotFound() {
     return (
-        <div className={styles.container}>
-            <div className={styles.content}>
-                <div className={styles.errorCode}>404</div>
+        <>
+            <Szyld position="side" nav={nav} />
+            <main className={styles.content}>
+                <p className={styles.code}>404</p>
                 <h1 className={styles.title}>Nie znaleziono piwa</h1>
-                <p className={styles.message}>
-                    Ta warka jeszcze nie istnieje. Może już została wypita?
-                </p>
-                <Link to="/" className={styles.homeLink}>
-                    Wróć do browaru
-                </Link>
-            </div>
+                <p className={styles.message}>Ta warka jeszcze nie istnieje. Może już została wypita?</p>
+                <Link to="/" className={styles.button}>Wróć do browaru</Link>
+            </main>
             <Footer />
-        </div>
+        </>
     );
 }

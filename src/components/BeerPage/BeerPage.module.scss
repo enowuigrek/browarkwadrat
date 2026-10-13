@@ -1,0 +1,133 @@
+@use '../../styles/variables.module.scss' as *;
+@use '../../styles/layout' as *;
+
+// ─── Pas w kolorze piwa ──────────────────────────────────────────────────
+.beer {
+    @include under-metka;
+    padding-bottom: $space-12;
+}
+
+.nameBlock {
+    @include column;
+    text-align: center;
+    margin-bottom: $space-8;
+}
+
+// Lobster: jedyny na tej powierzchni, mały — dopisek, nie drugi nagłówek.
+.style {
+    @include type(script-style);
+}
+
+.name {
+    @include type(display);
+    overflow-wrap: break-word;
+    // nadruk nie trafiony w rejestr — ten sam kierunek światła co cień metki
+    text-shadow: $shadow-print-name;
+    margin-block: $space-2 $space-3;
+}
+
+.batch {
+    @include type(metric-sm);
+    color: $ink-muted;
+}
+
+// Wiersz parametrów: dwie kreski, separatory krótsze od odstępu i ich nie dotykają.
+.params {
+    @include column($col-text + 2 * $space-12);
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-bottom: $space-8;
+
+    li {
+        @include type(metric-sm);
+        position: relative;
+        flex: 1;
+        text-align: center;
+        padding-block: $space-3;
+        border-block: $rule-thin solid $ink;
+
+        & + li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: $space-3;
+            bottom: $space-3;
+            border-left: $rule-thin solid $ink;
+        }
+    }
+}
+
+.description {
+    @include column($col-text + 2 * $space-12);
+    display: grid;
+    gap: $space-4;
+}
+
+.intro {
+    @include type(lead);
+}
+
+// ─── Pasy niżej ──────────────────────────────────────────────────────────
+.inner {
+    @include column($col-text + 2 * $space-12);
+}
+
+.title {
+    @include type(title);
+    margin-bottom: $space-6;
+}
+
+.composition {
+    @include band;
+    background: $surface-100;
+}
+
+.rows {
+    margin-bottom: $space-8;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: $space-4;
+    padding-block: $space-3;
+    border-top: $rule-hair solid $line;
+
+    &:last-child {
+        border-bottom: $rule-hair solid $line;
+    }
+
+    dt {
+        @include type(label);
+        color: $ink-muted;
+        padding-top: $space-1;
+    }
+
+    dd {
+        display: grid;
+        gap: $space-1;
+    }
+}
+
+.button {
+    @include type(body-strong);
+    display: inline-block;
+    padding: $space-3 $space-6;
+    background: $brand;
+    color: $brand-ink;
+
+    @include printed;
+}
+
+.opinion {
+    @include band;
+    background: $contrast;
+    color: $contrast-ink;
+}
+
+.opinionLead {
+    color: $contrast-ink-muted;
+    margin-top: -$space-3;
+    margin-bottom: $space-8;
+}

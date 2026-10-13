@@ -1,0 +1,94 @@
+@use '../../styles/variables.module.scss' as *;
+
+// Formularz stoi na czarnym pasie (contrast).
+.form {
+    display: grid;
+    gap: $space-6;
+}
+
+.question {
+    border: 0;
+}
+
+.legend {
+    @include type(label);
+    display: block;
+    margin-bottom: $space-2;
+}
+
+.optional {
+    color: $contrast-ink-muted;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-2;
+}
+
+.option {
+    position: relative;
+    cursor: pointer;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        inset: 0;
+        cursor: pointer;
+    }
+
+    span {
+        display: block;
+        padding: $space-2 $space-4;
+        border: $rule-hair solid $contrast-ink-muted;
+    }
+
+    input:checked + span {
+        background: $brand;
+        border-color: $brand;
+        color: $brand-ink;
+    }
+
+    input:focus-visible + span {
+        outline: $rule-thin solid $brand;
+        outline-offset: $space-1;
+    }
+}
+
+.field {
+    display: block;
+}
+
+.input {
+    display: block;
+    width: 100%;
+    padding: $space-3;
+    border: $rule-hair solid $line;
+    background: $surface-200;
+    color: $ink;
+    resize: vertical;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $space-6;
+    margin-top: $space-2;
+}
+
+.submit {
+    @include type(body-strong);
+    padding: $space-3 $space-6;
+    border: 0;
+    background: $brand;
+    color: $brand-ink;
+    cursor: pointer;
+
+    @include printed;
+}
+
+.note {
+    @include type(small);
+    color: $contrast-ink-muted;
+}

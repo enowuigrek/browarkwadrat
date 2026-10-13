@@ -1,0 +1,98 @@
+@use 'sass:map';
+@use '../../styles/variables.module.scss' as *;
+@use './geometry' as *;
+
+@mixin geometry($m) {
+    --szyld: #{map.get($m, szyld)};
+    --metka-w: #{map.get($m, szerokosc)};
+    --metka-h: #{map.get($m, wysokosc)};
+    --znak: #{map.get($m, znak)};
+    --luz: #{map.get($m, luz)};
+}
+
+// Opakowanie niesie cień całej sylwetki i chowanie (translateY, nigdy wysokość).
+.wrapper {
+    @include geometry($metka);
+    position: fixed;
+    top: 0;
+    left: -$metka-overhang;
+    right: -$metka-overhang;
+    z-index: 10;
+    padding-inline: $metka-overhang;
+    filter: drop-shadow($shadow-metka);
+
+    &[data-hidden] {
+        transform: translateY(calc(-1 * var(--szyld)));
+    }
+
+    @include phone {
+        @include geometry($metka-narrow);
+    }
+}
+
+.szyld {
+    height: var(--szyld);
+    background: $contrast;
+    color: $contrast-ink;
+}
+
+// Kolumna treści — od jej krawędzi liczy się odstęp metki.
+.column {
+    position: relative;
+    height: 100%;
+    max-width: $col-page;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-inline: $space-12;
+
+    @include phone {
+        padding-inline: $space-8;
+    }
+}
+
+.metka {
+    position: absolute;
+    top: 0;
+    width: var(--metka-w);
+    height: var(--metka-h);
+    background: $contrast;
+    color: $contrast-ink;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 var(--luz) var(--luz);
+
+    // z boku: odstęp od lewej krawędzi kolumny = własna szerokość
+    [data-position="side"] > & {
+        left: var(--metka-w);
+    }
+
+    [data-position="center"] > & {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.znak {
+    display: block;
+    width: var(--znak);
+    height: var(--znak);
+}
+
+// Treść szyldu wyrównana do prawej; przy metce na środku nie może na nią wejść.
+.content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    // nigdy nie wchodzi na metkę
+    [data-position="side"] > & {
+        margin-left: calc(2 * var(--metka-w) + #{$space-4});
+    }
+
+    [data-position="center"] > & {
+        max-width: calc(50% - var(--metka-w) / 2 - #{$space-4});
+    }
+}

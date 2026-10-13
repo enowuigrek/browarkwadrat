@@ -1,11 +1,24 @@
 // src/data/beersData.js
+// slug    — adres podstrony; musi zgadzać się z kodem QR na etykiecie, nie zmieniać
+// color   — tło podstrony i kafla (kolor etykiety)
+// accent  — kolor z tej samej rodziny: cień nazwy
+// intro   — jedno zdanie wprowadzające; description — krótkie akapity
+// draft   — piwo bez treści, ukryte na liście
 const beersData = [
     {
         id: 1,
         batchNumber: 93,
+        slug: "domowka",
         name: "Domówka",
         styleName: "Old School Pale Ale",
-        description: "Domówka to lekkie, przyjemne piwo na amerykańskim oraz nowozelandzkim chmielu, ale w subtelnym wydaniu. Delikatna goryczka i wyważony profil słodowy sprawiają, że jest to piwo, imprezowo, serialowo, spotkaniowe. Tak zwane piwo \"codzienne\", do wypicia z przyjemnością, bez uniesień. Oczywiście nie polecam picia piwa codziennie. Tak się tylko mówi. W smaku wyczujesz połączenie łagodnej, zbożowej bazy słodowej, w zapachu lekkie nuty owoców tropikalnych uzyskanych z chmielu.",
+        color: "#f2c75c",
+        accent: "#8a4a00",
+        intro: "Lekkie, przyjemne piwo na amerykańskim i nowozelandzkim chmielu, ale w subtelnym wydaniu.",
+        description: [
+            "Delikatna goryczka i wyważony profil słodowy sprawiają, że jest to piwo imprezowe, serialowe, spotkaniowe.",
+            "Tak zwane piwo „codzienne”, do wypicia z przyjemnością, bez uniesień. Oczywiście nie polecam picia piwa codziennie. Tak się tylko mówi.",
+            "W smaku wyczujesz łagodną, zbożową bazę słodową, w zapachu lekkie nuty owoców tropikalnych z chmielu."
+        ],
         malts: ["Pale Ale", "Abbey Malt"],
         hops: [
             "Simcoe (USA)",
@@ -24,11 +37,19 @@ const beersData = [
     {
         id: 2,
         batchNumber: 94,
+        slug: "wolnosypane",
         name: "Wolnosypane",
         styleName: "Polish Pale Ale",
-        description: "Niektóre piwa powstają z precyzyjnie zaplanowanej receptury, a inne… z przypadku, z ustawki po pracy z Danielem, Dominikiem i Marcelem. Pomieszaliśmy w garze, zamówiliśmy pizzę, zjedliśmy i brzuch bolał. Ale piwo wyszło spoko.\n\nWolnosypane to Ale na polskim chmielu Książęcym i tyle. Lekkie, z delikatną goryczką, bez zbędnych fajerwerków. Takie do pizzy – dokładnie tak, jak powstało.",
+        color: "#f3e3ad",
+        accent: "#8a6a12",
+        intro: "Niektóre piwa powstają z precyzyjnie zaplanowanej receptury, a inne… z przypadku.",
+        description: [
+            "To akurat z ustawki po pracy z Danielem, Dominikiem i Marcelem. Pomieszaliśmy w garze, zamówiliśmy pizzę, zjedliśmy i brzuch bolał. Ale piwo wyszło spoko.",
+            "Wolnosypane to Ale na polskim chmielu Książęcym i tyle. Lekkie, z delikatną goryczką, bez zbędnych fajerwerków.",
+            "Takie do pizzy – dokładnie tak, jak powstało."
+        ],
         malts: ["Pale Ale", "Cookie", "Pszeniczny"],
-        hops: ["Ksiąźęcy (PL)"],
+        hops: ["Książęcy (PL)"],
         yeast: "CROWN American Ale Yeast",
         adjuncts: null,
         extract: 13.9,
@@ -39,11 +60,18 @@ const beersData = [
     {
         id: 3,
         batchNumber: 95,
+        slug: "dalejjesttaniej",
         name: "50 metrów dalej jest taniej",
         styleName: "Polish Pale Ale",
-        description: "Delikatne pale ale z nutą słodkości od słodów cookies i pszenicznego. Amerykańskie drożdże US-05 dają czysty charakter, a polski chmiel Książęcy zapewnia tradycyjną goryczkę z aromatycznym wykończeniem. Harmonijne piwo łączące amerykańską elegancję z polskim rzemiosłem - łatwo pijące się ale o wyrazistej osobowości.",
+        color: "#e6dfa6",
+        accent: "#6b6412",
+        intro: "Delikatne pale ale z nutą słodkości od słodów cookie i pszenicznego.",
+        description: [
+            "Amerykańskie drożdże US-05 dają czysty charakter, a polski chmiel Książęcy zapewnia tradycyjną goryczkę z aromatycznym wykończeniem.",
+            "Harmonijne piwo łączące amerykańską elegancję z polskim rzemiosłem – łatwo pijące się, ale o wyrazistej osobowości."
+        ],
         malts: ["Pale Ale", "Cookie", "Pszeniczny"],
-        hops: ["Ksiąźęcy (PL)"],
+        hops: ["Książęcy (PL)"],
         yeast: "US-05",
         adjuncts: null,
         extract: 12.9,
@@ -54,9 +82,14 @@ const beersData = [
     {
         id: 4,
         batchNumber: 96,
+        slug: null,
         name: "Kolejna Piwo",
         styleName: "Experimental Ale",
-        description: "Opis kolejnego piwa...",
+        color: "#ff3d8a",
+        accent: "#ffffff",
+        draft: true,
+        intro: "Opis kolejnego piwa...",
+        description: [],
         malts: ["Pale Ale", "Vienna"],
         hops: ["Citra (USA)", "Saaz (CZ)"],
         yeast: "London Ale Yeast",
@@ -69,10 +102,19 @@ const beersData = [
     {
         id: 5,
         batchNumber: 97,
+        slug: "nowastarszkola",
         name: "Nowa Stara Szkoła",
         styleName: "Modern Grodziskie",
-        description: "\"Nowa Stara Szkoła\" to lekkie grodziskie, które pamięta o korzeniach, ale nie zamyka się w" +
-            " muzealnej gablocie. Pozostaje rześkie, musujące i ultralekkie, jednak podane we współczesnej interpretacji.\n\nW aromacie wszystko dzieje się subtelnie. Nutka dymu pojawia się tylko wtedy, gdy piwo jest naprawdę dobrze schłodzone - bardziej jako delikatne echo tradycji niż dominujący akcent. To świadoma rezygnacja z klasycznego \"ogniska w szklance\" na rzecz czystszej, bardziej przystępnej formy.\n\nZ kolei połączenie Tallusa i Książęcego wnosi zupełnie inny, świeży wymiar: lekko cytrusową, zieloną, wręcz soczystą nutę, która pięknie kontruje pszeniczną bazę. Gorycz jest czysta i uprzejma, a chmielenie na zimno podkręca nowoczesny charakter całości.\n\n\"Nowa Stara Szkoła\" to piwo lekkie jak wakacyjne popołudnie, ale niepuste. To grodziskie, które szanuje tradycję, jednocześnie pokazując, że można ją opowiedzieć na nowo - z finezją, świeżością i bez przesady. Idealne na pierwszy łyk... i na kolejny też.",
+        color: "#f1ead6",
+        accent: "#7a6a4a",
+        intro: "Lekkie grodziskie, które pamięta o korzeniach, ale nie zamyka się w muzealnej gablocie.",
+        description: [
+            "Pozostaje rześkie, musujące i ultralekkie, jednak podane we współczesnej interpretacji.",
+            "W aromacie wszystko dzieje się subtelnie. Nutka dymu pojawia się tylko wtedy, gdy piwo jest naprawdę dobrze schłodzone – bardziej jako delikatne echo tradycji niż dominujący akcent. To świadoma rezygnacja z klasycznego „ogniska w szklance” na rzecz czystszej, bardziej przystępnej formy.",
+            "Połączenie Talusa i Książęcego wnosi świeży wymiar: lekko cytrusową, zieloną, wręcz soczystą nutę, która pięknie kontruje pszeniczną bazę. Gorycz jest czysta i uprzejma, a chmielenie na zimno podkręca nowoczesny charakter całości.",
+            "Piwo lekkie jak wakacyjne popołudnie, ale niepuste. Grodziskie, które szanuje tradycję, a jednocześnie pokazuje, że można ją opowiedzieć na nowo – z finezją, świeżością i bez przesady.",
+            "Idealne na pierwszy łyk… i na kolejny też."
+        ],
         malts: [
             "Wheat Malt Pale (Weyermann)",
             "Oak Smoked Wheat Malt (Weyermann)"
@@ -89,5 +131,7 @@ const beersData = [
         brewFatherLink: "https://share.brewfather.app/NgjthTwEkLcQAj"
     }
 ];
+
+export const publishedBeers = beersData.filter(beer => !beer.draft && beer.slug);
 
 export default beersData;

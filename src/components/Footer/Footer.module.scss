@@ -1,144 +1,62 @@
-@use '../../styles/variables.module.scss' as vars;
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+@use '../../styles/variables.module.scss' as *;
 
 .footer {
-    background: #000000;
-    border-top: 1px solid vars.$border-color;
-    margin-top: vars.$space-2xl;
-    width: 100%;
-    position: relative;
+    background: $contrast;
+    color: $contrast-ink;
 }
 
-// Pattern overlay not needed - pattern is on body
-.patternOverlay {
-    display: none;
-}
+.column {
+    max-width: $col-page;
+    margin-inline: auto;
+    padding: $space-12;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: $space-6;
 
-.footerContent {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: vars.$space-xl vars.$space-lg;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: vars.$space-lg;
-    position: relative;
-    z-index: 1;
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-        align-items: flex-start;
+    @include phone {
+        padding: $space-8;
     }
 }
 
-// Social links - left side, vertical
-.socialLinks {
-    display: flex;
-    flex-direction: column;
-    gap: vars.$space-sm;
-    align-items: flex-start;
-    animation: slideInLeft 0.6s ease-out;
-}
-
-.socialLink {
+.brand {
     display: flex;
     align-items: center;
-    gap: vars.$space-sm;
-    text-decoration: none;
-    transition: all vars.$transition-medium;
-
-    &:hover {
-        transform: translateY(-3px);
-
-        .iconCircle {
-            background: vars.$beer-amber;
-            border-color: vars.$beer-amber;
-            transform: scale(1.1);
-            box-shadow: 0 4px 16px vars.$accent-glow;
-        }
-
-        .linkText {
-            color: vars.$beer-amber;
-        }
-    }
+    gap: $space-3;
 }
 
-.iconCircle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    background: transparent;
-    border: 1px solid vars.$text-dim;
-    transition: all vars.$transition-medium;
-
-    svg {
-        font-size: 0.75rem;
-        color: vars.$text-dim;
-        transition: color vars.$transition-medium;
-    }
+.znak {
+    display: block;
+    width: $space-8;
+    height: $space-8;
 }
 
-.linkText {
-    font-size: 0.8rem;
-    color: vars.$text-dim;
-    font-weight: vars.$font-weight-normal;
-    transition: color vars.$transition-medium;
+.name {
+    @include type(body-strong);
 }
 
-// Copyright - right side
-.copyright {
-    font-size: 0.75rem;
-    color: vars.$text-dim;
-    animation: slideInRight 0.6s ease-out;
-    align-self: flex-end;
-
-    span {
-        font-weight: vars.$font-weight-normal;
-    }
+.meta {
+    @include type(small);
+    color: $contrast-ink-muted;
 }
 
-// Responsive
-@media (max-width: 768px) {
-    .footerContent {
-        padding: vars.$space-lg;
-    }
+// Logo Bractwa w kolorze contrast-ink (białe na czarnej stopce) przez maskę —
+// proporcje pliku 3471 × 2084 zachowane, szerokość nie mniej niż 120 px.
+.bractwo {
+    display: block;
+    width: 120px;
+    aspect-ratio: 3471 / 2084;
+    background: $contrast-ink;
+    mask: url('/bractwo-piwne.svg') center / contain no-repeat;
+}
 
-    .copyright {
-        align-self: flex-start;
-        margin-top: vars.$space-md;
+.author {
+    @include type(small);
+    grid-column: 1 / -1;
+    color: $contrast-ink-muted;
+
+    a {
+        text-decoration: underline;
+        text-underline-offset: $space-1;
     }
 }

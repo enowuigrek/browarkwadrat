@@ -1,41 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Root } from './pages/Root.jsx';
 import { Home } from './pages/Home.jsx';
-import { Domowka } from './pages/Domowka.jsx';
-import { Wolnosypane } from './pages/Wolnosypane.jsx';
-import { DalejJestTaniej } from './pages/DalejJestTaniej.jsx';
-import { NowaStaraSzkola } from './pages/NowaStaraSzkola.jsx';
 import { NotFound } from './pages/NotFound.jsx';
+import { BeerPage } from './components/BeerPage/BeerPage.jsx';
+import { publishedBeers } from './data/beersData.js';
 import './styles/index.scss';
 
 const router = createBrowserRouter([
-    // Home page WITHOUT header
     {
-        path: '/',
-        element: <Home />,
-    },
-    // Beer pages WITHOUT header (clean QR-scanned experience)
-    {
-        path: 'domowka',
-        element: <Domowka />,
-    },
-    {
-        path: 'wolnosypane',
-        element: <Wolnosypane />,
-    },
-    {
-        path: 'dalejjesttaniej',
-        element: <DalejJestTaniej />,
-    },
-    {
-        path: 'nowastarszkola',
-        element: <NowaStaraSzkola />,
-    },
-    // 404 page
-    {
-        path: '*',
-        element: <NotFound />,
+        element: <Root />,
+        children: [
+            {
+                path: '/',
+                element: <Home />,
+            },
+            // Podstrony piw — adresy z kodów QR na etykietach
+            ...publishedBeers.map(beer => ({
+                path: beer.slug,
+                element: <BeerPage beer={beer} />,
+            })),
+            {
+                path: '*',
+                element: <NotFound />,
+            },
+        ],
     },
 ]);
 

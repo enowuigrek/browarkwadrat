@@ -1,163 +1,101 @@
-@use '../styles/variables.module.scss' as vars;
+@use '../styles/variables.module.scss' as *;
+@use '../styles/layout' as *;
 
-// Animations
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.container {
-    min-height: calc(100vh - 80px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: vars.$space-lg;
-    background: vars.$background-color;
+.label {
+    @include type(label);
+    color: $ink-muted;
+    margin-bottom: $space-3;
 }
 
 .hero {
-    max-width: 900px;
-    width: 100%;
-    text-align: center;
-    animation: fadeInUp 0.6s ease-out;
+    @include column;
+    @include under-metka;
+    padding-bottom: $space-12;
 }
 
-.heroContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: vars.$space-lg;
-}
-
-// Logo
-.logo {
-    width: 500px;
-    height: auto;
-    margin-bottom: vars.$space-md;
-    filter: brightness(0) invert(1); // czarne logo -> białe
-
-    @media (max-width: 768px) {
-        width: 360px;
-    }
-}
-
-// Typography
 .title {
-    font-size: 3.5rem;
-    font-weight: vars.$font-weight-bold;
-    color: vars.$text-color;
-    margin: 0;
-    letter-spacing: -0.02em;
+    @include type(display);
+    margin-bottom: $space-4;
+}
 
-    @media (max-width: 768px) {
-        font-size: 2.5rem;
+.lead {
+    @include type(lead);
+    max-width: $col-text;
+    color: $ink-muted;
+}
+
+// Półka
+.shelf {
+    @include column;
+    padding-bottom: $space-12;
+}
+
+// Odstęp ≥ 20 px, bo cień kafla ma 6 px (strona.md → Najechanie).
+.tiles {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-8;
+
+    @include phone {
+        grid-template-columns: 1fr;
+        gap: $space-6;
     }
 }
 
-.subtitle {
-    font-size: 1.25rem;
-    color: vars.$text-muted;
-    margin: 0;
-    font-weight: vars.$font-weight-normal;
-}
-
-// Divider - kwadratowy separator
-.divider {
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, vars.$beer-amber, transparent);
-    border-radius: 2px;
-    margin: vars.$space-md 0;
-}
-
-// Description
-.description {
-    max-width: 600px;
+.tile {
     display: flex;
     flex-direction: column;
-    gap: vars.$space-sm;
+    height: 100%;
+    padding: $space-6;
 
-    p {
-        font-size: 1.1rem;
-        line-height: 1.7;
-        color: vars.$text-muted;
-        margin: 0;
+    @include printed;
+}
+
+.batch {
+    @include type(metric-sm);
+    color: $ink-muted;
+    margin-bottom: $space-6;
+}
+
+.name {
+    @include type(title);
+    margin-bottom: $space-1;
+}
+
+.style {
+    @include type(small);
+    color: $ink-muted;
+    margin-bottom: $space-6;
+}
+
+.params {
+    @include type(metric-sm);
+    margin-top: auto;
+    padding-top: $space-3;
+    border-top: $rule-hair solid $ink;
+}
+
+// Czarny pas
+.band {
+    @include band;
+    background: $contrast;
+    color: $contrast-ink;
+
+    .label {
+        color: $contrast-ink-muted;
     }
 }
 
-// Info Cards Section
-.infoSection {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: vars.$space-lg;
-    width: 100%;
-    margin-top: vars.$space-xl;
-    animation: fadeInUp 0.6s ease-out 0.2s both;
+.bandInner {
+    @include column;
 }
 
-.infoCard {
-    background: vars.$surface-dark;
-    border: 1px solid vars.$border-color;
-    border-radius: vars.$radius-md;
-    padding: vars.$space-lg;
-    transition: all vars.$transition-medium;
-
-    // Kwadratowy akcent w rogu
-    position: relative;
-    overflow: hidden;
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 40px;
-        height: 40px;
-        background: linear-gradient(135deg, vars.$beer-amber 0%, transparent 100%);
-        opacity: 0.1;
-        border-bottom-left-radius: vars.$radius-md;
-    }
-
-    &:hover {
-        border-color: vars.$beer-amber;
-        transform: translateY(-4px);
-        box-shadow: 0 8px 24px vars.$accent-glow;
-
-        &::before {
-            opacity: 0.2;
-        }
-    }
-
-    h3 {
-        font-size: 1.3rem;
-        font-weight: vars.$font-weight-bold;
-        color: vars.$beer-amber;
-        margin: 0 0 vars.$space-sm 0;
-    }
-
-    p {
-        font-size: 1rem;
-        line-height: 1.6;
-        color: vars.$text-muted;
-        margin: 0;
-    }
+.bandTitle {
+    @include type(title);
+    margin-bottom: $space-4;
 }
 
-// Responsive
-@media (max-width: 768px) {
-    .container {
-        padding: vars.$space-md;
-    }
-
-    .infoSection {
-        grid-template-columns: 1fr;
-        gap: vars.$space-md;
-    }
+.bandText {
+    max-width: $col-text;
 }

@@ -1,48 +1,28 @@
-import React from 'react';
-import { FaFacebook, FaEnvelope } from 'react-icons/fa';
+import { Znak } from '../Znak/Znak.jsx';
 import styles from './Footer.module.scss';
 
+// Czarna stopka, ta sama na każdej powierzchni.
 export function Footer() {
     return (
-        <footer className={styles.footer}>
-            <div className={styles.patternOverlay}></div>
-            <div className={styles.footerContent}>
-                <div className={styles.socialLinks}>
-                    <a
-                        href="https://www.facebook.com/browarkwadrat/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.socialLink}
-                    >
-                        <span className={styles.iconCircle}>
-                            <FaFacebook />
-                        </span>
-                        <span className={styles.linkText}>Kwadrat</span>
-                    </a>
-                    <a
-                        href="https://www.facebook.com/bractwopiwneczestochowa"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.socialLink}
-                    >
-                        <span className={styles.iconCircle}>
-                            <FaFacebook />
-                        </span>
-                        <span className={styles.linkText}>Bractwo Piwne</span>
-                    </a>
-                    <a
-                        href="mailto:enowuigrek@gmail.com"
-                        className={styles.socialLink}
-                    >
-                        <span className={styles.iconCircle}>
-                            <FaEnvelope />
-                        </span>
-                        <span className={styles.linkText}>enowuigrek@gmail.com</span>
-                    </a>
+        <footer className={styles.footer} id="kontakt">
+            <div className={styles.column}>
+                <div className={styles.brand}>
+                    <Znak className={styles.znak} />
+                    <div>
+                        <p className={styles.name}>Browar Kwadrat</p>
+                        <p className={styles.meta}>Częstochowa</p>
+                    </div>
                 </div>
-                <div className={styles.copyright}>
-                    <span>&copy; 2025 Browar Kwadrat</span>
-                </div>
+                <a
+                    href="https://www.facebook.com/bractwopiwneczestochowa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.bractwo}
+                    aria-label="Bractwo Piwne Częstochowa"
+                />
+                <p className={styles.author}>
+                    Strona: <a href="https://lukasznowak.dev" target="_blank" rel="noopener noreferrer">lukasznowak.dev</a>
+                </p>
             </div>
         </footer>
     );

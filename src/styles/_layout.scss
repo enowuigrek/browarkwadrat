@@ -1,0 +1,32 @@
+@use 'sass:map';
+@use './variables.module.scss' as *;
+@use '../components/Metka/geometry' as *;
+
+// Kolumna treści — ta sama, od której liczy się odstęp metki.
+@mixin column($max: $col-page) {
+    max-width: $max;
+    margin-inline: auto;
+    padding-inline: $space-12;
+
+    @include phone {
+        padding-inline: $space-8;
+    }
+}
+
+// Pierwszy blok pod metką: zapas = cała wysokość metki + jeden odstęp.
+@mixin under-metka {
+    padding-top: calc(#{map.get($metka, wysokosc)} + #{$space-8});
+
+    @include phone {
+        padding-top: calc(#{map.get($metka-narrow, wysokosc)} + #{$space-8});
+    }
+}
+
+// Pas na pełną szerokość
+@mixin band {
+    padding-block: $space-12;
+
+    @include phone {
+        padding-block: $space-8;
+    }
+}
