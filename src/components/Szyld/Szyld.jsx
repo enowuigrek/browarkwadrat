@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
-import { FacebookZnak } from '../Znak/FacebookZnak.jsx';
-import { FACEBOOK_URL } from '../../data/kontakt.js';
 import { Metka } from '../Metka/Metka.jsx';
 import { useHideOnScroll } from '../../hooks/useHideOnScroll.js';
 import styles from './Szyld.module.scss';
 
-// Nawigacja w szyldzie: pozycja aktywna pełną siłą, reszta przygaszona,
-// na końcu kwadratowa ikona Facebooka.
+// Szyld niesie wyłącznie nawigację: pozycja aktywna pełną siłą, reszta przygaszona.
+// Ikony serwisów społecznościowych są w stopce, nie w znaku marki.
 export function Szyld({ position = 'side', nav = [] }) {
     const hidden = useHideOnScroll();
 
@@ -23,17 +21,6 @@ export function Szyld({ position = 'side', nav = [] }) {
                             {label}
                         </a>
                     )
-                )}
-                {FACEBOOK_URL && (
-                    <a
-                        href={FACEBOOK_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.facebook}
-                        aria-label="Browar Kwadrat na Facebooku"
-                    >
-                        <FacebookZnak className={styles.facebookZnak} />
-                    </a>
                 )}
             </nav>
         </Metka>

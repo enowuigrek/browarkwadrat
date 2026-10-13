@@ -146,9 +146,22 @@ $radius: 0;
 // ─── Układ (wymiary spoza skali 4 px) ─────────────────────────────────────
 $rule-hair: 1px;
 $rule-thin: 1.5px;
+$press-shift: 3px;
 $col-page: 960px;
 $col-text: 640px;
 $bp-phone: 640px;
+$logo-partner-min: 120px;
+
+// ─── Ruch ─────────────────────────────────────────────────────────────────
+// Wartości w index.scss na :root; pod prefers-reduced-motion czasy schodzą do zera.
+$motion: (
+    motion-press: 90ms,
+    motion-metka: 200ms,
+    motion-ease: cubic-bezier(0.2, 0, 0, 1),
+);
+$motion-press: var(--motion-press);
+$motion-metka: var(--motion-metka);
+$motion-ease: var(--motion-ease);
 
 @mixin phone {
     @media (max-width: $bp-phone) {
@@ -157,14 +170,16 @@ $bp-phone: 640px;
 }
 
 // Twardy cień drukarski + jedyny efekt najechania w serwisie.
-// Dociśnięcie translate(3px, 3px) — z opisu tokenu shadow-print-hover.
 // Wariant na ciemny grunt wybiera [data-ground="contrast"] w index.scss.
 @mixin printed {
     box-shadow: $shadow-print;
+    transition:
+        transform $motion-press $motion-ease,
+        box-shadow $motion-press $motion-ease;
 
     &:hover,
     &:focus-visible {
-        transform: translate(3px, 3px);
+        transform: translate($press-shift, $press-shift);
         box-shadow: $shadow-print-hover;
     }
 

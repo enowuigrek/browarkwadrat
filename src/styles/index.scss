@@ -11,6 +11,15 @@
 :root {
     @include theme-vars(light);
     color-scheme: light;
+
+    @each $token, $value in $motion {
+        --#{$token}: #{$value};
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        --motion-press: 0ms;
+        --motion-metka: 0ms;
+    }
 }
 
 :root[data-theme="dark"] {

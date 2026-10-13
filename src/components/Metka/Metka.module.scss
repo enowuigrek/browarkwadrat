@@ -20,6 +20,7 @@
     z-index: 10;
     padding-inline: $metka-overhang;
     filter: drop-shadow($shadow-metka);
+    transition: transform $motion-metka $motion-ease;
 
     &[data-hidden] {
         transform: translateY(calc(-1 * var(--szyld)));

@@ -10,12 +10,14 @@
     margin-inline: auto;
     padding: $space-12;
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto auto;
     align-items: center;
-    gap: $space-6;
+    gap: $space-6 $space-12;
 
     @include phone {
         padding: $space-8;
+        grid-template-columns: auto auto 1fr;
+        gap: $space-8;
     }
 }
 
@@ -23,6 +25,10 @@
     display: flex;
     align-items: center;
     gap: $space-3;
+
+    @include phone {
+        grid-column: 1 / -1;
+    }
 }
 
 .znak {
@@ -41,13 +47,33 @@
 }
 
 // Logo Bractwa w kolorze contrast-ink (białe na czarnej stopce) przez maskę —
-// proporcje pliku 3471 × 2084 zachowane, szerokość nie mniej niż 120 px.
+// proporcje pliku 3471 × 2084 zachowane, szerokość nie mniej niż logo-partner-min.
+// Kwadratowa, zbudowana jak znak Kwadratu — bez zaokrągleń.
+.facebook {
+    display: block;
+    color: $contrast-ink;
+
+    @include phone {
+        grid-row: 2;
+    }
+}
+
+.facebookZnak {
+    display: block;
+    width: $space-8;
+    height: $space-8;
+}
+
 .bractwo {
     display: block;
-    width: 120px;
+    width: $logo-partner-min;
     aspect-ratio: 3471 / 2084;
     background: $contrast-ink;
     mask: url('/bractwo-piwne.svg') center / contain no-repeat;
+
+    @include phone {
+        grid-row: 2;
+    }
 }
 
 .author {
