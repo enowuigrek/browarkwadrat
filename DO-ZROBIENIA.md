@@ -34,3 +34,12 @@ Lista rzeczy odłożonych świadomie, żeby nie wracać do nich z pamięci.
       pełnej receptury zamiast Brewfathera.
 - [ ] Receptura do pobrania ze strony piwa: kroki warzenia w PDF, zaprojektowany tak
       samo jak etykieta (metka, kroje, tkanina piwa).
+      Ustalone: PDF to logo, tabele i tekst, bez ozdób. Kroje te same, co na stronie.
+      Do rozstrzygnięcia przy robocie, bo papier rządzi się inaczej niż ekran:
+      - rozmiary w punktach, nie w pikselach; tekst około 10 pt, nie 15 px
+      - kreska minimum 0,25 mm, cieńsza znika przy druku domowym
+      - barwa: albo czerń i jedno złoto, albo sama czerń; złoto z ekranu zjedzie na
+        papierze i na każdej drukarce inaczej
+      - kroje osadzone w pliku (wszystkie trzy mają licencję OFL, więc wolno)
+      - cień drukarski pod nazwą zostaje, ale tylko przy dużym stopniu; przy małym
+        rozmazuje się i zjada toner

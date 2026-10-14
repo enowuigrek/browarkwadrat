@@ -57,6 +57,9 @@ $wear-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' wid
     @extend %warstwa;
     z-index: 1;
     filter: url(#warp);
+    // na stronie splot o połowę słabszy niż na etykiecie: tu leży pod akapitem,
+    // nie pod nazwą i trzema liczbami. Klasy splotów zostają te same co na etykietach.
+    opacity: 0.5;
 }
 
 .plotno {

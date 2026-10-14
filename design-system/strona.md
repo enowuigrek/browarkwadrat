@@ -428,6 +428,12 @@ a kafle na landingu przestają być sześcioma prostokątami w różnych kolorac
 Kolejność warstw na barwnym gruncie: tkanina, nad nią ziarno (0,12, tryb `multiply`),
 nad tym treść. Obie warstwy nie łapią kliknięć.
 
+**Na stronie tkanina jest o połowę słabsza niż na etykiecie** (`opacity: 0.5` na warstwie,
+klasy splotów bez zmian). Powód jest prosty: etykieta to plakat, na którym stoi nazwa
+i trzy liczby, a strona to tekst do czytania. Ten sam splot, który na butelce ledwo widać,
+pod akapitem zaczyna zjadać litery. Sprawdzaliśmy też pogrubienie i powiększenie tekstu:
+pomaga mniej niż ściszenie splotu, a zmienia wygląd całej strony.
+
 Tkanina należy do piwa, więc siedzi w jego danych (`fabric` w `beersData.js`), a nie
 w komponencie. Nowe piwo dostaje tkaninę razem z barwą i numerem, w jednym miejscu.
 
