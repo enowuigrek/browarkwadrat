@@ -139,9 +139,12 @@ który jest pasem na całą szerokość i nie może jechać w bok. W CSS metka m
 pozycję z lewej, a w stanie spoczynku dostaje `translateX` do środka. Wspólny
 `drop-shadow` dalej działa, bo filtr liczy się po transformacjach dzieci.
 
-Oba ruchy w `motion-metka` z `motion-ease`, jeden próg, jedno zdarzenie. Na telefonie
-metka od razu stoi z lewej, bo przy tej szerokości droga jest za krótka, żeby ruch coś
-znaczył, a wyśrodkowana metka wchodzi pod nawigację.
+Oba ruchy w `motion-metka` z `motion-ease`, jeden próg, jedno zdarzenie.
+
+**Na telefonie metka na podstronie piwa też stoi na środku**, tylko nigdzie nie jedzie.
+Nagłówek na telefonie się nie rusza, więc nie ma ruchu do zrobienia, ale jest kompozycja
+do utrzymania: strona piwa ma wyglądać jak etykieta, a tam znak jest na środku. Z lewej
+metka stoi wyłącznie na landingu.
 
 ## Ocena za przyciskiem
 
@@ -406,6 +409,10 @@ Zasady:
   brudzić kolor.
 - **Biel zostaje czysta.** Trzy plany tła to już wystarczająca różnica, a ziarno na bieli
   czyta się jak brudny ekran, nie jak papier.
+- **Stopka też zostaje czysta**, mimo że jest czarna. Faktura należy do pasa z treścią,
+  czyli do sekcji „Uwarz sobie i ocena". Gdyby obie czarne powierzchnie miały ziarno,
+  zlałyby się w jedną i stopka przestałaby być zakończeniem strony. Czysta czerń pod
+  fakturowaną czernią działa jak cisza po akapicie.
 - Obie warstwy mają `pointer-events: none` i leżą pod treścią, nigdy nad nią.
 - Źródłem jest `feTurbulence` w SVG wklejonym jako data URI, więc nie ma żadnego pliku
   graficznego do pobrania i wszystko skaluje się bezstratnie.
@@ -426,3 +433,65 @@ w komponencie. Nowe piwo dostaje tkaninę razem z barwą i numerem, w jednym mie
 
 Biel i czerń tkaniny nie dostają. Na czerni pracuje ziarno i rysy, biel zostaje czysta,
 a tkanina jest znakiem rozpoznawczym konkretnego piwa i tylko tam ma sens.
+
+## Powrót z podstrony piwa
+
+Ktoś wchodzi na stronę piwa z kodu QR na butelce, więc **nie ma dokąd wrócić przyciskiem
+przeglądarki**. Potrzebny jest własny powrót i musi być widoczny od razu, u góry.
+
+Stoi w lewym górnym rogu barwnego pasa, równo z kolumną treści, nad nazwą stylu. Składa
+się ze znaku i podpisu `Piwa` stylem `label`.
+
+**Znak powrotu to logo bez prawej ściany.** Pierścień ma cztery ściany, hamburger ma
+dwie poziome plus kreskę w środku, powrót ma trzy i otwiera się w prawo, czyli w stronę,
+z której przyszedł czytelnik. Grubość ścianki jak zawsze `bok ÷ 7`, rozmiar 20 px.
+Dzięki temu nie dokładamy do systemu ani jednej obcej strzałki.
+
+Przy najechaniu cały przycisk przesuwa się o 2 px w lewo, czasem `motion-press`. To
+jedyny ruch w tę stronę w całym systemie i dlatego czyta się jako cofnięcie.
+
+## Oddech przed następnym pasem
+
+Po ostatnim wierszu treści w pasie musi być **`space-16` (64 px)** do jego dolnej
+krawędzi. Między wierszami wystarcza `space-4`, ale koniec pasa to coś innego niż przerwa
+między wierszami: bez tego ścieg i następna sekcja wjeżdżają od razu po ostatniej linijce
+i strona sprawia wrażenie uciętej.
+
+Dotyczy każdego pasa, najbardziej widać to pod listą składu.
+
+## Uwarz sobie i ocena, jeden pas
+
+Receptura i pytanie o ocenę siedzą **w jednym czarnym pasie**, a nie w dwóch miejscach.
+To ten sam moment rozmowy: masz piwo w ręku, więc albo chcesz je powtórzyć, albo chcesz
+powiedzieć, jak wyszło.
+
+Kolejność jest celowa: **najpierw dajemy, potem prosimy.** Receptura stoi wyżej, ocena
+niżej. Odwrotna kolejność czyta się jak kasa przy wyjściu.
+
+Układ: oba bloki jedne pod drugim, pełna szerokość kolumny, między nimi `space-16`.
+Dwóch kolumn nie robimy, bo formularz oceny po rozwinięciu jest długi i rozjechałby
+się z krótkim blokiem receptury.
+
+Ten pas niesie fakturę, czyli ziarno i rysy. Stopka pod nim zostaje czysta.
+
+### Receptura
+
+Nagłówek `Uwarz sobie` (`title`), jedno zdanie i przycisk.
+
+Przycisk ma dwa stany i decyduje o nich pole `recipeUrl` w danych piwa:
+
+- **jest adres**: pełny przycisk, tło `brand`, cień drukarski, napis `Zobacz recepturę`,
+- **brak adresu**: ten sam prostokąt, ale bez wypełnienia i bez cienia, obrys `rule-thin`
+  w `ink`, napis `Receptura wkrótce`, `aria-disabled="true"`, kursor domyślny.
+
+Stan pusty zostaje widoczny celowo. Mówi, że receptury będą, i jest to obietnica
+wypisana wprost, a nie puste miejsce, którego nikt nie zauważy. Pod przyciskiem jedno
+zdanie wyjaśnienia stylem `small`.
+
+Na czarnym gruncie przycisk w stanie pustym ma obrys w `contrast-ink`, nie w `ink`.
+
+### Ocena
+
+Bez zmian co do treści: przycisk `Oceń to piwo`, formularz rozwija się w miejscu, pytania
+o cechy, nie o gwiazdki. Zmienia się tylko miejsce, bo teraz stoi pod recepturą w tym
+samym pasie.

@@ -121,9 +121,10 @@ rysunku, ale bez płyty**: trzy czarne kreski wprost na tle, czyli górna ścian
 w osi i dolna ściana, każda grubości `bok ÷ 7`. Płyta jest tylko jedna i należy do metki,
 bo to ona ma leżeć NA stronie. Opis zachowania w `strona.md`.
 
-**Wariantu wyśrodkowanego na telefonie nie ma w ogóle.** Droga jest za krótka, żeby ruch
-coś znaczył, a metka na środku wchodzi pod nawigację. Tam metka stoi z lewej od początku
-do końca, wyrównana do marginesu tekstu.
+**Na telefonie wariant wyśrodkowany istnieje, tylko nie jedzie.** Na podstronie piwa
+metka stoi na środku przez cały czas, bo strona piwa ma czytać się jak etykieta, a tam
+znak jest na środku. Ruchu nie ma, bo nagłówek na telefonie się nie rusza. Z lewej,
+przy marginesie tekstu, metka stoi wyłącznie na landingu.
 
 ## Treść szyldu
 

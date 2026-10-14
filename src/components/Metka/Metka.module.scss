@@ -103,10 +103,10 @@
         transform: translateX(calc(50cqw - var(--metka-w) / 2 - var(--margin)));
     }
 
-    // na telefonie wariantu wyśrodkowanego nie ma — metka stoi z lewej cały czas
+    // na telefonie wariant wyśrodkowany stoi na środku cały czas — nagłówek się nie rusza
     @include phone {
-        [data-position="center"]:not([data-docked]) & {
-            transform: none;
+        [data-position="center"] & {
+            transform: translateX(calc(50cqw - var(--metka-w) / 2 - var(--margin)));
         }
     }
 }

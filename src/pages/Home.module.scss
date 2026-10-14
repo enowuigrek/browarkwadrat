@@ -28,7 +28,7 @@
 // Półka
 .shelf {
     @include column;
-    padding-bottom: $space-12;
+    padding-bottom: $space-16;
 }
 
 // Odstęp ≥ 20 px, bo cień kafla ma 6 px (strona.md → Najechanie).

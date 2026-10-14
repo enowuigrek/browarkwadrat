@@ -1,16 +1,15 @@
 import { Facebook } from '../Ikony/Facebook.jsx';
-import { Faktura } from '../Faktura/Faktura.jsx';
 import { FACEBOOK_URL } from '../../data/kontakt.js';
 import styles from './Footer.module.scss';
 
 // Stopka w trzech piętrach: kto to zrobił (logo + Facebook), gdzie browar należy
-// (Bractwo), drobny druk (kolofon na osi strony, pod kreską).
+// (Bractwo), drobny druk (kolofon na osi strony, pod kreską). Czysta czerń, bez faktury:
+// fakturę niesie pas z treścią nad nią, a stopka ma działać jak cisza po akapicie.
 export function Footer() {
     const year = new Date().getFullYear();
 
     return (
-        <footer className={styles.footer} data-ground="contrast" data-textured id="kontakt">
-            <Faktura ground="contrast" />
+        <footer className={styles.footer} data-ground="contrast" id="kontakt">
             <div className={styles.column}>
                 <div className={styles.marks}>
                     <div className={styles.left}>

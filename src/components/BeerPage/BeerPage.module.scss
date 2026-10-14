@@ -4,7 +4,41 @@
 // ─── Pas w kolorze piwa ──────────────────────────────────────────────────
 .beer {
     @include under-metka;
-    padding-bottom: $space-12;
+    padding-bottom: $space-16;
+}
+
+// Powrót: lewy górny róg barwnego pasa, równo z kolumną tekstu, nad nazwą stylu.
+.backRow {
+    @include column($col-text + 2 * $space-12);
+    margin-bottom: $space-6;
+}
+
+.back {
+    @include type(label);
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    color: $ink;
+    transition: transform $motion-press $motion-ease;
+
+    // jedyny ruch w lewo w systemie: czyta się jako cofnięcie
+    &:hover,
+    &:focus-visible {
+        transform: translateX(-2px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        &:hover,
+        &:focus-visible {
+            transform: none;
+        }
+    }
+}
+
+.backZnak {
+    display: block;
+    width: 20px;
+    height: 20px;
 }
 
 .nameBlock {
@@ -91,8 +125,6 @@
 .composition {
     @include band;
     background: $surface-100;
-    // oddech pod ostatnim wierszem przed szwem, także na telefonie
-    padding-bottom: $space-12;
 }
 
 .row {
@@ -144,6 +176,44 @@
     @include band;
     background: $contrast;
     color: $contrast-ink;
+}
+
+// Receptura: nagłówek, zdanie, przycisk (pełny albo obietnica), wyjaśnienie.
+.recipe {
+    margin-bottom: $space-16;
+}
+
+.printed {
+    text-shadow: $shadow-print-title;
+}
+
+.recipeText {
+    margin-bottom: $space-6;
+}
+
+.button {
+    @include type(body-strong);
+    display: inline-block;
+    padding: $space-3 $space-6;
+    background: $brand;
+    color: $brand-ink;
+
+    @include printed;
+}
+
+// Stan pusty: ten sam prostokąt, bez wypełnienia i cienia, obrys w kontrze do pasa.
+.buttonEmpty {
+    @include type(body-strong);
+    display: inline-block;
+    padding: calc(#{$space-3} - #{$rule-thin}) calc(#{$space-6} - #{$rule-thin});
+    border: $rule-thin solid $contrast-ink;
+    color: $contrast-ink;
+    cursor: default;
+}
+
+.note {
+    @include type(small);
+    margin-top: $space-4;
 }
 
 .opinionLead {

@@ -4,6 +4,7 @@
 // accent  — kolor z tej samej rodziny: cień nazwy
 // fabric  — tkanina pod barwnym gruntem (podstrona i kafel): plotno, denim, sztruks, jodelka, plecionka, dzianina
 // intro   — jedno zdanie wprowadzające; description — krótkie akapity
+// recipeUrl — adres pełnej receptury w narzędziu; puste = przycisk „Receptura wkrótce”
 // draft   — piwo bez treści, ukryte na liście
 const beersData = [
     {
@@ -34,7 +35,8 @@ const beersData = [
         extract: 11.1,
         alcohol: 4.4,
         ibu: 36,
-        brewFatherLink: "https://share.brewfather.app/2esywTrJXJ1xSw"
+        brewFatherLink: "https://share.brewfather.app/2esywTrJXJ1xSw",
+        recipeUrl: ""
     },
     {
         id: 2,
@@ -58,7 +60,8 @@ const beersData = [
         extract: 13.9,
         alcohol: 5.6,
         ibu: 46,
-        brewFatherLink: "https://share.brewfather.app/7iXszBZmATRT13"
+        brewFatherLink: "https://share.brewfather.app/7iXszBZmATRT13",
+        recipeUrl: ""
     },
     {
         id: 3,
@@ -81,7 +84,8 @@ const beersData = [
         extract: 12.9,
         alcohol: 5.2,
         ibu: 38,
-        brewFatherLink: null
+        brewFatherLink: null,
+        recipeUrl: ""
     },
     {
         id: 4,
@@ -102,7 +106,8 @@ const beersData = [
         extract: 12.5,
         alcohol: 5.0,
         ibu: 40,
-        brewFatherLink: null
+        brewFatherLink: null,
+        recipeUrl: ""
     },
     {
         id: 5,
@@ -134,7 +139,8 @@ const beersData = [
         extract: 8.0,
         alcohol: 3.0,
         ibu: 28,
-        brewFatherLink: "https://share.brewfather.app/NgjthTwEkLcQAj"
+        brewFatherLink: "https://share.brewfather.app/NgjthTwEkLcQAj",
+        recipeUrl: ""
     }
 ];
 

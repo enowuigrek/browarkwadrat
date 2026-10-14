@@ -22,11 +22,13 @@
     }
 }
 
-// Pas na pełną szerokość
+// Pas na pełną szerokość. Pod ostatnim wierszem zawsze space-16 do dolnej krawędzi,
+// inaczej następny pas wjeżdża od razu po ostatniej linijce.
 @mixin band {
-    padding-block: $space-12;
+    padding-top: $space-12;
+    padding-bottom: $space-16;
 
     @include phone {
-        padding-block: $space-8;
+        padding-top: $space-8;
     }
 }
