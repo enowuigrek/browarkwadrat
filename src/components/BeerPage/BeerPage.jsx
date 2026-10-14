@@ -4,6 +4,7 @@ import { OpinionForm } from '../OpinionForm/OpinionForm.jsx';
 import { formatNumber } from '../../utils/format.js';
 import { Slod, Chmiel, Kolba, Dodatki } from '../Ikony/Ikony.jsx';
 import { Szew } from '../Szew/Szew.jsx';
+import { Faktura } from '../Faktura/Faktura.jsx';
 import styles from './BeerPage.module.scss';
 
 const nav = [{ label: 'Piwa', to: '/' }];
@@ -11,7 +12,7 @@ const nav = [{ label: 'Piwa', to: '/' }];
 // Podstrona piwa pod kodem QR: kolor piwa → biel (skład) → czerń (opinia) → stopka.
 export function BeerPage({ beer }) {
     const {
-        batchNumber, name, styleName, color, accent, intro, description,
+        batchNumber, name, styleName, color, accent, fabric, intro, description,
         malts, hops, yeast, adjuncts, extract, alcohol, ibu,
     } = beer;
 
@@ -34,7 +35,8 @@ export function BeerPage({ beer }) {
             <Szyld position="center" column="text" nav={nav} />
 
             <main style={{ '--beer-color': color, '--akcent': accent }}>
-                <section className={styles.beer} data-ground="beer">
+                <section className={styles.beer} data-ground="beer" data-textured>
+                    <Faktura ground="beer" fabric={fabric} />
                     <header className={styles.nameBlock}>
                         <p className={styles.style}>{styleName}</p>
                         <h1 className={styles.name}>{name}</h1>
@@ -74,7 +76,8 @@ export function BeerPage({ beer }) {
 
                 <Szew from="var(--surface-100)" to="var(--contrast)" />
 
-                <section className={styles.opinion} data-ground="contrast" aria-labelledby="opinia">
+                <section className={styles.opinion} data-ground="contrast" data-textured aria-labelledby="opinia">
+                    <Faktura ground="contrast" />
                     <div className={styles.inner}>
                         <h2 className={styles.ask} id="opinia">Jak ci smakowało?</h2>
                         <p className={styles.opinionLead}>

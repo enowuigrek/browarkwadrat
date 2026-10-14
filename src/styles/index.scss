@@ -52,6 +52,19 @@
     @include print-vars(light);
 }
 
+// Pas z fakturą: warstwy dekoracyjne (data-faktura) leżą pod treścią.
+// isolation, żeby tryby mieszania łączyły się tylko z gruntem pasa.
+[data-textured] {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    > :not([data-faktura]) {
+        position: relative;
+        z-index: 3;
+    }
+}
+
 *, *::before, *::after {
     margin: 0;
     padding: 0;

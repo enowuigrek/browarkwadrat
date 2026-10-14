@@ -17,7 +17,7 @@
 }
 
 .optional {
-    color: $contrast-ink-muted;
+    color: $contrast-ink;
 }
 
 .options {
@@ -40,7 +40,7 @@
     span {
         display: block;
         padding: $space-2 $space-4;
-        border: $rule-hair solid $contrast-ink-muted;
+        border: $rule-hair solid $contrast-ink;
     }
 
     input:checked + span {
@@ -93,11 +93,11 @@
     padding: $space-3 0;
     border: 0;
     background: none;
-    color: $contrast-ink-muted;
+    color: $contrast-ink;
     cursor: pointer;
 }
 
 .note {
     @include type(small);
-    color: $contrast-ink-muted;
+    color: $contrast-ink;
 }

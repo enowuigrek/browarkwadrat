@@ -4,6 +4,7 @@ import { Footer } from '../components/Footer/Footer.jsx';
 import { publishedBeers } from '../data/beersData.js';
 import { formatNumber } from '../utils/format.js';
 import { Szew } from '../components/Szew/Szew.jsx';
+import { Faktura } from '../components/Faktura/Faktura.jsx';
 import styles from './Home.module.scss';
 
 const nav = [
@@ -35,8 +36,10 @@ export function Home() {
                                     to={`/${beer.slug}`}
                                     className={styles.tile}
                                     data-ground="beer"
+                                    data-textured
                                     style={{ '--beer-color': beer.color, '--akcent': beer.accent }}
                                 >
+                                    <Faktura ground="beer" fabric={beer.fabric} />
                                     <span className={styles.batch}>#{beer.batchNumber}</span>
                                     <span className={styles.style}>{beer.styleName}</span>
                                     <span className={styles.name}>{beer.name}</span>
@@ -51,7 +54,8 @@ export function Home() {
 
                 <Szew from="var(--surface-000)" to="var(--contrast)" />
 
-                <section className={styles.band} data-ground="contrast" id="narzedzie" aria-labelledby="narzedzie-tytul">
+                <section className={styles.band} data-ground="contrast" data-textured id="narzedzie" aria-labelledby="narzedzie-tytul">
+                    <Faktura ground="contrast" />
                     <div className={styles.bandInner}>
                         <p className={styles.label}>Za kulisami</p>
                         <h2 className={styles.bandTitle} id="narzedzie-tytul">Narzędzie piwowarskie</h2>

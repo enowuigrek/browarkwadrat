@@ -40,6 +40,10 @@
 .link {
     @include type(title);
     color: $contrast-ink;
+
+    &[aria-current] {
+        color: $brand;
+    }
 }
 
 .facebook {

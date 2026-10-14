@@ -84,32 +84,26 @@ Pole na jedno zdanie i **nieobowiązkowy podpis**. Kto chce się podpisać, podp
 
 ## Stopka
 
-Stopka jest **oddzielona od góry włosową kreską** (`rule-hair` w `contrast-ink-muted`).
-Bez niej skleja się z pasem nad nią, bo formularz oceny i pas o narzędziu też są czarne
-i powstaje jedna czarna płachta bez końca.
+Stopka jest **oddzielona od góry włosową kreską** (`rule-hair` w `contrast-ink`), bo nad
+nią stoi formularz albo pas o narzędziu, też czarne, i bez kreski robi się jedna czarna
+płachta bez końca.
 
-**Dwie kolumny, także na telefonie.** Jedna pod drugą znaki ustawiają się w kolumnę totemów
-i stopka robi się wyższa niż treść, którą zamyka.
+Układ ma trzy piętra i każde odpowiada na inne pytanie:
 
-Po lewej, jedno pod drugim:
+1. **Kto to zrobił.** Po lewej pełne logo w `contrast-ink`, 160 px (140 px na telefonie),
+   a pod nim, wyrównana do jego lewej krawędzi, **ikona Facebooka** 22 px. Facebook siedzi
+   przy logo, bo to jest adres browaru, a nie informacja porządkowa. Przy najechaniu
+   i fokusie zapala się na `#1877f2`.
+2. **Gdzie browar należy.** Po prawej znak Bractwa jako link, 120 px (`logo-partner-min`),
+   wyrównany do góry, żeby oba znaki startowały z jednej linii. Dwie kolumny zostają
+   także na telefonie.
+3. **Drobny druk.** Pod spodem **pozioma kreska** przez szerokość kolumny, a pod nią
+   **wyśrodkowany kolofon**: rok i `lukasznowak.dev`. Styl `small`, pełna biel, bez
+   podkreślenia (podkreślenie dopiero przy `:hover` i `:focus`). Rok z zegara, nie wpisany.
 
-1. **Pełne logo** w `contrast-ink`, **160 px** szerokości (140 px na telefonie). To
-   najważniejszy znak w stopce i ma być największy. Bez nazwy browaru pisanej tekstem
-   i bez miasta, bo logo niesie nazwę samo.
-2. **Ikona Facebooka**, **20 px**, w `contrast-ink-muted`; przy najechaniu i fokusie
-   zapala się na niebiesko (`#1877f2`). Ma być **delikatna**, bo to odnośnik, nie drugi
-   znak marki, i nigdy nie może być większa ani mocniejsza od logo. To gotowy, kwadratowy
-   znak serwisu i nie przerabiamy go: zaokrąglenie narożników należy do cudzej marki.
-3. **Linijka kolofonu**: rok i `lukasznowak.dev`, styl `small` w `contrast-ink-muted`,
-   bez podkreśleń (podkreślenie dopiero przy `:hover`/`:focus`). Rok z zegara, nie wpisany.
-
-Po prawej **znak Bractwa** jako link, dokładnie `logo-partner-min` (120 px). To jego
-dolna granica czytelności i jednocześnie górna granica rozsądku w stopce. Wyrównany do
-góry, żeby obie kolumny startowały z tej samej linii.
-
-Otwarta sprawa: napis „KWADRAT" w logo pochodzi z oryginalnego pliku. Docelowo może go
-zastąpić ten sam napis złożony krojem `display` (Alfa Slab One). Wtedy stopka i etykieta
-mówią jednym krojem. Na teraz zostaje pełne logo i możliwe, że tak już zostanie.
+Wyśrodkowanie dotyczy tylko kolofonu i to jest celowe: znaki trzymają boki, a drobny druk
+siada na osi strony i zamyka ją symetrycznie. Nazwy browaru pisanej tekstem nie ma, logo
+niesie ją samo.
 
 ## Barwy piw
 
@@ -200,7 +194,8 @@ Nie `body`. Szyld to listwa, nie zdanie. Zwykły tekst o wadze 400 wygląda na n
 surowo, jakby ktoś zapomniał go złożyć. Wersaliki z literowaniem czytają się jak
 oznakowanie, a nie jak akapit, który przypadkiem trafił na czarne tło.
 
-Pozycja aktywna w `contrast-ink` pełną siłą, reszta w `contrast-ink-muted`.
+Wszystkie pozycje w `contrast-ink`, pełną bielą. Aktywną wyróżnia **złoto** (`brand`),
+nie przygaszenie pozostałych. Szarego tekstu na stronie nie ma w ogóle.
 
 ## Menu na telefonie
 
@@ -363,3 +358,71 @@ Numer **nie wchodzi do wiersza parametrów**. Wiersz ma trzy kolumny (ekstrakt, 
 IBU) i czwarta wartość rozwala go na telefonie: `3,0% alc.` zawija się do drugiej linii
 i tabela przestaje być tabelą. Numer idzie osobno, pod blokiem nazwy, w kroju mono
 z `tabular-nums`, w `ink-muted`.
+
+## Bez szarości
+
+Na stronie publicznej **tekst ma dwa kolory**: `ink` na jasnym gruncie i `contrast-ink`
+na ciemnym. Szarości nie ma nigdzie: ani w nagłówku, ani w stopce, ani pod pytaniem
+o ocenę, ani przy etykietach wierszy w składzie.
+
+Hierarchię robi **rozmiar, waga, światło między literami i złoto**, a nie przygaszanie.
+Szary tekst wygląda, jakby ktoś się go wstydził, a na barwnych gruntach piw dodatkowo
+brudzi kolor pod spodem.
+
+Co zastępuje szarość w konkretnych miejscach:
+
+| było | jest |
+| --- | --- |
+| nieaktywna pozycja nawigacji | pełna biel, aktywna w `brand` |
+| zdanie pod pytaniem o ocenę | pełna biel, styl `small` |
+| kolofon w stopce | pełna biel, styl `small` |
+| etykiety wierszy w składzie | `ink`, wersaliki ze światłem `0,08 em`, 11 px |
+
+Tokeny `ink-muted`, `ink-faint` i `contrast-ink-muted` zostają w systemie, ale należą do
+**narzędzia piwowarskiego**, gdzie na ekranie jest dużo danych i trzeba je warstwować.
+Strona publiczna ma jedno zdanie na raz i nie potrzebuje trzech poziomów szarości.
+
+## Faktura
+
+Czarne pasy dostają **dwie warstwy faktury**: drobne ziarno na całej powierzchni
+i większe zdarcia przy prawej krawędzi. Razem dają wrażenie druku na kiepskim papierze,
+czyli to samo, co nadruk nie trafiony w rejestr, tylko w skali tła.
+
+| warstwa | co to | krycie | tryb |
+| --- | --- | --- | --- |
+| ziarno | drobny szum, kafelek `grain-tile` | `grain-opacity` (0,4) | `screen` |
+| zdarcia | poziome rysy przetarcia, kafelek `wear-tile` | `wear-opacity` (0,16) | maska kierunkowa |
+
+Zasady:
+
+- **Tylko pasy, nigdy całe tło strony.** Warstwa rozciągnięta na dokument kosztuje przy
+  każdym przewinięciu, a na starszych telefonach widać to od razu.
+- **Zdarcia tylko przy prawej krawędzi** (`wear-mask`), bo tam nie ma tekstu. Przetarcie
+  pod zdaniem obniża kontrast dokładnie tam, gdzie go potrzeba najbardziej.
+- **Kafelek zdarć musi być szerszy niż okno** (`wear-tile`, 2400 px). Przy węższym na
+  styku dwóch kafelków pojawia się pionowa kreska przez cały pas i widać ją od razu.
+  Rysy są poziome, więc powtórzenie w pionie niczego nie psuje.
+- **Grunt barwy piwa** dostaje samo ziarno, krycie 0,12, tryb `multiply`. Mocniej zaczyna
+  brudzić kolor.
+- **Biel zostaje czysta.** Trzy plany tła to już wystarczająca różnica, a ziarno na bieli
+  czyta się jak brudny ekran, nie jak papier.
+- Obie warstwy mają `pointer-events: none` i leżą pod treścią, nigdy nad nią.
+- Źródłem jest `feTurbulence` w SVG wklejonym jako data URI, więc nie ma żadnego pliku
+  graficznego do pobrania i wszystko skaluje się bezstratnie.
+- Przy druku etykiet ta faktura **nie przenosi się sama**. Ekranowy szum w 300 dpi znika,
+  więc na etykietę trzeba będzie zrobić własne ziarno w rozdzielczości druku.
+
+## Tkanina piwa na stronie
+
+Barwny pas na podstronie piwa i kafel tego piwa na landingu dostają **tę samą tkaninę,
+co etykieta**. Butelka w ręku i strona pod kodem QR mają wtedy ten sam materiał w tle,
+a kafle na landingu przestają być sześcioma prostokątami w różnych kolorach.
+
+Kolejność warstw na barwnym gruncie: tkanina, nad nią ziarno (0,12, tryb `multiply`),
+nad tym treść. Obie warstwy nie łapią kliknięć.
+
+Tkanina należy do piwa, więc siedzi w jego danych (`fabric` w `beersData.js`), a nie
+w komponencie. Nowe piwo dostaje tkaninę razem z barwą i numerem, w jednym miejscu.
+
+Biel i czerń tkaniny nie dostają. Na czerni pracuje ziarno i rysy, biel zostaje czysta,
+a tkanina jest znakiem rozpoznawczym konkretnego piwa i tylko tam ma sens.

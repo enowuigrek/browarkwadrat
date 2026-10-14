@@ -9,7 +9,7 @@
 
 .code {
     @include type(metric-xl);
-    color: $ink-muted;
+    color: $ink;
     margin-bottom: $space-3;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .message {
-    color: $ink-muted;
+    color: $ink;
     margin-bottom: $space-8;
 }
 

@@ -2,6 +2,7 @@
 // slug    — adres podstrony; musi zgadzać się z kodem QR na etykiecie, nie zmieniać
 // color   — tło podstrony i kafla (kolor etykiety)
 // accent  — kolor z tej samej rodziny: cień nazwy
+// fabric  — tkanina pod barwnym gruntem (podstrona i kafel): plotno, denim, sztruks, jodelka, plecionka, dzianina
 // intro   — jedno zdanie wprowadzające; description — krótkie akapity
 // draft   — piwo bez treści, ukryte na liście
 const beersData = [
@@ -13,6 +14,7 @@ const beersData = [
         styleName: "Old School Pale Ale",
         color: "#f5b82e",
         accent: "#8a3c06",
+        fabric: "plotno",
         intro: "Lekkie, przyjemne piwo na amerykańskim i nowozelandzkim chmielu, ale w subtelnym wydaniu.",
         description: [
             "Delikatna goryczka i wyważony profil słodowy sprawiają, że jest to piwo imprezowe, serialowe, spotkaniowe.",
@@ -42,6 +44,7 @@ const beersData = [
         styleName: "Polish Pale Ale",
         color: "#e8d64f",
         accent: "#6d5a0a",
+        fabric: "denim",
         intro: "Niektóre piwa powstają z precyzyjnie zaplanowanej receptury, a inne… z przypadku.",
         description: [
             "To akurat z ustawki po pracy z Danielem, Dominikiem i Marcelem. Pomieszaliśmy w garze, zamówiliśmy pizzę, zjedliśmy i brzuch bolał. Ale piwo wyszło spoko.",
@@ -65,6 +68,7 @@ const beersData = [
         styleName: "Polish Pale Ale",
         color: "#d6d33a",
         accent: "#4f5a12",
+        fabric: "sztruks",
         intro: "Delikatne pale ale z nutą słodkości od słodów cookie i pszenicznego.",
         description: [
             "Amerykańskie drożdże US-05 dają czysty charakter, a polski chmiel Książęcy zapewnia tradycyjną goryczkę z aromatycznym wykończeniem.",
@@ -87,6 +91,7 @@ const beersData = [
         styleName: "Experimental Ale",
         color: "#ff3d8a",
         accent: "#ffffff",
+        fabric: "plecionka",
         draft: true,
         intro: "Opis kolejnego piwa...",
         description: [],
@@ -107,6 +112,7 @@ const beersData = [
         styleName: "Modern Grodziskie",
         color: "#dcbd76",
         accent: "#6b4e22",
+        fabric: "jodelka",
         intro: "Lekkie grodziskie, które pamięta o korzeniach, ale nie zamyka się w muzealnej gablocie.",
         description: [
             "Pozostaje rześkie, musujące i ultralekkie, jednak podane we współczesnej interpretacji.",

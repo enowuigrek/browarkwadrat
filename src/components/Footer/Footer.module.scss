@@ -4,24 +4,28 @@
 .footer {
     background: $contrast;
     color: $contrast-ink;
-    border-top: $rule-hair solid $contrast-ink-muted;
+    border-top: $rule-hair solid $contrast-ink;
 }
 
-// Dwie kolumny także na telefonie — obie startują z tej samej linii u góry.
 .column {
     max-width: $col-page;
     margin-inline: auto;
     padding: $space-12;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: start;
-    gap: $space-8;
 
     @include phone {
         padding: $space-8;
     }
 }
 
+// Znaki trzymają boki, obie kolumny startują z jednej linii (także na telefonie).
+.marks {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: $space-8;
+}
+
+// Logo i pod nim Facebook, wyrównany do lewej krawędzi logo.
 .left {
     display: grid;
     justify-items: start;
@@ -29,7 +33,7 @@
 }
 
 // Pełne logo w contrast-ink przez maskę (proporcje pliku 3402 × 893),
-// 160 px szerokości, 140 px na telefonie: najważniejszy znak w stopce (strona.md → Stopka).
+// 160 px szerokości, 140 px na telefonie.
 .logo {
     display: block;
     width: 160px;
@@ -42,11 +46,10 @@
     }
 }
 
-// square-facebook z Font Awesome: 20 px, delikatna (odnośnik, nie drugi znak marki),
-// zapala się kolorem serwisu przy hover/focus.
+// square-facebook z Font Awesome, 22 px; przy hover/focus kolor serwisu.
 .facebook {
     display: block;
-    color: $contrast-ink-muted;
+    color: $contrast-ink;
 
     &:hover,
     &:focus-visible {
@@ -56,17 +59,27 @@
 
 .facebookIkona {
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
 }
 
-// Kolofon: przypis, nie nawigacja — bez podkreśleń, podkreślenie tylko przy hover/focus.
+// Znak Bractwa w kontrze przez maskę, dokładnie logo-partner-min, proporcje 3471 × 2084.
+.bractwo {
+    display: block;
+    width: $logo-partner-min;
+    aspect-ratio: 3471 / 2084;
+    background: $contrast-ink;
+    mask: url('/bractwo-piwne.svg') center / contain no-repeat;
+}
+
+// Drobny druk: pod kreską przez szerokość kolumny, wyśrodkowany, pełna biel.
 .colophon {
     @include type(small);
-    display: flex;
-    flex-wrap: wrap;
-    gap: $space-1 $space-4;
-    color: $contrast-ink-muted;
+    margin-top: $space-8;
+    padding-top: $space-4;
+    border-top: $rule-hair solid $contrast-ink;
+    text-align: center;
+    color: $contrast-ink;
 
     a {
         text-underline-offset: $space-1;
@@ -76,14 +89,4 @@
             text-decoration: underline;
         }
     }
-}
-
-// Znak Bractwa w kontrze (contrast-ink) przez maskę — dokładnie logo-partner-min,
-// proporcje pliku 3471 × 2084.
-.bractwo {
-    display: block;
-    width: $logo-partner-min;
-    aspect-ratio: 3471 / 2084;
-    background: $contrast-ink;
-    mask: url('/bractwo-piwne.svg') center / contain no-repeat;
 }

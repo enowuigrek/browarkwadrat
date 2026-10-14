@@ -24,3 +24,13 @@ Lista rzeczy odłożonych świadomie, żeby nie wracać do nich z pamięci.
 
 - [ ] Opisy piw: przejrzeć teksty zastępcze, które dopisał Claude Code.
 - [ ] Zdjęcia piw — na razie nie ma żadnych.
+
+## Baza piw i narzędzie (kierunek na dalej)
+
+- [ ] Dodać piwa spoza browaru, które Nowemu smakowały, jako osobny zbiór „sprawdzone".
+- [ ] Odznaki w kaflach dla piw nagrodzonych: jedna forma, czytelna przy małym kaflu,
+      zbudowana z geometrii znaku, nie gotowa ikona z internetu.
+- [ ] Narzędzie piwowarskie: warki, pomiary, receptury. Stamtąd ma prowadzić link do
+      pełnej receptury zamiast Brewfathera.
+- [ ] Receptura do pobrania ze strony piwa: kroki warzenia w PDF, zaprojektowany tak
+      samo jak etykieta (metka, kroje, tkanina piwa).

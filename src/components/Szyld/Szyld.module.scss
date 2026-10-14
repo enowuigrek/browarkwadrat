@@ -13,10 +13,11 @@
 
 .link {
     @include type(label);
-    color: $contrast-ink-muted;
+    color: $contrast-ink;
     white-space: nowrap;
 
+    // bez szarości: nieaktywne pełną bielą, aktywne złotem (9,4:1 na czerni)
     &[aria-current] {
-        color: $contrast-ink;
+        color: $brand;
     }
 }

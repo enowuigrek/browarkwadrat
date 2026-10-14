@@ -29,7 +29,7 @@
 // Numer warki pod blokiem nazwy: mono, bez słowa „warka”.
 .batch {
     @include type(metric-sm);
-    color: $ink-muted;
+    color: $ink;
 }
 
 // Wiersz parametrów: dwie kreski, separatory krótsze od odstępu i ich nie dotykają.
@@ -107,13 +107,15 @@
     }
 
     // ikona + etykieta o stałej szerokości col-label, żeby wartości stały w jednej kolumnie
+    // etykiety wierszy: pełny ink, wersaliki, światło 0,08 em, 11 px (strona.md → Lista składu)
     dt {
         @include type(label);
+        font-size: 11px;
         display: grid;
         grid-template-columns: auto $col-label;
         align-items: center;
         gap: $space-3;
-        color: $ink-muted;
+        color: $ink;
     }
 
     dd {
@@ -145,7 +147,8 @@
 }
 
 .opinionLead {
-    color: $contrast-ink-muted;
+    @include type(small);
+    color: $contrast-ink;
     margin-top: -$space-3;
     margin-bottom: $space-8;
 }

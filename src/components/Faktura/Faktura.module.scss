@@ -1,0 +1,92 @@
+@use '../../styles/variables.module.scss' as *;
+
+// Źródłem jest feTurbulence w data URI — żadnych plików graficznych.
+$grain-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='discrete' tableValues='0 0 0 0 0 0 1 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+$wear-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2400' height='420'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.004 0.5' numOctaves='2' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0 0 1 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='2400' height='420' filter='url(%23s)'/%3E%3C/svg%3E");
+
+%warstwa {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    @media (prefers-reduced-transparency: reduce), print {
+        display: none;
+    }
+}
+
+// ─── Ziarno ───────────────────────────────────────────────────────────────
+.ziarno,
+.ziarnoBeer {
+    @extend %warstwa;
+    z-index: 2;
+    background-image: $grain-svg;
+    background-size: $grain-tile $grain-tile;
+}
+
+.ziarno {
+    mix-blend-mode: screen;
+    opacity: $grain-opacity;
+}
+
+.ziarnoBeer {
+    mix-blend-mode: multiply;
+    opacity: $grain-opacity-beer;
+}
+
+// ─── Zdarcia: poziome rysy tylko przy prawej krawędzi ─────────────────────
+// Kafelek 2400 px celowo: węższy od okna daje pionową kreskę na styku powtórzeń.
+.zdarcie {
+    @extend %warstwa;
+    z-index: 2;
+    background: $contrast-ink;
+    opacity: $wear-opacity;
+    -webkit-mask-image: $wear-svg, $wear-mask;
+    mask-image: $wear-svg, $wear-mask;
+    -webkit-mask-size: $wear-tile, 100% 100%;
+    mask-size: $wear-tile, 100% 100%;
+    -webkit-mask-repeat: repeat, no-repeat;
+    mask-repeat: repeat, no-repeat;
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+}
+
+// ─── Tkanina piwa ─────────────────────────────────────────────────────────
+// Ta sama gęstość wszędzie (kafel i podstrona), nitki wykrzywione filtrem #warp (Root).
+// Krycia i skali filtra nie podnosić.
+.tkanina {
+    @extend %warstwa;
+    z-index: 1;
+    filter: url(#warp);
+}
+
+.plotno {
+    background-image:
+        repeating-linear-gradient(90deg, rgba(22, 19, 15, 0.08) 0 1px, transparent 1px 3px),
+        repeating-linear-gradient(0deg, rgba(22, 19, 15, 0.08) 0 1px, transparent 1px 3px);
+}
+
+.denim {
+    background-image:
+        repeating-linear-gradient(60deg, rgba(22, 19, 15, 0.09) 0 1px, transparent 1px 4px),
+        repeating-linear-gradient(0deg, rgba(22, 19, 15, 0.05) 0 1px, transparent 1px 3px);
+}
+
+.sztruks {
+    background-image:
+        repeating-linear-gradient(90deg, rgba(22, 19, 15, 0.07) 0 1px, rgba(255, 255, 255, 0.05) 1px 2px, transparent 2px 9px);
+}
+
+.jodelka {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cg fill='none' stroke='rgba(22,19,15,0.13)' stroke-width='0.8'%3E%3Cpath d='M0 3 L3 0 L6 3 L9 0 L12 3'/%3E%3Cpath d='M0 9 L3 6 L6 9 L9 6 L12 9'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 12px 12px;
+}
+
+.plecionka {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cg fill='rgba(22,19,15,0.06)'%3E%3Crect x='0' y='0' width='4' height='4'/%3E%3Crect x='4' y='4' width='4' height='4'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 8px 8px;
+}
+
+.dzianina {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8'%3E%3Cg fill='none' stroke='rgba(22,19,15,0.11)' stroke-width='0.8' stroke-linecap='round'%3E%3Cpath d='M1 1 L2.6 4.4 L4.2 1'/%3E%3Cpath d='M6 1 L7.6 4.4 L9.2 1'/%3E%3Cpath d='M-4 5 L-2.4 8.4 L-0.8 5'/%3E%3Cpath d='M1 5 L2.6 8.4 L4.2 5'/%3E%3Cpath d='M6 5 L7.6 8.4 L9.2 5'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 10px 8px;
+}

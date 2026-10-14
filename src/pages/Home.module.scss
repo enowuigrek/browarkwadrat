@@ -3,7 +3,7 @@
 
 .label {
     @include type(label);
-    color: $ink-muted;
+    color: $ink;
     margin-bottom: $space-3;
 }
 
@@ -55,7 +55,7 @@
 
 .batch {
     @include type(metric-sm);
-    color: $ink-muted;
+    color: $ink;
     margin-bottom: $space-6;
 }
 
@@ -87,7 +87,7 @@
     color: $contrast-ink;
 
     .label {
-        color: $contrast-ink-muted;
+        color: $contrast-ink;
     }
 }
 

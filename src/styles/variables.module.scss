@@ -160,6 +160,15 @@ $seam-dash: 22px;
 $seam-dash-gap: 12px;
 $col-label: 88px;
 
+// ─── Faktura ──────────────────────────────────────────────────────────────
+$grain-opacity: 0.4;
+$grain-tile: 180px;
+// na gruncie barwy piwa (z opisu grain-opacity): 0.12 w trybie multiply
+$grain-opacity-beer: 0.12;
+$wear-opacity: 0.16;
+$wear-tile: 2400px 420px;
+$wear-mask: linear-gradient(90deg, transparent 34%, #000 90%);
+
 // ─── Ruch ─────────────────────────────────────────────────────────────────
 // Wartości w index.scss na :root; pod prefers-reduced-motion czasy schodzą do zera.
 $motion: (

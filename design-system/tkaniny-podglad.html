@@ -1,0 +1,55 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+@font-face { font-family: Alfa; src: url('fonts/AlfaSlabOne-latin.woff2') format('woff2'); }
+@font-face { font-family: Alfa; src: url('fonts/AlfaSlabOne-latin-ext.woff2') format('woff2'); unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: Lob; src: url('fonts/S-Lobster-latin.woff2') format('woff2'); }
+@font-face { font-family: Lob; src: url('fonts/S-Lobster-latin-ext.woff2') format('woff2'); unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: Arch; src: url('fonts/Archivo5-latin.woff2') format('woff2'); font-weight:500; }
+body{margin:0;padding:24px;background:#f0ece2;font-family:Arch,system-ui,sans-serif;color:#16130f}
+h1{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#55504a;margin:0 0 16px;font-weight:500}
+.siatka{display:flex;flex-wrap:wrap;gap:20px}
+.kol{width:250px}
+.kafel{position:relative;height:300px;overflow:hidden;display:flex;flex-direction:column;
+       align-items:center;justify-content:center;text-align:center;padding:0 16px}
+.kafel > *{position:relative;z-index:3}
+.tk{position:absolute;inset:0;z-index:1;pointer-events:none;filter:url(#warp)}
+.ziarno{position:absolute;inset:0;z-index:2;pointer-events:none;mix-blend-mode:multiply;opacity:.12;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='discrete' tableValues='0 0 0 0 0 0 1 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:180px 180px}
+.styl{font-family:Lob;font-size:19px;margin:0 0 2px}
+.nazwa{font-family:Alfa;font-size:27px;line-height:29px;margin:0}
+.pod{font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin:10px 0 0;color:#55504a;text-align:center}
+
+/* --- tkaniny --- */
+.plotno{background-image:
+  repeating-linear-gradient(90deg, rgba(22,19,15,.08) 0 1px, transparent 1px 3px),
+  repeating-linear-gradient(0deg,  rgba(22,19,15,.08) 0 1px, transparent 1px 3px);}
+.denim{background-image:
+  repeating-linear-gradient(60deg, rgba(22,19,15,.09) 0 1px, transparent 1px 4px),
+  repeating-linear-gradient(0deg, rgba(22,19,15,.05) 0 1px, transparent 1px 3px);}
+.sztruks{background-image:
+  repeating-linear-gradient(90deg, rgba(22,19,15,.07) 0 1px, rgba(255,255,255,.05) 1px 2px, transparent 2px 9px);}
+.jodelka{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cg fill='none' stroke='rgba(22,19,15,0.13)' stroke-width='0.8'%3E%3Cpath d='M0 3 L3 0 L6 3 L9 0 L12 3'/%3E%3Cpath d='M0 9 L3 6 L6 9 L9 6 L12 9'/%3E%3C/g%3E%3C/svg%3E");background-size:12px 12px}
+.plecionka{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cg fill='rgba(22,19,15,0.06)'%3E%3Crect x='0' y='0' width='4' height='4'/%3E%3Crect x='4' y='4' width='4' height='4'/%3E%3C/g%3E%3C/svg%3E");background-size:8px 8px}
+.dzianina{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8'%3E%3Cg fill='none' stroke='rgba(22,19,15,0.11)' stroke-width='0.8' stroke-linecap='round'%3E%3Cpath d='M1 1 L2.6 4.4 L4.2 1'/%3E%3Cpath d='M6 1 L7.6 4.4 L9.2 1'/%3E%3Cpath d='M-4 5 L-2.4 8.4 L-0.8 5'/%3E%3Cpath d='M1 5 L2.6 8.4 L4.2 5'/%3E%3Cpath d='M6 5 L7.6 8.4 L9.2 5'/%3E%3C/g%3E%3C/svg%3E");background-size:10px 8px}
+</style>
+<svg width="0" height="0" style="position:absolute">
+  <filter id="warp"><feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="7" result="t"/>
+  <feDisplacementMap in="SourceGraphic" in2="t" scale="2" xChannelSelector="R" yChannelSelector="G"/></filter>
+</svg>
+<h1>Tkaniny, wersja finalna</h1>
+<div class="siatka">
+  <div class="kol"><div class="kafel" style="background:#f5b82e"><span class="tk plotno"></span><span class="ziarno"></span>
+    <p class="styl">Old School Pale Ale</p><p class="nazwa">Domówka</p></div><p class="pod">Płótno</p></div>
+  <div class="kol"><div class="kafel" style="background:#e8d64f"><span class="tk denim"></span><span class="ziarno"></span>
+    <p class="styl">Polish Pale Ale</p><p class="nazwa">Wolnosypane</p></div><p class="pod">Denim, skos</p></div>
+  <div class="kol"><div class="kafel" style="background:#d6d33a"><span class="tk sztruks"></span><span class="ziarno"></span>
+    <p class="styl">Polish Pale Ale</p><p class="nazwa">50 metrów dalej</p></div><p class="pod">Sztruks</p></div>
+  <div class="kol"><div class="kafel" style="background:#dcbd76"><span class="tk jodelka"></span><span class="ziarno"></span>
+    <p class="styl">Modern Grodziskie</p><p class="nazwa">Nowa Stara Szkoła</p></div><p class="pod">Jodełka</p></div>
+  <div class="kol"><div class="kafel" style="background:#f5b82e"><span class="tk plecionka"></span><span class="ziarno"></span>
+    <p class="styl">Old School Pale Ale</p><p class="nazwa">Domówka</p></div><p class="pod">Plecionka</p></div>
+  <div class="kol"><div class="kafel" style="background:#e8d64f"><span class="tk dzianina"></span><span class="ziarno"></span>
+    <p class="styl">Polish Pale Ale</p><p class="nazwa">Wolnosypane</p></div><p class="pod">Dzianina</p></div>
+</div>
