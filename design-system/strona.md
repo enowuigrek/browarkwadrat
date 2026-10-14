@@ -209,7 +209,26 @@ ekran w `contrast`**, pozycje w `contrast-ink` stylem `title`, jedna pod drugą,
 lewym marginesie. U góry nakładki: **pierścień Kwadratu w lewym rogu, X w prawym**,
 czyli znak i wyjście na przeciwnych końcach tej samej listwy. Na dole ikona Facebooka.
 
-### Gdzie stoi przycisk
+### Na telefonie nagłówek stoi w miejscu
+
+Poniżej `bp-phone` nic się nie chowa i nic nie jeżdżi. Nie ma po co: ekran jest krótki,
+nawigacja ma dwie pozycje, a ruchomy nagłówek na telefonie kradnie uwagę przy każdym
+przewinięciu. Metka i przycisk menu stoją nieruchomo przez cały czas.
+
+**Przycisk to same kreski, bez płyty.** Metka ma płytę, bo zwisa i rzuca cień, a drugi
+taki przedmiot na ekranie kasowałby znaczenie pierwszego. Przycisk jest więc trzema
+czarnymi kreskami leżącymi wprost na tle, przy prawym marginesie kolumny treści,
+w tej samej wysokości co znak w metce (osie obu równo).
+
+Rysunek bierze się **z geometrii znaku**: pole takiej samej wielkości jak znak w metce,
+w nim górna ściana, kreska w osi i dolna ściana, każda grubości `bok ÷ 7`, na pełną
+szerokość pola. To ten sam znak, tylko bez bocznych ścian.
+
+Stąd animacja wychodzi sama z siebie: boczne ściany dorastają i mamy znak, środkowa
+kreska znika, a potem z pierścienia robi się X. Hamburger nie jest tu obcą ikoną, tylko
+niedokończonym logo.
+
+### Gdzie stoi przycisk na szerokim ekranie
 
 **Pod szyldem, nie w nim.** Trzy kreski wciśnięte w 32-pikselową listwę wyglądają jak
 wepchnięte na siłę i nie mają własnego światła. Przycisk zwisa spod szyldu przy prawym
@@ -308,3 +327,39 @@ skleić kreską.
 Dywiz w wyrazach złożonych zostaje, bo to ortografia, nie interpunkcja (`Nowa Stara
 Szkoła` nie ma takiego przypadku, ale `biało-czarny` już tak). Zakres liczb zapisujemy
 słowem albo kropkami: `od 18 do 20 °C`, nie `18-20 °C`.
+
+## Gdzie pracuje krój pisany
+
+`script-style` nie jest ozdobą jednego ekranu. **Nazwa stylu piwa idzie nim wszędzie**,
+gdzie piwo się pojawia: na etykiecie, w hero podstrony i na kaflu na landingu. Na kaflu
+było wcześniej 12 px wersalikami w `ink-muted` i styl ginął, a to on mówi, co jest
+w butelce.
+
+Na kaflu `script-inline` (18 px) w `ink`, w hero `script-style` (30 px). Jedna rodzina
+w jednej roli na trzech powierzchniach, dzięki temu krój czyta się jak decyzja, a nie
+jak wstawka.
+
+Druga rola, jedyna dopuszczona poza stylem piwa: **pytanie na czarnym pasie oceny**
+(„Jak ci smakowało?"). To trzy słowa i prośba o przysługę, więc pisane działa tam lepiej
+niż ciężki `display`. Jeśli i to okaże się za dużo, wracamy do `display` i krój pisany
+zostaje wyłącznie przy stylach piw.
+
+Czego nim nie składamy: zdań, akapitów, nazw piw, liczb, wersalików i nagłówków sekcji.
+
+## Lista składu
+
+Etykiety wierszy mają różną długość, więc bez stałej kolumny wartości rozjeżdżają się
+w pionie i lista wygląda na złożoną przypadkiem. Kolumna etykiet ma `col-label` (88 px),
+ikona 40 px na desktopie i 34 px na telefonie, wartości zaczynają się zawsze w tym samym
+miejscu.
+
+Pod ostatnim wierszem potrzeba **minimum `space-12` oddechu** przed szwem. Bez tego
+tabela, szew i pytanie o ocenę sklejają się w jeden blok i strona kończy się nagle,
+w pół zdania.
+
+## Numer warki na stronie piwa
+
+Numer **nie wchodzi do wiersza parametrów**. Wiersz ma trzy kolumny (ekstrakt, alkohol,
+IBU) i czwarta wartość rozwala go na telefonie: `3,0% alc.` zawija się do drugiej linii
+i tabela przestaje być tabelą. Numer idzie osobno, pod blokiem nazwy, w kroju mono
+z `tabular-nums`, w `ink-muted`.

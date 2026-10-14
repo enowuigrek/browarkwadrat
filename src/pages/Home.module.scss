@@ -63,13 +63,14 @@
     @include type(title);
     // ten sam nadruk co na etykiecie: biel 1 px i akcent piwa 4 px
     text-shadow: $shadow-print-name;
-    margin-bottom: $space-1;
+    margin-bottom: $space-6;
 }
 
+// Styl piwa krojem pisanym nad nazwą, jak w hero podstrony i na etykiecie.
 .style {
-    @include type(small);
-    color: $ink-muted;
-    margin-bottom: $space-6;
+    @include type(script-inline);
+    color: $ink;
+    margin-bottom: $space-1;
 }
 
 .params {

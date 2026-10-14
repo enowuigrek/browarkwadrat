@@ -26,6 +26,12 @@
     margin-block: $space-2 $space-3;
 }
 
+// Numer warki pod blokiem nazwy: mono, bez słowa „warka”.
+.batch {
+    @include type(metric-sm);
+    color: $ink-muted;
+}
+
 // Wiersz parametrów: dwie kreski, separatory krótsze od odstępu i ich nie dotykają.
 .params {
     @include column($col-text + 2 * $space-12);
@@ -74,19 +80,24 @@
     margin-bottom: $space-6;
 }
 
-// Nagłówek na czarnym pasie: nadruk z brand-strong (shadow-print-title).
-.printed {
+// Pytanie na czarnym pasie oceny: krój pisany (druga dopuszczona rola script-style),
+// z nadrukiem jak nagłówki na czerni.
+.ask {
+    @include type(script-style);
     text-shadow: $shadow-print-title;
+    margin-bottom: $space-6;
 }
 
 .composition {
     @include band;
     background: $surface-100;
+    // oddech pod ostatnim wierszem przed szwem, także na telefonie
+    padding-bottom: $space-12;
 }
 
 .row {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: auto 1fr;
     gap: $space-4;
     padding-block: $space-3;
     border-top: $rule-hair solid $line;
@@ -95,9 +106,11 @@
         border-bottom: $rule-hair solid $line;
     }
 
+    // ikona + etykieta o stałej szerokości col-label, żeby wartości stały w jednej kolumnie
     dt {
         @include type(label);
-        display: flex;
+        display: grid;
+        grid-template-columns: auto $col-label;
         align-items: center;
         gap: $space-3;
         color: $ink-muted;
@@ -115,9 +128,13 @@
 
 // Ikona składu: 40 px w wierszu (design-system/ikony.md), kolor z tekstu wiersza.
 .ikona {
-    flex: none;
     width: 40px;
     height: 40px;
+
+    @include phone {
+        width: 34px;
+        height: 34px;
+    }
 }
 
 

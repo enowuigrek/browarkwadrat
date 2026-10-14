@@ -60,7 +60,6 @@ export function Szyld({ position = 'side', column = 'page', nav = [] }) {
             <div ref={buttonRef}>
                 <MenuButton
                     open={menuOpen}
-                    hidden={hidden}
                     away={away && !menuOpen}
                     inverted={buttonInverted}
                     controls={menuId}

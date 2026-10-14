@@ -15,9 +15,8 @@ export function BeerPage({ beer }) {
         malts, hops, yeast, adjuncts, extract, alcohol, ibu,
     } = beer;
 
-    // Numer warki otwiera wiersz liczb — bez słowa „warka”.
+    // Wiersz parametrów ma trzy kolumny; numer warki stoi osobno pod nazwą.
     const params = [
-        `#${batchNumber}`,
         `${formatNumber(extract)} °Blg`,
         `${formatNumber(alcohol)}% alc.`,
         `${ibu} IBU`,
@@ -39,6 +38,7 @@ export function BeerPage({ beer }) {
                     <header className={styles.nameBlock}>
                         <p className={styles.style}>{styleName}</p>
                         <h1 className={styles.name}>{name}</h1>
+                        <p className={styles.batch}>#{batchNumber}</p>
                     </header>
 
                     <ul className={styles.params} aria-label="Parametry">
@@ -61,7 +61,7 @@ export function BeerPage({ beer }) {
                                 <div key={label} className={styles.row}>
                                     <dt>
                                         <Ikona className={styles.ikona} />
-                                        {label}
+                                        <span>{label}</span>
                                     </dt>
                                     <dd>
                                         {items.map(item => <span key={item}>{item}</span>)}
@@ -76,7 +76,7 @@ export function BeerPage({ beer }) {
 
                 <section className={styles.opinion} data-ground="contrast" aria-labelledby="opinia">
                     <div className={styles.inner}>
-                        <h2 className={`${styles.title} ${styles.printed}`} id="opinia">Jak ci smakowało?</h2>
+                        <h2 className={styles.ask} id="opinia">Jak ci smakowało?</h2>
                         <p className={styles.opinionLead}>
                             Pytam o cechy, nie o ocenę. Odpowiedzi trafią do danych warki #{batchNumber}.
                         </p>

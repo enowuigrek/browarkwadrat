@@ -2,18 +2,21 @@
 @use '../../styles/variables.module.scss' as *;
 @use '../Metka/geometry' as *;
 
-// 44 × 44 pole dotyku, znak 28 px (strona.md → Menu na telefonie).
+// Pole dotyku 44 × 44, rysunek wielkości znaku w metce na telefonie (42 px).
 $button: 44px;
-$szyld: map.get($metka-narrow, szyld);
+$m: $metka-narrow;
+$znak: map.get($m, znak);
+// oś przycisku = oś znaku w metce: dół metki minus luz minus pół znaku
+$axis: calc(#{map.get($m, wysokosc)} - #{map.get($m, luz)} - #{$znak} / 2);
 
-// Zwisa POD szyldem przy prawym marginesie kolumny — symetrycznie do metki przy lewym.
-// Kolor contrast jak metka: nad ciemnym pasem się odwraca. Stoi poza opakowaniem metki,
-// bo przy otwartym menu zostaje na ekranie jako X, gdy metka odjeżdża.
+// Na telefonie stoi nieruchomo przy prawym marginesie kolumny, w osi znaku z metki.
+// Same kreski, bez płyty — płyta jest jedna i należy do metki. Kolor contrast,
+// nad ciemnym pasem się odwraca.
 .button {
     display: none;
     position: fixed;
-    top: $szyld;
-    right: calc(#{$space-8} - (#{$button} - 28px) / 2);
+    top: calc(#{$axis} - #{$button} / 2);
+    right: calc(#{$space-8} - (#{$button} - #{$znak}) / 2);
     z-index: 30;
     width: $button;
     height: $button;
@@ -29,19 +32,13 @@ $szyld: map.get($metka-narrow, szyld);
         color: $contrast-ink;
     }
 
-    // szyld schowany: jedzie w górę razem z nim, jak metka — zostaje na ekranie
-    &[data-hidden] {
-        transform: translateY(-$szyld);
-    }
-
-    // tryb zadania (formularz): cały w górę, tak jak metka
+    // tryb zadania (formularz oceny): w górę razem z metką
     &[data-away] {
-        transform: translateY(calc(-1 * (#{$szyld} + #{$button})));
+        transform: translateY(calc(-1 * (#{$axis} + #{$button})));
     }
 
-    // menu otwarte: X na listwie nakładki, w kontrze do jej czerni
+    // menu otwarte: X zostaje w miejscu, w kontrze do czerni nakładki
     &[data-open] {
-        transform: translateY(-$szyld);
         color: $contrast-ink;
     }
 
@@ -52,8 +49,8 @@ $szyld: map.get($metka-narrow, szyld);
 
 .icon {
     display: block;
-    width: 28px;
-    height: 28px;
+    width: $znak;
+    height: $znak;
     overflow: visible;
     fill: currentColor;
     stroke: currentColor;
@@ -76,7 +73,7 @@ $szyld: map.get($metka-narrow, szyld);
 }
 
 .cross line {
-    stroke-width: 4;
+    stroke-width: 16;
 }
 
 // Stan zamknięty — opisuje drogę powrotu: X → znak, potem znak → hamburger.

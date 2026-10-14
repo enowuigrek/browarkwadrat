@@ -14,18 +14,20 @@
     overflow-y: auto;
 }
 
-// Listwa nakładki ma wysokość pola przycisku: pierścień i X w jednej linii.
+// Listwa nakładki ma wysokość metki: pierścień stoi dokładnie tam, gdzie był znak
+// w metce (luz od lewej i od dołu), a X przycisku w tej samej osi po prawej.
 .bar {
     display: flex;
-    align-items: center;
-    height: 44px;
+    align-items: flex-end;
+    height: map.get($metka-narrow, wysokosc);
+    padding: 0 map.get($metka-narrow, luz) map.get($metka-narrow, luz);
     flex: none;
 }
 
 .znak {
     display: block;
-    width: 28px;
-    height: 28px;
+    width: map.get($metka-narrow, znak);
+    height: map.get($metka-narrow, znak);
 }
 
 .list {

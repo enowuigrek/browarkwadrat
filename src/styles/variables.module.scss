@@ -31,7 +31,7 @@ $themes: (
         shadow-print: (2px 2px 0 #ffffff, 6px 6px 0 #16130f),
         shadow-print-hover: (2px 2px 0 #16130f),
         shadow-print-name: (1px 1px 0 #ffffff, 4px 4px 0 var(--akcent)),
-        shadow-print-title: (1px 1px 0 #ffffff, 4px 4px 0 #a8560f),
+        shadow-print-title: (1px 1px 0 #ffffff, 4px 4px 0 #e8b130),
     ),
     dark: (
         surface-000: #121110,
@@ -155,9 +155,10 @@ $col-text: 640px;
 $bp-phone: 640px;
 $logo-partner-min: 120px;
 $seam: 5px;
-$seam-echo: 3px;
+$seam-echo: 1px;
 $seam-dash: 22px;
 $seam-dash-gap: 12px;
+$col-label: 88px;
 
 // ─── Ruch ─────────────────────────────────────────────────────────────────
 // Wartości w index.scss na :root; pod prefers-reduced-motion czasy schodzą do zera.

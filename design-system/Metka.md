@@ -112,7 +112,16 @@ Poziome przesunięcie siedzi **na samej metce**, nie na wspólnym opakowaniu: op
 niesie też szyld, czyli pas na całą szerokość, który w bok jechać nie może. Wspólny
 `drop-shadow` to przeżywa, bo filtr liczy się po transformacjach dzieci.
 
-**Na telefonie wariantu wyśrodkowanego nie ma w ogóle.** Droga jest za krótka, żeby ruch
+**Na telefonie nic się nie rusza.** Ani metka, ani szyld, ani przycisk menu. Ekran jest
+krótki, nawigacja ma dwie pozycje, a nagłówek jeżdżący przy każdym przewinięciu kradnie
+uwagę. Chowanie szyldu zostaje tylko na szerokim ekranie.
+
+Po prawej stronie, w osi znaku z metki, stoi **przycisk menu zbudowany z tego samego
+rysunku, ale bez płyty**: trzy czarne kreski wprost na tle, czyli górna ściana, kreska
+w osi i dolna ściana, każda grubości `bok ÷ 7`. Płyta jest tylko jedna i należy do metki,
+bo to ona ma leżeć NA stronie. Opis zachowania w `strona.md`.
+
+**Wariantu wyśrodkowanego na telefonie nie ma w ogóle.** Droga jest za krótka, żeby ruch
 coś znaczył, a metka na środku wchodzi pod nawigację. Tam metka stoi z lewej od początku
 do końca, wyrównana do marginesu tekstu.
 

@@ -38,8 +38,8 @@ export function Home() {
                                     style={{ '--beer-color': beer.color, '--akcent': beer.accent }}
                                 >
                                     <span className={styles.batch}>#{beer.batchNumber}</span>
-                                    <span className={styles.name}>{beer.name}</span>
                                     <span className={styles.style}>{beer.styleName}</span>
+                                    <span className={styles.name}>{beer.name}</span>
                                     <span className={styles.params}>
                                         {formatNumber(beer.extract)} °Blg · {formatNumber(beer.alcohol)}% alc. · {beer.ibu} IBU
                                     </span>

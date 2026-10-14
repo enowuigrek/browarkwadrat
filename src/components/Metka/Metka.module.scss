@@ -22,8 +22,11 @@
     filter: drop-shadow($shadow-metka);
     transition: transform $motion-metka $motion-ease;
 
+    // chowanie szyldu tylko na szerokim ekranie — na telefonie nagłówek stoi w miejscu
     &[data-hidden] {
-        transform: translateY(calc(-1 * var(--szyld)));
+        @media (min-width: #{$bp-phone + 1px}) {
+            transform: translateY(calc(-1 * var(--szyld)));
+        }
     }
 
     // tryb zadania: ta sama oś, cała wysokość metki plus zasięg cienia
