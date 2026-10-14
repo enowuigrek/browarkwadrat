@@ -1,8 +1,10 @@
 @use '../../styles/variables.module.scss' as *;
 
+// Kreska od góry: nad stopką też bywa czarny pas i bez niej wszystko zlewa się w jedną płachtę.
 .footer {
     background: $contrast;
     color: $contrast-ink;
+    border-top: $rule-hair solid $contrast-ink-muted;
 }
 
 .column {
@@ -10,79 +12,57 @@
     margin-inline: auto;
     padding: $space-12;
     display: grid;
-    grid-template-columns: 1fr auto auto;
-    align-items: center;
-    gap: $space-6 $space-12;
+    gap: $space-8;
 
     @include phone {
         padding: $space-8;
-        grid-template-columns: auto auto 1fr;
-        gap: $space-8;
     }
 }
 
-.brand {
+// Logo i znak Bractwa stoją osobno, każdy z własnym światłem — nie w jednym zlepku.
+.marks {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: $space-3;
-
-    @include phone {
-        grid-column: 1 / -1;
-    }
+    justify-content: space-between;
+    gap: $space-8 $space-12;
 }
 
-.znak {
+// Pełne logo w contrast-ink przez maskę (proporcje pliku 3402 × 893).
+// Wysokość równa znakowi Bractwa, żeby oba znaki ważyły tyle samo.
+.logo {
     display: block;
-    width: $space-8;
-    height: $space-8;
+    height: calc(#{$logo-partner-min} * 2084 / 3471);
+    aspect-ratio: 3402 / 893;
+    max-width: 100%;
+    background: $contrast-ink;
+    mask: url('/logo-cale.svg') left center / contain no-repeat;
 }
 
-.name {
-    @include type(body-strong);
-}
-
-.meta {
-    @include type(small);
-    color: $contrast-ink-muted;
-}
-
-// Logo Bractwa w kolorze contrast-ink (białe na czarnej stopce) przez maskę —
-// proporcje pliku 3471 × 2084 zachowane, szerokość nie mniej niż logo-partner-min.
-// Kwadratowa, zbudowana jak znak Kwadratu — bez zaokrągleń.
-.facebook {
-    display: block;
-    color: $contrast-ink;
-
-    @include phone {
-        grid-row: 2;
-    }
-}
-
-.facebookZnak {
-    display: block;
-    width: $space-8;
-    height: $space-8;
-}
-
+// Logo Bractwa w kontrze (contrast-ink) przez maskę — proporcje pliku 3471 × 2084,
+// szerokość nie mniej niż logo-partner-min.
 .bractwo {
     display: block;
     width: $logo-partner-min;
     aspect-ratio: 3471 / 2084;
     background: $contrast-ink;
     mask: url('/bractwo-piwne.svg') center / contain no-repeat;
-
-    @include phone {
-        grid-row: 2;
-    }
 }
 
-.author {
+// Kolofon: przypis, nie nawigacja — bez podkreśleń, podkreślenie tylko przy hover/focus.
+.colophon {
     @include type(small);
-    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-1 $space-4;
     color: $contrast-ink-muted;
 
     a {
-        text-decoration: underline;
         text-underline-offset: $space-1;
+
+        &:hover,
+        &:focus-visible {
+            text-decoration: underline;
+        }
     }
 }

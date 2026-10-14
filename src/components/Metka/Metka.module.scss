@@ -26,6 +26,11 @@
         transform: translateY(calc(-1 * var(--szyld)));
     }
 
+    // tryb zadania: ta sama oś, cała wysokość metki plus zasięg cienia
+    &[data-away] {
+        transform: translateY(calc(-1 * (var(--metka-h) + #{$space-6})));
+    }
+
     @include phone {
         @include geometry($metka-narrow);
     }
@@ -77,6 +82,12 @@
     align-items: flex-end;
     justify-content: center;
     padding: 0 var(--luz) var(--luz);
+
+    // nad pasem contrast: jasna płyta, ciemny znak — ta sama reguła co w ciemnym motywie
+    [data-inverted] & {
+        background: $contrast-ink;
+        color: $contrast;
+    }
 
     // spoczynek wariantu wyśrodkowanego: z lewej na środek toru
     [data-position="center"]:not([data-docked]) & {

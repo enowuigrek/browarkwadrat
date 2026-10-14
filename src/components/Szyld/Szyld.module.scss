@@ -5,8 +5,9 @@
     align-items: center;
     gap: $space-6;
 
+    // na telefonie nawigacja jest pod przyciskiem menu
     @include phone {
-        gap: $space-4;
+        display: none;
     }
 }
 

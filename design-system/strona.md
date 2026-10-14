@@ -84,9 +84,25 @@ Pole na jedno zdanie i **nieobowiązkowy podpis**. Kto chce się podpisać, podp
 
 ## Stopka
 
-Znak Kwadratu, nazwa browaru i miasto, pod spodem autor strony. Po prawej logo Bractwa
-Piwnego jako link, bez adresu obok. Ikona Facebooka siedzi w szyldzie na końcu nawigacji,
-nie w stopce, i jest **kwadratowa** — w tym systemie nie ma ani jednego zaokrąglenia.
+Stopka jest **oddzielona od góry włosową kreską** (`rule-hair` w `contrast-ink-muted`).
+Bez niej skleja się z pasem nad nią, bo formularz oceny i pas o narzędziu też są czarne
+i powstaje jedna czarna płachta bez końca.
+
+W środku trzy rzeczy i ani jednej więcej:
+
+1. **Pełne logo** po lewej, w `contrast-ink`. Bez powtarzania nazwy browaru tekstem
+   i bez miasta — logo niesie nazwę samo, a druga nazwa obok wygląda jak podpis pod
+   obrazkiem tego samego obrazka.
+2. **Znak Bractwa** po prawej, jako link, zasady w `assets/Partnerzy/README.md`.
+3. **Jedna linijka kolofonu** na dole: rok, autor i Facebook. Styl `small`
+   w `contrast-ink-muted`, bez podkreśleń, bez słowa „Strona:" i bez ikony — to
+   przypis, nie nawigacja. Facebook jest tu zwykłym słowem, nie logotypem: ikona serwisu
+   w stopce przeciąga na siebie wzrok mocniej niż własne logo browaru, a to odwrotnie
+   niż powinno być.
+
+Otwarta sprawa: napis „KWADRAT" w logo pochodzi z oryginalnego pliku. Docelowo może go
+zastąpić ten sam napis złożony krojem `display` (Alfa Slab One) — wtedy stopka i etykieta
+mówią jednym krojem. Na teraz zostaje pełne logo i możliwe, że tak już zostanie.
 
 ## Barwy piw
 
@@ -135,3 +151,76 @@ czyta się jak prośba o ocenę, a zamknięty jak oferta. Kto chce ocenić, klik
 
 Przycisk znika po rozwinięciu, fokus idzie na pierwsze pole, `aria-expanded` opisuje
 stan. Pytania bez zmian — atrybuty, nie gwiazdki.
+
+## Opis piwa
+
+Pierwsze zdanie idzie stylem `lead`, reszta `body`. `lead` jest **większy, ale nie
+grubszy** — waga 400 i ten sam kolor `ink`, co reszta. Przy wadze 500 Archivo zaczyna
+czytać się jak nagłówek sekcji i wygląda, jakby ktoś pomylił akapit z tytułem. To ma
+być zdanie wprowadzające, nie tytuł.
+
+Nagłówki w opisie piwa nie występują w ogóle: jest nazwa piwa (`display`), styl
+(`script-style`) i tekst. Jeśli opis wymaga nagłówka, znaczy, że jest za długi na tę
+stronę — i tak czyta go ktoś z butelką w ręku.
+
+## Metka a ciemne pasy
+
+Metka jest przyklejona do góry okna, więc przy przewijaniu przejeżdża nad pasami
+o różnym tle. Nad czarnym pasem czarna płyta znika i zostaje sam biały pierścień
+wiszący w powietrzu — wygląda jak błąd, bo nim jest.
+
+Dwie zasady i obie są potrzebne:
+
+1. **Nad pasem `contrast` metka się odwraca.** Jasna płyta, ciemny znak. To ta sama
+   reguła, co w ciemnym motywie: metka ma być jedynym elementem w pełnym kontraście do
+   tego, co pod nią. Pasy i tak deklarują już swój grunt (`data-ground`), więc wystarczy
+   obserwator sprawdzający, który pas jest pod paskiem metki.
+2. **W trybie zadania metka znika.** Otwarty formularz oceny i otwarte menu na telefonie
+   przejmują ekran — wtedy użytkownik coś robi, a nie ogląda markę. Metka chowa się
+   w górę tym samym `translateY`, co przy chowaniu szyldu, i wraca po zamknięciu.
+   W menu rolę znaku przejmuje sam pierścień w rogu nakładki.
+
+To jedyne dwa wyjątki od „metka nigdy nie znika". Nie dokładaj trzeciego — jeśli metka
+przeszkadza gdzieś jeszcze, to znaczy, że przeszkadza coś pod nią.
+
+## Nawigacja
+
+Podpisy w szyldzie idą stylem **`label`**: 12 px, waga 600, światło 0,08 em, wersaliki.
+Nie `body`. Szyld to listwa, nie zdanie — zwykły tekst o wadze 400 wygląda na nim
+surowo, jakby ktoś zapomniał go złożyć. Wersaliki z literowaniem czytają się jak
+oznakowanie, a nie jak akapit, który przypadkiem trafił na czarne tło.
+
+Pozycja aktywna w `contrast-ink` pełną siłą, reszta w `contrast-ink-muted`.
+
+## Menu na telefonie
+
+Poniżej `bp-phone` nawigacja chowa się pod przycisk. Nakładka po otwarciu to **pełny
+ekran w `contrast`**, pozycje w `contrast-ink` stylem `title`, jedna pod drugą, przy
+lewym marginesie. U góry nakładki: **pierścień Kwadratu w lewym rogu, X w prawym** —
+czyli znak i wyjście na przeciwnych końcach tej samej listwy. Na dole ikona Facebooka.
+
+### Hamburger, który zamienia się w znak, a potem w X
+
+Przycisk jest zbudowany jak **niedokończony znak Kwadratu**: górna krawędź, dolna
+krawędź i kreska w środku. Boczne krawędzie istnieją, ale mają zerową wysokość.
+Stąd animacja w dwóch krokach, każdy po `motion-press` (90 ms), razem 180 ms:
+
+1. **Hamburger → znak.** Boki wyrastają do pełnej wysokości, a środkowa kreska kurczy
+   się do zera. Zostaje kwadratowy pierścień — dokładnie logo.
+2. **Znak → X.** Pierścień znika, a ze środka wychodzą dwie przekątne.
+
+Zamykanie to ta sama droga w odwrotną stronę: X → znak → hamburger. Sens jest taki, że
+menu nie dostaje cudzej ikony „zamknij" — przechodzi przez znak marki w obie strony.
+
+Pod `prefers-reduced-motion` nie ma kroków: hamburger od razu staje się X.
+
+## Ikony składu
+
+Sekcja „Skład" dostaje ikony przy wierszach: słód, chmiel, kolba (drożdże), krzyż
+(dodatki). Bierzemy je **gotowe z lucide** (ISC), bo własne rysowanie dwa razy skończyło
+się gorzej niż zestaw z półki. 40 px, kolor z `currentColor`, wklejane inline — przez
+`<img>` kolor nie zadziała. Zasady i budowa: `assets/Ikony/README.md`.
+
+Na etykiecie ikon nie ma i nie będzie: tam przy parametrach sprawdziliśmy, że szkodzą.
+Na stronie jest miejsce, bo ikona stoi przy wierszu listy, a nie wciska się między
+liczby.

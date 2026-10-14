@@ -1,0 +1,107 @@
+@use 'sass:map';
+@use '../../styles/variables.module.scss' as *;
+@use '../Metka/geometry' as *;
+
+// 44 × 44 pole dotyku, znak 28 px (strona.md → Menu na telefonie).
+$button: 44px;
+$szyld: map.get($metka-narrow, szyld);
+
+// Stoi poza opakowaniem metki, żeby w trybie zadania nie odjechał razem z nią.
+// Ikona siedzi na szyldzie, prawa krawędź równo z kolumną treści.
+.button {
+    display: none;
+    position: fixed;
+    top: calc((#{$szyld} - #{$button}) / 2);
+    right: calc(#{$space-8} - (#{$button} - 28px) / 2);
+    z-index: 30;
+    width: $button;
+    height: $button;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: $contrast-ink;
+    cursor: pointer;
+    transition: transform $motion-metka $motion-ease;
+
+    &[data-hidden] {
+        transform: translateY(calc(-1 * (#{$szyld} + (#{$button} - #{$szyld}) / 2)));
+    }
+
+    @include phone {
+        display: grid;
+    }
+}
+
+.icon {
+    display: block;
+    width: 28px;
+    height: 28px;
+    overflow: visible;
+    fill: currentColor;
+    stroke: currentColor;
+}
+
+.ring,
+.side,
+.middle,
+.cross {
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.ring rect {
+    stroke: none;
+}
+
+.middle {
+    stroke: none;
+}
+
+.cross line {
+    stroke-width: 4;
+}
+
+// Stan zamknięty — opisuje drogę powrotu: X → znak, potem znak → hamburger.
+.cross {
+    transform: scale(0);
+    transition: transform $motion-press $motion-ease;
+}
+
+.ring {
+    transform: scale(1);
+    transition: transform $motion-press $motion-ease;
+}
+
+.side {
+    transform: scaleY(0);
+    transition: transform $motion-press $motion-ease $motion-press;
+}
+
+.middle {
+    transform: scaleX(1);
+    transition: transform $motion-press $motion-ease $motion-press;
+}
+
+// Stan otwarty — droga tam: hamburger → znak, potem znak → X.
+[data-open] {
+    .side {
+        transform: scaleY(1);
+        transition-delay: 0ms;
+    }
+
+    .middle {
+        transform: scaleX(0);
+        transition-delay: 0ms;
+    }
+
+    .ring {
+        transform: scale(0);
+        transition-delay: $motion-press;
+    }
+
+    .cross {
+        transform: scale(1);
+        transition-delay: $motion-press;
+    }
+}

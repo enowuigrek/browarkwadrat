@@ -69,8 +69,13 @@ znaku, więc przy pośrednich wartościach proporcje `1/7` i `1,5` przestają wy
 pełnych pikselach i krawędzie zaczynają się rozmywać. Po drugie `transform` nie
 przelicza układu, a zmiana wysokości tak — przy każdej klatce przewijania.
 
-**Metka nigdy nie znika.** Nawet przy schowanym szyldzie zostaje na ekranie ze znakiem,
-bo to ona jest znakiem marki, a nie nawigacja.
+**Metka nie znika przy przewijaniu.** Nawet przy schowanym szyldzie zostaje na ekranie
+ze znakiem, bo to ona jest znakiem marki, a nie nawigacja.
+
+Są dokładnie dwa wyjątki, oba opisane w `strona.md`: **nad pasem `contrast` metka się
+odwraca** (inaczej czarna płyta znika i zostaje sam biały pierścień w powietrzu),
+a **w trybie zadania — otwarty formularz oceny, otwarte menu na telefonie — chowa się
+w górę** i wraca po zamknięciu. Trzeciego wyjątku nie dokładamy.
 
 ## Zasady
 
@@ -111,10 +116,14 @@ znaczył, a metka na środku wchodzi pod nawigację. Tam metka od razu stoi z le
 ## Treść szyldu
 
 Wyrównana **do prawej**, bo lewa strona należy do metki. Na stronie nawigacja w
-`contrast-ink`, pozycja aktywna pełną siłą, reszta przygaszona. Na etykiecie jedna
-rzecz: numer warki z hashtagiem (`#94`) w kroju mono z `tabular-nums`, 11 px, żeby na
-półce kolejne butelki miały cyfry w tym samym miejscu. Szyld na etykiecie jest wyraźnie
-niższy (20 px): niesie jedną liczbę, a nie nawigację, więc ma być listwą, nie paskiem.
+`contrast-ink`, pozycja aktywna pełną siłą, reszta przygaszona.
+
+**Na etykiecie szyld jest pusty.** Nic na nim nie piszemy: to czysty element graficzny,
+z którego zwisa metka. Numer warki i pojemność idą na **czarną stopkę przy dolnej
+krawędzi** — numer po lewej (mono, `tabular-nums`, 10–11 px), pojemność po prawej.
+Powód jest praktyczny: butelka stoi na półce etykietą do przodu, a wzrok schodzi
+z nazwy w dół, więc dane techniczne mają być pod nią, nie nad nią. Szyld na etykiecie
+jest wyraźnie niższy (20 px): niesie zero treści, więc ma być listwą, nie paskiem.
 
 ## Jak oceniać odstęp od lewej
 

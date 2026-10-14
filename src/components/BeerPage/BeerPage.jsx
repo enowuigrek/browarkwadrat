@@ -2,6 +2,7 @@ import { Szyld } from '../Szyld/Szyld.jsx';
 import { Footer } from '../Footer/Footer.jsx';
 import { OpinionForm } from '../OpinionForm/OpinionForm.jsx';
 import { formatNumber } from '../../utils/format.js';
+import { Slod, Chmiel, Kolba, Dodatki } from '../Ikony/Ikony.jsx';
 import styles from './BeerPage.module.scss';
 
 const nav = [{ label: 'Piwa', to: '/' }];
@@ -13,17 +14,19 @@ export function BeerPage({ beer }) {
         malts, hops, yeast, adjuncts, extract, alcohol, ibu, brewFatherLink,
     } = beer;
 
+    // Numer warki otwiera wiersz liczb — bez słowa „warka”.
     const params = [
+        `#${batchNumber}`,
         `${formatNumber(extract)} °Blg`,
         `${formatNumber(alcohol)}% alc.`,
         `${ibu} IBU`,
     ];
 
     const composition = [
-        { label: 'Słody', items: malts },
-        { label: 'Chmiele', items: hops },
-        { label: 'Drożdże', items: [yeast] },
-        ...(adjuncts?.length ? [{ label: 'Dodatki', items: adjuncts }] : []),
+        { label: 'Słody', items: malts, Ikona: Slod },
+        { label: 'Chmiele', items: hops, Ikona: Chmiel },
+        { label: 'Drożdże', items: [yeast], Ikona: Kolba },
+        ...(adjuncts?.length ? [{ label: 'Dodatki', items: adjuncts, Ikona: Dodatki }] : []),
     ];
 
     return (
@@ -39,7 +42,6 @@ export function BeerPage({ beer }) {
                     <header className={styles.nameBlock}>
                         <p className={styles.style}>{styleName}</p>
                         <h1 className={styles.name}>{name}</h1>
-                        <p className={styles.batch}>warka #{batchNumber}</p>
                     </header>
 
                     <ul className={styles.params} aria-label="Parametry">
@@ -56,9 +58,12 @@ export function BeerPage({ beer }) {
                     <div className={styles.inner}>
                         <h2 className={styles.title} id="sklad">Skład</h2>
                         <dl className={styles.rows}>
-                            {composition.map(({ label, items }) => (
+                            {composition.map(({ label, items, Ikona }) => (
                                 <div key={label} className={styles.row}>
-                                    <dt>{label}</dt>
+                                    <dt>
+                                        <Ikona className={styles.ikona} />
+                                        {label}
+                                    </dt>
                                     <dd>
                                         {items.map(item => <span key={item}>{item}</span>)}
                                     </dd>

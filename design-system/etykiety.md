@@ -12,6 +12,12 @@ Wszystko wyśrodkowane w poziomie, w kolejności od góry:
 4. **Wiersz parametrów** nad stopką: `13,0 °Blg · 5,2% alc. · 23 IBU`
 5. **Czarna stopka** przy dolnej krawędzi: numer warki po lewej, pojemność po prawej
 
+Blok nazwy jest **wyśrodkowany w pionie w tym, co zostaje między metką a wierszem
+parametrów**, a nie w całej etykiecie liczonej od krawędzi — metka zajmuje górę, więc
+centrowanie „od krawędzi do krawędzi" wypycha nazwę za nisko. Wiersz parametrów ma mieć
+nad stopką **oddech co najmniej `space-6`**; dociśnięty do czarnego paska wygląda, jakby
+się po nim zsunął.
+
 Szyld i stopka idą na całą szerokość. Wiersz parametrów jest cofnięty na margines
 treści — nie wychodzi na krawędzie, bo dzieli **ten blok**, a nie całą etykietę
 (etykieta będzie szersza, z kodem QR, logo i opisem w dalszej części).

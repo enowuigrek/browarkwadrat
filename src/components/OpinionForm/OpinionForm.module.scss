@@ -88,6 +88,15 @@
     @include printed;
 }
 
+.collapse {
+    @include type(label);
+    padding: $space-3 0;
+    border: 0;
+    background: none;
+    color: $contrast-ink-muted;
+    cursor: pointer;
+}
+
 .note {
     @include type(small);
     color: $contrast-ink-muted;

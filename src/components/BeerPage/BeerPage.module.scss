@@ -26,11 +26,6 @@
     margin-block: $space-2 $space-3;
 }
 
-.batch {
-    @include type(metric-sm);
-    color: $ink-muted;
-}
-
 // Wiersz parametrów: dwie kreski, separatory krótsze od odstępu i ich nie dotykają.
 .params {
     @include column($col-text + 2 * $space-12);
@@ -100,14 +95,27 @@
 
     dt {
         @include type(label);
+        display: flex;
+        align-items: center;
+        gap: $space-3;
         color: $ink-muted;
-        padding-top: $space-1;
+    }
+
+    dd {
+        align-self: center;
     }
 
     dd {
         display: grid;
         gap: $space-1;
     }
+}
+
+// Ikona składu: 40 px w wierszu (design-system/ikony.md), kolor z tekstu wiersza.
+.ikona {
+    flex: none;
+    width: 40px;
+    height: 40px;
 }
 
 .button {

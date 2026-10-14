@@ -21,7 +21,6 @@
 .lead {
     @include type(lead);
     max-width: $col-text;
-    color: $ink-muted;
 }
 
 // Półka
