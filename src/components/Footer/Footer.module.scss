@@ -7,11 +7,14 @@
     border-top: $rule-hair solid $contrast-ink-muted;
 }
 
+// Dwie kolumny także na telefonie — obie startują z tej samej linii u góry.
 .column {
     max-width: $col-page;
     margin-inline: auto;
     padding: $space-12;
     display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
     gap: $space-8;
 
     @include phone {
@@ -19,34 +22,41 @@
     }
 }
 
-// Logo i znak Bractwa stoją osobno, każdy z własnym światłem — nie w jednym zlepku.
-.marks {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: $space-8 $space-12;
+.left {
+    display: grid;
+    justify-items: start;
+    gap: $space-4;
 }
 
-// Pełne logo w contrast-ink przez maskę (proporcje pliku 3402 × 893).
-// Wysokość równa znakowi Bractwa, żeby oba znaki ważyły tyle samo.
+// Pełne logo w contrast-ink przez maskę (proporcje pliku 3402 × 893),
+// najwyżej 132 px szerokości, 120 px na telefonie (strona.md → Stopka).
 .logo {
     display: block;
-    height: calc(#{$logo-partner-min} * 2084 / 3471);
+    width: 132px;
     aspect-ratio: 3402 / 893;
-    max-width: 100%;
     background: $contrast-ink;
     mask: url('/logo-cale.svg') left center / contain no-repeat;
+
+    @include phone {
+        width: 120px;
+    }
 }
 
-// Logo Bractwa w kontrze (contrast-ink) przez maskę — proporcje pliku 3471 × 2084,
-// szerokość nie mniej niż logo-partner-min.
-.bractwo {
+// square-facebook z Font Awesome: 28 px, zapala się kolorem serwisu przy hover/focus.
+.facebook {
     display: block;
-    width: $logo-partner-min;
-    aspect-ratio: 3471 / 2084;
-    background: $contrast-ink;
-    mask: url('/bractwo-piwne.svg') center / contain no-repeat;
+    color: $contrast-ink;
+
+    &:hover,
+    &:focus-visible {
+        color: #1877f2;
+    }
+}
+
+.facebookIkona {
+    display: block;
+    width: 28px;
+    height: 28px;
 }
 
 // Kolofon: przypis, nie nawigacja — bez podkreśleń, podkreślenie tylko przy hover/focus.
@@ -65,4 +75,14 @@
             text-decoration: underline;
         }
     }
+}
+
+// Znak Bractwa w kontrze (contrast-ink) przez maskę — dokładnie logo-partner-min,
+// proporcje pliku 3471 × 2084.
+.bractwo {
+    display: block;
+    width: $logo-partner-min;
+    aspect-ratio: 3471 / 2084;
+    background: $contrast-ink;
+    mask: url('/bractwo-piwne.svg') center / contain no-repeat;
 }

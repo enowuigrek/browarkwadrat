@@ -22,6 +22,12 @@ etykietom.
 | `kolba.svg` | `flask-conical` | Drożdże |
 | `dodatki.svg` | `plus` | Dodatki (przy `null` wiersz się nie renderuje) |
 
+Osobno, nie z lucide: **`facebook.svg`** to `square-facebook` z Font Awesome Free
+(licencja CC BY 4.0, nota w `LICENSE-fontawesome.txt`, a atrybucja siedzi też
+w komentarzu w samym pliku i ma tam zostać). Kwadratowy znak serwisu, bierzemy gotowy
+i **nie przerabiamy go** — zaokrąglenie narożników należy do cudzej marki. W stopce
+28 px w `contrast-ink`, przy najechaniu `#1877f2`.
+
 Pliki są tylko zminifikowane i dostały `aria-label`; kształtów nie ruszamy. Jeśli kiedyś
 dojdzie piąta ikona, bierzemy ją **z lucide**, nie dorysowujemy własnej — inaczej jedna
 obca kreska psuje cały wiersz.

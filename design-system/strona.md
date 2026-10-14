@@ -88,17 +88,22 @@ Stopka jest **oddzielona od góry włosową kreską** (`rule-hair` w `contrast-i
 Bez niej skleja się z pasem nad nią, bo formularz oceny i pas o narzędziu też są czarne
 i powstaje jedna czarna płachta bez końca.
 
-W środku trzy rzeczy i ani jednej więcej:
+**Dwie kolumny, także na telefonie.** Jedna pod drugą znaki ustawiają się w kolumnę totemów
+i stopka robi się wyższa niż treść, którą zamyka.
 
-1. **Pełne logo** po lewej, w `contrast-ink`. Bez powtarzania nazwy browaru tekstem
-   i bez miasta — logo niesie nazwę samo, a druga nazwa obok wygląda jak podpis pod
-   obrazkiem tego samego obrazka.
-2. **Znak Bractwa** po prawej, jako link, zasady w `assets/Partnerzy/README.md`.
-3. **Jedna linijka kolofonu** na dole: rok, autor i Facebook. Styl `small`
-   w `contrast-ink-muted`, bez podkreśleń, bez słowa „Strona:" i bez ikony — to
-   przypis, nie nawigacja. Facebook jest tu zwykłym słowem, nie logotypem: ikona serwisu
-   w stopce przeciąga na siebie wzrok mocniej niż własne logo browaru, a to odwrotnie
-   niż powinno być.
+Po lewej, jedno pod drugim:
+
+1. **Pełne logo** w `contrast-ink`, maksymalnie **132 px** szerokości (120 px na
+   telefonie). Bez nazwy browaru pisanej tekstem i bez miasta — logo niesie nazwę samo.
+2. **Ikona Facebooka**, 28 px, w `contrast-ink`; przy najechaniu i fokusie zapala się
+   na niebiesko (`#1877f2`). To gotowy, kwadratowy znak serwisu i nie przerabiamy go —
+   zaokrąglenie narożników należy do cudzej marki, nie do naszego systemu.
+3. **Linijka kolofonu**: rok i `lukasznowak.dev`, styl `small` w `contrast-ink-muted`,
+   bez podkreśleń (podkreślenie dopiero przy `:hover`/`:focus`). Rok z zegara, nie wpisany.
+
+Po prawej **znak Bractwa** jako link, dokładnie `logo-partner-min` (120 px) — to jego
+dolna granica czytelności i jednocześnie górna granica rozsądku w stopce. Wyrównany do
+góry, żeby obie kolumny startowały z tej samej linii.
 
 Otwarta sprawa: napis „KWADRAT" w logo pochodzi z oryginalnego pliku. Docelowo może go
 zastąpić ten sam napis złożony krojem `display` (Alfa Slab One) — wtedy stopka i etykieta
@@ -154,10 +159,13 @@ stan. Pytania bez zmian — atrybuty, nie gwiazdki.
 
 ## Opis piwa
 
-Pierwsze zdanie idzie stylem `lead`, reszta `body`. `lead` jest **większy, ale nie
-grubszy** — waga 400 i ten sam kolor `ink`, co reszta. Przy wadze 500 Archivo zaczyna
-czytać się jak nagłówek sekcji i wygląda, jakby ktoś pomylił akapit z tytułem. To ma
-być zdanie wprowadzające, nie tytuł.
+**Opis piwa ma jedną wielkość tekstu.** Wszystkie akapity w `body`, łącznie z pierwszym.
+Styl `lead` należy wyłącznie do hero landingu i w opisie piwa się nie pojawia: większy
+stopień w ścianie tekstu czyta się jak nagłówek nawet przy wadze 400, a tu nie ma czego
+zapowiadać — nad tekstem stoi już nazwa piwa i wiersz parametrów.
+
+Pierwszy akapit wyróżnia **pozycja, nie stopień**. Jeśli ma oddychać mocniej, dostaje
+większy odstęp pod spodem, a nie większą czcionkę.
 
 Nagłówki w opisie piwa nie występują w ogóle: jest nazwa piwa (`display`), styl
 (`script-style`) i tekst. Jeśli opis wymaga nagłówka, znaczy, że jest za długi na tę
@@ -198,6 +206,17 @@ Poniżej `bp-phone` nawigacja chowa się pod przycisk. Nakładka po otwarciu to 
 ekran w `contrast`**, pozycje w `contrast-ink` stylem `title`, jedna pod drugą, przy
 lewym marginesie. U góry nakładki: **pierścień Kwadratu w lewym rogu, X w prawym** —
 czyli znak i wyjście na przeciwnych końcach tej samej listwy. Na dole ikona Facebooka.
+
+### Gdzie stoi przycisk
+
+**Pod szyldem, nie w nim.** Trzy kreski wciśnięte w 32-pikselową listwę wyglądają jak
+wepchnięte na siłę i nie mają własnego światła. Przycisk zwisa spod szyldu przy prawym
+marginesie kolumny treści — czyli symetrycznie do metki, która zwisa przy lewym. Razem
+czytają się jak dwa zaczepy tej samej listwy, a nie jak ikonka doklejona do paska.
+
+Kolor: `contrast`, czyli to samo prawo co metka — **nad ciemnym pasem się odwraca**,
+inaczej czarne kreski znikną na czarnym tle. Pole dotyku minimum 44 × 44 px, same kreski
+28 px szerokości.
 
 ### Hamburger, który zamienia się w znak, a potem w X
 

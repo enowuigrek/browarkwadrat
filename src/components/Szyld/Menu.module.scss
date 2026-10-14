@@ -14,11 +14,11 @@
     overflow-y: auto;
 }
 
-// Ta sama wysokość co szyld na telefonie: pierścień i X na jednej listwie.
+// Listwa nakładki ma wysokość pola przycisku: pierścień i X w jednej linii.
 .bar {
     display: flex;
     align-items: center;
-    height: map.get($metka-narrow, szyld);
+    height: 44px;
     flex: none;
 }
 
@@ -46,8 +46,8 @@
     color: $contrast-ink;
 }
 
-.facebookZnak {
+.facebookIkona {
     display: block;
-    width: $space-8;
-    height: $space-8;
+    width: 28px;
+    height: 28px;
 }

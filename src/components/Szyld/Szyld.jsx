@@ -12,9 +12,10 @@ const PHONE = '(max-width: 640px)'; // layout.bp-phone
 
 // Szyld niesie wyłącznie nawigację: pozycja aktywna pełną siłą, reszta przygaszona.
 // Na telefonie nawigacja chowa się pod przycisk menu.
-export function Szyld({ position = 'side', nav = [] }) {
+export function Szyld({ position = 'side', column = 'page', nav = [] }) {
     const { hidden, past } = useHideOnScroll();
     const inverted = useGroundUnderMetka();
+    const buttonInverted = useGroundUnderMetka('[data-menu-icon]');
     const [menuOpen, setMenuOpen] = useState(false);
     const menuId = useId();
     const buttonRef = useRef(null);
@@ -40,7 +41,7 @@ export function Szyld({ position = 'side', nav = [] }) {
 
     return (
         <>
-            <Metka position={position} hidden={hidden} docked={past} inverted={inverted} away={away}>
+            <Metka position={position} column={column} hidden={hidden} docked={past} inverted={inverted} away={away}>
                 <nav className={styles.nav} aria-label="Główna">
                     {nav.map(({ label, to, active }) =>
                         to.startsWith('/') ? (
@@ -59,7 +60,9 @@ export function Szyld({ position = 'side', nav = [] }) {
             <div ref={buttonRef}>
                 <MenuButton
                     open={menuOpen}
-                    hidden={!menuOpen && (hidden || away)}
+                    hidden={hidden}
+                    away={away && !menuOpen}
+                    inverted={buttonInverted}
                     controls={menuId}
                     onClick={() => setMenuOpen(open => !open)}
                 />

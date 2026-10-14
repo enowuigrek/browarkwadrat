@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Znak } from '../Znak/Znak.jsx';
-import { FacebookZnak } from '../Znak/FacebookZnak.jsx';
+import { Facebook } from '../Ikony/Facebook.jsx';
 import { FACEBOOK_URL } from '../../data/kontakt.js';
 import styles from './Menu.module.scss';
 
@@ -55,7 +55,7 @@ export function Menu({ id, nav, onClose }) {
                     className={styles.facebook}
                     aria-label="Browar Kwadrat na Facebooku"
                 >
-                    <FacebookZnak className={styles.facebookZnak} />
+                    <Facebook className={styles.facebookIkona} />
                 </a>
             )}
         </div>

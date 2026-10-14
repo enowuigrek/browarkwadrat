@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-// Czy pod znakiem metki leży pas contrast (pasy deklarują grunt przez data-ground).
-// Sprawdzamy linię na wysokości środka znaku — tam, gdzie płyta jest naprawdę widoczna.
-export function useGroundUnderMetka() {
+// Czy pod elementem leży pas contrast (pasy deklarują grunt przez data-ground).
+// Sprawdzamy linię na wysokości środka elementu — domyślnie znaku w metce.
+export function useGroundUnderMetka(selector = '[data-metka] svg') {
     const [inverted, setInverted] = useState(false);
 
     useEffect(() => {
@@ -10,9 +10,9 @@ export function useGroundUnderMetka() {
 
         const check = () => {
             frame = 0;
-            const znak = document.querySelector('[data-metka] svg');
-            if (!znak) return;
-            const box = znak.getBoundingClientRect();
+            const target = document.querySelector(selector);
+            if (!target) return;
+            const box = target.getBoundingClientRect();
             const y = box.top + box.height / 2;
             const over = [...document.querySelectorAll('[data-ground="contrast"]')].some(band => {
                 const r = band.getBoundingClientRect();
@@ -40,7 +40,7 @@ export function useGroundUnderMetka() {
             document.removeEventListener('transitionend', schedule);
             cancelAnimationFrame(frame);
         };
-    }, []);
+    }, [selector]);
 
     return inverted;
 }

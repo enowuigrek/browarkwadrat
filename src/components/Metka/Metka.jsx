@@ -6,7 +6,9 @@ import styles from './Metka.module.scss';
 // position="center": metka startuje na środku, a gdy docked — zjeżdża na pozycję z lewej.
 // Dwa wyjątki (Metka.md): inverted — nad pasem contrast płyta się odwraca;
 // away — w trybie zadania cała sylwetka chowa się w górę.
-export function Metka({ position = 'side', hidden = false, docked = false, inverted = false, away = false, children }) {
+// column="text": kolumna szyldu zwęża się do kolumny akapitu (podstrona piwa), żeby metka
+// stała równo z tekstem pod nią.
+export function Metka({ position = 'side', column = 'page', hidden = false, docked = false, inverted = false, away = false, children }) {
     return (
         <div
             className={styles.wrapper}
@@ -15,7 +17,7 @@ export function Metka({ position = 'side', hidden = false, docked = false, inver
             data-inverted={inverted || undefined}
         >
             <div className={styles.szyld}>
-                <div className={styles.column} data-position={position} data-docked={docked || undefined}>
+                <div className={styles.column} data-position={position} data-column={column} data-docked={docked || undefined}>
                     <div className={styles.track}>
                         <div className={styles.metka} data-metka>
                             <Znak className={styles.znak} />

@@ -31,7 +31,7 @@ export function BeerPage({ beer }) {
 
     return (
         <>
-            <Szyld position="center" nav={nav} />
+            <Szyld position="center" column="text" nav={nav} />
 
             <main>
                 <section

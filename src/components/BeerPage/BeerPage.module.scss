@@ -59,8 +59,9 @@
     gap: $space-4;
 }
 
+// Pierwszy akapit wyróżnia pozycja, nie stopień: ten sam body, większy oddech pod spodem.
 .intro {
-    @include type(lead);
+    margin-bottom: $space-4;
 }
 
 // ─── Pasy niżej ──────────────────────────────────────────────────────────

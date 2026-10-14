@@ -6,12 +6,13 @@
 $button: 44px;
 $szyld: map.get($metka-narrow, szyld);
 
-// Stoi poza opakowaniem metki, żeby w trybie zadania nie odjechał razem z nią.
-// Ikona siedzi na szyldzie, prawa krawędź równo z kolumną treści.
+// Zwisa POD szyldem przy prawym marginesie kolumny — symetrycznie do metki przy lewym.
+// Kolor contrast jak metka: nad ciemnym pasem się odwraca. Stoi poza opakowaniem metki,
+// bo przy otwartym menu zostaje na ekranie jako X, gdy metka odjeżdża.
 .button {
     display: none;
     position: fixed;
-    top: calc((#{$szyld} - #{$button}) / 2);
+    top: $szyld;
     right: calc(#{$space-8} - (#{$button} - 28px) / 2);
     z-index: 30;
     width: $button;
@@ -20,12 +21,28 @@ $szyld: map.get($metka-narrow, szyld);
     padding: 0;
     border: 0;
     background: none;
-    color: $contrast-ink;
+    color: $contrast;
     cursor: pointer;
     transition: transform $motion-metka $motion-ease;
 
+    &[data-inverted] {
+        color: $contrast-ink;
+    }
+
+    // szyld schowany: jedzie w górę razem z nim, jak metka — zostaje na ekranie
     &[data-hidden] {
-        transform: translateY(calc(-1 * (#{$szyld} + (#{$button} - #{$szyld}) / 2)));
+        transform: translateY(-$szyld);
+    }
+
+    // tryb zadania (formularz): cały w górę, tak jak metka
+    &[data-away] {
+        transform: translateY(calc(-1 * (#{$szyld} + #{$button})));
+    }
+
+    // menu otwarte: X na listwie nakładki, w kontrze do jej czerni
+    &[data-open] {
+        transform: translateY(-$szyld);
+        color: $contrast-ink;
     }
 
     @include phone {

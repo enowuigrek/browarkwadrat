@@ -81,10 +81,12 @@ w górę** i wraca po zamknięciu. Trzeciego wyjątku nie dokładamy.
 
 1. **Zawsze przyklejona do górnej krawędzi.** Metka nie pływa w środku i nie jest kartą.
    Wygląda jak wszyta, a nie jak położona.
-2. **Odstęp od lewej równy własnej szerokości.** Pustka po lewej waży dokładnie tyle, co
-   przedmiot. Wartość w pikselach, nie w procentach: procent sprawiał, że na monitorze
-   metka odpływała na środek, a na telefonie kleiła się do krawędzi. Liczy się od lewej
-   krawędzi **kolumny treści**, nie od krawędzi okna.
+2. **Lewa krawędź metki równa się lewej krawędzi kolumny treści.** Metka ma ten sam
+   margines co tekst pod nią — wtedy strona ma jedną linię startu, a nie dwie. Wcześniej
+   odstęp był równy własnej szerokości metki; w realnym układzie, z przyciskiem menu
+   zwisającym przy prawym marginesie, wersja wyrównana do tekstu trzyma się lepiej.
+   Wartość bierze się z marginesu kolumny, nie z procentów — procent sprawiał, że na
+   monitorze metka odpływała na środek, a na telefonie kleiła się do krawędzi.
 3. **Metka musi wystawać poniżej szyldu.** Jeśli nie wystaje, to nie jest metka, tylko
    kafel w nagłówku.
 4. **Jedna na powierzchnię.** Drugi taki element na tym samym ekranie zabija efekt.
@@ -110,8 +112,9 @@ Poziome przesunięcie siedzi **na samej metce**, nie na wspólnym opakowaniu: op
 niesie też szyld, czyli pas na całą szerokość, który w bok jechać nie może. Wspólny
 `drop-shadow` to przeżywa, bo filtr liczy się po transformacjach dzieci.
 
-Na telefonie wariant wyśrodkowany nie działa: droga jest za krótka, żeby ruch coś
-znaczył, a metka na środku wchodzi pod nawigację. Tam metka od razu stoi z lewej.
+**Na telefonie wariantu wyśrodkowanego nie ma w ogóle.** Droga jest za krótka, żeby ruch
+coś znaczył, a metka na środku wchodzi pod nawigację. Tam metka stoi z lewej od początku
+do końca, wyrównana do marginesu tekstu.
 
 ## Treść szyldu
 

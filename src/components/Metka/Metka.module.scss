@@ -51,10 +51,16 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding-inline: $space-12;
+    // margines kolumny — ten sam co tekstu; od niego startuje metka
+    --margin: #{$space-12};
+    padding-inline: var(--margin);
 
     @include phone {
-        padding-inline: $space-8;
+        --margin: #{$space-8};
+    }
+
+    &[data-column="text"] {
+        max-width: calc(#{$col-text} + 2 * var(--margin));
     }
 }
 
@@ -67,12 +73,12 @@
     pointer-events: none;
 }
 
-// Pozycja docelowa zawsze z lewej: odstęp od krawędzi kolumny = własna szerokość.
+// Pozycja docelowa: lewa krawędź metki = lewa krawędź kolumny treści (jedna linia startu).
 // Poziomy ruch należy wyłącznie do metki — opakowanie z szyldem jedzie tylko w pionie.
 .metka {
     position: absolute;
     top: 0;
-    left: var(--metka-w);
+    left: var(--margin);
     transition: transform $motion-metka $motion-ease;
     width: var(--metka-w);
     height: var(--metka-h);
@@ -91,10 +97,10 @@
 
     // spoczynek wariantu wyśrodkowanego: z lewej na środek toru
     [data-position="center"]:not([data-docked]) & {
-        transform: translateX(calc(50cqw - 1.5 * var(--metka-w)));
+        transform: translateX(calc(50cqw - var(--metka-w) / 2 - var(--margin)));
     }
 
-    // na telefonie droga jest za krótka — metka od razu stoi z lewej
+    // na telefonie wariantu wyśrodkowanego nie ma — metka stoi z lewej cały czas
     @include phone {
         [data-position="center"]:not([data-docked]) & {
             transform: none;
@@ -115,7 +121,7 @@
     height: 100%;
 
     // nigdy nie wchodzi na metkę — ani na środku, ani z lewej
-    margin-left: calc(2 * var(--metka-w) + #{$space-4});
+    margin-left: calc(var(--metka-w) + #{$space-4});
 
     [data-position="center"] > & {
         max-width: calc(50% - var(--metka-w) / 2 - #{$space-4});
