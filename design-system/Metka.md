@@ -1,7 +1,7 @@
 # Metka
 
 Czarny **szyld** przyklejony do górnej krawędzi i **metka** zwisająca z niego ze znakiem
-Kwadratu w środku na biało. Razem tworzą jedną czarną sylwetkę — główny element
+Kwadratu w środku na biało. Razem tworzą jedną czarną sylwetkę, główny element
 rozpoznawczy marki, ten sam na stronie i na etykiecie, żeby butelka w ręku i strona pod
 kodem QR wyglądały jak jedna rzecz.
 
@@ -20,7 +20,7 @@ Tło szyldu i metki: `contrast`. Znak i tekst na szyldzie: `contrast-ink`. Przyg
 pozycja nawigacji: `contrast-ink-muted`. Cień: `shadow-metka`. Promień: `radius`, czyli
 zero.
 
-**W ciemnym motywie metka się odwraca** — jasna płyta, ciemny znak — bo `contrast` jest
+**W ciemnym motywie metka się odwraca** (jasna płyta, ciemny znak), bo `contrast` jest
 tokenem pełnego odwrócenia względem tła, a nie nazwą czerni. Czarna metka na stronie
 `#121110` byłaby niewidoczna, czyli przestałaby być metką. Niezmienne jest to, że metka
 jest jedynym elementem w pełnym kontraście do strony, a nie konkretny hex. Na etykiecie
@@ -35,7 +35,7 @@ lewej, po prawej i pod znakiem to **półtorej ścianki**, czyli `bok × 3 ÷ 14
 - pusty pas nad znakiem = reszta; jego górna część chowa się w szyldzie
 
 Przy znaku 70 px: ścianka 10, luz 15, metka 100 × 180. Przy znaku 42 px: ścianka 6,
-luz 9, metka 60 × 108. Metka jest **wyraźnie wyższa niż szeroka** (1,8) — to nie kafel
+luz 9, metka 60 × 108. Metka jest **wyraźnie wyższa niż szeroka** (1,8), to nie kafel
 z logo, tylko pasek, który zwisa.
 
 ## Jeden cień na całość
@@ -67,14 +67,14 @@ z krzywą `motion-ease`, pod `prefers-reduced-motion` bez animacji.
 Dwa powody, żeby nie animować wysokości. Po pierwsze ścianka i luz są wyliczone z boku
 znaku, więc przy pośrednich wartościach proporcje `1/7` i `1,5` przestają wychodzić na
 pełnych pikselach i krawędzie zaczynają się rozmywać. Po drugie `transform` nie
-przelicza układu, a zmiana wysokości tak — przy każdej klatce przewijania.
+przelicza układu, a zmiana wysokości tak, i to przy każdej klatce przewijania.
 
 **Metka nie znika przy przewijaniu.** Nawet przy schowanym szyldzie zostaje na ekranie
 ze znakiem, bo to ona jest znakiem marki, a nie nawigacja.
 
 Są dokładnie dwa wyjątki, oba opisane w `strona.md`: **nad pasem `contrast` metka się
 odwraca** (inaczej czarna płyta znika i zostaje sam biały pierścień w powietrzu),
-a **w trybie zadania — otwarty formularz oceny, otwarte menu na telefonie — chowa się
+a **w trybie zadania (otwarty formularz oceny, otwarte menu na telefonie) chowa się
 w górę** i wraca po zamknięciu. Trzeciego wyjątku nie dokładamy.
 
 ## Zasady
@@ -82,10 +82,10 @@ w górę** i wraca po zamknięciu. Trzeciego wyjątku nie dokładamy.
 1. **Zawsze przyklejona do górnej krawędzi.** Metka nie pływa w środku i nie jest kartą.
    Wygląda jak wszyta, a nie jak położona.
 2. **Lewa krawędź metki równa się lewej krawędzi kolumny treści.** Metka ma ten sam
-   margines co tekst pod nią — wtedy strona ma jedną linię startu, a nie dwie. Wcześniej
+   margines co tekst pod nią, więc strona ma jedną linię startu, a nie dwie. Wcześniej
    odstęp był równy własnej szerokości metki; w realnym układzie, z przyciskiem menu
    zwisającym przy prawym marginesie, wersja wyrównana do tekstu trzyma się lepiej.
-   Wartość bierze się z marginesu kolumny, nie z procentów — procent sprawiał, że na
+   Wartość bierze się z marginesu kolumny, nie z procentów, bo procent sprawiał, że na
    monitorze metka odpływała na środek, a na telefonie kleiła się do krawędzi.
 3. **Metka musi wystawać poniżej szyldu.** Jeśli nie wystaje, to nie jest metka, tylko
    kafel w nagłówku.
@@ -94,10 +94,10 @@ w górę** i wraca po zamknięciu. Trzeciego wyjątku nie dokładamy.
    z napisem „KWADRAT".
 6. **Nie przebarwiać.** Tylko `contrast` i `contrast-ink`: w druku i w jasnym motywie
    czarna płyta z białym znakiem, w ciemnym odwrotnie. Złoto, barwy słodowe i barwa piwa
-   nie wchodzą na metkę nigdy — barwa jest tłem, na którym metka leży.
+   nie wchodzą na metkę nigdy, bo barwa jest tłem, na którym metka leży.
 7. **Rozmyty cień tylko tutaj.** `shadow-metka` to jedyny blur w systemie i jego sens
    polega na tym, że nic innego go nie ma. Cień drukarski przycisków (`shadow-print`) nie
-   jest wyjątkiem od tej zasady, bo nie ma rozmycia — ale na metkę też nie wchodzi.
+   jest wyjątkiem od tej zasady, bo nie ma rozmycia, ale na metkę też nie wchodzi.
 8. **Cień pada w dół i w prawo.** `12px 12px 12px`: rozmycie równe przesunięciu, więc nic
    nie wychodzi w lewo ani do góry. To rzut przedmiotu przy świetle z lewej u góry, a nie
    poświata dookoła.
@@ -105,7 +105,7 @@ w górę** i wraca po zamknięciu. Trzeciego wyjątku nie dokładamy.
 ## Wariant wyśrodkowany
 
 Na podstronie piwa metka startuje **na środku**, bo hero jest tam złożone jak etykieta.
-Po przewinięciu wraca na pozycję z lewej razem ze schowaniem szyldu — jeden próg, jedno
+Po przewinięciu wraca na pozycję z lewej razem ze schowaniem szyldu, jeden próg, jedno
 zdarzenie, czasy `motion-metka` i `motion-ease`.
 
 Poziome przesunięcie siedzi **na samej metce**, nie na wspólnym opakowaniu: opakowanie
@@ -123,7 +123,7 @@ Wyrównana **do prawej**, bo lewa strona należy do metki. Na stronie nawigacja 
 
 **Na etykiecie szyld jest pusty.** Nic na nim nie piszemy: to czysty element graficzny,
 z którego zwisa metka. Numer warki i pojemność idą na **czarną stopkę przy dolnej
-krawędzi** — numer po lewej (mono, `tabular-nums`, 10–11 px), pojemność po prawej.
+krawędzi**, numer po lewej (mono, `tabular-nums`, 10 lub 11 px), pojemność po prawej.
 Powód jest praktyczny: butelka stoi na półce etykietą do przodu, a wzrok schodzi
 z nazwy w dół, więc dane techniczne mają być pod nią, nie nad nią. Szyld na etykiecie
 jest wyraźnie niższy (20 px): niesie zero treści, więc ma być listwą, nie paskiem.
@@ -133,13 +133,13 @@ jest wyraźnie niższy (20 px): niesie zero treści, więc ma być listwą, nie 
 Tylko przy realnej szerokości. Odstęp jest w pikselach, więc w zmniejszonej ramce
 podglądu wygląda na większy, niż jest: 100 px w ramce 700 px to 14% szerokości, a na
 stronie 1400 px to 7%. Dlatego ten podgląd składa się przy 1280 px i dopiero potem
-jest skalowany — inaczej ocena „za bardzo w prawo" bierze się z ramki, nie z projektu.
+jest skalowany, bo inaczej ocena „za bardzo w prawo" bierze się z ramki, nie z projektu.
 
 Gdyby jednak metka miała iść w lewo, są dwa sensowne przystanki i żaden z nich nie jest
 dowolną liczbą:
 
-- **połowa szerokości metki** (50 px / 30 px) — ta sama zasada, krótszy oddech
-- **równo z kolumną treści** (`space-8`, 32 px) — lewa krawędź metki w jednej linii
+- **połowa szerokości metki** (50 px / 30 px), ta sama zasada, krótszy oddech
+- **równo z kolumną treści** (`space-8`, 32 px), lewa krawędź metki w jednej linii
   z tekstem; najmocniejsza siatkowo, ale metka ląduje tam, gdzie u wszystkich siedzi
   logo, więc traci na odrębności
 
@@ -152,6 +152,6 @@ równy szerokości metki.
 ## Czego komponent nie dostarcza
 
 Treści szyldu i logiki chowania. Rodzic musi mieć `position: relative` (albo szyld jest
-`fixed` względem okna), a treść strony własny zapas u góry — metka zjada pionową
+`fixed` względem okna), a treść strony własny zapas u góry. Metka zjada pionową
 przestrzeń pod nagłówkiem, więc hero potrzebuje `padding-top` co najmniej tyle, ile
 metka wystaje, plus jeden odstęp.

@@ -3,6 +3,7 @@ import { Szyld } from '../components/Szyld/Szyld.jsx';
 import { Footer } from '../components/Footer/Footer.jsx';
 import { publishedBeers } from '../data/beersData.js';
 import { formatNumber } from '../utils/format.js';
+import { Szew } from '../components/Szew/Szew.jsx';
 import styles from './Home.module.scss';
 
 const nav = [
@@ -34,7 +35,7 @@ export function Home() {
                                     to={`/${beer.slug}`}
                                     className={styles.tile}
                                     data-ground="beer"
-                                    style={{ '--beer-color': beer.color }}
+                                    style={{ '--beer-color': beer.color, '--akcent': beer.accent }}
                                 >
                                     <span className={styles.batch}>#{beer.batchNumber}</span>
                                     <span className={styles.name}>{beer.name}</span>
@@ -48,13 +49,15 @@ export function Home() {
                     </ul>
                 </section>
 
+                <Szew from="var(--surface-000)" to="var(--contrast)" />
+
                 <section className={styles.band} data-ground="contrast" id="narzedzie" aria-labelledby="narzedzie-tytul">
                     <div className={styles.bandInner}>
                         <p className={styles.label}>Za kulisami</p>
                         <h2 className={styles.bandTitle} id="narzedzie-tytul">Narzędzie piwowarskie</h2>
                         <p className={styles.bandText}>
                             Piwowarstwo to liczby: temperatura co dwie godziny, Brix, litry, dawki w ml/l.
-                            Każda warka ma swój zeszyt w prywatnym narzędziu — stamtąd pochodzą
+                            Każda warka ma swój zeszyt w prywatnym narzędziu. Stamtąd pochodzą
                             parametry na etykietach i na tej stronie.
                         </p>
                     </div>

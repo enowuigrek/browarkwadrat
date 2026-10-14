@@ -41,6 +41,7 @@
     $t: map.get($themes, $name);
     --shadow-print: #{map.get($t, shadow-print)};
     --shadow-print-hover: #{map.get($t, shadow-print-hover)};
+    --shadow-print-title: #{map.get($t, shadow-print-title)};
 }
 
 :root [data-ground="contrast"] {

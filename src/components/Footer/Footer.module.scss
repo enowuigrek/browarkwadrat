@@ -29,23 +29,24 @@
 }
 
 // Pełne logo w contrast-ink przez maskę (proporcje pliku 3402 × 893),
-// najwyżej 132 px szerokości, 120 px na telefonie (strona.md → Stopka).
+// 160 px szerokości, 140 px na telefonie: najważniejszy znak w stopce (strona.md → Stopka).
 .logo {
     display: block;
-    width: 132px;
+    width: 160px;
     aspect-ratio: 3402 / 893;
     background: $contrast-ink;
     mask: url('/logo-cale.svg') left center / contain no-repeat;
 
     @include phone {
-        width: 120px;
+        width: 140px;
     }
 }
 
-// square-facebook z Font Awesome: 28 px, zapala się kolorem serwisu przy hover/focus.
+// square-facebook z Font Awesome: 20 px, delikatna (odnośnik, nie drugi znak marki),
+// zapala się kolorem serwisu przy hover/focus.
 .facebook {
     display: block;
-    color: $contrast-ink;
+    color: $contrast-ink-muted;
 
     &:hover,
     &:focus-visible {
@@ -55,8 +56,8 @@
 
 .facebookIkona {
     display: block;
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
 }
 
 // Kolofon: przypis, nie nawigacja — bez podkreśleń, podkreślenie tylko przy hover/focus.

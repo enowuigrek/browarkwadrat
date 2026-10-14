@@ -1,0 +1,19 @@
+@use '../../styles/variables.module.scss' as *;
+
+// Przerwa paddingiem na samym szwie, nie marginesem na pasku — margines skleiłby się
+// z rodzicem i zamiast koloru nowego pasa pokazałby tło body.
+.szew {
+    padding-top: $seam;
+    background: var(--to);
+
+    &::before {
+        content: '';
+        display: block;
+        height: $seam-echo;
+        background: repeating-linear-gradient(
+            90deg,
+            var(--from) 0 $seam-dash,
+            transparent $seam-dash calc(#{$seam-dash} + #{$seam-dash-gap})
+        );
+    }
+}

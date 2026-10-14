@@ -46,7 +46,7 @@ const beersData = [
         description: [
             "To akurat z ustawki po pracy z Danielem, Dominikiem i Marcelem. Pomieszaliśmy w garze, zamówiliśmy pizzę, zjedliśmy i brzuch bolał. Ale piwo wyszło spoko.",
             "Wolnosypane to Ale na polskim chmielu Książęcym i tyle. Lekkie, z delikatną goryczką, bez zbędnych fajerwerków.",
-            "Takie do pizzy – dokładnie tak, jak powstało."
+            "Takie do pizzy, dokładnie tak, jak powstało."
         ],
         malts: ["Pale Ale", "Cookie", "Pszeniczny"],
         hops: ["Książęcy (PL)"],
@@ -68,7 +68,7 @@ const beersData = [
         intro: "Delikatne pale ale z nutą słodkości od słodów cookie i pszenicznego.",
         description: [
             "Amerykańskie drożdże US-05 dają czysty charakter, a polski chmiel Książęcy zapewnia tradycyjną goryczkę z aromatycznym wykończeniem.",
-            "Harmonijne piwo łączące amerykańską elegancję z polskim rzemiosłem – łatwo pijące się, ale o wyrazistej osobowości."
+            "Harmonijne piwo łączące amerykańską elegancję z polskim rzemiosłem. Pije się łatwo, ale ma wyrazistą osobowość."
         ],
         malts: ["Pale Ale", "Cookie", "Pszeniczny"],
         hops: ["Książęcy (PL)"],
@@ -110,9 +110,9 @@ const beersData = [
         intro: "Lekkie grodziskie, które pamięta o korzeniach, ale nie zamyka się w muzealnej gablocie.",
         description: [
             "Pozostaje rześkie, musujące i ultralekkie, jednak podane we współczesnej interpretacji.",
-            "W aromacie wszystko dzieje się subtelnie. Nutka dymu pojawia się tylko wtedy, gdy piwo jest naprawdę dobrze schłodzone – bardziej jako delikatne echo tradycji niż dominujący akcent. To świadoma rezygnacja z klasycznego „ogniska w szklance” na rzecz czystszej, bardziej przystępnej formy.",
+            "W aromacie wszystko dzieje się subtelnie. Nutka dymu pojawia się tylko wtedy, gdy piwo jest naprawdę dobrze schłodzone, i to raczej jako delikatne echo tradycji niż dominujący akcent. To świadoma rezygnacja z klasycznego „ogniska w szklance” na rzecz czystszej, bardziej przystępnej formy.",
             "Połączenie Talusa i Książęcego wnosi świeży wymiar: lekko cytrusową, zieloną, wręcz soczystą nutę, która pięknie kontruje pszeniczną bazę. Gorycz jest czysta i uprzejma, a chmielenie na zimno podkręca nowoczesny charakter całości.",
-            "Piwo lekkie jak wakacyjne popołudnie, ale niepuste. Grodziskie, które szanuje tradycję, a jednocześnie pokazuje, że można ją opowiedzieć na nowo – z finezją, świeżością i bez przesady.",
+            "Piwo lekkie jak wakacyjne popołudnie, ale niepuste. Grodziskie, które szanuje tradycję, a jednocześnie pokazuje, że można ją opowiedzieć na nowo, z finezją, świeżością i bez przesady.",
             "Idealne na pierwszy łyk… i na kolejny też."
         ],
         malts: [

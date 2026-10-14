@@ -89,7 +89,7 @@ export function OpinionForm({ batchNumber }) {
                 </button>
                 {sent && (
                     <p className={styles.note} role="status">
-                        Wysyłka jeszcze nie działa — formularz jest na razie tylko podglądem.
+                        Wysyłka jeszcze nie działa. Formularz jest na razie tylko podglądem.
                     </p>
                 )}
             </div>

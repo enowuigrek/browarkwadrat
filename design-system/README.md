@@ -1,25 +1,24 @@
 # Kwadrat
 
 System wizualny Browaru Kwadrat. Obsługuje dwie powierzchnie: **narzędzie piwowarskie**
-(prywatne — warki, pomiary, fermentacja, receptury) i **strony piw pod kodem QR** na
-browarkwadrat.pl (publiczne — jedno piwo, jedna strona, link z etykiety). Jeden zestaw
+(prywatne, czyli warki, pomiary, fermentacja, receptury) i **strony piw pod kodem QR** na
+browarkwadrat.pl (publiczne, jedno piwo, jedna strona, link z etykiety). Jeden zestaw
 tokenów na obie, bo to ten sam browar.
 
 ## Z czego to wynika
 
 Nazwa to figura geometryczna, więc system jest kanciasty dosłownie: `radius` = 0 i to
-jedyny token promienia, jaki istnieje. Nic się nie zaokrągla — karta, przycisk, input,
-chip, kafel, komórka wykresu.
+jedyny token promienia, jaki istnieje. Nic się nie zaokrągla, ani karta, ani przycisk,
+ani input, ani chip, ani kafel, ani komórka wykresu.
 
 System jest **jasny**: słomkowa biel jako tło, ciepła prawie-czerń jako tekst, a czerń
-wraca jako **przełamanie** (`contrast`) — ciemny pas, stopka, kafel z głównym odczytem
-i znak kwadratu z logo. Kolory akcji są piwne i **złote**: `brand` to `#e8b130`, kolor
-jasnego piwa pod światło, a nie brąz. Browar robi piwa prowadzone słodem, z chmielem
-jako dodatkiem rześkim, i paleta mówi to samo. Zieleń została jedna, wyłącznie jako
-status. I najważniejsze:
-piwowarstwo to liczby. Temperatura co dwie godziny, Brix, litry, dawki w ml/l. Dlatego
-liczby mają własną rodzinę (mono, `tabular-nums`) i własną skalę — nie są „tekstem,
-tylko że cyframi”.
+wraca jako **przełamanie** (`contrast`) w ciemnym pasie, w stopce, w kaflu z głównym
+odczytem i w znaku kwadratu z logo. Kolory akcji są piwne i **złote**: `brand` to
+`#e8b130`, kolor jasnego piwa pod światło, a nie brąz. Browar robi piwa prowadzone słodem,
+z chmielem jako dodatkiem rześkim, i paleta mówi to samo. Zieleń została jedna, wyłącznie
+jako status. I najważniejsze: piwowarstwo to liczby. Temperatura co dwie godziny, Brix,
+litry, dawki w ml/l. Dlatego liczby mają własną rodzinę (mono, `tabular-nums`) i własną
+skalę. Nie są „tekstem, tylko że cyframi”.
 
 ## Zasady
 
@@ -28,7 +27,7 @@ tylko że cyframi”.
    Wszędzie `font-variant-numeric: tabular-nums`, żeby kolumny w tabeli nie tańczyły.
 2. **Kreski, nie blur.** Karty i tabele oddzielasz `line` na `surface-100`; jeśli coś
    musi się odkleić od tła, dostaje `surface-200`. Rozmyty cień jest w systemie dokładnie
-   jeden — `shadow-metka` — i należy wyłącznie do metki, bo ona jedna ma naprawdę leżeć
+   jeden (`shadow-metka`) i należy wyłącznie do metki, bo ona jedna ma naprawdę leżeć
    NA stronie, a nie być jej częścią. Osobna rzecz to **cień drukarski**
    (`shadow-print`, `shadow-print-hover`, `shadow-print-name`): przesunięta kopia bez
    rozmycia, imitująca niedobitą pasówkę w druku. To nie blur, więc nie kasuje metki,
@@ -37,14 +36,14 @@ tylko że cyframi”.
 3. **Jeden akcent.** `brand` oznacza „aktywne” albo „w normie”. Nie używaj go
    dekoracyjnie: jeśli na ekranie jest pięć zielonych rzeczy, żadna nie jest ważna.
 4. **Paleta słodowa to dane, nie UI.** `malt-pale` / `malt-amber` / `malt-dark` służą do
-   pokazywania barwy piwa i serii na wykresie. Nigdy jako tło przycisku ani kolor tekstu —
-   kontrast nie wystarcza.
+   pokazywania barwy piwa i serii na wykresie. Nigdy jako tło przycisku ani kolor tekstu,
+   bo kontrast nie wystarcza.
 5. **Stan czytasz bez koloru.** `brand-strong` w roli ostrzeżenia i `danger` zawsze
    razem ze słowem lub ikoną.
    Sam kolor to nie komunikat, a różnicę często widać na telefonie w kuchni, przy złym
    świetle i w rękawicy.
 6. **Odstęp bierzesz ze skali.** Każda wartość to wielokrotność `space-1` (4 px).
-   Dowolna liczba px w CSS oznacza brakujący token — dodaj token albo użyj istniejącego.
+   Dowolna liczba px w CSS oznacza brakujący token, więc dodaj token albo użyj istniejącego.
 7. **Zero zaokrągleń.** `border-radius` w kodzie to błąd, nawet 2 px, nawet na avatarze.
    Jeśli coś musi się odciąć od tła, robi to kreską albo `surface-200`, nie krzywizną.
 8. **Oba motywy albo żaden.** Ciemny jest pierwszy (warzy się wieczorem, telefon leży
@@ -54,7 +53,7 @@ tylko że cyframi”.
 ## Kolor
 
 Trzy plany tła (`surface-000` → `100` → `200`) i trzy poziomy tekstu
-(`ink` → `ink-muted` → `ink-faint`). Niżej niż `ink-faint` nie ma nic — to już jest
+(`ink` → `ink-muted` → `ink-faint`). Niżej niż `ink-faint` nie ma nic, bo to już jest
 granica 4.5:1 w obu motywach. Tło strony to **ciepła biel**, nie `#ffffff`: czysta biel
 pod ciemnym tekstem męczy, a czystą biel zostawiamy kartom, żeby miały się od czego
 odciąć. Tekst to ciepła prawie-czerń, nigdy `#000`.
@@ -85,12 +84,12 @@ w odcieniach szarości i przy daltonizmie.
 
 Cztery rodziny i każda ma jedną robotę:
 
-- `display` — **Alfa Slab One**. Nazwa piwa i tytuł ekranu. Ma jedną wagę, więc
+- `display` to **Alfa Slab One**. Nazwa piwa i tytuł ekranu. Ma jedną wagę, więc
   hierarchię robi rozmiar, nigdy grubość.
-- `sans` — **Archivo**. Interfejs i cały tekst ciągły. Wagi 400, 500 i 600.
-- `script` — **Lobster**. Nazwa stylu piwa i pojedynczy podpis. Działa, bo jest mały
+- `sans` to **Archivo**. Interfejs i cały tekst ciągły. Wagi 400, 500 i 600.
+- `script` to **Lobster**. Nazwa stylu piwa i pojedynczy podpis. Działa, bo jest mały
   i stoi obok display; nazwy piwa nim nie zapisujesz nigdy.
-- `mono` — stos systemowy. **Wszystkie liczby**, bez wyjątku, zawsze `tabular-nums`.
+- `mono` to stos systemowy. **Wszystkie liczby**, bez wyjątku, zawsze `tabular-nums`.
 
 Trzy pierwsze to webfonty i to jedyne pliki, jakie system ściąga. Mono zostaje
 systemowe celowo: cyfry w stosie systemowym są tabularne i nie ma po co czekać na
@@ -107,6 +106,6 @@ są wypisane w `tokens.json`. Jeśli projekt potrzebuje czegoś z tej listy, to 
 problem jest w hierarchii, nie w ozdobach.
 
 Nie ma też wartości wpisywanych z palca. Każdy kolor, odstęp, rozmiar, grubość kreski
-i szerokość kolumny ma token — grubości i szerokości, które nie są odstępem, siedzą
+i szerokość kolumny ma token. Grubości i szerokości, które nie są odstępem, siedzą
 w sekcji `layout`, bo nie mieszczą się w skali 4 px. Brak tokenu zgłaszasz, nie
 obchodzisz.
