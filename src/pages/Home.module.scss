@@ -104,3 +104,18 @@
 .bandText {
     max-width: $col-text;
 }
+
+// Ten sam przycisk co „Zobacz recepturę” na podstronie piwa.
+.bandText + .button {
+    margin-top: $space-6;
+}
+
+.button {
+    @include type(body-strong);
+    display: inline-block;
+    padding: $space-3 $space-6;
+    background: $brand;
+    color: $brand-ink;
+
+    @include printed;
+}

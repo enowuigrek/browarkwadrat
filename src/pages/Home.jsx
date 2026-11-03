@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Szyld } from '../components/Szyld/Szyld.jsx';
 import { Footer } from '../components/Footer/Footer.jsx';
 import { publishedBeers } from '../data/beersData.js';
+import { NARZEDZIE_URL } from '../data/kontakt.js';
 import { formatNumber } from '../utils/format.js';
 import { Szew } from '../components/Szew/Szew.jsx';
 import { Faktura } from '../components/Faktura/Faktura.jsx';
@@ -64,6 +65,11 @@ export function Home() {
                             Każda warka ma swój zeszyt w prywatnym narzędziu. Stamtąd pochodzą
                             parametry na etykietach i na tej stronie.
                         </p>
+                        {NARZEDZIE_URL && (
+                            <a href={NARZEDZIE_URL} className={styles.button}>
+                                Otwórz narzędzie
+                            </a>
+                        )}
                     </div>
                 </section>
             </main>
