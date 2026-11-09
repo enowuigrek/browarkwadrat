@@ -13,8 +13,8 @@ const beersData = [
         slug: "wolnosypane",
         name: "Wolnosypane",
         styleName: "Polish Pale Ale",
-        color: "#e8d64f",
-        accent: "#6d5a0a",
+        color: "#f5b82e",
+        accent: "#8a3c06",
         fabric: "denim",
         intro: "Niektóre piwa powstają z precyzyjnie zaplanowanej receptury, a inne… z przypadku.",
         description: [
@@ -41,6 +41,7 @@ const beersData = [
         color: "#d6d33a",
         accent: "#4f5a12",
         fabric: "sztruks",
+        draft: true, // ukryte na razie
         intro: "Delikatne pale ale z nutą słodkości od słodów cookie i pszenicznego.",
         description: [
             "Amerykańskie drożdże US-05 dają czysty charakter, a polski chmiel Książęcy zapewnia tradycyjną goryczkę z aromatycznym wykończeniem.",
@@ -121,8 +122,12 @@ const beersData = [
         color: "#ffffff",
         accent: "#7a4312",
         fabric: "plotno",
-        intro: "",
-        description: [],
+        intro: "Wypłynęliśmy po bursztyn, a dobiliśmy do brązowego brzegu.",
+        description: [
+            "Kurs był wytyczony jasno: amerykańskie bursztynowe ale. Ale słód aromatyczny ma swoje prądy i po drodze zniosło nas na ciemniejsze wody. Kapitan uznał, że to nie dryf, tylko odkrycie, i wpisał do dziennika: Brown Ale.",
+            "W ładowni chmiel z dwóch końców oceanu: Mosaic zza Atlantyku i Harlequin prosto z Australii. W kuflu chlebowy, lekko karmelowy słód spotyka owocową bryzę, a goryczka trzyma się nisko, jak mgła nad zatoką.",
+            "Nazwę przejęło po starszej siostrze, bo Domówka to nie styl, tylko okazja. A najlepsze morskie opowieści i tak opowiada się w kuchni, przy stole, przy drugim piwie."
+        ],
         malts: ["Pale Ale", "Aromatyczny"],
         hops: ["Mosaic (USA)", "Harlequin (AUS)"],
         yeast: "US-05",

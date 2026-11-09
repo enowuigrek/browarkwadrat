@@ -448,9 +448,9 @@ przeglądarki**. Potrzebny jest własny powrót i musi być widoczny od razu, u 
 Stoi w lewym górnym rogu barwnego pasa, równo z kolumną treści, nad nazwą stylu. Składa
 się ze znaku i podpisu `Piwa` stylem `label`.
 
-**Znak powrotu to logo bez prawej ściany.** Pierścień ma cztery ściany, hamburger ma
-dwie poziome plus kreskę w środku, powrót ma trzy i otwiera się w prawo, czyli w stronę,
-z której przyszedł czytelnik. Grubość ścianki jak zawsze `bok ÷ 7`, rozmiar 20 px.
+**Znak powrotu to `<` z kreski o grubości ścianki znaku** (`bok ÷ 7`), z ostrym, niezaokrąglonym
+narożnikiem, tak jak w kwadracie. Rozmiar 20 px. Pierwsza wersja, logo bez prawej ściany,
+czytała się jak nawias, a nie jak cofnięcie.
 Dzięki temu nie dokładamy do systemu ani jednej obcej strzałki.
 
 Przy najechaniu cały przycisk przesuwa się o 2 px w lewo, czasem `motion-press`. To
