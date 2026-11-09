@@ -149,6 +149,9 @@ $radius: 0;
 
 // ─── Układ (wymiary spoza skali 4 px) ─────────────────────────────────────
 $rule-hair: 1px;
+// Delikatna kreska podziału na czarnym: ta sama grubość co rule-hair, ale przygaszona,
+// żeby dzieliła, a nie rysowała ramkę.
+$rule-soft-color: color-mix(in srgb, var(--contrast-ink) 30%, transparent);
 $rule-thin: 1.5px;
 $press-shift: 3px;
 $col-page: 960px;

@@ -1,7 +1,7 @@
 import { useJezyk, useTeksty } from '../../i18n/teksty.js';
 import styles from './JezykButton.module.scss';
 
-// Przełącznik języka na telefonie: lustrzane odbicie przycisku menu względem metki.
+// Przełącznik języka na telefonie: w szyldzie przy prawym marginesie, nad przyciskiem menu.
 // Pokazuje język, na który przełącza (PL ↔ EN), bez ikony flagi.
 export function JezykButton({ away, inverted }) {
     const { lang, setLang } = useJezyk();
@@ -17,7 +17,7 @@ export function JezykButton({ away, inverted }) {
             lang={lang === 'pl' ? 'en' : 'pl'}
             onClick={() => setLang(lang === 'pl' ? 'en' : 'pl')}
         >
-            <span className={styles.label} data-lang-label>{t.jezyk.inny}</span>
+            <span className={styles.label}>{t.jezyk.inny}</span>
         </button>
     );
 }

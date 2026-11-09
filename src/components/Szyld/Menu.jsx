@@ -9,7 +9,7 @@ import styles from './Menu.module.scss';
 // Nakładka menu na telefonie: pełny ekran w contrast, pierścień w lewym rogu
 // (X w prawym to przycisk menu), pozycje stylem title, na dole loga i Facebook.
 // Wjeżdża z góry jak rozwijany szyld, pozycje wchodzą po kolei; zamykanie tą samą drogą.
-export function Menu({ id, nav, closing, onClose, onClosed }) {
+export function Menu({ id, nav, start = 'side', closing, onClose, onClosed }) {
     const listRef = useRef(null);
     const t = useTeksty();
 
@@ -38,6 +38,7 @@ export function Menu({ id, nav, closing, onClose, onClosed }) {
             id={id}
             className={styles.menu}
             data-closing={closing || undefined}
+            data-start={start}
             role="dialog"
             aria-modal="true"
             aria-label={t.menu.menu}

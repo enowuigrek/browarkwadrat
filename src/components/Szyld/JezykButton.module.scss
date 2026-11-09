@@ -2,44 +2,44 @@
 @use '../../styles/variables.module.scss' as *;
 @use '../Metka/geometry' as *;
 
-// Te same wymiary i ta sama oś co przycisk menu (MenuButton.module.scss), tylko przy lewym
-// marginesie kolumny: hamburger i język stoją symetrycznie po obu stronach metki.
-$button: 44px;
-$m: $metka-narrow;
-$znak: map.get($m, znak);
-$axis: calc(#{map.get($m, wysokosc)} - #{map.get($m, luz)} - #{$znak} / 2);
+// Przełącznik języka na telefonie siedzi w samym szyldzie, przy prawym marginesie kolumny,
+// nad przyciskiem menu. Wcześniej wisiał pod szyldem po lewej, symetrycznie do hamburgera,
+// ale na liście piw metka stoi z lewej i go zasłaniała. W szyldzie nie koliduje z niczym:
+// metka zwisa w dół, hamburger stoi pod listwą.
+$szyld: map.get($metka-narrow, szyld);
 
 .button {
     display: none;
     position: fixed;
-    top: calc(#{$axis} - #{$button} / 2);
-    left: calc(#{$space-8} - (#{$button} - #{$znak}) / 2);
-    // pod nakładką menu (20), nad metką (10)
+    top: 0;
+    right: calc(#{$space-8} - #{$space-2});
+    // nad szyldem (10), pod nakładką menu (20)
     z-index: 15;
-    width: $button;
-    height: $button;
+    height: $szyld;
+    min-width: 44px;
+    padding: 0 $space-2;
     place-items: center;
-    padding: 0;
     border: 0;
     background: none;
-    color: $contrast;
+    color: $contrast-ink;
     cursor: pointer;
     transition:
         transform $motion-metka $motion-ease,
         color $motion-metka $motion-ease;
 
+    // szyld odwrócony nad czarnym pasem: ciemny kod na jasnej listwie
     &[data-inverted] {
-        color: $contrast-ink;
+        color: $contrast;
     }
 
-    // tryb zadania: w górę razem z metką i przyciskiem menu
+    // tryb zadania: w górę razem z szyldem
     &[data-away] {
-        transform: translateY(calc(-1 * (#{$axis} + #{$button})));
+        transform: translateY(calc(-1 * (#{$szyld} + #{$space-6})));
     }
 
     &:focus-visible {
         outline: 2px solid currentColor;
-        outline-offset: 2px;
+        outline-offset: -4px;
     }
 
     @include phone {
@@ -47,11 +47,7 @@ $axis: calc(#{map.get($m, wysokosc)} - #{map.get($m, luz)} - #{$znak} / 2);
     }
 }
 
-// Kod języka szerokości znaku: ten sam krój co pozycje nawigacji, ale w skali przycisku,
-// żeby po obu stronach metki stała podobna masa.
+// Ten sam styl co pozycje nawigacji w szyldzie na szerokim ekranie.
 .label {
     @include type(label);
-    font-size: 16px;
-    line-height: 1;
-    letter-spacing: 0.08em;
 }

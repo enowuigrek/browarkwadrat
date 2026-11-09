@@ -46,7 +46,7 @@ const teksty = {
         nav: { piwa: 'Piwa', narzedzie: 'Narzędzie' },
         menu: { otworz: 'Otwórz menu', zamknij: 'Zamknij menu', menu: 'Menu', glowna: 'Główna' },
         facebook: 'Browar Kwadrat na Facebooku',
-        stopka: { nalezy: 'Należę do' },
+        stopka: { nalezy: 'Należy do' },
         home: {
             label: 'Domowy browar · Częstochowa',
             lead: 'To miejsce, w którym opisuję swoje piwa, żeby każdy, kto dostanie butelkę, wiedział co pije.',
@@ -98,7 +98,7 @@ const teksty = {
         nav: { piwa: 'Beers', narzedzie: 'Tool' },
         menu: { otworz: 'Open menu', zamknij: 'Close menu', menu: 'Menu', glowna: 'Main' },
         facebook: 'Browar Kwadrat on Facebook',
-        stopka: { nalezy: 'Member of' },
+        stopka: { nalezy: 'Part of' },
         home: {
             label: 'Home brewery · Częstochowa',
             lead: 'This is where I describe my beers, so that anyone who gets a bottle knows what they are drinking.',

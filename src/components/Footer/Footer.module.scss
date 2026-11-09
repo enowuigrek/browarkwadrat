@@ -65,21 +65,15 @@
     height: 22px;
 }
 
-// Piętro 2: pod kreską, cichsze. Przynależność po lewej, kolofon po prawej, na jednej linii
-// dolnej krawędzi. Na telefonie jedno pod drugim, wszystko od lewej krawędzi kolumny.
+// Piętro 2: pod delikatną kreską, cichsze i na osi strony: przynależność, potem druga
+// delikatna kreska i kolofon. Oś zamyka stronę symetrycznie pod marką trzymającą boki.
 .fine {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
+    display: grid;
+    justify-items: center;
     gap: $space-6;
     padding-top: $space-6;
-    border-top: $rule-hair solid $contrast-ink;
-
-    @include phone {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: $space-6;
-    }
+    border-top: $rule-hair solid $rule-soft-color;
+    text-align: center;
 }
 
 // Znak Bractwa z podpisem nad nim: bez słowa nie wiadomo, czy to sponsor, partner,
@@ -87,7 +81,7 @@
 .partner {
     display: grid;
     gap: $space-2;
-    justify-items: start;
+    justify-items: center;
 }
 
 .partnerLabel {
@@ -99,11 +93,14 @@
     width: $logo-partner-min;
     aspect-ratio: 3471 / 2084;
     background: $contrast-ink;
-    mask: url('/bractwo-piwne.svg') left center / contain no-repeat;
+    mask: url('/bractwo-piwne.svg') center / contain no-repeat;
 }
 
 .colophon {
     @include type(small);
+    justify-self: stretch;
+    padding-top: $space-4;
+    border-top: $rule-hair solid $rule-soft-color;
     color: $contrast-ink;
 
     a {

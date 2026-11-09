@@ -18,7 +18,6 @@ export function Szyld({ position = 'side', column = 'page', nav = [] }) {
     const { hidden, past } = useHideOnScroll();
     const inverted = useGroundUnderMetka();
     const buttonInverted = useGroundUnderMetka('[data-menu-icon]');
-    const langInverted = useGroundUnderMetka('[data-lang-label]');
     const t = useTeksty();
     const [menuOpen, setMenuOpen] = useState(false);
     // Nakładka zostaje w drzewie do końca animacji zamykania, potem znika.
@@ -64,7 +63,7 @@ export function Szyld({ position = 'side', column = 'page', nav = [] }) {
                 </nav>
             </Metka>
 
-            <JezykButton away={away} inverted={langInverted} />
+            <JezykButton away={away} inverted={inverted} />
 
             <div ref={buttonRef}>
                 <MenuButton
@@ -82,6 +81,7 @@ export function Szyld({ position = 'side', column = 'page', nav = [] }) {
                 <Menu
                     id={menuId}
                     nav={nav}
+                    start={position}
                     closing={!menuOpen}
                     onClose={closeMenu}
                     onClosed={() => setMenuMounted(false)}

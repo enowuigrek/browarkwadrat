@@ -97,14 +97,15 @@ Bractwa konkurował z naszym logo.
    w `contrast-ink`, 160 px (140 px na telefonie), po prawej **Facebook jako podpisany
    link**, ikona 22 px i słowo „Facebook” stylem `label`, pole dotyku min. 44 px. Przy
    najechaniu i fokusie zapala się na `#1877f2`. Wiersz zostaje wierszem także na telefonie.
-2. **Przynależność i drobny druk.** Pod włosową kreską przez szerokość kolumny. Po lewej
-   **znak Bractwa z podpisem** „Należę do” (`label`) nad znakiem 120 px (`logo-partner-min`),
-   bo bez słowa nie wiadomo, czy to sponsor, partner, czy przynależność. Po prawej kolofon:
-   rok i `lukasznowak.dev`, styl `small`, podkreślenie dopiero przy `:hover` i `:focus`.
-   Oba elementy stoją na wspólnej dolnej linii. Na telefonie jedno pod drugim, od lewej
-   krawędzi kolumny.
+2. **Przynależność i drobny druk.** Na osi strony, oddzielone dwiema **delikatnymi
+   kreskami** (`rule-hair` w `contrast-ink` przygaszonym do 30%, token `rule-soft-color`):
+   najpierw **znak Bractwa z podpisem** „Należy do” (`label`) nad znakiem 120 px
+   (`logo-partner-min`), bo bez słowa nie wiadomo, czy to sponsor, partner, czy
+   przynależność; pod drugą kreską kolofon: rok i `lukasznowak.dev`, styl `small`,
+   podkreślenie dopiero przy `:hover` i `:focus`. Tak samo na telefonie.
 
-Wszystko trzyma lewą krawędź kolumny albo jej prawą, nic nie siedzi na osi. Nazwy browaru
+Marka trzyma boki kolumny, a przynależność i drobny druk siadają na osi i zamykają stronę
+symetrycznie. Nazwy browaru
 pisanej tekstem nie ma, logo niesie ją samo.
 
 ## Barwy piw
@@ -208,7 +209,7 @@ Poniżej `bp-phone` nawigacja chowa się pod przycisk. Nakładka po otwarciu to 
 ekran w `contrast`**, pozycje w `contrast-ink` stylem `title`, jedna pod drugą, przy
 lewym marginesie. U góry nakładki: **pierścień Kwadratu w lewym rogu, X w prawym**,
 czyli znak i wyjście na przeciwnych końcach tej samej listwy. Na dole skrót stopki: logo
-z ikoną Facebooka w jednym wierszu, pod kreską znak Bractwa z podpisem „Należę do”.
+z ikoną Facebooka w jednym wierszu, pod delikatną kreską znak Bractwa z podpisem „Należy do”, na osi ekranu.
 
 Nakładka **rozwija się z górnej krawędzi** jak przedłużenie szyldu (`clip-path` od góry),
 czasem `motion-menu`, a nie wjeżdża z boku jak szuflada. Kiedy jest w połowie drogi,
@@ -246,22 +247,35 @@ Kolor: `contrast`, czyli to samo prawo co metka. **Nad ciemnym pasem się odwrac
 inaczej czarne kreski znikną na czarnym tle. Pole dotyku minimum 44 × 44 px, same kreski
 28 px szerokości.
 
-### Hamburger, który zamienia się w znak, a potem w X
+### Hamburger, którego kreski obracają się w X
 
-Przycisk jest zbudowany jak **niedokończony znak Kwadratu**: górna krawędź, dolna
-krawędź i kreska w środku. Boczne krawędzie istnieją, ale mają zerową wysokość.
-Stąd animacja w dwóch krokach, każdy po połowie `motion-menu` (160 ms), razem 320 ms,
-czyli tyle, ile rozwija się nakładka. Wcześniejsze 2 × 90 ms było za szybkie, żeby znak
-w środku dało się w ogóle zauważyć:
+Przycisk to **trzy kreski z geometrii znaku**: górna ściana, kreska w osi i dolna ściana,
+każda grubości `bok ÷ 7`. Animacja w dwóch krokach, każdy po połowie `motion-menu`
+(160 ms), razem 320 ms, czyli tyle, ile rozwija się nakładka:
 
-1. **Hamburger → znak.** Boki wyrastają do pełnej wysokości, a środkowa kreska kurczy
-   się do zera. Zostaje kwadratowy pierścień, dokładnie logo.
-2. **Znak → X.** Pierścień znika, a ze środka wychodzą dwie przekątne.
+1. **Zjazd.** Górna i dolna kreska zjeżdżają do osi, środkowa zwija się do zera.
+2. **Obrót.** Obie kreski obracają się o ±45° i powstaje X.
 
-Zamykanie to ta sama droga w odwrotną stronę: X → znak → hamburger. Sens jest taki, że
-menu nie dostaje cudzej ikony „zamknij", tylko przechodzi przez znak marki w obie strony.
+Zamykanie to ta sama droga wstecz: X prostuje się w jedną kreskę, potem kreski
+rozjeżdżają się na swoje miejsca. Wcześniejsza wersja przechodziła przez pierścień znaku,
+ale przy tym rozmiarze znak w środku ginął, a obrót czyta się od razu.
 
-Pod `prefers-reduced-motion` nie ma kroków: hamburger od razu staje się X.
+Nad ciemnym pasem kreski się odwracają i **dostają czarną płytkę 44 × 44**, żeby nie
+mieszały się z tekstem i logami w stopce, które przewijają się pod spodem.
+
+Przy otwieraniu menu znak z metki **przejeżdża z osi ekranu do lewego rogu nakładki**
+(na podstronie piwa, gdzie metka stoi na środku). Metka w tym czasie chowa się w górę,
+więc czyta się to jak jeden znak, który zrobił miejsce na menu. Na liście piw metka już
+stoi z lewej i znak się nie rusza.
+
+### Przełącznik języka
+
+Na szerokim ekranie dwa kody `PL EN` w szyldzie za nawigacją, aktywny złotem jak
+pozycja nawigacji. Na telefonie jeden kod (ten, na który się przełącza) **w samym
+szyldzie przy prawym marginesie**, nad przyciskiem menu. Wisiał wcześniej pod szyldem po
+lewej, symetrycznie do hamburgera, ale na liście piw metka stoi z lewej i go zasłaniała.
+Wybór zapamiętuje przeglądarka; przy pierwszej wizycie decyduje język telefonu. Adresy
+się nie zmieniają, więc kody QR na etykietach działają w obu językach.
 
 ## Ikony składu
 

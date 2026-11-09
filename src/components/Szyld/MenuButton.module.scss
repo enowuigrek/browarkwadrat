@@ -10,8 +10,8 @@ $znak: map.get($m, znak);
 $axis: calc(#{map.get($m, wysokosc)} - #{map.get($m, luz)} - #{$znak} / 2);
 
 // Na telefonie stoi nieruchomo przy prawym marginesie kolumny, w osi znaku z metki.
-// Same kreski, bez płyty — płyta jest jedna i należy do metki. Kolor contrast,
-// nad ciemnym pasem się odwraca.
+// Same kreski, bez płyty, póki leżą na jasnym. Nad ciemnym pasem kreski się odwracają
+// i dostają czarną płytkę, żeby nie mieszały się z tekstem i logami pod spodem.
 .button {
     display: none;
     position: fixed;
@@ -28,10 +28,12 @@ $axis: calc(#{map.get($m, wysokosc)} - #{map.get($m, luz)} - #{$znak} / 2);
     cursor: pointer;
     transition:
         transform $motion-metka $motion-ease,
-        color $motion-metka $motion-ease;
+        color $motion-metka $motion-ease,
+        background-color $motion-metka $motion-ease;
 
     &[data-inverted] {
         color: $contrast-ink;
+        background: $contrast;
     }
 
     // tryb zadania (formularz oceny): w górę razem z metką
@@ -55,72 +57,56 @@ $axis: calc(#{map.get($m, wysokosc)} - #{map.get($m, luz)} - #{$znak} / 2);
     height: $znak;
     overflow: visible;
     fill: currentColor;
-    stroke: currentColor;
 }
 
-.ring,
-.side,
+// Kreski obracają się wokół własnego środka; przesunięcie i obrót to osobne własności,
+// żeby każda miała swój krok.
+.top,
 .middle,
-.cross {
+.bottom {
     transform-box: fill-box;
     transform-origin: center;
 }
 
-.ring rect {
-    stroke: none;
-}
-
-.middle {
-    stroke: none;
-}
-
-.cross line {
-    stroke-width: 16;
-}
-
-// Każdy z dwóch kroków trwa pół motion-menu, żeby przejście przez znak było widać.
+// Każdy z dwóch kroków trwa pół motion-menu.
 $step: calc(#{$motion-menu} / 2);
 
-// Stan zamknięty — opisuje drogę powrotu: X → znak, potem znak → hamburger.
-.cross {
-    transform: scale(0);
-    transition: transform $step $motion-ease;
-}
-
-.ring {
-    transform: scale(1);
-    transition: transform $step $motion-ease;
-}
-
-.side {
-    transform: scaleY(0);
-    transition: transform $step $motion-ease $step;
+// Stan zamknięty opisuje drogę powrotu: najpierw obrót z X do poziomu, potem rozjazd.
+.top,
+.bottom {
+    translate: 0 0;
+    rotate: 0deg;
+    transition:
+        rotate $step $motion-ease,
+        translate $step $motion-ease $step;
 }
 
 .middle {
-    transform: scaleX(1);
-    transition: transform $step $motion-ease $step;
+    scale: 1 1;
+    transition: scale $step $motion-ease $step;
 }
 
-// Stan otwarty — droga tam: hamburger → znak, potem znak → X.
+// Stan otwarty, droga tam: zjazd do osi (środek znika), potem obrót w X.
 [data-open] {
-    .side {
-        transform: scaleY(1);
-        transition-delay: 0ms;
+    .top,
+    .bottom {
+        transition:
+            translate $step $motion-ease,
+            rotate $step $motion-ease $step;
+    }
+
+    .top {
+        translate: 0 48px;
+        rotate: 45deg;
+    }
+
+    .bottom {
+        translate: 0 -48px;
+        rotate: -45deg;
     }
 
     .middle {
-        transform: scaleX(0);
+        scale: 0 1;
         transition-delay: 0ms;
-    }
-
-    .ring {
-        transform: scale(0);
-        transition-delay: $step;
-    }
-
-    .cross {
-        transform: scale(1);
-        transition-delay: $step;
     }
 }
