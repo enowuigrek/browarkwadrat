@@ -57,7 +57,7 @@ export function BeerPage({ beer }) {
                     </ul>
 
                     <div className={styles.description}>
-                        <p className={styles.intro}>{intro}</p>
+                        {intro && <p className={styles.intro}>{intro}</p>}
                         {description.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
                     </div>
                 </section>

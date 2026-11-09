@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import { Root } from './pages/Root.jsx';
 import { Home } from './pages/Home.jsx';
 import { NotFound } from './pages/NotFound.jsx';
@@ -21,6 +21,11 @@ const router = createBrowserRouter([
                 path: beer.slug,
                 element: <BeerPage beer={beer} />,
             })),
+            // Stare kody QR warki 93 prowadzą na /domowka — nazwa przeszła na warkę 98.
+            {
+                path: 'domowka',
+                element: <Navigate to="/domowka-brown-ale" replace />,
+            },
             {
                 path: '*',
                 element: <NotFound />,

@@ -8,37 +8,6 @@
 // draft   — piwo bez treści, ukryte na liście
 const beersData = [
     {
-        id: 1,
-        batchNumber: 93,
-        slug: "domowka",
-        name: "Domówka",
-        styleName: "Old School Pale Ale",
-        color: "#f5b82e",
-        accent: "#8a3c06",
-        fabric: "plotno",
-        intro: "Lekkie, przyjemne piwo na amerykańskim i nowozelandzkim chmielu, ale w subtelnym wydaniu.",
-        description: [
-            "Delikatna goryczka i wyważony profil słodowy sprawiają, że jest to piwo imprezowe, serialowe, spotkaniowe.",
-            "Tak zwane piwo „codzienne”, do wypicia z przyjemnością, bez uniesień. Oczywiście nie polecam picia piwa codziennie. Tak się tylko mówi.",
-            "W smaku wyczujesz łagodną, zbożową bazę słodową, w zapachu lekkie nuty owoców tropikalnych z chmielu."
-        ],
-        malts: ["Pale Ale", "Abbey Malt"],
-        hops: [
-            "Simcoe (USA)",
-            "Riwaka (NZ)",
-            "Mosaic (USA)",
-            "Centennial (USA)",
-            "Ekuanot (USA)"
-        ],
-        yeast: "US-05",
-        adjuncts: null,
-        extract: 11.1,
-        alcohol: 4.4,
-        ibu: 36,
-        brewFatherLink: "https://share.brewfather.app/2esywTrJXJ1xSw",
-        recipeUrl: ""
-    },
-    {
         id: 2,
         batchNumber: 94,
         slug: "wolnosypane",
@@ -140,6 +109,28 @@ const beersData = [
         alcohol: 3.0,
         ibu: 28,
         brewFatherLink: "https://share.brewfather.app/NgjthTwEkLcQAj",
+        recipeUrl: ""
+    },
+    {
+        // Warka 98 (roboczo „Szybciejsypane”) przejęła nazwę Domówka po warce 93.
+        id: 6,
+        batchNumber: 98,
+        slug: "domowka-brown-ale",
+        name: "Domówka",
+        styleName: "Brown Ale",
+        color: "#ffffff",
+        accent: "#7a4312",
+        fabric: "plotno",
+        intro: "",
+        description: [],
+        malts: ["Pale Ale", "Aromatyczny"],
+        hops: ["Mosaic (USA)", "Harlequin (AUS)"],
+        yeast: "US-05",
+        adjuncts: null,
+        extract: 13.0,
+        alcohol: 4.7,
+        ibu: 25,
+        brewFatherLink: null,
         recipeUrl: ""
     }
 ];

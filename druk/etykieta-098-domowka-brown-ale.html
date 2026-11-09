@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Etykieta 98 · Domówka Brown Ale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo:wght@400;500;600&family=Lobster&display=swap&subset=latin,latin-ext" rel="stylesheet">
+<style>
+/* Arkusz do druku: A4 poziomo, 4 etykiety 142,5 × 99 mm.
+   Układ i kroje według design-system/etykiety.md, wymiary metki według Metka.md
+   (znak × 10 ÷ 7, wysokość = szerokość × 1,8, luz = 1,5 ścianki). */
+@page { size: A4 landscape; margin: 6mm; }
+
+:root {
+  --ink: #16130f;
+  --ink-muted: #55504a;
+  --contrast: #16130f;
+  --contrast-ink: #fcfaf4;
+  --tlo: #ffffff;
+  --akcent: #7a4312;          /* malt-dark: ciemne piwo, rdza i brąz */
+  --cut: #cfc8b8;
+
+  --szyld: 6.5mm;
+  --stopka: 6.5mm;
+  --znak: 8.4mm;
+  --metka-w: 12mm;
+  --metka-h: 21.6mm;
+  --luz: 1.8mm;
+  --front: 92mm;
+  --rule: 0.4mm;              /* rule-thin, 1,5 px */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #e9e5da; }
+body { font-family: Archivo, system-ui, sans-serif; color: var(--ink); }
+
+.arkusz {
+  width: 285mm; height: 198mm;
+  margin: 10mm auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  background: var(--tlo);
+  box-shadow: 0 2mm 8mm rgba(0,0,0,.15);
+  print-color-adjust: exact; -webkit-print-color-adjust: exact;
+}
+
+@media print {
+  html, body { background: #fff; }
+  .arkusz { margin: 0; box-shadow: none; }
+  .pomoc { display: none; }
+}
+
+/* ─── Etykieta ─────────────────────────────────────────── */
+.etykieta {
+  position: relative;
+  overflow: hidden;
+  background: var(--tlo);
+  outline: 0.15mm dashed var(--cut);   /* linia cięcia */
+  outline-offset: -0.075mm;
+  display: grid;
+  grid-template-columns: var(--front) 1fr;
+  grid-template-rows: var(--szyld) 1fr var(--stopka);
+}
+
+/* Szyld + metka: jedna czarna sylwetka, jeden wspólny cień */
+.sylwetka {
+  grid-column: 1 / -1; grid-row: 1;
+  position: relative; z-index: 2;
+  filter: drop-shadow(1.2mm 1.2mm 1.2mm rgba(22,19,15,.30));
+}
+.szyld { height: var(--szyld); background: var(--contrast); }
+.metka {
+  position: absolute; top: 0;
+  left: calc(var(--front) / 2 - var(--metka-w) / 2);
+  width: var(--metka-w); height: var(--metka-h);
+  background: var(--contrast); color: var(--contrast-ink);
+  display: flex; align-items: flex-end; justify-content: center;
+  padding: 0 var(--luz) var(--luz);
+}
+.metka svg { width: var(--znak); height: var(--znak); display: block; }
+
+/* Front */
+.front {
+  grid-column: 1; grid-row: 2;
+  display: grid;
+  grid-template-rows: calc(var(--metka-h) - var(--szyld)) 1fr auto;
+  padding: 0 8mm 4mm;          /* oddech nad stopką ≥ space-6 */
+  text-align: center;
+}
+.nazwa-blok { grid-row: 2; align-self: center; }
+.styl {
+  font-family: Lobster, cursive;
+  font-size: 17pt; line-height: 1.05;
+  color: var(--ink);
+}
+.nazwa {
+  font-family: "Alfa Slab One", Georgia, serif;
+  font-size: 31pt; line-height: 1.05;
+  color: var(--ink);
+  white-space: nowrap;
+  text-shadow: 0.25mm 0.25mm 0 #fff, 1.1mm 1.1mm 0 var(--akcent);
+  margin-top: 1mm;
+}
+
+/* Wiersz parametrów: dwie kreski, krótsze separatory, bez podpisów */
+.parametry {
+  grid-row: 3;
+  display: flex; justify-content: center; align-items: center;
+  border-top: var(--rule) solid var(--ink);
+  border-bottom: var(--rule) solid var(--ink);
+  height: 6.5mm;
+  font-weight: 500; font-size: 8pt;
+  font-variant-numeric: tabular-nums;
+}
+.parametry span { padding: 0 3.2mm; }
+.parametry i {
+  width: var(--rule); height: 2.6mm;
+  background: var(--ink);
+}
+
+/* Bok: skład i QR */
+.bok {
+  grid-column: 2; grid-row: 2;
+  padding: 5mm 6mm 0 5mm;
+  border-left: var(--rule) solid var(--ink);
+  margin-bottom: 4mm;
+  display: flex; flex-direction: column;
+}
+.sklad { list-style: none; }
+.sklad li { padding: 1.2mm 0; border-bottom: 0.2mm solid #e6dfcc; display: flex; align-items: center; gap: 2.4mm; }
+.sklad .ik { width: 6.4mm; height: 6.4mm; flex: 0 0 auto; color: var(--ink); }  /* 24 px to dolna granica (ikony.md) */
+.sklad li:first-child { padding-top: 0; }
+.sklad b {
+  display: block;
+  font-size: 5.6pt; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  margin-bottom: 0.4mm;
+}
+.sklad span { font-size: 7.4pt; line-height: 1.3; display: block; }
+
+.qr {
+  margin-top: auto;
+  display: flex; gap: 2.5mm; align-items: flex-end;
+}
+.qr-svg { width: 22mm; height: 22mm; flex: 0 0 auto; display: block; }
+
+/* Stopka */
+.stopka {
+  grid-column: 1 / -1; grid-row: 3;
+  background: var(--contrast); color: var(--contrast-ink);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 6mm;
+}
+.warka { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 7.5pt; }
+.pojemnosc { font-weight: 500; font-size: 7pt; letter-spacing: 0.18em; text-transform: uppercase; }
+
+.pomoc {
+  max-width: 285mm; margin: 0 auto 10mm;
+  font: 13px/1.5 Archivo, sans-serif; color: #55504a;
+}
+</style>
+</head>
+<body>
+<main class="arkusz">
+  <article class="etykieta">
+    <div class="sylwetka">
+      <div class="szyld"></div>
+      <div class="metka"><svg viewBox="0 0 112 112" fill="currentColor" fill-rule="evenodd" aria-hidden="true"><path d="M0 0H112V112H0Z M16 16V96H96V16Z"/></svg></div>
+    </div>
+    <section class="front">
+      <div class="nazwa-blok">
+        <p class="styl">Brown Ale</p>
+        <h1 class="nazwa">Domówka</h1>
+      </div>
+      <p class="parametry"><span>13,0 °Blg</span><i></i><span>4,7% alc.</span><i></i><span>25 IBU</span></p>
+    </section>
+    <aside class="bok">
+      <ul class="sklad">
+        <li><svg class="ik" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22 16 8" /><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /><path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /><path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /><path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z" /><path d="M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /><path d="M15.47 13.47 17 15l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /><path d="M19.47 9.47 21 11l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L13 11l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /></svg><div><b>Słody</b><span>Pale Ale, Aromatyczny</span></div></li>
+        <li><svg class="ik" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.82 16.12c1.69.6 3.91.79 5.18.85.55.03 1-.42.97-.97-.06-1.27-.26-3.5-.85-5.18" /><path d="M11.5 6.5c1.64 0 5-.38 6.71-1.07.52-.2.55-.82.12-1.17A10 10 0 0 0 4.26 18.33c.35.43.96.4 1.17-.12.69-1.71 1.07-5.07 1.07-6.71 1.34.45 3.1.9 4.88.62a.88.88 0 0 0 .73-.74c.3-2.14-.15-3.5-.61-4.88" /><path d="M15.62 16.95c.2.85.62 2.76.5 4.28a.77.77 0 0 1-.9.7 16.64 16.64 0 0 1-4.08-1.36" /><path d="M16.13 21.05c1.65.63 3.68.84 4.87.91a.9.9 0 0 0 .96-.96 17.68 17.68 0 0 0-.9-4.87" /><path d="M16.94 15.62c.86.2 2.77.62 4.29.5a.77.77 0 0 0 .7-.9 16.64 16.64 0 0 0-1.36-4.08" /><path d="M17.99 5.52a20.82 20.82 0 0 1 3.15 4.5.8.8 0 0 1-.68 1.13c-2.33.2-5.3-.32-8.27-1.57" /><path d="M4.93 4.93 3 3a.7.7 0 0 1 0-1" /><path d="M9.58 12.18c1.24 2.98 1.77 5.95 1.57 8.28a.8.8 0 0 1-1.13.68 20.82 20.82 0 0 1-4.5-3.15" /></svg><div><b>Chmiele</b><span>Mosaic (USA), Harlequin (AUS)</span></div></li>
+        <li><svg class="ik" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2" /><path d="M6.453 15h11.094" /><path d="M8.5 2h7" /></svg><div><b>Drożdże</b><span>US-05</span></div></li>
+        <li><i class="ik"></i><div><b>Skład</b><span>woda, słody jęczmienne, chmiel, drożdże</span></div></li>
+      </ul>
+      <div class="qr">
+        <svg class="qr-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#16130f" d="M0 0.5h7m1 0h2m1 0h2m1 0h1m1 0h1m2 0h2m1 0h7M0 1.5h1m5 0h1m1 0h3m2 0h1m2 0h2m2 0h1m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m4 0h1m1 0h3m4 0h1m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h3m1 0h3m2 0h1m1 0h1m2 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m2 0h8m2 0h2m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m2 0h1m4 0h1m1 0h1m1 0h2m2 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h1m2 0h1m2 0h2m1 0h1M0 8.5h1m1 0h2m1 0h3m1 0h2m1 0h1m4 0h1m1 0h2m1 0h1m2 0h1m1 0h2M0 9.5h2m1 0h1m1 0h1m1 0h1m1 0h2m1 0h2m2 0h9m3 0h1M0 10.5h1m2 0h1m2 0h1m2 0h2m1 0h1m5 0h1m5 0h1m1 0h2M0 11.5h2m5 0h2m2 0h1m1 0h4m1 0h2m1 0h3m4 0h1M0 12.5h3m1 0h1m1 0h1m1 0h1m3 0h4m1 0h1m5 0h1m1 0h2M2 13.5h2m1 0h1m1 0h2m1 0h1m1 0h1m1 0h4m1 0h1m1 0h2m3 0h3M0 14.5h1m1 0h1m1 0h3m2 0h1m3 0h1m4 0h2m2 0h3m1 0h3M1 15.5h2m1 0h2m3 0h1m2 0h1m1 0h3m1 0h2m1 0h3m3 0h1M1 16.5h2m3 0h1m2 0h2m2 0h1m1 0h1m2 0h1m2 0h1m1 0h3m1 0h1M2 17.5h1m2 0h1m1 0h2m6 0h3m2 0h1m2 0h1m1 0h3M0 18.5h1m2 0h2m1 0h1m2 0h1m1 0h1m2 0h4m3 0h2m3 0h1M2 19.5h4m1 0h1m2 0h1m1 0h1m1 0h1m2 0h2m2 0h3m2 0h1M1 20.5h1m4 0h4m1 0h1m2 0h1m1 0h11M8 21.5h1m7 0h3m1 0h1m3 0h5M0 22.5h7m1 0h2m1 0h1m4 0h5m1 0h1m1 0h2m1 0h1M0 23.5h1m5 0h1m1 0h1m1 0h2m1 0h4m1 0h1m1 0h1m3 0h2M0 24.5h1m1 0h3m1 0h1m2 0h2m1 0h1m4 0h1m2 0h5m1 0h3M0 25.5h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h3m2 0h3m2 0h2m2 0h1M0 26.5h1m1 0h3m1 0h1m1 0h2m1 0h1m2 0h1m2 0h3m1 0h1m1 0h1m2 0h1m1 0h1M0 27.5h1m5 0h1m6 0h1m2 0h1m3 0h1m4 0h1m1 0h1M0 28.5h7m1 0h3m2 0h2m1 0h1m1 0h6m3 0h1"/></svg>
+      </div>
+    </aside>
+    <footer class="stopka"><span class="warka">#98</span><span class="pojemnosc">500 ml</span></footer>
+  </article>
+  <article class="etykieta">
+    <div class="sylwetka">
+      <div class="szyld"></div>
+      <div class="metka"><svg viewBox="0 0 112 112" fill="currentColor" fill-rule="evenodd" aria-hidden="true"><path d="M0 0H112V112H0Z M16 16V96H96V16Z"/></svg></div>
+    </div>
+    <section class="front">
+      <div class="nazwa-blok">
+        <p class="styl">Brown Ale</p>
+        <h1 class="nazwa">Domówka</h1>
+      </div>
+      <p class="parametry"><span>13,0 °Blg</span><i></i><span>4,7% alc.</span><i></i><span>25 IBU</span></p>
+    </section>
+    <aside class="bok">
+      <ul class="sklad">
+        <li><svg class="ik" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22 16 8" /><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /><path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /><path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /><path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z" /><path d="M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /><path d="M15.47 13.47 17 15l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /><path d="M19.47 9.47 21 11l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L13 11l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /></svg><div><b>Słody</b><span>Pale Ale, Aromatyczny</span></div></li>
+        <li><svg class="ik" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.82 16.12c1.69.6 3.91.79 5.18.85.55.03 1-.42.97-.97-.06-1.27-.26-3.5-.85-5.18" /><path d="M11.5 6.5c1.64 0 5-.38 6.71-1.07.52-.2.55-.82.12-1.17A10 10 0 0 0 4.26 18.33c.35.43.96.4 1.17-.12.69-1.71 1.07-5.07 1.07-6.71 1.34.45 3.1.9 4.88.62a.88.88 0 0 0 .73-.74c.3-2.14-.15-3.5-.61-4.88" /><path d="M15.62 16.95c.2.85.62 2.76.5 4.28a.77.77 0 0 1-.9.7 16.64 16.64 0 0 1-4.08-1.36" /><path d="M16.13 21.05c1.65.63 3.68.84 4.87.91a.9.9 0 0 0 .96-.96 17.68 17.68 0 0 0-.9-4.87" /><path d="M16.94 15.62c.86.2 2.77.62 4.29.5a.77.77 0 0 0 .7-.9 16.64 16.64 0 0 0-1.36-4.08" /><path d="M17.99 5.52a20.82 20.82 0 0 1 3.15 4.5.8.8 0 0 1-.68 1.13c-2.33.2-5.3-.32-8.27-1.57" /><path d="M4.93 4.93 3 3a.7.7 0 0 1 0-1" /><path d="M9.58 12.18c1.24 2.98 1.77 5.95 1.57 8.28a.8.8 0 0 1-1.13.68 20.82 20.82 0 0 1-4.5-3.15" /></svg><div><b>Chmiele</b><span>Mosaic (USA), Harlequin (AUS)</span></div></li>
+        <li><svg class="ik" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2" /><path d="M6.453 15h11.094" /><path d="M8.5 2h7" /></svg><div><b>Drożdże</b><span>US-05</span></div></li>
+        <li><i class="ik"></i><div><b>Skład</b><span>woda, słody jęczmienne, chmiel, drożdże</span></div></li>
+      </ul>
+      <div class="qr">
+        <svg class="qr-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#16130f" d="M0 0.5h7m1 0h2m1 0h2m1 0h1m1 0h1m2 0h2m1 0h7M0 1.5h1m5 0h1m1 0h3m2 0h1m2 0h2m2 0h1m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m4 0h1m1 0h3m4 0h1m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h3m1 0h3m2 0h1m1 0h1m2 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m2 0h8m2 0h2m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m2 0h1m4 0h1m1 0h1m1 0h2m2 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h1m2 0h1m2 0h2m1 0h1M0 8.5h1m1 0h2m1 0h3m1 0h2m1 0h1m4 0h1m1 0h2m1 0h1m2 0h1m1 0h2M0 9.5h2m1 0h1m1 0h1m1 0h1m1 0h2m1 0h2m2 0h9m3 0h1M0 10.5h1m2 0h1m2 0h1m2 0h2m1 0h1m5 0h1m5 0h1m1 0h2M0 11.5h2m5 0h2m2 0h1m1 0h4m1 0h2m1 0h3m4 0h1M0 12.5h3m1 0h1m1 0h1m1 0h1m3 0h4m1 0h1m5 0h1m1 0h2M2 13.5h2m1 0h1m1 0h2m1 0h1m1 0h1m1 0h4m1 0h1m1 0h2m3 0h3M0 14.5h1m1 0h1m1 0h3m2 0h1m3 0h1m4 0h2m2 0h3m1 0h3M1 15.5h2m1 0h2m3 0h1m2 0h1m1 0h3m1 0h2m1 0h3m3 0h1M1 16.5h2m3 0h1m2 0h2m2 0h1m1 0h1m2 0h1m2 0h1m1 0h3m1 0h1M2 17.5h1m2 0h1m1 0h2m6 0h3m2 0h1m2 0h1m1 0h3M0 18.5h1m2 0h2m1 0h1m2 0h1m1 0h1m2 0h4m3 0h2m3 0h1M2 19.5h4m1 0h1m2 0h1m1 0h1m1 0h1m2 0h2m2 0h3m2 0h1M1 20.5h1m4 0h4m1 0h1m2 0h1m1 0h11M8 21.5h1m7 0h3m1 0h1m3 0h5M0 22.5h7m1 0h2m1 0h1m4 0h5m1 0h1m1 0h2m1 0h1M0 23.5h1m5 0h1m1 0h1m1 0h2m1 0h4m1 0h1m1 0h1m3 0h2M0 24.5h1m1 0h3m1 0h1m2 0h2m1 0h1m4 0h1m2 0h5m1 0h3M0 25.5h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h3m2 0h3m2 0h2m2 0h1M0 26.5h1m1 0h3m1 0h1m1 0h2m1 0h1m2 0h1m2 0h3m1 0h1m1 0h1m2 0h1m1 0h1M0 27.5h1m5 0h1m6 0h1m2 0h1m3 0h1m4 0h1m1 0h1M0 28.5h7m1 0h3m2 0h2m1 0h1m1 0h6m3 0h1"/></svg>
+      </div>
+    </aside>
+    <footer class="stopka"><span class="warka">#98</span><span class="pojemnosc">500 ml</span></footer>
+  </article>
+  <article class="etykieta">
+    <div class="sylwetka">
+      <div class="szyld"></div>
+      <div class="metka"><svg viewBox="0 0 112 112" fill="currentColor" fill-rule="evenodd" aria-hidden="true"><path d="M0 0H112V112H0Z M16 16V96H96V16Z"/></svg></div>
+    </div>
+    <section class="front">
+      <div class="nazwa-blok">
+        <p class="styl">Brown Ale</p>
+        <h1 class="nazwa">Domówka</h1>
+      </div>
+      <p class="parametry"><span>13,0 °Blg</span><i></i><span>4,7% alc.</span><i></i><span>25 IBU</span></p>
+    </section>
+    <aside class="bok">
+      <ul class="sklad">
+        <li><svg class="ik" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22 16 8" /><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /><path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /><path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /><path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z" /><path d="M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /><path d="M15.47 13.47 17 15l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /><path d="M19.47 9.47 21 11l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L13 11l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /></svg><div><b>Słody</b><span>Pale Ale, Aromatyczny</span></div></li>
+        <li><svg class="ik" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.82 16.12c1.69.6 3.91.79 5.18.85.55.03 1-.42.97-.97-.06-1.27-.26-3.5-.85-5.18" /><path d="M11.5 6.5c1.64 0 5-.38 6.71-1.07.52-.2.55-.82.12-1.17A10 10 0 0 0 4.26 18.33c.35.43.96.4 1.17-.12.69-1.71 1.07-5.07 1.07-6.71 1.34.45 3.1.9 4.88.62a.88.88 0 0 0 .73-.74c.3-2.14-.15-3.5-.61-4.88" /><path d="M15.62 16.95c.2.85.62 2.76.5 4.28a.77.77 0 0 1-.9.7 16.64 16.64 0 0 1-4.08-1.36" /><path d="M16.13 21.05c1.65.63 3.68.84 4.87.91a.9.9 0 0 0 .96-.96 17.68 17.68 0 0 0-.9-4.87" /><path d="M16.94 15.62c.86.2 2.77.62 4.29.5a.77.77 0 0 0 .7-.9 16.64 16.64 0 0 0-1.36-4.08" /><path d="M17.99 5.52a20.82 20.82 0 0 1 3.15 4.5.8.8 0 0 1-.68 1.13c-2.33.2-5.3-.32-8.27-1.57" /><path d="M4.93 4.93 3 3a.7.7 0 0 1 0-1" /><path d="M9.58 12.18c1.24 2.98 1.77 5.95 1.57 8.28a.8.8 0 0 1-1.13.68 20.82 20.82 0 0 1-4.5-3.15" /></svg><div><b>Chmiele</b><span>Mosaic (USA), Harlequin (AUS)</span></div></li>
+        <li><svg class="ik" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2" /><path d="M6.453 15h11.094" /><path d="M8.5 2h7" /></svg><div><b>Drożdże</b><span>US-05</span></div></li>
+        <li><i class="ik"></i><div><b>Skład</b><span>woda, słody jęczmienne, chmiel, drożdże</span></div></li>
+      </ul>
+      <div class="qr">
+        <svg class="qr-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#16130f" d="M0 0.5h7m1 0h2m1 0h2m1 0h1m1 0h1m2 0h2m1 0h7M0 1.5h1m5 0h1m1 0h3m2 0h1m2 0h2m2 0h1m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m4 0h1m1 0h3m4 0h1m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h3m1 0h3m2 0h1m1 0h1m2 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m2 0h8m2 0h2m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m2 0h1m4 0h1m1 0h1m1 0h2m2 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h1m2 0h1m2 0h2m1 0h1M0 8.5h1m1 0h2m1 0h3m1 0h2m1 0h1m4 0h1m1 0h2m1 0h1m2 0h1m1 0h2M0 9.5h2m1 0h1m1 0h1m1 0h1m1 0h2m1 0h2m2 0h9m3 0h1M0 10.5h1m2 0h1m2 0h1m2 0h2m1 0h1m5 0h1m5 0h1m1 0h2M0 11.5h2m5 0h2m2 0h1m1 0h4m1 0h2m1 0h3m4 0h1M0 12.5h3m1 0h1m1 0h1m1 0h1m3 0h4m1 0h1m5 0h1m1 0h2M2 13.5h2m1 0h1m1 0h2m1 0h1m1 0h1m1 0h4m1 0h1m1 0h2m3 0h3M0 14.5h1m1 0h1m1 0h3m2 0h1m3 0h1m4 0h2m2 0h3m1 0h3M1 15.5h2m1 0h2m3 0h1m2 0h1m1 0h3m1 0h2m1 0h3m3 0h1M1 16.5h2m3 0h1m2 0h2m2 0h1m1 0h1m2 0h1m2 0h1m1 0h3m1 0h1M2 17.5h1m2 0h1m1 0h2m6 0h3m2 0h1m2 0h1m1 0h3M0 18.5h1m2 0h2m1 0h1m2 0h1m1 0h1m2 0h4m3 0h2m3 0h1M2 19.5h4m1 0h1m2 0h1m1 0h1m1 0h1m2 0h2m2 0h3m2 0h1M1 20.5h1m4 0h4m1 0h1m2 0h1m1 0h11M8 21.5h1m7 0h3m1 0h1m3 0h5M0 22.5h7m1 0h2m1 0h1m4 0h5m1 0h1m1 0h2m1 0h1M0 23.5h1m5 0h1m1 0h1m1 0h2m1 0h4m1 0h1m1 0h1m3 0h2M0 24.5h1m1 0h3m1 0h1m2 0h2m1 0h1m4 0h1m2 0h5m1 0h3M0 25.5h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h3m2 0h3m2 0h2m2 0h1M0 26.5h1m1 0h3m1 0h1m1 0h2m1 0h1m2 0h1m2 0h3m1 0h1m1 0h1m2 0h1m1 0h1M0 27.5h1m5 0h1m6 0h1m2 0h1m3 0h1m4 0h1m1 0h1M0 28.5h7m1 0h3m2 0h2m1 0h1m1 0h6m3 0h1"/></svg>
+      </div>
+    </aside>
+    <footer class="stopka"><span class="warka">#98</span><span class="pojemnosc">500 ml</span></footer>
+  </article>
+  <article class="etykieta">
+    <div class="sylwetka">
+      <div class="szyld"></div>
+      <div class="metka"><svg viewBox="0 0 112 112" fill="currentColor" fill-rule="evenodd" aria-hidden="true"><path d="M0 0H112V112H0Z M16 16V96H96V16Z"/></svg></div>
+    </div>
+    <section class="front">
+      <div class="nazwa-blok">
+        <p class="styl">Brown Ale</p>
+        <h1 class="nazwa">Domówka</h1>
+      </div>
+      <p class="parametry"><span>13,0 °Blg</span><i></i><span>4,7% alc.</span><i></i><span>25 IBU</span></p>
+    </section>
+    <aside class="bok">
+      <ul class="sklad">
+        <li><svg class="ik" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22 16 8" /><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /><path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /><path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /><path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z" /><path d="M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /><path d="M15.47 13.47 17 15l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /><path d="M19.47 9.47 21 11l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L13 11l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /></svg><div><b>Słody</b><span>Pale Ale, Aromatyczny</span></div></li>
+        <li><svg class="ik" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.82 16.12c1.69.6 3.91.79 5.18.85.55.03 1-.42.97-.97-.06-1.27-.26-3.5-.85-5.18" /><path d="M11.5 6.5c1.64 0 5-.38 6.71-1.07.52-.2.55-.82.12-1.17A10 10 0 0 0 4.26 18.33c.35.43.96.4 1.17-.12.69-1.71 1.07-5.07 1.07-6.71 1.34.45 3.1.9 4.88.62a.88.88 0 0 0 .73-.74c.3-2.14-.15-3.5-.61-4.88" /><path d="M15.62 16.95c.2.85.62 2.76.5 4.28a.77.77 0 0 1-.9.7 16.64 16.64 0 0 1-4.08-1.36" /><path d="M16.13 21.05c1.65.63 3.68.84 4.87.91a.9.9 0 0 0 .96-.96 17.68 17.68 0 0 0-.9-4.87" /><path d="M16.94 15.62c.86.2 2.77.62 4.29.5a.77.77 0 0 0 .7-.9 16.64 16.64 0 0 0-1.36-4.08" /><path d="M17.99 5.52a20.82 20.82 0 0 1 3.15 4.5.8.8 0 0 1-.68 1.13c-2.33.2-5.3-.32-8.27-1.57" /><path d="M4.93 4.93 3 3a.7.7 0 0 1 0-1" /><path d="M9.58 12.18c1.24 2.98 1.77 5.95 1.57 8.28a.8.8 0 0 1-1.13.68 20.82 20.82 0 0 1-4.5-3.15" /></svg><div><b>Chmiele</b><span>Mosaic (USA), Harlequin (AUS)</span></div></li>
+        <li><svg class="ik" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2" /><path d="M6.453 15h11.094" /><path d="M8.5 2h7" /></svg><div><b>Drożdże</b><span>US-05</span></div></li>
+        <li><i class="ik"></i><div><b>Skład</b><span>woda, słody jęczmienne, chmiel, drożdże</span></div></li>
+      </ul>
+      <div class="qr">
+        <svg class="qr-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#16130f" d="M0 0.5h7m1 0h2m1 0h2m1 0h1m1 0h1m2 0h2m1 0h7M0 1.5h1m5 0h1m1 0h3m2 0h1m2 0h2m2 0h1m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m4 0h1m1 0h3m4 0h1m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h3m1 0h3m2 0h1m1 0h1m2 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m2 0h8m2 0h2m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m2 0h1m4 0h1m1 0h1m1 0h2m2 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h1m2 0h1m2 0h2m1 0h1M0 8.5h1m1 0h2m1 0h3m1 0h2m1 0h1m4 0h1m1 0h2m1 0h1m2 0h1m1 0h2M0 9.5h2m1 0h1m1 0h1m1 0h1m1 0h2m1 0h2m2 0h9m3 0h1M0 10.5h1m2 0h1m2 0h1m2 0h2m1 0h1m5 0h1m5 0h1m1 0h2M0 11.5h2m5 0h2m2 0h1m1 0h4m1 0h2m1 0h3m4 0h1M0 12.5h3m1 0h1m1 0h1m1 0h1m3 0h4m1 0h1m5 0h1m1 0h2M2 13.5h2m1 0h1m1 0h2m1 0h1m1 0h1m1 0h4m1 0h1m1 0h2m3 0h3M0 14.5h1m1 0h1m1 0h3m2 0h1m3 0h1m4 0h2m2 0h3m1 0h3M1 15.5h2m1 0h2m3 0h1m2 0h1m1 0h3m1 0h2m1 0h3m3 0h1M1 16.5h2m3 0h1m2 0h2m2 0h1m1 0h1m2 0h1m2 0h1m1 0h3m1 0h1M2 17.5h1m2 0h1m1 0h2m6 0h3m2 0h1m2 0h1m1 0h3M0 18.5h1m2 0h2m1 0h1m2 0h1m1 0h1m2 0h4m3 0h2m3 0h1M2 19.5h4m1 0h1m2 0h1m1 0h1m1 0h1m2 0h2m2 0h3m2 0h1M1 20.5h1m4 0h4m1 0h1m2 0h1m1 0h11M8 21.5h1m7 0h3m1 0h1m3 0h5M0 22.5h7m1 0h2m1 0h1m4 0h5m1 0h1m1 0h2m1 0h1M0 23.5h1m5 0h1m1 0h1m1 0h2m1 0h4m1 0h1m1 0h1m3 0h2M0 24.5h1m1 0h3m1 0h1m2 0h2m1 0h1m4 0h1m2 0h5m1 0h3M0 25.5h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h3m2 0h3m2 0h2m2 0h1M0 26.5h1m1 0h3m1 0h1m1 0h2m1 0h1m2 0h1m2 0h3m1 0h1m1 0h1m2 0h1m1 0h1M0 27.5h1m5 0h1m6 0h1m2 0h1m3 0h1m4 0h1m1 0h1M0 28.5h7m1 0h3m2 0h2m1 0h1m1 0h6m3 0h1"/></svg>
+      </div>
+    </aside>
+    <footer class="stopka"><span class="warka">#98</span><span class="pojemnosc">500 ml</span></footer>
+  </article>
+
+</main>
+<p class="pomoc">Druk: A4 poziomo, skala 100% (bez „dopasuj do strony”), marginesy domyślne lub brak, z grafiką tła. Przerywane linie to linie cięcia.</p>
+</body>
+</html>
