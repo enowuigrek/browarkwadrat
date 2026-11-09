@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Dane warek z narzędzia: prywatne, nie do publicznego repo
+src/narzedzie/
