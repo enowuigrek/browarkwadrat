@@ -1,0 +1,16 @@
+{
+  "nr": 93, "nazwa": "Domówka", "styl": "Old School Pale Ale",
+  "objetosc_l": 18,
+  "pomiary": {"og_plato": 11.1, "abv_pct": 4.4},
+  "wyliczenia": {"ibu": 36, "bu_gu": 0.80},
+  "zasyp": [
+    {"slod": "Viking Pale Ale", "pct": 86.2},
+    {"slod": "Weyermann Abbey", "pct": 13.9}
+  ],
+  "chmiel": [{"odmiana": "Simcoe", "moment": "goryczka"},
+             {"odmiana": "Riwaka/Simcoe/Mosaic/Centennial/Ekuanot", "moment": "hopstand 80C"}],
+  "drozdze": {"szczep": "US-05", "temp_c": 16},
+  "ocena": "udana — słód prowadził, chmiel rześki dodatek",
+  "podstrona": "browarkwadrat.pl/domowka",
+  "status": "wypita"
+}

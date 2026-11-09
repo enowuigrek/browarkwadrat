@@ -7,29 +7,32 @@ import { Slod, Chmiel, Kolba, Dodatki } from '../Ikony/Ikony.jsx';
 import { Szew } from '../Szew/Szew.jsx';
 import { Faktura } from '../Faktura/Faktura.jsx';
 import { Powrot } from '../Znak/Powrot.jsx';
+import { opisPiwa, skladnik, useJezyk, useTeksty } from '../../i18n/teksty.js';
 import styles from './BeerPage.module.scss';
-
-const nav = [{ label: 'Piwa', to: '/' }];
 
 // Podstrona piwa pod kodem QR: kolor piwa → biel (skład) → czerń (receptura i ocena) → stopka.
 export function BeerPage({ beer }) {
     const {
-        batchNumber, name, styleName, color, accent, fabric, intro, description,
+        batchNumber, name, styleName, color, accent, fabric,
         malts, hops, yeast, adjuncts, extract, alcohol, ibu, recipeUrl,
     } = beer;
+    const { lang } = useJezyk();
+    const t = useTeksty();
+    const { intro, description } = opisPiwa(beer, lang);
+    const nav = [{ label: t.nav.piwa, to: '/' }];
 
     // Wiersz parametrów ma trzy kolumny; numer warki stoi osobno pod nazwą.
     const params = [
-        `${formatNumber(extract)} °Blg`,
-        `${formatNumber(alcohol)}% alc.`,
+        `${formatNumber(extract, 1, lang)} °Blg`,
+        `${formatNumber(alcohol, 1, lang)}% alc.`,
         `${ibu} IBU`,
     ];
 
     const composition = [
-        { label: 'Słody', items: malts, Ikona: Slod },
-        { label: 'Chmiele', items: hops, Ikona: Chmiel },
-        { label: 'Drożdże', items: [yeast], Ikona: Kolba },
-        ...(adjuncts?.length ? [{ label: 'Dodatki', items: adjuncts, Ikona: Dodatki }] : []),
+        { label: t.piwo.slody, items: malts, Ikona: Slod },
+        { label: t.piwo.chmiele, items: hops, Ikona: Chmiel },
+        { label: t.piwo.drozdze, items: [yeast], Ikona: Kolba },
+        ...(adjuncts?.length ? [{ label: t.piwo.dodatki, items: adjuncts, Ikona: Dodatki }] : []),
     ];
 
     return (
@@ -43,7 +46,7 @@ export function BeerPage({ beer }) {
                     <div className={styles.backRow}>
                         <Link to="/" className={styles.back}>
                             <Powrot className={styles.backZnak} />
-                            <span>Piwa</span>
+                            <span>{t.nav.piwa}</span>
                         </Link>
                     </div>
                     <header className={styles.nameBlock}>
@@ -52,7 +55,7 @@ export function BeerPage({ beer }) {
                         <p className={styles.batch}>#{batchNumber}</p>
                     </header>
 
-                    <ul className={styles.params} aria-label="Parametry">
+                    <ul className={styles.params} aria-label={t.piwo.parametry}>
                         {params.map(param => <li key={param}>{param}</li>)}
                     </ul>
 
@@ -66,7 +69,7 @@ export function BeerPage({ beer }) {
 
                 <section className={styles.composition} aria-labelledby="sklad">
                     <div className={styles.inner}>
-                        <h2 className={styles.title} id="sklad">Skład</h2>
+                        <h2 className={styles.title} id="sklad">{t.piwo.sklad}</h2>
                         <dl className={styles.rows}>
                             {composition.map(({ label, items, Ikona }) => (
                                 <div key={label} className={styles.row}>
@@ -75,7 +78,7 @@ export function BeerPage({ beer }) {
                                         <span>{label}</span>
                                     </dt>
                                     <dd>
-                                        {items.map(item => <span key={item}>{item}</span>)}
+                                        {items.map(item => <span key={item}>{skladnik(item, lang)}</span>)}
                                     </dd>
                                 </div>
                             ))}
@@ -86,30 +89,26 @@ export function BeerPage({ beer }) {
                 <Szew from="var(--surface-100)" to="var(--contrast)" />
 
                 {/* Jeden pas: najpierw dajemy (receptura), potem prosimy (ocena). */}
-                <section className={styles.opinion} data-ground="contrast" data-textured aria-label="Receptura i ocena">
+                <section className={styles.opinion} data-ground="contrast" data-textured aria-label={t.piwo.recepturaIOcena}>
                     <Faktura ground="contrast" />
                     <div className={styles.inner}>
                         <div className={styles.recipe}>
-                            <h2 className={`${styles.title} ${styles.printed}`}>Uwarz sobie</h2>
-                            <p className={styles.recipeText}>
-                                Pełna receptura z krokami, czasami i temperaturami. Otworzy się w narzędziu.
-                            </p>
+                            <h2 className={`${styles.title} ${styles.printed}`}>{t.piwo.uwarz}</h2>
+                            <p className={styles.recipeText}>{t.piwo.recepturaTekst}</p>
                             {recipeUrl ? (
                                 <a href={recipeUrl} target="_blank" rel="noopener noreferrer" className={styles.button}>
-                                    Zobacz recepturę
+                                    {t.piwo.recepturaZobacz}
                                 </a>
                             ) : (
                                 <span className={styles.buttonEmpty} role="link" aria-disabled="true">
-                                    Receptura wkrótce
+                                    {t.piwo.recepturaWkrotce}
                                 </span>
                             )}
-                            <p className={styles.note}>Przycisk zapala się, kiedy piwo ma recepturę w narzędziu.</p>
+                            <p className={styles.note}>{t.piwo.recepturaNota}</p>
                         </div>
 
-                        <h2 className={styles.ask} id="opinia">Jak ci smakowało?</h2>
-                        <p className={styles.opinionLead}>
-                            Pytam o cechy, nie o ocenę. Odpowiedzi trafią do danych warki #{batchNumber}.
-                        </p>
+                        <h2 className={styles.ask} id="opinia">{t.piwo.smakowalo}</h2>
+                        <p className={styles.opinionLead}>{t.piwo.ocenaLead(batchNumber)}</p>
                         <OpinionForm batchNumber={batchNumber} />
                     </div>
                 </section>

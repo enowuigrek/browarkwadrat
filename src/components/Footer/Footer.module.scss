@@ -17,25 +17,21 @@
     }
 }
 
-// Znaki trzymają boki, obie kolumny startują z jednej linii (także na telefonie).
-.marks {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: start;
-    gap: $space-8;
-}
-
-// Logo i pod nim Facebook, wyrównany do lewej krawędzi logo.
-.left {
-    display: grid;
-    justify-items: start;
-    gap: $space-4;
+// Piętro 1: marka i kontakt w jednym wierszu, wyrównane do osi poziomej logo.
+// Zostaje wierszem także na telefonie: logo 140 px i link mieszczą się obok siebie.
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-6;
+    padding-bottom: $space-8;
 }
 
 // Pełne logo w contrast-ink przez maskę (proporcje pliku 3402 × 893),
 // 160 px szerokości, 140 px na telefonie.
 .logo {
     display: block;
+    flex: 0 0 auto;
     width: 160px;
     aspect-ratio: 3402 / 893;
     background: $contrast-ink;
@@ -46,10 +42,16 @@
     }
 }
 
-// square-facebook z Font Awesome, 22 px; przy hover/focus kolor serwisu.
+// Facebook podpisany, a nie sama ikonka pod logo: ikona bez słowa wyglądała jak sierota.
+// Pole dotyku co najmniej 44 px wysokości; przy hover/focus kolor serwisu.
 .facebook {
-    display: block;
+    @include type(label);
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    min-height: 44px;
     color: $contrast-ink;
+    transition: color $motion-press $motion-ease;
 
     &:hover,
     &:focus-visible {
@@ -63,22 +65,45 @@
     height: 22px;
 }
 
-// Znak Bractwa w kontrze przez maskę, dokładnie logo-partner-min, proporcje 3471 × 2084.
+// Piętro 2: pod kreską, cichsze. Przynależność po lewej, kolofon po prawej, na jednej linii
+// dolnej krawędzi. Na telefonie jedno pod drugim, wszystko od lewej krawędzi kolumny.
+.fine {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: $space-6;
+    padding-top: $space-6;
+    border-top: $rule-hair solid $contrast-ink;
+
+    @include phone {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: $space-6;
+    }
+}
+
+// Znak Bractwa z podpisem nad nim: bez słowa nie wiadomo, czy to sponsor, partner,
+// czy przynależność. Podpis stylem label, znak 120 px (logo-partner-min).
+.partner {
+    display: grid;
+    gap: $space-2;
+    justify-items: start;
+}
+
+.partnerLabel {
+    @include type(label);
+}
+
 .bractwo {
     display: block;
     width: $logo-partner-min;
     aspect-ratio: 3471 / 2084;
     background: $contrast-ink;
-    mask: url('/bractwo-piwne.svg') center / contain no-repeat;
+    mask: url('/bractwo-piwne.svg') left center / contain no-repeat;
 }
 
-// Drobny druk: pod kreską przez szerokość kolumny, wyśrodkowany, pełna biel.
 .colophon {
     @include type(small);
-    margin-top: $space-8;
-    padding-top: $space-4;
-    border-top: $rule-hair solid $contrast-ink;
-    text-align: center;
     color: $contrast-ink;
 
     a {

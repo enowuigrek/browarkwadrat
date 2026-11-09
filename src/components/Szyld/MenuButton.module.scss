@@ -26,7 +26,9 @@ $axis: calc(#{map.get($m, wysokosc)} - #{map.get($m, luz)} - #{$znak} / 2);
     background: none;
     color: $contrast;
     cursor: pointer;
-    transition: transform $motion-metka $motion-ease;
+    transition:
+        transform $motion-metka $motion-ease,
+        color $motion-metka $motion-ease;
 
     &[data-inverted] {
         color: $contrast-ink;

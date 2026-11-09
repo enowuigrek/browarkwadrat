@@ -6,30 +6,30 @@ import { NARZEDZIE_URL } from '../data/kontakt.js';
 import { formatNumber } from '../utils/format.js';
 import { Szew } from '../components/Szew/Szew.jsx';
 import { Faktura } from '../components/Faktura/Faktura.jsx';
+import { useJezyk, useTeksty } from '../i18n/teksty.js';
 import styles from './Home.module.scss';
 
-const nav = [
-    { label: 'Piwa', to: '#piwa', active: true },
-    { label: 'Narzędzie', to: '#narzedzie' },
-];
-
 export function Home() {
+    const { lang } = useJezyk();
+    const t = useTeksty();
+    const nav = [
+        { label: t.nav.piwa, to: '#piwa', active: true },
+        { label: t.nav.narzedzie, to: '#narzedzie' },
+    ];
+
     return (
         <>
             <Szyld position="side" nav={nav} />
 
             <main>
                 <section className={styles.hero}>
-                    <p className={styles.label}>Domowy browar · Częstochowa</p>
+                    <p className={styles.label}>{t.home.label}</p>
                     <h1 className={styles.title}>Kwadrat</h1>
-                    <p className={styles.lead}>
-                        To miejsce, w którym opisuję swoje piwa, żeby każdy, kto dostanie butelkę, wiedział
-                        co pije.
-                    </p>
+                    <p className={styles.lead}>{t.home.lead}</p>
                 </section>
 
                 <section className={styles.shelf} id="piwa" aria-labelledby="piwa-tytul">
-                    <h2 className={styles.label} id="piwa-tytul">Na półce</h2>
+                    <h2 className={styles.label} id="piwa-tytul">{t.home.polka}</h2>
                     <ul className={styles.tiles}>
                         {[...publishedBeers].reverse().map(beer => (
                             <li key={beer.batchNumber}>
@@ -45,7 +45,7 @@ export function Home() {
                                     <span className={styles.style}>{beer.styleName}</span>
                                     <span className={styles.name}>{beer.name}</span>
                                     <span className={styles.params}>
-                                        {formatNumber(beer.extract)} °Blg · {formatNumber(beer.alcohol)}% alc. · {beer.ibu} IBU
+                                        {formatNumber(beer.extract, 1, lang)} °Blg · {formatNumber(beer.alcohol, 1, lang)}% alc. · {beer.ibu} IBU
                                     </span>
                                 </Link>
                             </li>
@@ -58,16 +58,12 @@ export function Home() {
                 <section className={styles.band} data-ground="contrast" data-textured id="narzedzie" aria-labelledby="narzedzie-tytul">
                     <Faktura ground="contrast" />
                     <div className={styles.bandInner}>
-                        <p className={styles.label}>Za kulisami</p>
-                        <h2 className={styles.bandTitle} id="narzedzie-tytul">Narzędzie piwowarskie</h2>
-                        <p className={styles.bandText}>
-                            Piwowarstwo to liczby: temperatura co dwie godziny, Brix, litry, dawki w ml/l.
-                            Każda warka ma swój zeszyt w prywatnym narzędziu. Stamtąd pochodzą
-                            parametry na etykietach i na tej stronie.
-                        </p>
+                        <p className={styles.label}>{t.home.kulisy}</p>
+                        <h2 className={styles.bandTitle} id="narzedzie-tytul">{t.home.narzedzieTytul}</h2>
+                        <p className={styles.bandText}>{t.home.narzedzieTekst}</p>
                         {NARZEDZIE_URL && (
                             <a href={NARZEDZIE_URL} className={styles.button}>
-                                Otwórz narzędzie
+                                {t.home.narzedzieOtworz}
                             </a>
                         )}
                     </div>

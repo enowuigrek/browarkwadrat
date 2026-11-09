@@ -1,0 +1,57 @@
+@use 'sass:map';
+@use '../../styles/variables.module.scss' as *;
+@use '../Metka/geometry' as *;
+
+// Te same wymiary i ta sama oś co przycisk menu (MenuButton.module.scss), tylko przy lewym
+// marginesie kolumny: hamburger i język stoją symetrycznie po obu stronach metki.
+$button: 44px;
+$m: $metka-narrow;
+$znak: map.get($m, znak);
+$axis: calc(#{map.get($m, wysokosc)} - #{map.get($m, luz)} - #{$znak} / 2);
+
+.button {
+    display: none;
+    position: fixed;
+    top: calc(#{$axis} - #{$button} / 2);
+    left: calc(#{$space-8} - (#{$button} - #{$znak}) / 2);
+    // pod nakładką menu (20), nad metką (10)
+    z-index: 15;
+    width: $button;
+    height: $button;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: $contrast;
+    cursor: pointer;
+    transition:
+        transform $motion-metka $motion-ease,
+        color $motion-metka $motion-ease;
+
+    &[data-inverted] {
+        color: $contrast-ink;
+    }
+
+    // tryb zadania: w górę razem z metką i przyciskiem menu
+    &[data-away] {
+        transform: translateY(calc(-1 * (#{$axis} + #{$button})));
+    }
+
+    &:focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 2px;
+    }
+
+    @include phone {
+        display: grid;
+    }
+}
+
+// Kod języka szerokości znaku: ten sam krój co pozycje nawigacji, ale w skali przycisku,
+// żeby po obu stronach metki stała podobna masa.
+.label {
+    @include type(label);
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0.08em;
+}

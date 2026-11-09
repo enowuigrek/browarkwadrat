@@ -72,8 +72,10 @@ przelicza układu, a zmiana wysokości tak, i to przy każdej klatce przewijania
 **Metka nie znika przy przewijaniu.** Nawet przy schowanym szyldzie zostaje na ekranie
 ze znakiem, bo to ona jest znakiem marki, a nie nawigacja.
 
-Są dokładnie dwa wyjątki, oba opisane w `strona.md`: **nad pasem `contrast` metka się
-odwraca** (inaczej czarna płyta znika i zostaje sam biały pierścień w powietrzu),
+Są dokładnie dwa wyjątki, oba opisane w `strona.md`: **nad pasem `contrast` cała sylwetka
+się odwraca**: szyld i metka robią się jasne, znak i tekst ciemne, a przycisk menu
+i przełącznik języka razem z nimi (inaczej czarna płyta znika i zostaje sam biały pierścień
+w powietrzu). Kolor przechodzi płynnie, czasem `motion-metka`,
 a **w trybie zadania (otwarty formularz oceny, otwarte menu na telefonie) chowa się
 w górę** i wraca po zamknięciu. Trzeciego wyjątku nie dokładamy.
 

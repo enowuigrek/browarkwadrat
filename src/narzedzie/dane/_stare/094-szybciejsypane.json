@@ -1,0 +1,522 @@
+{
+  "nr": 94,
+  "nazwa_robocza": "Szybciejsypane",
+  "data_warzenia": "2026-10-06",
+  "styl_roboczy": "bursztynowe ale / American Amber",
+  "objetosc_l": 16,
+  "woda": {
+    "zacier_l": 13,
+    "wyslodziny_l": 13,
+    "razem_l": 26,
+    "zrodla": [
+      "Primavera 10 l",
+      "kranówka Częstochowa 16 l"
+    ],
+    "dodatki": {
+      "CaCl2_33pct_ml": 7,
+      "kwas_mlekowy_80_zacier_ml": 3.5,
+      "kwas_mlekowy_80_wyslodziny_ml": 4
+    },
+    "profil_koncowy": {
+      "Ca": 108,
+      "Mg": 2,
+      "Na": 8,
+      "Cl": 88,
+      "SO4": 22,
+      "HCO3": 214
+    }
+  },
+  "zasyp": [
+    {
+      "slod": "IREKS Pale Ale",
+      "kg": 3.0,
+      "ebc": 7
+    },
+    {
+      "slod": "IREKS Aromatyczny",
+      "kg": 0.5,
+      "ebc": 280
+    }
+  ],
+  "zacieranie": [
+    {
+      "temp_c": 69,
+      "min": 60
+    },
+    {
+      "temp_c": 77,
+      "min": 5
+    }
+  ],
+  "gotowanie_min": 60,
+  "chmiel": [
+    {
+      "odmiana": "Mosaic",
+      "g": 100,
+      "moment": "hopstand 80C",
+      "min": 10
+    },
+    {
+      "odmiana": "Harlequin",
+      "g": 50,
+      "moment": "hopstand 80C",
+      "min": 10
+    }
+  ],
+  "drozdze": {
+    "szczep": "Fermentis US-05",
+    "g": 11.5,
+    "rehydratacja": true,
+    "temp_zadania_c": 18.4
+  },
+  "pomiary": {
+    "og_brix": 13.5,
+    "og_plato": 13.0,
+    "wydajnosc_pct": 77,
+    "fg_plato": null,
+    "abv_pct": null
+  },
+  "wyliczenia": {
+    "ibu_szac": 25,
+    "barwa_srm_szac": 19,
+    "bu_gu": 0.5
+  },
+  "fermentacja": [
+    {
+      "ts": "2026-10-07T20:00",
+      "ts_zrodlo": "szacowany przez Claude - godziny nie byly podawane",
+      "temp_c": 18.4,
+      "chlodzenie": {
+        "duze_swieze": 1,
+        "duze_zuzyte": 0,
+        "male_swieze": 2,
+        "male_zuzyte": 0,
+        "lacznie": 3
+      },
+      "zdarzenie": "zadanie_drozdzy",
+      "uwaga": "US-05 po rehydratacji; wklady zalozone, ale nie byly do konca zmrozone"
+    },
+    {
+      "ts": "2026-10-08T08:00",
+      "ts_zrodlo": "szacowany przez Claude - godziny nie byly podawane",
+      "temp_c": 19.2,
+      "chlodzenie": {
+        "duze_swieze": 1,
+        "duze_zuzyte": 0,
+        "male_swieze": 2,
+        "male_zuzyte": 0,
+        "lacznie": 3
+      },
+      "zdarzenie": "wymiana",
+      "uwaga": "mgielka niepewna"
+    },
+    {
+      "ts": "2026-10-08T10:00",
+      "ts_zrodlo": "szacowany przez Claude - godziny nie byly podawane",
+      "temp_c": 18.0,
+      "chlodzenie": {
+        "duze_swieze": 1,
+        "duze_zuzyte": 0,
+        "male_swieze": 2,
+        "male_zuzyte": 0,
+        "lacznie": 3
+      },
+      "zdarzenie": "brak",
+      "uwaga": ""
+    },
+    {
+      "ts": "2026-10-08T12:00",
+      "ts_zrodlo": "szacowany przez Claude - godziny nie byly podawane",
+      "temp_c": 18.1,
+      "chlodzenie": {
+        "duze_swieze": 1,
+        "duze_zuzyte": 0,
+        "male_swieze": 2,
+        "male_zuzyte": 0,
+        "lacznie": 3
+      },
+      "zdarzenie": "brak",
+      "uwaga": ""
+    },
+    {
+      "ts": "2026-10-08T15:00",
+      "ts_zrodlo": "szacowany przez Claude - godziny nie byly podawane",
+      "temp_c": 18.2,
+      "chlodzenie": {
+        "duze_swieze": 1,
+        "duze_zuzyte": 0,
+        "male_swieze": 2,
+        "male_zuzyte": 0,
+        "lacznie": 3
+      },
+      "zdarzenie": "wymiana",
+      "uwaga": "mgielka wyrazna, delikatna piana fermentacyjna - fermentacja ruszyla"
+    },
+    {
+      "ts": "2026-10-08T20:00",
+      "ts_zrodlo": "szacowany przez Claude - godziny nie byly podawane",
+      "temp_c": 17.4,
+      "chlodzenie": {
+        "duze_swieze": 1,
+        "duze_zuzyte": 0,
+        "male_swieze": 2,
+        "male_zuzyte": 0,
+        "lacznie": 3
+      },
+      "zdarzenie": "brak",
+      "uwaga": ""
+    },
+    {
+      "ts": "2026-10-08T23:00",
+      "ts_zrodlo": "szacowany przez Claude - godziny nie byly podawane",
+      "temp_c": 17.2,
+      "chlodzenie": {
+        "duze_swieze": 1,
+        "duze_zuzyte": 0,
+        "male_swieze": 2,
+        "male_zuzyte": 0,
+        "lacznie": 3
+      },
+      "zdarzenie": "brak",
+      "uwaga": "na noc bez zmian"
+    },
+    {
+      "ts": "2026-10-09T08:00",
+      "ts_zrodlo": "szacowany przez Claude - godziny nie byly podawane",
+      "temp_c": 18.9,
+      "chlodzenie": {
+        "duze_swieze": 1,
+        "duze_zuzyte": 0,
+        "male_swieze": 2,
+        "male_zuzyte": 0,
+        "lacznie": 3
+      },
+      "zdarzenie": "wymiana",
+      "uwaga": "duza mgla, krausenu jeszcze brak"
+    },
+    {
+      "ts": "2026-10-09T11:00",
+      "ts_zrodlo": "szacowany przez Claude - godziny nie byly podawane",
+      "temp_c": 18.6,
+      "chlodzenie": {
+        "duze_swieze": 1,
+        "duze_zuzyte": 0,
+        "male_swieze": 2,
+        "male_zuzyte": 0,
+        "lacznie": 3
+      },
+      "zdarzenie": "brak",
+      "uwaga": ""
+    },
+    {
+      "ts": "2026-10-09T14:00",
+      "ts_zrodlo": "szacowany przez Claude - godziny nie byly podawane",
+      "temp_c": 18.1,
+      "chlodzenie": {
+        "duze_swieze": 1,
+        "duze_zuzyte": 0,
+        "male_swieze": 2,
+        "male_zuzyte": 0,
+        "lacznie": 3
+      },
+      "zdarzenie": "brak",
+      "uwaga": ""
+    },
+    {
+      "ts": "2026-10-09T17:00",
+      "ts_zrodlo": "szacowany przez Claude - godziny nie byly podawane",
+      "temp_c": 17.7,
+      "chlodzenie": {
+        "duze_swieze": 1,
+        "duze_zuzyte": 0,
+        "male_swieze": 2,
+        "male_zuzyte": 0,
+        "lacznie": 3
+      },
+      "zdarzenie": "brak",
+      "uwaga": "wklady wygrywaja ze szczytem"
+    },
+    {
+      "ts": "2026-10-09T20:30",
+      "ts_zrodlo": "szacowany przez Claude - godziny nie byly podawane",
+      "temp_c": 18.4,
+      "chlodzenie": {
+        "duze_swieze": 1,
+        "duze_zuzyte": 0,
+        "male_swieze": 1,
+        "male_zuzyte": 0,
+        "lacznie": 2
+      },
+      "zdarzenie": "wymiana",
+      "uwaga": "drugi maly swiadomie odpuszczony; aromat mocny i czysty"
+    },
+    {
+      "ts": "2026-10-09T21:30",
+      "ts_zrodlo": "szacowany przez Claude - godziny nie byly podawane",
+      "temp_c": 18.3,
+      "chlodzenie": {
+        "duze_swieze": 1,
+        "duze_zuzyte": 0,
+        "male_swieze": 1,
+        "male_zuzyte": 0,
+        "lacznie": 2
+      },
+      "zdarzenie": "brak",
+      "uwaga": "wyjscie do kina na ~3-4 h"
+    },
+    {
+      "ts": "2026-10-10T01:00",
+      "ts_zrodlo": "szacowany przez Claude - godziny nie byly podawane",
+      "temp_c": 18.3,
+      "chlodzenie": {
+        "duze_swieze": 1,
+        "duze_zuzyte": 0,
+        "male_swieze": 1,
+        "male_zuzyte": 0,
+        "lacznie": 2
+      },
+      "zdarzenie": "brak",
+      "uwaga": "powrot z kina; ta sama liczba, ale bez pomiarow w miedzyczasie"
+    },
+    {
+      "ts": "2026-10-10T06:15",
+      "ts_zrodlo": "szacowany przez Claude - godziny nie byly podawane",
+      "temp_c": 20.0,
+      "chlodzenie": {
+        "duze_swieze": 0,
+        "duze_zuzyte": 1,
+        "male_swieze": 1,
+        "male_zuzyte": 1,
+        "lacznie": 3
+      },
+      "zdarzenie": "dolozenie",
+      "uwaga": "po nocy bez wymiany; dolozony 1 maly zmrozony po cichu, stare zostaly"
+    },
+    {
+      "ts": "2026-10-10T08:00",
+      "ts_zrodlo": "szacowany przez Claude - godziny nie byly podawane",
+      "temp_c": 20.1,
+      "chlodzenie": {
+        "duze_swieze": 1,
+        "duze_zuzyte": 0,
+        "male_swieze": 1,
+        "male_zuzyte": 0,
+        "lacznie": 2
+      },
+      "zdarzenie": "wymiana",
+      "uwaga": "wszystko stare wymienione; czysty punkt startowy"
+    },
+    {
+      "ts": "2026-10-10T09:00",
+      "ts_zrodlo": "szacowany przez Claude - godziny nie byly podawane",
+      "temp_c": 20.0,
+      "chlodzenie": {
+        "duze_swieze": 1,
+        "duze_zuzyte": 0,
+        "male_swieze": 1,
+        "male_zuzyte": 0,
+        "lacznie": 2
+      },
+      "zdarzenie": "brak",
+      "uwaga": "widac jeszcze lustro piwa - wtedy wniosek, ze szczyt przed piwem"
+    },
+    {
+      "ts": "2026-10-10T09:30",
+      "ts_zrodlo": "szacowany przez Claude - godziny nie byly podawane",
+      "temp_c": 20.0,
+      "chlodzenie": {
+        "duze_swieze": 1,
+        "duze_zuzyte": 0,
+        "male_swieze": 2,
+        "male_zuzyte": 0,
+        "lacznie": 3
+      },
+      "zdarzenie": "dolozenie",
+      "uwaga": "zapas w dol przed wyjsciem z domu"
+    },
+    {
+      "ts": "2026-10-10T10:30",
+      "ts_zrodlo": "szacowany przez Claude - godziny nie byly podawane",
+      "temp_c": 19.5,
+      "chlodzenie": {
+        "duze_swieze": 1,
+        "duze_zuzyte": 0,
+        "male_swieze": 2,
+        "male_zuzyte": 0,
+        "lacznie": 3
+      },
+      "zdarzenie": "brak",
+      "uwaga": "po ~1 h nieobecnosci; -0,5 C w godzine"
+    },
+    {
+      "ts": "2026-10-10T10:51",
+      "ts_zrodlo": "podany przez Nowego - pierwszy realny timestamp w tej warce",
+      "temp_c": 19.4,
+      "chlodzenie": {
+        "duze_swieze": 0,
+        "duze_zuzyte": 0,
+        "male_swieze": 2,
+        "male_zuzyte": 0,
+        "lacznie": 2
+      },
+      "zdarzenie": "wyjecie",
+      "uwaga": "obraczka po krausenie widoczna na zdjeciu sciany: szczyt juz byl i opadl. Koniec dochladzania - wyjety duzy wklad, zostaja dwa male. Wyjscie do Strzykawy"
+    },
+    {
+      "ts": "2026-10-10T12:55",
+      "ts_zrodlo": "podany przez Nowego",
+      "temp_c": 19.5,
+      "chlodzenie": {
+        "duze_swieze": 0,
+        "duze_zuzyte": 0,
+        "male_swieze": 0,
+        "male_zuzyte": 2,
+        "lacznie": 2
+      },
+      "zdarzenie": "brak",
+      "uwaga": "Pierwszy realny interwal: 2 h 04 min, +0,1 C na dwoch czesciowo zuzytych wkladach (wlozone 08:00 i 09:30). Slabo porownywalne z noca 09/10.10 (+1,7 C w ~5 h na wkladach calkiem martwych), wiec wniosek o wygasnieciu fermentacji jest tylko kierunkowy, nie policzony"
+    },
+    {
+      "ts": "2026-10-11T14:42",
+      "ts_zrodlo": "podany przez Nowego",
+      "temp_c": 19.7,
+      "chlodzenie": {
+        "duze_swieze": 0,
+        "duze_zuzyte": 0,
+        "male_swieze": 1,
+        "male_zuzyte": 1,
+        "lacznie": 2
+      },
+      "zdarzenie": "wymiana",
+      "uwaga": "wymienione oba male, jeden niedomrozony"
+    },
+    {
+      "ts": "2026-10-11T22:00",
+      "ts_zrodlo": "szacowany przez Claude",
+      "temp_c": null,
+      "chlodzenie": {
+        "duze_swieze": 0,
+        "duze_zuzyte": 0,
+        "male_swieze": 1,
+        "male_zuzyte": 0,
+        "lacznie": 1
+      },
+      "zdarzenie": "wymiana",
+      "uwaga": "wymiana na noc; tryb docelowy: 1 maly wklad, wymiana 2x dziennie, trzyma ok. 20 C"
+    },
+    {
+      "ts": "2026-10-12T08:32",
+      "ts_zrodlo": "podany przez Nowego",
+      "temp_c": 20.2,
+      "chlodzenie": {
+        "duze_swieze": 0,
+        "duze_zuzyte": 0,
+        "male_swieze": 0,
+        "male_zuzyte": 0,
+        "lacznie": 0
+      },
+      "zdarzenie": "wyjecie",
+      "uwaga": "KONIEC CHLODZENIA - spuszczone ze smyczy. Wklady wyjete i schowane do zamrazarki, zeby zmrozily sie na pseudo cold crash przed butelkowaniem"
+    },
+    {
+      "ts": "2026-10-13T15:53",
+      "ts_zrodlo": "podany przez Nowego",
+      "temp_c": 21.7,
+      "chlodzenie": {
+        "duze_swieze": 0,
+        "duze_zuzyte": 0,
+        "male_swieze": 0,
+        "male_zuzyte": 0,
+        "lacznie": 0
+      },
+      "zdarzenie": "brak",
+      "uwaga": "Dzien 6 od zadania. Bez wkladow od rana 12.10, powrot z Warszawy. Przy wygaszonej fermentacji i zerowym chlodzeniu ta liczba jest najlepszym jak dotad oszacowaniem temperatury POMIESZCZENIA (z zastrzezeniem, ze fermentor stoi w torbie termicznej i reaguje z opoznieniem)."
+    },
+    {
+      "ts": "2026-10-14T09:10",
+      "ts_zrodlo": "godzina ze zrzutu ekranu telefonu (09:09-09:10), temperatura podana przez Nowego",
+      "temp_c": 22.2,
+      "chlodzenie": {
+        "duze_swieze": 0,
+        "duze_zuzyte": 0,
+        "male_swieze": 0,
+        "male_zuzyte": 0,
+        "lacznie": 0
+      },
+      "zdarzenie": "brak",
+      "uwaga": "Dzien 7 od zadania. Bez chlodzenia od 12.10 rano. Wzrost 21,7 -> 22,2 w ciagu doby przy zerowym chlodzeniu to raczej temperatura pomieszczenia niz praca drozdzy - fermentacja burzliwa dawno za nami. Na tym etapie cieplej jest korzystne: dociagniecie odfermentowania i sprzatanie diacetylu. Okno ryzyka (pierwsze ~72 h, estry i fuzle) zamkniete."
+    },
+    {
+      "ts": "2026-10-27",
+      "ts_zrodlo": "data podana przez Nowego jako 'wczoraj', godzina nieznana",
+      "temp_c": null,
+      "chlodzenie": {
+        "duze_swieze": null,
+        "duze_zuzyte": null,
+        "male_swieze": null,
+        "male_zuzyte": null,
+        "lacznie": "wszystkie dostepne wklady"
+      },
+      "zdarzenie": "butelkowanie",
+      "uwaga": "Pseudo cold crash: przed butelkowaniem Nowy wrzucil wszystkie wklady, jakie mial. Temperatura niemierzona. Piwo sie sklarowalo. Lacznie okolo 3 tygodnie od warzenia (6-7.10 do 27.10). Po otwarciu fermentora mocny aromat chmielowy, przy probie z dna fermentora juz duzo slabszy. Barwa brazowa, zgodna z wyliczeniem 16,6 SRM / 33 EBC po korekcie EBC slodu IREKS Aromatyczny. Wrazenie Nowego z proby: OK, bez szalu. FG i liczba butelek: do uzupelnienia."
+    }
+  ],
+  "notatki": {
+    "brzeczka_slodka": "karmel i pieczenie, charakter dekokcyjny",
+    "zapach_fermentacji": "czysty chmiel, wrażenie Mosaica",
+    "koncepcja": "ciasto z owocową nutą, nie jabłecznik, nie za słodkie"
+  },
+  "status": "kondycjonowanie",
+  "objetosci_zmierzone": {
+    "woda_planowana_l": 26,
+    "przed_gotowaniem_l": 21,
+    "do_fermentora_l": 16,
+    "uwaga": "21 l z pamięci, nie z pomiaru",
+    "ubytek_woda_do_preboil_l": 5,
+    "ubytek_preboil_do_fermentora_l": 5,
+    "odparowanie_szac_l": 4,
+    "odparowanie_szac_pct_h": 19
+  },
+  "uwagi_do_danych": [
+    "Godziny w tablicy 'fermentacja' dla warki 94 sa SZACOWANE przez Claude na podstawie kolejnosci wiadomosci, nie podane przez Nowego. Nadaja sie do pokazania kolejnosci odczytow, nie do liczenia tempa chlodzenia w C/h. Od nastepnej warki: godzina przy kazdym odczycie, albo automatyczny timestamp w aplikacji.",
+    "11-12.10: Nowy przeszedl na tryb podtrzymania - 1 maly wklad wymieniany 2x dziennie, temperatura okolo 20 C. 12.10 rano koniec chlodzenia, pokojowa do czasu pseudo cold crashu przed butelkowaniem."
+  ],
+  "schemat_fermentacji": {
+    "ts": "czas odczytu (ISO). Dla warki 94 szacowany, od warki 95 ma byc realny",
+    "temp_c": "temperatura brzeczki, sonda przez przelotke w pokrywie (gorna czesc wsadu)",
+    "chlodzenie": "liczba wkladow w podziale na duze/male i swieze/zuzyte + suma",
+    "zdarzenie": "zadanie_drozdzy | wymiana | dolozenie | wyjecie | brak",
+    "uwaga": "obserwacje jakosciowe: piana, mgla, aromat, obraczka"
+  },
+  "do_zmierzenia_od_95": [
+    "godzina odczytu (automatycznie, nie z pamieci)",
+    "temperatura pomieszczenia przy kazdym odczycie",
+    "glebokosc zanurzenia sondy (gora/srodek wsadu) - inaczej warki nieporownywalne"
+  ],
+  "do_uzupelnienia": [
+    "FG przy butelkowaniu (27.10)",
+    "FG z gestwy (refraktometr + korekta na alkohol)"
+  ],
+  "butelkowanie": {
+    "data": "2026-10-27",
+    "butelek": 31,
+    "pojemnosc_ml": 500,
+    "pojemnosc_zrodlo": "zalozenie na podstawie etykiety 500 ml, do potwierdzenia",
+    "objetosc_l": 15.5,
+    "cukier": "glukoza",
+    "cukier_g": 100,
+    "cukier_g_na_l": 6.45,
+    "nasycenie_vol_szac": 2.3,
+    "nasycenie_uwaga": "Przy 15,5 l i glukozie jednowodnej: okolo 1,5 vol z cukru plus okolo 0,8 vol resztkowego CO2 przy 22 C. Razem okolo 2,3 vol, czyli w normie dla pale ale (2,2-2,6). Brak ryzyka rozerwania butelek.",
+    "fg": "niezmierzone przy butelkowaniu"
+  },
+  "gestwa": {
+    "data_zebrania": "2026-10-27",
+    "sposob": "Zlana z placka po zawirowaniu resztka piwa w fermentorze. Przyklejony osad z samego dna zostawiony.",
+    "objetosc_l_szac": 0.9,
+    "objetosc_zrodlo": "oszacowane ze zdjecia w porownaniu z butelka 500 ml, Nowy mowil o 0,5 l lub wiecej",
+    "przechowywanie": "plastikowy pojemnik, lodowka, wieczko lekko przykrecone",
+    "plukanie": "nie plukana i nie bedzie; pomiar FG mozliwy z klarownego plynu znad osadu",
+    "przeznaczenie": "zadanie do nastepnej warki, planowanej za okolo tydzien"
+  }
+}

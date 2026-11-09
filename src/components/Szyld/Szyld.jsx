@@ -2,10 +2,12 @@ import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Metka } from '../Metka/Metka.jsx';
 import { MenuButton } from './MenuButton.jsx';
+import { JezykButton, JezykSwitch } from './JezykButton.jsx';
 import { Menu } from './Menu.jsx';
 import { useHideOnScroll } from '../../hooks/useHideOnScroll.js';
 import { useGroundUnderMetka } from '../../hooks/useGroundUnderMetka.js';
 import { useTask, useTaskMode } from '../../hooks/useTaskMode.js';
+import { useTeksty } from '../../i18n/teksty.js';
 import styles from './Szyld.module.scss';
 
 const PHONE = '(max-width: 640px)'; // layout.bp-phone
@@ -16,6 +18,8 @@ export function Szyld({ position = 'side', column = 'page', nav = [] }) {
     const { hidden, past } = useHideOnScroll();
     const inverted = useGroundUnderMetka();
     const buttonInverted = useGroundUnderMetka('[data-menu-icon]');
+    const langInverted = useGroundUnderMetka('[data-lang-label]');
+    const t = useTeksty();
     const [menuOpen, setMenuOpen] = useState(false);
     const menuId = useId();
     const buttonRef = useRef(null);
@@ -42,7 +46,7 @@ export function Szyld({ position = 'side', column = 'page', nav = [] }) {
     return (
         <>
             <Metka position={position} column={column} hidden={hidden} docked={past} inverted={inverted} away={away}>
-                <nav className={styles.nav} aria-label="Główna">
+                <nav className={styles.nav} aria-label={t.menu.glowna}>
                     {nav.map(({ label, to, active }) =>
                         to.startsWith('/') ? (
                             <Link key={label} to={to} className={styles.link} aria-current={active ? 'page' : undefined}>
@@ -54,8 +58,11 @@ export function Szyld({ position = 'side', column = 'page', nav = [] }) {
                             </a>
                         )
                     )}
+                    <JezykSwitch className={styles.jezyk} linkClassName={styles.link} />
                 </nav>
             </Metka>
+
+            <JezykButton away={away} inverted={langInverted} />
 
             <div ref={buttonRef}>
                 <MenuButton

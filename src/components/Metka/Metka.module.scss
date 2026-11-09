@@ -43,6 +43,16 @@
     height: var(--szyld);
     background: $contrast;
     color: $contrast-ink;
+    transition:
+        background-color $motion-metka $motion-ease,
+        color $motion-metka $motion-ease;
+
+    // nad pasem contrast odwraca się cała sylwetka, nie sama płyta metki:
+    // czarny szyld na czarnej stopce znika, a metka wisiałaby w powietrzu
+    [data-inverted] & {
+        background: $contrast-ink;
+        color: $contrast;
+    }
 }
 
 // Kolumna treści — od jej krawędzi liczy się odstęp metki.
@@ -82,7 +92,10 @@
     position: absolute;
     top: 0;
     left: var(--margin);
-    transition: transform $motion-metka $motion-ease;
+    transition:
+        transform $motion-metka $motion-ease,
+        background-color $motion-metka $motion-ease,
+        color $motion-metka $motion-ease;
     width: var(--metka-w);
     height: var(--metka-h);
     background: $contrast;
@@ -92,7 +105,7 @@
     justify-content: center;
     padding: 0 var(--luz) var(--luz);
 
-    // nad pasem contrast: jasna płyta, ciemny znak — ta sama reguła co w ciemnym motywie
+    // nad pasem contrast: jasna płyta, ciemny znak, razem z szyldem
     [data-inverted] & {
         background: $contrast-ink;
         color: $contrast;

@@ -1,3 +1,4 @@
+import { useTeksty } from '../../i18n/teksty.js';
 import styles from './MenuButton.module.scss';
 
 // Przycisk menu z geometrii znaku Kwadratu (viewBox 112, ściana = bok ÷ 7 = 16):
@@ -5,6 +6,8 @@ import styles from './MenuButton.module.scss';
 // Otwieranie w dwóch krokach po motion-press: boczne ściany dorastają i powstaje znak
 // (środek znika), potem pierścień zamienia się w X. Zamykanie tą samą drogą wstecz.
 export function MenuButton({ open, away, inverted, controls, onClick }) {
+    const t = useTeksty();
+
     return (
         <button
             type="button"
@@ -14,7 +17,7 @@ export function MenuButton({ open, away, inverted, controls, onClick }) {
             data-inverted={inverted || undefined}
             aria-expanded={open}
             aria-controls={controls}
-            aria-label={open ? 'Zamknij menu' : 'Otwórz menu'}
+            aria-label={open ? t.menu.zamknij : t.menu.otworz}
             onClick={onClick}
         >
             <svg className={styles.icon} data-menu-icon viewBox="0 0 112 112" aria-hidden="true" focusable="false">

@@ -4,6 +4,7 @@
 // accent  — kolor z tej samej rodziny: cień nazwy
 // fabric  — tkanina pod barwnym gruntem (podstrona i kafel): plotno, denim, sztruks, jodelka, plecionka, dzianina
 // intro   — jedno zdanie wprowadzające; description — krótkie akapity
+// en      — { intro, description } po angielsku; brak = strona pokazuje polski opis
 // recipeUrl — adres pełnej receptury w narzędziu; puste = przycisk „Receptura wkrótce”
 // draft   — piwo bez treści, ukryte na liście
 const beersData = [
@@ -22,6 +23,14 @@ const beersData = [
             "Wolnosypane to Ale na polskim chmielu Książęcym i tyle. Lekkie, z delikatną goryczką, bez zbędnych fajerwerków.",
             "Takie do pizzy, dokładnie tak, jak powstało."
         ],
+        en: {
+            intro: "Some beers come from a carefully planned recipe, and others… by accident.",
+            description: [
+                "This one came out of an after-work hangout with Daniel, Dominik and Marcel. We mixed things in the pot, ordered pizza, ate it and got stomach aches. But the beer turned out fine.",
+                "Wolnosypane is an ale on the Polish Książęcy hop, and that is all there is to it. Light, with a gentle bitterness, no unnecessary fireworks.",
+                "A beer for pizza, exactly the way it was made."
+            ]
+        },
         malts: ["Pale Ale", "Cookie", "Pszeniczny"],
         hops: ["Książęcy (PL)"],
         yeast: "CROWN American Ale Yeast",
@@ -96,6 +105,16 @@ const beersData = [
             "Piwo lekkie jak wakacyjne popołudnie, ale niepuste. Grodziskie, które szanuje tradycję, a jednocześnie pokazuje, że można ją opowiedzieć na nowo, z finezją, świeżością i bez przesady.",
             "Idealne na pierwszy łyk… i na kolejny też."
         ],
+        en: {
+            intro: "A light Grodziskie that remembers its roots but refuses to sit in a museum display case.",
+            description: [
+                "It stays crisp, sparkling and ultra light, but served in a modern interpretation.",
+                "The aroma is all about subtlety. A hint of smoke shows up only when the beer is properly cold, and even then as a gentle echo of tradition rather than the main note. It is a deliberate step away from the classic “campfire in a glass” towards a cleaner, more approachable form.",
+                "Talus and Książęcy bring a fresh dimension: a slightly citrusy, green, almost juicy note that plays nicely against the wheat base. The bitterness is clean and polite, and dry hopping pushes the whole thing in a modern direction.",
+                "Light as a summer afternoon, but not empty. A Grodziskie that respects tradition and shows it can be told anew, with finesse, freshness and no exaggeration.",
+                "Perfect for the first sip… and for the next one too."
+            ]
+        },
         malts: [
             "Wheat Malt Pale (Weyermann)",
             "Oak Smoked Wheat Malt (Weyermann)"
@@ -128,6 +147,14 @@ const beersData = [
             "Chmiele Mosaic i Harlequin trafiły dopiero na sam koniec, do hopstandu, więc zamiast goryczki pokazują przede wszystkim cytrusy.",
             "Jak poprzednia Domówka: piwo imprezowe, serialowe, spotkaniowe. Bez uniesień, za to z przyjemnością."
         ],
+        en: {
+            intro: "A simple brown beer to drink without overthinking it.",
+            description: [
+                "Its brown colour and distinct malty aroma come from IREKS Aromatic malt, specially germinated and kilned to give beer colour and maltiness.",
+                "Mosaic and Harlequin went in only at the very end, into the hopstand, so instead of bitterness they mostly bring citrus.",
+                "Just like the previous Domówka: a beer for parties, series and get-togethers. No big emotions, just pleasure."
+            ]
+        },
         malts: ["Pale Ale", "Aromatyczny"],
         hops: ["Mosaic (USA)", "Harlequin (AUS)"],
         yeast: "US-05",

@@ -15,9 +15,37 @@
     @include type(label);
     color: $contrast-ink;
     white-space: nowrap;
+    transition: color $motion-metka $motion-ease;
+
+    // szyld odwrócony nad czarnym pasem: ciemny tekst, aktywna pozycja w ciemnym złocie,
+    // bo jasne złoto na bieli ginie
+    [data-inverted] & {
+        color: $contrast;
+
+        &[aria-current],
+        &[aria-pressed="true"] {
+            color: $brand-strong;
+        }
+    }
 
     // bez szarości: nieaktywne pełną bielą, aktywne złotem (9,4:1 na czerni)
-    &[aria-current] {
+    &[aria-current],
+    &[aria-pressed="true"] {
         color: $brand;
+    }
+}
+
+// Przełącznik języka w szyldzie: dwa kody stylem pozycji nawigacji, oddzielone od niej
+// większym odstępem, żeby nie czytał się jak kolejna strona.
+.jezyk {
+    display: flex;
+    gap: $space-3;
+    margin-left: $space-6;
+
+    button {
+        padding: 0;
+        border: 0;
+        background: none;
+        cursor: pointer;
     }
 }

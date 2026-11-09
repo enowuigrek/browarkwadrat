@@ -1,0 +1,200 @@
+{
+  "nr": 95,
+  "nazwa_robocza": "Harlekin",
+  "nazwa_zrodlo": "propozycja Claude, do zatwierdzenia przez Nowego",
+  "data_warzenia": "2026-11-02",
+  "data_zrodlo": "szacowane",
+  "styl_roboczy": "single hop pale ale / amber, Harlequin",
+  "status": "zaplanowana",
+  "objetosc_l": 19,
+  "objetosc_zrodlo": "wyliczone",
+  "receptura": "harlekin-95-karta",
+  "woda": {
+    "baza": "Carrefour Classic 5 l, ujecie A-5, rozlewnia Hermes Wloszakowice",
+    "baza_zrodlo": "zmierzone przez producenta, potwierdzone dwoma listingami (Saguaro, Amita)",
+    "baza_profil": {
+      "Ca": 94.2,
+      "Mg": 14.6,
+      "Na": 6.9,
+      "HCO3": 238,
+      "SO4": 84.8,
+      "Cl": 20.2,
+      "mineralizacja": 474,
+      "zasadowosc_mg_CaCO3_l": 195
+    },
+    "zacier_l": 13.0,
+    "wyslodziny_l": 15.5,
+    "razem_l": 28.5,
+    "objetosci_zrodlo": "wyliczone z ubytkow warki 94",
+    "wariant_wybrany": null,
+    "wariant_uwaga": "Nowy wybiera w dniu warzenia; A wymaga wody demineralizowanej, ktorej jeszcze nie ma",
+    "warianty": {
+      "A_rozcienczona_50_50": {
+        "sklad": "14,25 l Carrefour + 14,25 l demineralizowana",
+        "zasadowosc_mg_CaCO3_l": 98,
+        "dodatki": {
+          "CaCl2_33pct_ml": 6,
+          "kwas_mlekowy_80_zacier_ml": 2,
+          "kwas_mlekowy_80_wyslodziny_ml": 2
+        },
+        "profil_koncowy": { "Ca": 80, "Mg": 7, "Na": 4, "Cl": 69, "SO4": 42, "HCO3": 119 },
+        "mleczan_w_piwie_mg_l": 200
+      },
+      "B_bez_rozcienczania": {
+        "sklad": "28,5 l Carrefour A-5",
+        "zasadowosc_mg_CaCO3_l": 195,
+        "dodatki": {
+          "CaCl2_33pct_ml": 7,
+          "kwas_mlekowy_80_zacier_ml": 4,
+          "kwas_mlekowy_80_wyslodziny_ml": 3
+        },
+        "profil_koncowy": { "Ca": 128, "Mg": 15, "Na": 7, "Cl": 88, "SO4": 85, "HCO3": 238 },
+        "mleczan_w_piwie_mg_l": 355,
+        "uwaga": "wyslodziny celowo niedokwaszone (3 ml zamiast 4), zeby nie przekroczyc progu mleczanu 400 mg/l; pH wody na wyslodziny ~6,2"
+      }
+    },
+    "dodatki_zrodlo": "wyliczone na 85% zasadowosci, bez mozliwosci pomiaru pH",
+    "ph_zacieru": {
+      "cel": "5,3 do 5,5",
+      "pomiar": "niemozliwy, brak pehametru",
+      "zasada": "lepiej dokwasic za malo niz za duzo; zadnych poprawek w trakcie zacierania"
+    },
+    "kreda": "nie uzyta, zasadowosc wody jest wysoka a zasyp bez slodow palonych"
+  },
+  "zasyp": [
+    { "slod": "IREKS Pale Ale", "kg": 3.0, "ebc": 7, "zrodlo": "karta producenta" },
+    { "slod": "IREKS Slod Aromatyczny", "kg": 0.5, "ebc": 280, "zrodlo": "karta producenta, skorygowane po warce 94" }
+  ],
+  "zasyp_uwaga": "identyczny co do grama z warka 94; Aromatyczny to reszta z tamtego worka",
+  "srutowanie": "w sklepie, tak jak przy 94",
+  "zacieranie": [
+    { "temp_c": 69, "min": 60, "nazwa": "przerwa glowna" },
+    { "temp_c": 77, "min": 5, "nazwa": "mash out" }
+  ],
+  "zacieranie_uwaga": "69 C utrzymane swiadomie, zeby nie mnozyc zmiennych; 67 C odlozone jako dzwignia na warke 96",
+  "gotowanie_min": 60,
+  "chmiel": [
+    {
+      "odmiana": "Harlequin",
+      "g": 20,
+      "g_zrodlo": "wyliczone dla alfy 10%, do korekty po odczytaniu worka",
+      "moment": "gotowanie",
+      "min_do_konca": 20,
+      "ibu_szac": 16
+    },
+    {
+      "odmiana": "Harlequin",
+      "g": 40,
+      "moment": "whirlpool 78-80C",
+      "min": 25,
+      "ibu_szac": 5,
+      "utylizacja_pct": 2.2,
+      "utylizacja_zrodlo": "zweryfikowane na warce 94"
+    },
+    {
+      "odmiana": "Harlequin",
+      "g": 40,
+      "moment": "chmielenie na zimno",
+      "dzien_fermentacji": 5,
+      "dni_kontaktu": 3,
+      "temp_c": "18 do 20"
+    }
+  ],
+  "chmiel_alfa_pct": null,
+  "chmiel_alfa_zrodlo": "do odczytania z worka; przy braku przyjac 10% i oznaczyc jako przyjete",
+  "chmiel_uwaga": "razem 100 g, jeden chmiel; tabela przelicznika gram na alfe jest w karcie",
+  "dodatki": [
+    { "nazwa": "Whirlfloc", "ilosc": "pol tabletki", "min_do_konca": 10 }
+  ],
+  "drozdze": {
+    "szczep": "Fermentis US-05",
+    "forma": "gestwa z warki 94",
+    "gestwa_ml": "100 do 150",
+    "gestwa_zrodlo": "094-szybciejsypane.gestwa, zebrana 2026-10-27, nieprana",
+    "rehydratacja": false,
+    "temp_zadania_c": "19 do 20",
+    "przygotowanie": "wyjac z lodowki 4 h przed zadaniem; FG zmierzyc z klarownego plynu znad placka PRZED jego ruszeniem"
+  },
+  "fermentacja_plan": [
+    { "dzien": 0, "co": "zadanie, wklady zalozone", "temp_cel_c": "19 do 20" },
+    { "dzien": "1 do 4", "co": "wymiana wkladow, odczyty temperatury brzeczki i pomieszczenia", "temp_cel_c": "18 do 19" },
+    { "dzien": 5, "co": "chmiel na zimno 40 g luzem", "temp_cel_c": "18 do 20" },
+    { "dzien": 8, "co": "koniec kontaktu z chmielem, wklady zdjete, dojscie do pokojowej" },
+    { "dzien": "9 do 13", "co": "cold crash" },
+    { "dzien": 14, "co": "rozlew" }
+  ],
+  "wyliczenia": {
+    "og_plato_szac": 11.0,
+    "og_zrodlo": "wyliczone z ekstraktu warki 94 przy wydajnosci 77% i 19 l",
+    "fg_plato_szac": "2,6 do 3,2",
+    "abv_pct_szac": "4,3 do 4,5",
+    "ibu_szac": 21,
+    "ibu_zrodlo": "Tinseth przy alfie 10%, utylizacja whirlpoolu 2,2% z warki 94",
+    "bu_gu": 0.47,
+    "barwa_srm_szac": 14.5,
+    "barwa_ebc_szac": 29,
+    "barwa_zrodlo": "Morey, Aromatyczny 280 EBC"
+  },
+  "objetosci_plan": {
+    "woda_zacierowa_l": 13.0,
+    "woda_wyslodziny_l": 15.5,
+    "woda_razem_l": 28.5,
+    "przed_gotowaniem_cel_l": 23.5,
+    "do_fermentora_cel_l": 19.0,
+    "ubytek_zacierania_zalozony_l_kg": 1.43,
+    "ubytek_gotowania_zalozony_l": 5,
+    "zalozenia_zrodlo": "wyliczone z jednego pomiaru (warka 94), jeszcze nie stale",
+    "punkt_kontrolny": "jesli przed gotowaniem mniej niz 23 l, dolac goracej wody do 23,5",
+    "zapas_awaryjny_l": 2,
+    "strata_na_chmielu_zimnym_szac_l": "0,5 do 0,8"
+  },
+  "objetosci_zmierzone": {
+    "woda_zacierowa_l": null,
+    "woda_wyslodziny_l": null,
+    "przed_gotowaniem_l": null,
+    "po_gotowaniu_l": null,
+    "do_fermentora_l": null
+  },
+  "pomiary": {
+    "og_brix": null,
+    "og_plato": null,
+    "wydajnosc_pct": null,
+    "fg_plato": null,
+    "abv_pct": null,
+    "temp_pomieszczenia_przy_zadaniu_c": null
+  },
+  "fermentacja": [],
+  "rozlew": {
+    "nasycenie_cel_vol": 2.3,
+    "nasycenie_zrodlo": "poziom z warki 94, oceniony jako dobry",
+    "cukier": "glukoza",
+    "cukier_g": null,
+    "uwaga": "dawka liczona w dniu rozlewu z realnej objetosci i temperatury piwa",
+    "kapsle": "absorbujace tlen"
+  },
+  "notatki": {
+    "cel": "slodowy i czysty profil zlamany chmielem; sprawdzic Harlequina w single hopie",
+    "zmiany_wzgledem_94": [
+      "jeden chmiel zamiast dwoch",
+      "dodanie goryczkowe w gotowaniu zamiast samego hopstandu",
+      "chmielenie na zimno 40 g",
+      "Whirlfloc pol tabletki",
+      "gestwa zamiast saszetki",
+      "woda Carrefour A-5 zamiast Primavera plus kranowka",
+      "woda lacznie 28,5 l zamiast 26 l"
+    ],
+    "co_zostaje_identyczne": ["zasyp co do grama", "temperatura zacierania 69 C", "czas gotowania 60 min"]
+  },
+  "do_uzupelnienia": [
+    "alfa Harlequina z worka",
+    "wybrany wariant wody (A albo B)",
+    "FG warki 94 z plynu nad gestwa",
+    "siedem pomiarow z dnia warzenia",
+    "wrazenia z brzeczki slodkiej"
+  ],
+  "uwagi_do_danych": [
+    "To warka ZAPLANOWANA. Wszystkie liczby poza skladem wody i barwami slodow sa wyliczone albo szacowane, nie zmierzone.",
+    "Dawki kwasu sa policzone bez mozliwosci weryfikacji: Nowy nie ma pehametru na te warke.",
+    "Ubytki objetosci pochodza z jednego pomiaru (warka 94) i moga sie nie powtorzyc."
+  ]
+}

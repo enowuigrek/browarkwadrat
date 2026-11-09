@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import { Znak } from '../Znak/Znak.jsx';
 import { Facebook } from '../Ikony/Facebook.jsx';
 import { FACEBOOK_URL } from '../../data/kontakt.js';
+import { useTeksty } from '../../i18n/teksty.js';
 import styles from './Menu.module.scss';
 
 // Nakładka menu na telefonie: pełny ekran w contrast, pierścień w lewym rogu
 // (X w prawym to przycisk menu), pozycje stylem title, na dole Facebook.
 export function Menu({ id, nav, onClose }) {
     const listRef = useRef(null);
+    const t = useTeksty();
 
     useEffect(() => {
         listRef.current?.querySelector('a')?.focus();
@@ -26,7 +28,7 @@ export function Menu({ id, nav, onClose }) {
     }, [onClose]);
 
     return (
-        <div id={id} className={styles.menu} role="dialog" aria-modal="true" aria-label="Menu">
+        <div id={id} className={styles.menu} role="dialog" aria-modal="true" aria-label={t.menu.menu}>
             <div className={styles.bar}>
                 <Znak className={styles.znak} />
             </div>
@@ -53,7 +55,7 @@ export function Menu({ id, nav, onClose }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.facebook}
-                    aria-label="Browar Kwadrat na Facebooku"
+                    aria-label={t.facebook}
                 >
                     <Facebook className={styles.facebookIkona} />
                 </a>

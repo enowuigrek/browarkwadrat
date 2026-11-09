@@ -88,22 +88,24 @@ Stopka jest **oddzielona od góry włosową kreską** (`rule-hair` w `contrast-i
 nią stoi formularz albo pas o narzędziu, też czarne, i bez kreski robi się jedna czarna
 płachta bez końca.
 
-Układ ma trzy piętra i każde odpowiada na inne pytanie:
+Układ ma **dwa piętra o malejącej wadze**. Poprzednia wersja (logo z gołą ikoną Facebooka
+pod spodem, znak Bractwa tej samej wagi po drugiej stronie, osobny kolofon) miała trzy
+punkty skupienia i żadnego porządku: ikona bez podpisu wyglądała jak sierota, a znak
+Bractwa konkurował z naszym logo.
 
-1. **Kto to zrobił.** Po lewej pełne logo w `contrast-ink`, 160 px (140 px na telefonie),
-   a pod nim, wyrównana do jego lewej krawędzi, **ikona Facebooka** 22 px. Facebook siedzi
-   przy logo, bo to jest adres browaru, a nie informacja porządkowa. Przy najechaniu
-   i fokusie zapala się na `#1877f2`.
-2. **Gdzie browar należy.** Po prawej znak Bractwa jako link, 120 px (`logo-partner-min`),
-   wyrównany do góry, żeby oba znaki startowały z jednej linii. Dwie kolumny zostają
-   także na telefonie.
-3. **Drobny druk.** Pod spodem **pozioma kreska** przez szerokość kolumny, a pod nią
-   **wyśrodkowany kolofon**: rok i `lukasznowak.dev`. Styl `small`, pełna biel, bez
-   podkreślenia (podkreślenie dopiero przy `:hover` i `:focus`). Rok z zegara, nie wpisany.
+1. **Marka i kontakt.** Jeden wiersz wyrównany do osi logo: po lewej pełne logo
+   w `contrast-ink`, 160 px (140 px na telefonie), po prawej **Facebook jako podpisany
+   link**, ikona 22 px i słowo „Facebook” stylem `label`, pole dotyku min. 44 px. Przy
+   najechaniu i fokusie zapala się na `#1877f2`. Wiersz zostaje wierszem także na telefonie.
+2. **Przynależność i drobny druk.** Pod włosową kreską przez szerokość kolumny. Po lewej
+   **znak Bractwa z podpisem** „Należę do” (`label`) nad znakiem 120 px (`logo-partner-min`),
+   bo bez słowa nie wiadomo, czy to sponsor, partner, czy przynależność. Po prawej kolofon:
+   rok i `lukasznowak.dev`, styl `small`, podkreślenie dopiero przy `:hover` i `:focus`.
+   Oba elementy stoją na wspólnej dolnej linii. Na telefonie jedno pod drugim, od lewej
+   krawędzi kolumny.
 
-Wyśrodkowanie dotyczy tylko kolofonu i to jest celowe: znaki trzymają boki, a drobny druk
-siada na osi strony i zamyka ją symetrycznie. Nazwy browaru pisanej tekstem nie ma, logo
-niesie ją samo.
+Wszystko trzyma lewą krawędź kolumny albo jej prawą, nic nie siedzi na osi. Nazwy browaru
+pisanej tekstem nie ma, logo niesie ją samo.
 
 ## Barwy piw
 
