@@ -122,11 +122,11 @@ const beersData = [
         color: "#ffffff",
         accent: "#7a4312",
         fabric: "plotno",
-        intro: "Wypłynęliśmy po bursztyn, a dobiliśmy do brązowego brzegu.",
+        intro: "Proste, brązowe piwo do wypicia bez większego zastanawiania się.",
         description: [
-            "Kurs był wytyczony jasno: amerykańskie bursztynowe ale. Ale słód aromatyczny ma swoje prądy i po drodze zniosło nas na ciemniejsze wody. Kapitan uznał, że to nie dryf, tylko odkrycie, i wpisał do dziennika: Brown Ale.",
-            "W ładowni chmiel z dwóch końców oceanu: Mosaic zza Atlantyku i Harlequin prosto z Australii. W kuflu chlebowy, lekko karmelowy słód spotyka owocową bryzę, a goryczka trzyma się nisko, jak mgła nad zatoką.",
-            "Nazwę przejęło po starszej siostrze, bo Domówka to nie styl, tylko okazja. A najlepsze morskie opowieści i tak opowiada się w kuchni, przy stole, przy drugim piwie."
+            "Brązową barwę i wyraźny, słodowy aromat daje mu słód Aromatyczny od IREKS, specjalnie kiełkowany i suszony po to, żeby dodać piwu koloru i słodowości.",
+            "Chmiele Mosaic i Harlequin trafiły dopiero na sam koniec, do hopstandu, więc zamiast goryczki pokazują przede wszystkim cytrusy.",
+            "Jak poprzednia Domówka: piwo imprezowe, serialowe, spotkaniowe. Bez uniesień, za to z przyjemnością."
         ],
         malts: ["Pale Ale", "Aromatyczny"],
         hops: ["Mosaic (USA)", "Harlequin (AUS)"],
