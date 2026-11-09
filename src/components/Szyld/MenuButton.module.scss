@@ -78,25 +78,28 @@ $axis: calc(#{map.get($m, wysokosc)} - #{map.get($m, luz)} - #{$znak} / 2);
     stroke-width: 16;
 }
 
+// Każdy z dwóch kroków trwa pół motion-menu, żeby przejście przez znak było widać.
+$step: calc(#{$motion-menu} / 2);
+
 // Stan zamknięty — opisuje drogę powrotu: X → znak, potem znak → hamburger.
 .cross {
     transform: scale(0);
-    transition: transform $motion-press $motion-ease;
+    transition: transform $step $motion-ease;
 }
 
 .ring {
     transform: scale(1);
-    transition: transform $motion-press $motion-ease;
+    transition: transform $step $motion-ease;
 }
 
 .side {
     transform: scaleY(0);
-    transition: transform $motion-press $motion-ease $motion-press;
+    transition: transform $step $motion-ease $step;
 }
 
 .middle {
     transform: scaleX(1);
-    transition: transform $motion-press $motion-ease $motion-press;
+    transition: transform $step $motion-ease $step;
 }
 
 // Stan otwarty — droga tam: hamburger → znak, potem znak → X.
@@ -113,11 +116,11 @@ $axis: calc(#{map.get($m, wysokosc)} - #{map.get($m, luz)} - #{$znak} / 2);
 
     .ring {
         transform: scale(0);
-        transition-delay: $motion-press;
+        transition-delay: $step;
     }
 
     .cross {
         transform: scale(1);
-        transition-delay: $motion-press;
+        transition-delay: $step;
     }
 }

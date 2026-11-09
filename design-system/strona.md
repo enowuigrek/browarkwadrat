@@ -207,7 +207,14 @@ nie przygaszenie pozostałych. Szarego tekstu na stronie nie ma w ogóle.
 Poniżej `bp-phone` nawigacja chowa się pod przycisk. Nakładka po otwarciu to **pełny
 ekran w `contrast`**, pozycje w `contrast-ink` stylem `title`, jedna pod drugą, przy
 lewym marginesie. U góry nakładki: **pierścień Kwadratu w lewym rogu, X w prawym**,
-czyli znak i wyjście na przeciwnych końcach tej samej listwy. Na dole ikona Facebooka.
+czyli znak i wyjście na przeciwnych końcach tej samej listwy. Na dole skrót stopki: logo
+z ikoną Facebooka w jednym wierszu, pod kreską znak Bractwa z podpisem „Należę do”.
+
+Nakładka **rozwija się z górnej krawędzi** jak przedłużenie szyldu (`clip-path` od góry),
+czasem `motion-menu`, a nie wjeżdża z boku jak szuflada. Kiedy jest w połowie drogi,
+pozycje i dół wchodzą po kolei (przesunięcie o `space-2` w dół i pojawienie się, co 40 ms).
+Zamykanie zwija płachtę z powrotem do góry. Pod `prefers-reduced-motion` wszystko dzieje
+się od razu.
 
 ### Na telefonie nagłówek stoi w miejscu
 
@@ -243,7 +250,9 @@ inaczej czarne kreski znikną na czarnym tle. Pole dotyku minimum 44 × 44 px, s
 
 Przycisk jest zbudowany jak **niedokończony znak Kwadratu**: górna krawędź, dolna
 krawędź i kreska w środku. Boczne krawędzie istnieją, ale mają zerową wysokość.
-Stąd animacja w dwóch krokach, każdy po `motion-press` (90 ms), razem 180 ms:
+Stąd animacja w dwóch krokach, każdy po połowie `motion-menu` (160 ms), razem 320 ms,
+czyli tyle, ile rozwija się nakładka. Wcześniejsze 2 × 90 ms było za szybkie, żeby znak
+w środku dało się w ogóle zauważyć:
 
 1. **Hamburger → znak.** Boki wyrastają do pełnej wysokości, a środkowa kreska kurczy
    się do zera. Zostaje kwadratowy pierścień, dokładnie logo.

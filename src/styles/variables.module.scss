@@ -175,10 +175,12 @@ $wear-mask: linear-gradient(90deg, transparent 34%, #000 90%);
 $motion: (
     motion-press: 90ms,
     motion-metka: 200ms,
+    motion-menu: 320ms,
     motion-ease: cubic-bezier(0.2, 0, 0, 1),
 );
 $motion-press: var(--motion-press);
 $motion-metka: var(--motion-metka);
+$motion-menu: var(--motion-menu);
 $motion-ease: var(--motion-ease);
 
 @mixin phone {

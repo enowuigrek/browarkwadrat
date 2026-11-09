@@ -4,6 +4,12 @@
 
 .menu {
     position: fixed;
+    animation: zjazd $motion-menu $motion-ease both;
+
+    &[data-closing] {
+        animation: wyjazd $motion-menu $motion-ease both;
+    }
+
     inset: 0;
     z-index: 20;
     display: flex;
@@ -46,9 +52,64 @@
     }
 }
 
-.facebook {
+// Nakładka rozwija się z górnej krawędzi jak przedłużenie szyldu (odsłanianie od góry),
+// a nie wjeżdża z boku jak szuflada: szyld jest u góry, więc i ruch zaczyna się u góry.
+@keyframes zjazd {
+    from { clip-path: inset(0 0 100% 0); }
+    to { clip-path: inset(0); }
+}
+
+@keyframes wyjazd {
+    from { clip-path: inset(0); }
+    to { clip-path: inset(0 0 100% 0); }
+}
+
+// Pozycje i dół wchodzą po kolei, kiedy płachta już prawie zjechała.
+@keyframes wejscie {
+    from { opacity: 0; transform: translateY(-#{$space-2}); }
+    to { opacity: 1; transform: none; }
+}
+
+.list li,
+.marks {
+    animation: wejscie $motion-menu $motion-ease both;
+    animation-delay: calc(#{$motion-menu} * 0.5 + var(--i, 0) * 40ms);
+
+    [data-closing] & {
+        animation: none;
+    }
+}
+
+// Dół: marka z Facebookiem w jednym wierszu, pod kreską Bractwo z podpisem.
+.marks {
     margin-top: auto;
-    align-self: flex-start;
+    display: grid;
+    gap: $space-6;
+    padding-top: $space-12;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-4;
+    padding-bottom: $space-6;
+    border-bottom: $rule-hair solid $contrast-ink;
+}
+
+.logo {
+    display: block;
+    width: 140px;
+    aspect-ratio: 3402 / 893;
+    background: $contrast-ink;
+    mask: url('/logo-cale.svg') left center / contain no-repeat;
+}
+
+.facebook {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
     color: $contrast-ink;
 }
 
@@ -56,4 +117,22 @@
     display: block;
     width: 28px;
     height: 28px;
+}
+
+.partner {
+    display: grid;
+    gap: $space-2;
+    justify-items: start;
+}
+
+.partnerLabel {
+    @include type(label);
+}
+
+.bractwo {
+    display: block;
+    width: $logo-partner-min;
+    aspect-ratio: 3471 / 2084;
+    background: $contrast-ink;
+    mask: url('/bractwo-piwne.svg') left center / contain no-repeat;
 }

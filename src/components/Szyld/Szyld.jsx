@@ -21,6 +21,8 @@ export function Szyld({ position = 'side', column = 'page', nav = [] }) {
     const langInverted = useGroundUnderMetka('[data-lang-label]');
     const t = useTeksty();
     const [menuOpen, setMenuOpen] = useState(false);
+    // Nakładka zostaje w drzewie do końca animacji zamykania, potem znika.
+    const [menuMounted, setMenuMounted] = useState(false);
     const menuId = useId();
     const buttonRef = useRef(null);
 
@@ -70,10 +72,21 @@ export function Szyld({ position = 'side', column = 'page', nav = [] }) {
                     away={away && !menuOpen}
                     inverted={buttonInverted}
                     controls={menuId}
-                    onClick={() => setMenuOpen(open => !open)}
+                    onClick={() => {
+                        setMenuMounted(true);
+                        setMenuOpen(open => !open);
+                    }}
                 />
             </div>
-            {menuOpen && <Menu id={menuId} nav={nav} onClose={closeMenu} />}
+            {menuMounted && (
+                <Menu
+                    id={menuId}
+                    nav={nav}
+                    closing={!menuOpen}
+                    onClose={closeMenu}
+                    onClosed={() => setMenuMounted(false)}
+                />
+            )}
         </>
     );
 }
